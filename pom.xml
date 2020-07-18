@@ -1,0 +1,147 @@
+<!-- 
+	Copyright 2019. APJATIGo
+	
+	@author Mary Jane Buenaventura
+	@since 30/04/2019
+ -->
+ 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.base</groupId>
+	<artifactId>base</artifactId>
+	<packaging>pom</packaging>
+	
+	<version>1.0</version>
+	<name>BASE</name>
+	<description>SPRING 4 JAVA 8</description>	
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>			
+		
+		<!-- MAVEN -->
+		<maven.compiler.version>3.2</maven.compiler.version>
+		<maven.war.version>2.5</maven.war.version>
+		<maven.dependency.version>2.9</maven.dependency.version>				
+	</properties>
+	
+	<modules>			
+		<!-- SDK  --> 		
+		<module>base-util</module>	
+		<!--<module>base-fonts</module>-->
+		<module>base-camvi</module>	
+		<module>base-icao</module>	
+		<module>base-idm/idm-sdk</module>
+		<module>base-dm/dm-sdk</module>
+		<module>base-dms/dms-sdk</module>
+		<module>base-not/not-sdk</module>
+		<module>base-wfw/wfw-sdk</module>
+		<module>base-report/report-sdk</module>
+		<module>base-rpt-sdk</module>
+		<module>base-be/be-sdk</module>				
+		<module>base-sgw/sgw-sdk</module>
+	
+		<!--<module>monster-ui</module>-->
+		<module>base-dialect</module>
+		<module>base-webjar</module>
+		
+		<!--SERVICE -->   			
+		<module>base-idm/idm</module>
+		<module>base-dm/dm</module>
+		<module>base-dms/dms</module>
+		<module>base-not/not</module>
+		<module>base-wfw/wfw</module>
+		<module>base-be/be</module>	
+		<module>base-report/report</module>		
+		<module>base-sgw/sgw</module>
+		
+		<module>base-portal</module>			
+	</modules>
+
+	<build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.version}</version>
+                    <configuration>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+	</build>		
+
+	<profiles>
+		<profile>
+			<id>dev-1.8</id>
+			<activation>
+				<jdk>1.8</jdk>
+			</activation>
+			<repositories>
+				<repository>
+					<id>bestinet</id>
+					<name>bestinet Release Repository</name>
+					<url>http://maven.bestinet.com/releases</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>bestinet-snapshot</id>
+					<name>bestinet Snapshot Repository</name>
+					<url>http://maven.bestinet.com/snapshots</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>maven</id>
+					<name>Mirror Repository</name>
+					<url>http://maven.bestinet.com/repository</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>maven</id>
+					<name>Mirror Plugin Repository</name>
+					<url>http://maven.bestinet.com/repository</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+</project>
