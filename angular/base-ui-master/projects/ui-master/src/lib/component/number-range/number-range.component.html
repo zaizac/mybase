@@ -1,0 +1,36 @@
+<div class="form-group" ngbDropdown #myDrop="ngbDropdown" (openChange)="toggled($event)">
+  <input type="text" [formControl]="fcNumber" class="form-control dropdown-toggle" ngbDropdownToggle noKeys
+    data-toggle="dropdown" [ngClass]="{ 'is-invalid': (fcNumber.touched || submitted) && fcNumber.errors }">
+  <span *ngIf="showClear()" class="ng-clear-wrapper" (click)="valueClear()">
+    <span class="ng-clear" aria-hidden="true">×</span>
+  </span>
+  <div *ngIf="(fcNumber.touched || submitted)  && fcNumber.errors" class="invalid-feedback">
+    <div *ngFor="let key of fcNumber.errors | parseError">
+      {{formControlName + '.errors.' + key | simpleError:fcNumber.errors[key]}}
+    </div>
+  </div>
+  <div ngbDropdownMenu class="numrangepicker">
+    <div class="nrp-slider">
+      <ng5-slider [value]="fcNumberFrom.value" (value)="fcNumberFrom.setValue($event)" [highValue]="fcNumberTo.value"
+        (highValue)="fcNumberTo.setValue($event)" [options]="options" (userChange)="onSliderChange($event)">
+      </ng5-slider>
+      <div class="row mt-3">
+        <div class="col-6">
+          <label>From</label>
+          <ui-number [formControl]="fcNumberFrom" class="nrp-slider-from" [min]="min" [max]="max"
+            (change)="valueChangeFrom()"></ui-number>
+        </div>
+        <div class="col-6">
+          <label>To</label>
+          <ui-number [formControl]="fcNumberTo" class="nrp-slider-to" [min]="min" [max]="max"
+            (change)="valueChangeTo()"></ui-number>
+        </div>
+      </div>
+    </div>
+    <div class="nrp-buttons">
+      <ui-button buttonType="secondary-sm" (click)="$event.stopPropagation(); myDrop.close();">Cancel</ui-button>
+      <ui-button buttonType="primary-sm" (click)="valueChange(); myDrop.close();">Apply
+      </ui-button>
+    </div>
+  </div>
+</div>

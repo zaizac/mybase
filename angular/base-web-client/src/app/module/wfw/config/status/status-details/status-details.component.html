@@ -1,0 +1,111 @@
+<ui-card>
+    <ui-title>
+      Worflow Configuration
+      <h6 class="text-muted m-t-0">Status Details</h6>
+    </ui-title>
+    <form [formGroup]="statusForm" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+        <div class="row">
+            <!-- TYPE -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label >Type</label>
+              <ui-text formControlName="type"></ui-text>
+            </div>
+            <!-- LEVEL -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label >Level</label>
+              <ui-text formControlName="level"></ui-text>
+            </div>
+            <!-- <div class="col-sm-12 col-md-6 col-lg-4" *ngIf="!isNew">
+              <label i18n="@@User-UserId">Status ID</label>
+              <ui-text formControlName="statusId"></ui-text>
+            </div> -->
+          </div>
+          <div class="row">
+            <!--STATUSCD -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label class="required" >Status Code</label>
+              <ui-text formControlName="statusCd" formatToUpperCase maxlength="255" label="Type" [reset]="reset" [submitted]="submitted"></ui-text>
+            </div>
+            <!--DESCRIPTION -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label class="required" >Description</label>
+              <ui-text formControlName="statusDesc" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+                [submitted]="submitted"></ui-text>
+            </div>
+            <!-- INITIAL STATE -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label class="required" >Is Initial State</label>
+              <div class="form-group">
+                <ui-radio-group formControlName="initialState" inline='true' (change)="setStatusSequence()">
+                  <ui-radio inline='true' value='1'>YES</ui-radio>
+                  <ui-radio inline='true' value='0'>NO</ui-radio>
+                </ui-radio-group>			
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- NEXT LEVEL -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label>Next Level</label>
+              <ui-select label="Level" [init]="selLevelInit" formControlName="nextLevelId" [reset]="reset"
+              [submitted]="submitted"></ui-select>
+            </div>
+            <!-- NO OF RELEASE -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label >No Of Release</label>
+              <ui-text formControlName="noRelease" label="Type" [reset]="reset"
+              [submitted]="submitted"></ui-text>
+            </div>
+            <!-- DISPLAY -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label class="required" >Is Displayed</label>       
+              <div class="form-group">
+                <ui-radio-group formControlName="display" inline='true'>
+                  <ui-radio inline='true' value='1'>YES</ui-radio>
+                  <ui-radio inline='true' value='0'>NO</ui-radio>
+                </ui-radio-group>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- SEQUENCE -->
+            <div class="col-sm-12 col-md-6 col-lg-4" *ngIf="!isNew">
+              <label class="required" >Status Sequence</label>
+              <ui-text formControlName="statusSequence" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+              [submitted]="submitted"></ui-text>
+            </div>
+            <!-- LEVEL -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <label class="required" >Is Active</label>
+              <div class="form-group">
+                <ui-radio-group formControlName="status" inline='true'>
+                  <ui-radio inline='true' value='1'>YES</ui-radio>
+                  <ui-radio inline='true' value='0'>NO</ui-radio>
+                </ui-radio-group>
+              </div>
+            </div>
+            <!-- LEGEND COLOR -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <label class="required" >Legend Color</label>
+                <input class="form-control" type="color" formControlName="color">
+                <!-- <div class="form-group">
+                  <ui-radio-group formControlName="color" inline='true'>
+                    <ui-radio inline='true' value='#90a4ae'><span style="color:#81939c; font-weight: 700;">Grey</span></ui-radio>
+                    <ui-radio inline='true' value='#ffbc34'><span style="color:#ffbc34; font-weight: 700;">Supernova</span></ui-radio>
+                    <ui-radio inline='true' value='#f62d51'><span style="color:#f62d51; font-weight: 700;">Red</span></ui-radio>
+                    <ui-radio inline='true' value='#009efb'><span style="color: #009efb; font-weight: 700;">Blue</span></ui-radio>
+                  </ui-radio-group>
+                </div>  -->
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                <div class="pull-right">
+                  <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="onCancel()"></ui-button>
+                  <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()"></ui-button>
+                  <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}"></ui-button>
+                </div>
+              </div>
+            </div>
+    </form>
+  </ui-card>

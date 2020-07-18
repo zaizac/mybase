@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+		
+<tiles-definitions>
+
+	
+	<definition name="static_list" extends="base_layout">
+		<put-attribute name="title" value="Static List" type="thymeleaf" />
+		<put-attribute name="content" value="page/common/staticlist-refresh" type="thymeleaf"/>
+	</definition>	
+
+</tiles-definitions>

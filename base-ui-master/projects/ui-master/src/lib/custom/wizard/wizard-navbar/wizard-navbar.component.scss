@@ -1,0 +1,121 @@
+.relative {
+    position: relative;
+}
+
+.step-label {
+    position: relative;
+    top: 1.6rem;
+    width: 110px;
+    left: -2px;
+    text-align: center;
+    z-index: 2;
+    min-height: 5rem;
+}
+.item-box {
+    display: inline-block;
+    top: 0px;
+    padding: 0 7rem 0 7rem;
+}
+.box-content-steps {
+    display: flex;
+}
+.liner { float: left; }
+
+.box-lined {
+    float: left;
+    position: absolute;
+    height: 50px;
+    padding: 0 20px;
+    top: 2.5rem;
+}
+.lined {
+    height: 2px;
+    background: rgba(0,0,0,0.15);
+    width: 100%;
+}
+
+.liner-two {
+    height: 2px;
+    background: #e1d9d9;
+    position: absolute;
+    width: 68%;
+    margin: 0 auto;
+    left: 0;
+    float: left;
+    right: 0;
+    top: 66px;
+    z-index: 1;
+}
+
+.itembox {
+    top: 5px;
+}
+
+.marg-bot {
+    margin-bottom: 1% !important;
+}
+
+.dif-box {
+    display: flex;
+    top: 0px;
+    margin-bottom: 50px;
+}
+
+.vertical-step {
+    width: 100%;
+}
+
+.round-tabs {
+    i {
+        min-width: 1.25rem;
+        min-height: 1.25rem;
+    }
+    left: -0.1rem !important;
+}
+
+.stepper-icon {
+    display: inline-block;
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+}
+
+.not-allowed {
+    cursor: not-allowed;
+}
+
+.box-in-one {
+    top: 1rem;
+    padding: 0 !important;
+    width: 100%;
+}
+.box-in-one:first-child { left: 0; }
+.box-in-one:first-child > li {
+    text-align: left;
+    .box-label {
+        text-align: left;
+        margin: 0 0 0 -22px;
+        padding: 0;
+    }
+    .step-label {
+        text-align: center;
+    }
+}
+.box-in-one:last-child { right: 0; }
+.box-in-one:last-child > li {
+    text-align: right;
+    .box-label {
+        text-align: right;
+        margin: 0 0 0 22px;
+        padding: 0;
+    }
+    .step-label {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1336px) and (min-width: 10px) {
+
+    .wizard-navbar-container {
+        overflow-y: hidden !important; 
+    }
+}

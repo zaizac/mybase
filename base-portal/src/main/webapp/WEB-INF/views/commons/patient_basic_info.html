@@ -1,0 +1,56 @@
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget pull-left" th:text="#{'Patient Information'}" />
+		<h3 th:switch="${patientRst.status}">
+			<span th:case="POS_COVID" class='badge badge-secondary badge-danger pull-right mt-2 mr-3' th:text="${patientRst.medicalStatus?.statusDesc}"></span>
+			<span th:case="NEG_COVID" class='badge badge-secondary badge-info pull-right mt-2 mr-3' th:text="${patientRst.medicalStatus?.statusDesc}"></span>
+			<span th:case="PEND_RESUL" class='badge badge-secondary badge-warning pull-right mt-2 mr-3' th:text="${patientRst.medicalStatus?.statusDesc}"></span>
+			<span th:case="NO_SYMPTOM" class='badge badge-secondary badge-success pull-right mt-2 mr-3' th:text="${patientRst.medicalStatus?.statusDesc}"></span>
+		</h3>
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row form-row">
+			<!--/* Reg No */-->
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.movement.app.id}" /></strong>
+				<label th:text="${patientRst.patientRefNo}" />
+			</div>
+			<!--/* Reg Date */-->
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.patient.test.result.regDate}" /></strong>  
+				<label th:text="${#dates.format(patientRst.createDt, 'dd/MM/yyyy')}"/>
+			</div>
+		</div>
+		<div class="row form-row">
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.patient.test.result.name}" /></strong>
+				<label th:text="${patientRst.firstNm}" />
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.patient.test.result.identtyNo} + ' '" /></strong>
+				<label th:text="${patientRst.nationalId}" />
+				<input type="hidden" th:field="${patientRst.nationalId}" th:id="nationalId"/>
+			</div>
+		</div>
+		<div class="row form-row">
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.patient.test.result.nationlty}" /></strong>
+				 <label th:text="${patientRst.ntnltyCd}"/>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.patient.test.result.gender}" /></strong>
+				<label th:text="${patientRst.gender}"  />
+			</div>
+		</div>
+		<div class="row form-row">
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.patient.test.result.pkd}" /></strong>
+				 <label th:text="${patientRst.clinicDesc}"/>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6" th:if="${patientRst.status == 'POS_COVID'}">
+				<strong><label th:text="#{lbl.cs.id} + ' :'" /></strong>
+				<label th:text="${patientRst.caseId}"/>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>

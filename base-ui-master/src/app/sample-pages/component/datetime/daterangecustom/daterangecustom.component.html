@@ -1,0 +1,24 @@
+<form [formGroup]="date_form">
+  <ui-card>
+    <h2>Custom Date Range</h2>
+    <ui-tab-group>
+      <ui-tab tabTitle="Example">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Select Custom Date Range</label>
+            <ui-daterangecustom formControlName="dob" label='' [submitted]="submitted" required="false"
+              [maxDate]="maxDate" [minDate]="minDate"></ui-daterangecustom>
+          </div>
+          <div class="col-md-6">
+            <label>Selected Value</label><br />
+            <pre ng-non-bindable>{{ date_form.controls.dob.value | json }}</pre>
+          </div>
+        </div>
+      </ui-tab>
+      <ui-tab tabTitle="HTML">
+        <pre ng-non-bindable>&lt;ui-daterangecustom <strong>formControlName="variable_name" format='DD/MM/YYYY'
+                [maxDate]="maxDate" [minDate]="minDate"</strong>&gt;&lt;/ui-daterangecustom&gt;</pre>
+      </ui-tab>
+    </ui-tab-group>
+  </ui-card>
+</form>

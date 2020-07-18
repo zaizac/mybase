@@ -1,0 +1,16 @@
+<div class="custom-control custom-checkbox">
+  <div *ngFor="let item of options">
+    <input  #input
+            type="checkbox" 
+            class="custom-control-input" 
+            [(ngModel)]="item.checked" 
+            [id]="item.id"
+            [required]="required"
+            [disabled]="disabled"
+            [attr.aria-label]="ariaLabel || null"
+            [attr.aria-labelledby]="ariaLabelledby"
+            [attr.aria-checked]="getAriaChecked()"
+            (change)="onChecked()">
+    <label class="custom-control-label" [for]="item.id">{{item.label}}</label>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HEADER_PORTRAIT" pageWidth="595" pageHeight="250" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8d673b1f-30e4-4242-b36f-98cd65f88f05">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="bold_text" hAlign="Center" vAlign="Middle" fontSize="15" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="GENERATED_BY" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["//"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_TITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_SUBTITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_LOGO" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_MY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_GOV" class="java.lang.String"/>
+	<parameter name="APJATI" class="java.lang.String"/>
+	<parameter name="apjatiEmail" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<variable name="TOTAL" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="104">
+			<rectangle>
+				<reportElement x="0" y="2" width="595" height="102" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="c50b8cf1-7312-44ea-b1a1-65f1ff425220"/>
+			</rectangle>
+			<image>
+				<reportElement x="480" y="11" width="100" height="45" uuid="08067089-6098-488c-a197-a61f32fba430"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+$P{RPT_LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="418" y="66" width="74" height="13" uuid="ac61338d-aa71-4fe7-a0c3-4065b31d7cb0"/>
+				<text><![CDATA[Telephone No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="78" width="74" height="13" uuid="b421c5b8-6e36-4120-aa1b-9e44113936f4"/>
+				<text><![CDATA[Official Website]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="66" width="10" height="13" uuid="a006584c-5b05-4ff7-a244-3df387b98232"/>
+				<text><![CDATA[ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="502" y="66" width="78" height="13" uuid="2d010477-0581-4d92-a0a6-2d738a4b0a99"/>
+				<text><![CDATA[(021) 7994001]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="78" width="10" height="13" uuid="b3bfbe47-95c4-4a78-a777-fca910aa7c0c"/>
+				<text><![CDATA[ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="502" y="78" width="78" height="13" uuid="5b49a4a9-5967-4d5c-8a64-a0e0dfb69d88"/>
+				<text><![CDATA[www.apjati.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="11" width="223" height="80" uuid="b4d40a53-cbee-4b6d-b7a3-46cc5f323842"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[JL. WARUNG JATI BAR.
+No.12A, RT.10/RW.2,
+DUREN TIGA, PANCORAN,
+KOTA JAKARTA SELATAN,
+DAERAH KHUSUS IBUKOTA JAKARTA,
+12790, INDONESIA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+</jasperReport>

@@ -1,0 +1,63 @@
+<div id="sectionSearching" class="modal fade" role="dialog" data-backdrop="static">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #226ab3">
+				<h4 class="modal-title" style="color: white">Search Confirmed Cases Contact</h4>
+				<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+			    <bst:alert-info th:text="#{msg.info.minimum.character}" />
+				<bst:widget>
+			        <bst:widget-body>		
+	    				<div class="row form-row">
+	    				<bst:input type="hidden" id="initialLoad" name ="initialLoad" th:value="#{'true'}"/>
+						<div class="col-md-6">
+							<label><th:block th:text="#{lbl.patient.section.identity.no}"/> <th:block th:text="#{lbl.id.no.eg}"/></label>
+				 			<bst:input type="text" id="contactNationalId" name ="contactNationalId" style="text-transform: uppercase;"/>
+				 			<span id="errNationalId" style ="display : none;" class="errors" th:text="#{'Please enter 5 minimum character.'}"/>  
+						</div>
+						<div class="col-md-6">
+							<label><th:block th:text="#{lbl.ptnt.name}"/> <th:block th:text="#{lbl.name.eg}"/></label>
+				 			<bst:input type="text"  id="contactName" name="contactName" style="text-transform: uppercase;"/>
+				 			<span id="errContactNo" style ="display : none;" class="errors" th:text="#{'Please enter 2 minimum character.'}"/>  
+				 			
+						</div>
+						<div class="col-md-6">
+							<label><th:block th:text="#{lbl.cs.id}"/> <th:block th:text="#{lbl.case.id.eg}"/></label>
+				 			<bst:input type="text" id="contactCaseId" name="contactCaseId" style="text-transform: uppercase;"/>
+						</div>
+						</div>
+					</bst:widget-body>
+						<bst:widget-footer>
+							<div class="row form-row">
+								<div class="col-12" >
+									<div class="pull-right">
+								 		<bst:btn id="searchClear" name="reset" th:title="reset" class="m-1" th:text="#{btn.lbl.rfrsh}" type="button" />
+										<bst:btn-primary name="search" id= "searchFilter" title="search" class="m-1" th:text="#{btn.cmn.sea}" type="button" />
+									</div>
+								</div>
+							</div>
+						</bst:widget-footer>
+				</bst:widget> 
+				<bst:widget>
+						<bst:widget-body>
+							<div class="table-responsive">
+							  <table id="tblConfirmContactPatientList" class="table table-hover table-striped">
+								<thead>
+									<tr>
+										<th th:text="#{lbl.app.no}" />
+										<th th:text="#{lbl.patient.section.identity.no}" />
+										<th th:text="#{lbl.ptnt.name}" />
+										<th th:text="#{lbl.cs.id}" />
+										<th th:text="#{lbl.action}" width="5%" />	
+									</tr>
+								</thead>
+							</table>
+							</div>
+						</bst:widget-body>
+				</bst:widget>
+		    </div>
+	   </div>
+    </div>
+</div>

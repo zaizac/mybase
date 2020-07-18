@@ -1,0 +1,71 @@
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.result.bulk.list.dtl}" />
+	</bst:widget-header>
+	<bst:widget-body>
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<strong><label th:text="#{lbl.bulk.ref.no}  + ' : '" /></strong>
+					<label th:text="${bulkFile.bulkRefNo}" />
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<strong><label th:text="#{lbl.status}  + ' : '" /></strong>
+					<label th:text="${bulkFile.status}"/>
+					<input type="hidden" th:field="${bulkFile.bulkFileId}" />
+				</div>
+			</div>
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<strong><label th:text="#{lbl.file.name}  + ' : '" /></strong>  
+					<label th:text="${bulkFile.fileName}" />
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<strong><label th:text="#{lbl.dt.upload}  + ' : '" /></strong>
+					<label th:text="${bulkFile.createDt != null ? #dates.format(bulkFile.createDt, 'dd/MM/yyyy') : ''}"/>
+				</div>
+			</div>
+			
+			<div class="row form-row mt-3">
+				<div class="col-sm-12 col-md-4 col-lg-4 text-center">
+					<div class="card bg-info">
+						<strong class="text-white"><label th:text="#{lbl.tot.rcd}" /></strong>
+						<h1 class="text-white" th:text="${#numbers.formatDecimal(bulkFile?.totalRecord, 0, 'COMMA', 0, 'POINT')}" />
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4 text-center">
+					<div class="card bg-success">
+						<strong class="text-white"><label th:text="#{lbl.tot.rcd.succ}" /></strong>
+						<h1 class="text-white" th:text="${#numbers.formatDecimal(bulkFile?.totalSuccess, 0, 'COMMA', 0, 'POINT')}" />
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4 text-center">
+					<div class="card bg-danger">
+						<strong class="text-white"><label th:text="#{lbl.tot.rcd.fail}" /></strong>
+						<h1 class="text-white" th:text="${#numbers.formatDecimal(bulkFile?.totalFail, 0, 'COMMA', 0, 'POINT')}" />
+					</div>
+				</div>
+			</div>
+
+		<bst:table-light id="tblBulkUpdateListDtl">
+			<thead>
+				<tr>
+					<th th:text="#{lbl.app.no}" />
+					<th><label th:text="#{lbl.result.bulk.id.type}"/></th>
+					<th><label class="required" th:text="#{lbl.result.bulk.id.no}"/></th>
+					<th><label class="required" th:text="#{lbl.result.bulk.pat.name}"/></th>
+					<th th:text="#{lbl.patient.test.result.sampleRcvDate}"/>
+					<th th:text="#{lbl.patient.test.result.sampling}" />
+					<th><label class="required" th:text="#{lbl.patient.test.result.rest}"/></th>
+					<th th:text="#{lbl.result.bulk.request}" />
+					<th th:text="#{lbl.patient.test.result.samplyType}" />
+					<th><label class="required" th:text="#{lbl.result.bulk.dt.lab}"/></th> 
+					<th th:text="#{lbl.patient.test.result.labName}" />
+					<th th:text="#{lbl.patient.test.result.specimen}" />
+					<th th:text="#{lbl.result.bulk.test.type}"/>
+					<th th:text="#{lbl.rmrks}" />
+				</tr>
+			</thead>
+		</bst:table-light>
+	</bst:widget-body>
+	
+</bst:widget>

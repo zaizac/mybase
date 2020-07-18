@@ -1,0 +1,9 @@
+<div class="form-group">
+    <input type="number" [formControl]="fcNumber" class="form-control" (change)="valueChange()" [attr.min]="min"
+        [attr.max]="max" [ngClass]="{ 'is-invalid': (fcNumber.touched || submitted) && fcNumber.errors }" />
+    <div *ngIf="(fcNumber.touched || submitted)  && fcNumber.errors" class="invalid-feedback">
+        <div *ngFor="let key of fcNumber.errors | parseError">
+            {{formControlName + '.errors.' + key | simpleError:fcNumber.errors[key]}}
+        </div>
+    </div>
+</div>

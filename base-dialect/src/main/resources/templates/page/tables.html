@@ -1,0 +1,448 @@
+<!--/* COLOR TABLE */-->
+<bst:widget>		
+	<bst:widget-header>
+		<h4 class="m-b-0 text-white">Default Color Table</h4>
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Light Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-light&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-light>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-light>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Dark Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-dark&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-dark>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-dark>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Primary Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-primary&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-primary>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-primary>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Success Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-success&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-success>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-success>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Info Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-info&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-info>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-info>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Warning Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-warning&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-warning>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-warning>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Danger Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-danger&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-danger>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-danger>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Red Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-red&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-red>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-red>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Purple Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-purple&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-purple>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-purple>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Muted Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-muted&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-muted>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-muted>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+
+<!--/* BORDERED TABLE */-->
+<bst:widget>		
+	<bst:widget-header>
+		<h4 class="m-b-0 text-white">Bordered Color Table</h4>
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Light Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-light&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-light>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-light>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Dark Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-dark&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-dark>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-dark>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Primary Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-primary&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-primary>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-primary>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Success Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-success&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-success>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-success>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Info Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-info&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-info>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-info>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Warning Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-warning&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-warning>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-warning>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Danger Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-danger&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-danger>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-danger>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Red Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-red&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-red>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-red>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Purple Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-purple&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-purple>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-purple>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Muted Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-bd-muted&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-bd-muted>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-bd-muted>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>	
+
+<!--/* FULL COLOR TABLE */-->
+<bst:widget>		
+	<bst:widget-header>
+		<h4 class="m-b-0 text-white">Bordered Color Table</h4>
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Light Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-light&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-light>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-light>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Dark Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-dark&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-dark>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-dark>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-header>
+						<bst:card-title th:text="#{'Primary Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-primary&gt;'}"></code> tag.
+						</bst:card-subtitle>
+					</bst:card-header>
+					<bst:card-body>
+						<bst:table-full-primary>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-primary>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Success Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-success&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-success>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-success>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Info Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-info&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-info>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-info>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Warning Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-warning&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-warning>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-warning>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Danger Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-danger&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-danger>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-danger>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Red Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-red&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-red>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-red>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Purple Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-purple&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-purple>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-purple>						
+					</bst:card-body>
+				</bst:card>
+			</div>
+			<div class="col-lg-6">
+				<bst:card>
+					<bst:card-body>
+						<bst:card-title th:text="#{'Muted Bordered Table'}" />
+						<bst:card-subtitle>
+							Use <code th:text="#{'&lt;bst:table-full-muted&gt;'}"></code> tag.
+						</bst:card-subtitle>
+						<bst:table-full-muted>
+							<th:block th:replace="templates/fragments/sample-fragments :: sample-table-data" />
+						</bst:table-full-muted>				
+					</bst:card-body>
+				</bst:card>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>					

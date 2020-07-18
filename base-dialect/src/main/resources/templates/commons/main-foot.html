@@ -1,0 +1,174 @@
+<div class="overlay-message" id="overlay_message" th:hidden="true" th:with="systemType=#{system.type}">
+     <div class="overlay_text">
+        <img alt="" 
+        	th:src="${@webHelper.baseUrl()}+@{'/webjars/base-webjar/images/' + ${#strings.toLowerCase(systemType)} + '/loading.gif'}" 
+        	th:attr="onerror='this.src=\'' + ${@webHelper.baseUrl()}+@{/images/loading.gif} + '\';'" />
+    </div>
+</div>
+
+<th:block th:with="baseUrl=${@webHelper.baseUrl()}">
+<!--/* BEGIN CORE JS FRAMEWORK */-->
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/jquery/jquery.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/popper.js/umd/popper.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/bootstrap/js/bootstrap.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/bootbox/bootbox.js'}" ></script>
+<!--/* END CORE JS FRAMEWORK */-->
+
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/lightbox2/src/js/lightbox.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/monster-ui/scripts/jquery.intl-tel/js/intlTelInput.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/select2/js/select2.min.js'}"></script>
+
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/monster-ui/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/bootstrap-daterangepicker/moment.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/bootstrap-daterangepicker/js/daterangepicker.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/bootstrap-timepicker/js/bootstrap-timepicker.min.js'}" ></script>
+
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/front.js'}" ></script>
+ 
+<!--/* File Upload */-->
+<!-- Image cropper JavaScript -->
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/monster-ui/plugins/cropper/cropper.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/jquery.lazy-master/jquery.lazy.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/jquery.lazy-master/jquery.lazy.plugins.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/bootstrap-fileupload/bootstrap-fileupload.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/pdfobject/pdfobject.min.js'}" />
+
+<!--/* DataTables */-->
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/datatables/js/jquery.dataTables.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/fnStandingRedraw.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/fnSetFilteringEnterPress.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/dataTables.buttons.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/buttons.flash.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/jszip.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/pdfmake.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/vfs_fonts.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/buttons.html5.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/buttons.print.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/fnSetExcelFormat.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/buttons.colVis.min.js'}"></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/datatables-plugins/api/datatable-core-plugin.js'}"></script>
+
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/external.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/external-captcha.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/external-otp.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/external-session.js'}" ></script>
+
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/monster-ui/plugins/sticky-kit-master/dist/sticky-kit.min.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/monster-ui/plugins/toast-master/js/jquery.toast.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/monster-ui/plugins/Chart.js.v2.9.3/Chart.js'}" ></script>
+
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{${@themeHelper.baseScript('/js/', 'jquery.slimscroll.js')}}" id="jsSlimscroll" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{${@themeHelper.baseScript('/js/', 'waves.js')}}" id="jsWaves" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{${@themeHelper.baseScript('/js/', 'sidebarmenu.js')}}" id="jsSidebar" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{${@themeHelper.baseScript('/js/', 'custom.min.js')}}" id="jsCustom" ></script>
+
+<script th:inline="javascript" type="text/javascript">
+   	var contextPath = /*[[${#httpServletRequest.getContextPath()}]]*/ '/';
+
+   	var switcher = {
+		existStyle:  /*[[${@staticData.idmConfig('PORTAL_THEME')}]]*/ 'blue',
+		existLayout: /*[[${@staticData.idmConfig('PORTAL_LAYOUT')}]]*/'main',
+		existSidemode: /*[[${@staticData.idmConfig('PORTAL_SIDE_MODE')}]]*/ 'light',
+   	};
+   	
+   	var prop = {
+   				selOptDef: '<option value="">'+ /*[[#{lbl.cmn.sel.pls}]]*/ 'select' +'</option>',
+   				errNoRecFnd: /*[[#{msg.err.rec.no.fnd}]]*/ 'msg.err.rec.no.fnd',
+   				confAsg: /*[[#{msg.conf.wrkr.asg}]]*/ 'msg.conf.wrkr.asg',
+  				confActSlip: /*[[#{msg.inf.acct.deact}]]*/ 'msg.inf.acct.deact',
+  				confRejWrkr: /*[[#{msg.inf.rej.wrkr}]]*/ 'msg.inf.rej.wrkr',
+  				confUsrDeac: /*[[#{msg.inf.usr.deact}]]*/ 'msg.inf.usr.deact',
+  				confRefresh: /*[[#{msg.conf.rfrsh}]]*/ 'msg.conf.rfrsh',
+  				confEmail: /*[[#{msg.inf.snd.mail}]]*/ 'msg.inf.snd.mail',
+  				confRstPword: /*[[#{msg.inf.conf.rst.pword}]]*/ 'msg.inf.conf.rst.pword',
+  				succActSlip: /*[[#{msg.suc.acct.deact}]]*/ 'msg.suc.acct.deact',
+  				succRejWrkr: /*[[#{msg.suc.rej.wrkr}]]*/ 'msg.suc.rej.wrkr',
+  				succVerOTP: /*[[#{msg.suc.ver.otp}]]*/ 'msg.suc.ver.otp',
+  				succEmail: /*[[#{msg.suc.snd.mail}]]*/ 'msg.suc.snd.mail',
+  				errActSlip: /*[[#{msg.err.acct.deact}]]*/ 'msg.err.acct.deact',
+  				errRejWrkr: /*[[#{msg.err.rej.wrkr}]]*/ 'msg.err.rej.wrkr',
+  				errEmail: /*[[#{msg.err.snd.mail}]]*/ 'msg.err.snd.mail',
+  				errEmailReq: /*[[#{msg.err.applcnt.eml}]]*/ 'msg.err.applcnt.eml',
+  				errEmailFmt: /*[[#{msg.err.fmt.email}]]*/ 'msg.err.fmt.email',
+  				lblMC: /*[[#{lbl.mc}]]*/ 'lbl.mc',
+  				lblRaId: /*[[#{lbl.id.agnt}]]*/ 'lbl.id.agnt',
+  				lblMcId: /*[[#{lbl.mc.id}]]*/ 'lbl.mc.id',
+  				lblRegFrm: /*[[#{lbl.wrkr.reg.frm}]]*/ 'lbl.wrkr.reg.frm',
+  				lblAsgSlip: /*[[#{lbl.wrkr.asg.slp}]]*/ 'lbl.wrkr.asg.slp',
+  				invDay: /*[[#{msg.err.inv.day}]]*/ 'msg.err.inv.day',
+  				invMonth: /*[[#{msg.err.inv.mon}]]*/ 'msg.err.inv.mon',
+  				invYear: /*[[#{msg.err.inv.yr}]]*/ 'msg.err.inv.yr',
+  				invFmtDt: /*[[#{msg.err.inv.dt}]]*/ 'msg.err.inv.dt',
+  				invEmpDt: /*[[#{msg.err.empty.dt}]]*/ 'msg.err.empty.dt',
+  				btnYes: /*[[#{btn.lbl.yes}]]*/ 'btn.lbl.yes',
+  				btnNo: /*[[#{btn.lbl.no}]]*/ 'btn.lbl.no',
+  				btnContinue: /*[[#{btn.cmn.con}]]*/ 'btn.cmn.con',
+  				btnLogout: /*[[#{btn.logout}]]*/ 'btn.logout',
+  				sessionTitle: /*[[#{lbl.ttl.sess.inv}]]*/ 'lbl.ttl.sess.inv',
+  				sessionContent: /*[[#{msg.err.sess.inv}]]*/ 'msg.err.sess.inv',
+  				otpTitle: /*[[#{lbl.otp.title}]]*/ 'lbl.otp.title',
+  				otpSendTo: /*[[#{lbl.otp.send.to}]]*/ 'lbl.otp.send.to',
+				otpExpInfo: /*[[#{lbl.otp.expiry}]]*/ 'lbl.otp.expiry',  				 
+  				otpTacGen: /*[[#{lbl.otp.req.tac}]]*/ 'lbl.otp.req.tac',
+  				otpTacVld: /*[[#{lbl.otp.vld.tac}]]*/ 'lbl.otp.vld.tac',
+  				otpErrGen: /*[[#{lbl.otp.snd.to}]]*/ 'lbl.otp.snd.to',
+  				dtbShowingPage : /*[[#{lbl.dtb.sho.pge}]]*/ 'lbl.dtb.sho.pge',
+  				dtbOf : /*[[#{lbl.dtb.of}]]*/ 'lbl.dtb.of',
+  				dtbDisplay : /*[[#{lbl.dtb.display}]]*/ 'lbl.dtb.display',
+  				dtbRecord : /*[[#{lbl.dtb.record}]]*/ 'lbl.dtb.record',
+  				dtbNoRcAv : /*[[#{lbl.no.rcrds}]]*/ 'lbl.no.rcrds',
+  				dtbNext : /*[[#{btn.cmn.nxt}]]*/ 'btn.cmn.nxt',
+  				dtbPrevious : /*[[#{btn.cmn.pre}]]*/ 'btn.cmn.pre',
+  				dtbEmptyTable : /*[[#{lbl.dtb.empty.table}]]*/ 'lbl.dtb.empty.table',
+  				errDocSize: /*[[#{msg.err.proc.doc.size}]]*/ 'msg.err.proc.doc.size',
+  				errCaptchaReq: /*[[#{msg.err.applcnt.captcha}]]*/ 'msg.err.applcnt.captcha',
+  				errDimension:/*[[#{msg.err.proc.doc.dimension}]]*/ 'msg.err.proc.doc.dimension',
+  				confModal : /*[[#{lbl.conf.modal}]]*/ 'lbl.conf.modal'
+  			};
+   	
+    jQuery(document).ready(function() {
+    	$('[data-toggle="popover"]').popover();
+		var msg = /*[[${mainMessage}]]*/ '';
+    	var initScrpt = /*[[${initScript}]]*/ '';
+    	if(msg != null) {
+        	 setTimeout(function(){
+                 $('#message_modal').modal('show');
+             }, 50);
+    	}
+		setTimeout(function(){
+	    	if(initScrpt == 'rptDialog') {
+	    		$('#popup_modal').modal('show');
+	    	} else if(initScrpt == 'molPayResp') {
+	    		var molPayMsg = [[$molPayMsg]]
+	    		paymentResults(molPayMsg);
+	    	}
+        }, 50);
+		
+		if(/*[[${#authorization.expression('isAuthenticated()')}]]*/ null) {
+			loadSession(/*[[${#httpSession.maxInactiveInterval}]]*/ null);
+		}
+	
+    });
+    
+    $("#downloadForm").click(function(e) {
+    	if(e.currentTarget) {
+			localStorage.currentTargetHref = e.currentTarget.href;
+    	}
+	});
+    
+</script>
+<!--/* END CORE TEMPLATE JS */-->
+
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/external-switcher.js'}" ></script>
+<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/webjars/base-webjar/scripts/default.js'}" ></script>
+
+<!--/* INLINE SCRIPT PER PAGE */-->
+<th:block th:if="${portalScript != null}">
+	<th:block th:include="${'page/others/script/'+portalScript}" />
+</th:block>
+
+<!--/* PAGE SPECIFIC JS FILE */-->
+<th:block th:if="${portalScriptJs != null}">
+	<script src="#" type="application/javascript" th:src="${baseUrl}+@{'/scripts/'+${portalScriptJs}+'.js?dev='+${_csrf.token}}" ></script>
+</th:block>
+</th:block>

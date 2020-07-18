@@ -1,0 +1,54 @@
+<bst:widget>
+	<bst:widget-body>		
+	
+	    <div class="row form-row">
+			<div class="col-md-6">
+				<label th:classappend="${isEnableCenter} ? required" th:text="#{lbl.patient.section.center}" />
+			    <bst:select th:field="*{center}" th:disabled="${isView || !isEnableCenter}">
+			    	<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="center : ${centerList}" th:value="${center.branchId}" th:text="${center.branchName}" />
+				</bst:select>
+				<bst:error th:if="${#fields.hasErrors('center')}" th:errors="*{center}" />
+			</div> 
+			<div class="col-md-6" th:if="${patientFormDto.status == 'POS_COVID'}">
+				<label th:text="#{lbl.case.id}" />
+                <bst:input th:field="*{caseId}" style="text-transform: uppercase;"  maxlength="255" th:readonly="true" />
+	        </div>
+		</div>
+		
+		<div class="row form-row">
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.patient.section_header.date}" />
+				<bst:input-date id="dateReportingPckr" th:field="*{dateReporting}"  th:readonly="true" th:disabled="${isView}"/>		
+				<bst:error th:if="${#fields.hasErrors('dateReporting')}" th:errors="*{dateReporting}" />
+			</div>
+			
+			<div class="col-md-6">
+			<label class="required" th:text="#{lbl.patient.section_header.contry}" />
+			    <bst:select th:field="*{reportingCountry}" th:disabled="${isView}">
+					<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+				</bst:select>
+				<bst:error th:if="${#fields.hasErrors('reportingCountry')}" th:errors="*{reportingCountry}" />           
+	        </div>
+		</div>	
+	    <div class="row form-row">   
+	    	<div class="col-12">
+		        <label class="required" th:text="#{lbl.patient.section_header.reason.test}" />
+				<bst:radio-group class="row">
+					<span class="col-lg-4 col-md-4" style="display:inline-table;" th:each="reason : ${@staticData.findByMetadataType('CATEGORY')}" >
+	                    <bst:radio th:field="*{reasontestConvid}" th:value="${reason.mtdtCd}" th:text="${reason.mtdtDesc}" th:disabled="${isView}"/>
+	                    <th:block th:utext="#{'tooltip.test.why.'+ ${#strings.toLowerCase(reason?.mtdtCd)}}" />
+	               </span>     
+                </bst:radio-group>
+				<bst:error th:if="${#fields.hasErrors('reasontestConvid')}" th:errors="*{reasontestConvid}" />
+			</div>
+	    </div>
+	    <div class="row form-row">   
+			<div class="col-12">
+				<label th:text="#{lbl.patient.section_header.reason.remarks}" />
+                <bst:input th:field="*{reasontestRemark}" style="text-transform: uppercase;"  maxlength="255" th:disabled="${isView}" />
+                <bst:error th:if="${#fields.hasErrors('reasontestRemark')}" th:errors="*{reasontestRemark}" />
+	        </div>
+	   </div>     
+	</bst:widget-body>
+</bst:widget>

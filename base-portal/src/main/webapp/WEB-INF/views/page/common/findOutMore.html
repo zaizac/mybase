@@ -1,0 +1,48 @@
+<div id="popupTtl" />
+<style>
+div.ex3 {
+	width: 100%;
+	height: 510px;
+	overflow: auto;
+}
+</style>
+
+<bst:widget>
+	<bst:widget-body>
+		<div class="ex3">
+			<p align="center">
+				<b><h4>Why dvm.com is Job Seeker CHOICE</h4></b>
+			</p>
+
+			<p><img align="left" src="images/thumbs_up.png" width="30px" height="30px" /> A guarantee and trusted portal as medium between interested Job Seeker and potential Employer</p>
+
+			<p><img align="left" src="images/thumbs_up.png" width="30px" height="30px" /> No fees and even hidden fees to be charge to Job Seeker in our trustee dvm.com</p>
+
+			<p><img align="left" src="images/thumbs_up.png" width="30px" height="30px" /> No payment or fees to unrecognized Middle Man OR Sub Agent OR Main Agent</p>
+
+			<p><img align="left" src="images/thumbs_up.png" width="30px" height="30px" /> All fees to be bare by Employer such Medical fees, VISA including Air Flight ticket from origin to destination country</p>
+
+			<p align="center"><img align="left" src="images/police-black.png" width="50px" height="60px" />
+				<b><h4> Let us know by lodge a complaint in dvm.com if there unrecognized 3rd parties
+						asking for money</h4></b>
+			</p>
+			<p><br/></p>
+			<p><br/></p>
+			<p>
+			<div class="register-link text-center">
+				<bst:btn-primary type="button"
+					th:onclick="'javascript:redirectURL(\'' + '/login' + '\');'"
+					th:value="#{'Login to dvm.com'}"
+					class="btn btn-tertiary btn-common m-1"
+					th:text="#{'Login to dvm.com'}" />
+				<bst:btn-secondary type="button"
+					th:onclick="'javascript:redirectURL(\'' + '/jobSeekerSignUp' +'\');'"
+					th:value="#{'Sign up for FREE Now'}"
+					class="btn btn-tertiary btn-common m-1"
+					th:text="#{'Sign up for FREE Now'}" />
+			</div>
+			</p>
+
+		</div>
+	</bst:widget-body>
+</bst:widget>

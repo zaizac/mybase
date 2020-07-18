@@ -1,0 +1,34 @@
+<div class="form-group" ngbDropdown>
+  <div class="input-group">
+    <div class="input-group-prepend" ngbDropdownToggle>
+      <span class="input-group-text">
+        <i class="fa fa-calendar pl-1" aria-hidden="true"></i>
+      </span>
+    </div>
+    <ui-text [formControl]="customdate" [reset]="reset" placeholder="DD/MM/YYYY" ngbDropdownToggle></ui-text>
+  </div>
+
+  <div class=" row container">
+    <div #myDropdown ngbDropdownMenu>
+      <div class="row col-sm-12 col-md-12 dropdown">
+        <div>
+          <button class="dropdown-item" (click)="todayDate()">Today</button>
+          <button class="dropdown-item" (click)="yesterdayDate()">Yesterday</button>
+          <button class="dropdown-item" (click)="last7Dates()">Last 7 Days</button>
+          <button class="dropdown-item" (click)="last30Dates()">Last 30 Days</button>
+          <button class="dropdown-item" (click)="thisMonthDates()">This Month</button>
+          <button class="dropdown-item" (click)="lastMonthDates()">Last Month</button>
+          <button class="dropdown-item" (click)="showCal()">Custom Range</button>
+        </div>
+        <div [hidden]="isShow" class="col">
+          <bs-daterangepicker-inline [bsConfig]="bsConfig"></bs-daterangepicker-inline>
+          <div [hidden]="isShow" class="row pull-right dropdown-btn">
+            <div class="dropdown-view">{{dateFrom}} - {{dateTo}}</div>
+            <ui-button buttonType="secondary-rd-blk" text="Cancel" (click)="onClear()"></ui-button>
+            <ui-button buttonType="warning-rd-blk" text="Apply" (click)="applyValue(myDropdown)"></ui-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

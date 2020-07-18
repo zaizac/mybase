@@ -1,0 +1,75 @@
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.srch.crtr}" />
+	</bst:widget-header>
+	<bst:widget-body>
+ 		<div class="row form-row">
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.bulk.ref.no}" />
+			  <bst:input id="bulkRefNo" name="bulkRefNo" data-constraints="@Required" style="text-transform: uppercase;"/>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  	<label th:text="#{lbl.dt.upload}" />
+			  	<bst:input-date-range id="createDtRange" name="createDtRange" 
+					data-start-id="createDtFrom"
+					data-start-name="createDtFrom"
+					data-start-attr="th:field='*{createDtFrom}'"
+					data-end-id="createDtTo"
+					data-end-name="createDtTo"
+					data-th-attr="data-end-value=${#dates.format(#dates.createNow(),'dd/MM/YYYY')},
+						data-start-value=${#dates.format(#dates.createNow(),'dd/MM/YYYY')}"
+					data-end-attr="th:field='*{createDtTo}'"
+				/>
+			 </div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.status}" />
+			  <bst:select id="status" data-minimum-results-for-search="Infinity">
+					<option th:text="#{lbl.all}" value="" />
+					<option th:each="status : ${@staticData.statusList('BULK_LAB_RESULT')}" th:value="${status.statusCd}" th:text="${status.statusDesc}"/>
+				</bst:select>
+			</div>
+		</div>
+	</bst:widget-body>
+	<bst:widget-footer>
+		<div class="row">
+			<div class="col-12" >
+				<div class="pull-right">
+			 		<bst:btn id="searchClear" name="reset" th:title="reset" class="m-1" th:text="#{btn.lbl.rfrsh}" />
+					<bst:btn-primary id="searchFilter" name="search" title="search" class="m-1" th:text="#{btn.cmn.sea}" />
+				</div>
+			</div>
+		</div>
+	</bst:widget-footer>
+</bst:widget>
+
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.result.bulk.list}" />
+	</bst:widget-header>
+	<bst:widget-body>
+			<div class="row form-row">
+			<div class="col-12" >
+				<div class="pull-right">
+					<th:block >
+						<bst:btn-primary th:onclick="|window.location.href='@{#{'/labResult'}}'|" th:text="#{'Bulk Update'}" />
+					</th:block> 
+	   			</div>
+			</div>
+		</div>
+		<bst:table-light id="tblBulkUpdateList">
+			<thead>
+				<tr>
+					<th th:text="#{lbl.app.no}" width="5%" />
+					<th th:text="#{lbl.bulk.ref.no}" width="10%" />
+					<th th:text="#{lbl.file.name}" width="15%" />
+					<th th:text="#{lbl.dt.upload}" width="10%"/>
+					<th th:text="#{lbl.tot.rcd}" width="10%" />
+<!-- 					<th th:text="#{lbl.tot.succ}" width="10%" />
+					<th th:text="#{lbl.tot.fail}" width="10%" /> -->
+					<th th:text="#{lbl.status}" width="10%" />
+					<th th:text="#{lbl.action}" width="3%" />
+				</tr>
+			</thead>
+		</bst:table-light>
+	</bst:widget-body>
+</bst:widget>

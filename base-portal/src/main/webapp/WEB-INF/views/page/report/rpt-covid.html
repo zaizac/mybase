@@ -1,0 +1,38 @@
+<style>
+.pdfobject-container { height: 30rem; border: 1rem solid rgba(0,0,0,.1); }
+</style>
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.srch.crtr}" />
+	</bst:widget-header>
+	<bst:widget-body>
+ 		<div class="row form-row">
+			<div class="col-6">
+			  <label th:text="#{lbl.report.head}" />
+			  <bst:select id="rptId" data-minimum-results-for-search="Infinity"  onChange="onChangeRptName('rptId');">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+<!-- 					<option th:text="#{CONFIRMED CASES BY STATE}" value="CCBS" />
+ -->				<option th:text="#{CONFIRMED CASES ANALYSIS}" value="CCA" />
+ 					<option th:text="#{TOTAL REGISTER BY CENTER}" value="TRBC" />
+					<option th:text="#{COVID-19 CASES BY STATE}" value="C19CBS" />
+					<option th:text="#{TOTAL REGISTERED USER BY DAY}" value="TRUBD" />
+					
+					
+				</bst:select>
+			</div>
+		</div>
+		<br/>
+	</bst:widget-body>
+	<bst:widget-footer>
+		<div class="row">
+			<div class="col-12" >
+				<div class="pull-right">
+			 		<bst:btn id="searchClear" name="reset" th:onclick="|window.location.href='@{#{'/report/rptCovid'}}'|" 
+			 		th:title="reset" class="m-1" th:text="#{btn.lbl.rfrsh}" />
+					<bst:btn-primary type="button" title="Print" class="m-1" th:text="#{lbl.cmn.view.print}" id="printBtnCovidId"
+					th:onclick="'javascript:documentReport(\'report/rptCovid/print/ConfirmedCasesAnalysis.pdf\',\'Report\');'"/>
+				</div>
+			</div>
+		</div>
+	</bst:widget-footer>
+</bst:widget>

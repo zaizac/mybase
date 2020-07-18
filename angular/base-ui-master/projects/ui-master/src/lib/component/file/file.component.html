@@ -1,0 +1,131 @@
+<div [ngClass]="init.fileClass">
+  <!-- TYPE : THUMBNAIL -->
+  <div *ngIf="init.type == 'thumbnail'">
+    <div class="thumbnail">
+      <img
+        class="img-thumbnail"
+        [src]="imgPrevSrc"
+        alt=""
+        (click)="preview()"
+        (error)="setDefaultImg()"
+        [ngStyle]="{
+          width: init.width,
+          height: init.height,
+          'border-radius': init.radius
+        }"
+      />
+    </div>
+    <div *ngIf="!init.viewOnly">
+      <ui-button buttonType="secondary" [text]="fuLabel" (click)="file.click()"></ui-button>
+      <ui-button *ngIf="hasImg" buttonType="secondary" text="Remove" (click)="removeImage()"></ui-button>
+      <div>
+        <input
+          #file
+          [formControl]="fcFile"
+          type="file"
+          style="display: none;"
+          accept="image/*"
+          (change)="onFileChange($event)"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- TYPE : FILE -->
+  <div *ngIf="init.type == 'file'">
+    <div class="fileinput input-group">
+      <div class="fileupload-container">
+        <div class="fileupload-value-container">
+          <div [ngClass]="init.inputClass" class="fileupload-span-container">
+            <span *ngIf="!imgPrevSrcList.length && !init.viewOnly" class="fileupload-placeholder">
+              - Please Upload any file -</span
+            >
+            <div *ngIf="imgPrevSrcList.length" [ngClass]="!init.viewOnly ? 'fu-container' : ''">
+              <div
+                *ngFor="let fl of imgPrevSrcList; let idx = index"
+                [ngClass]="!init.viewOnly ? 'fu-content' : ''"
+                [ngStyle]="!init.viewOnly && !fl.isReady ? { width: '100%' } : null"
+              >
+                <span *ngIf="!init.viewOnly && !fl.isReady">
+                  file is uploading...
+                </span>
+                <span *ngIf="init.viewOnly || fl.isReady">
+                  <i class="fa fa-file mr-1mr fileupload-exists" aria-hidden="true"></i>
+                  <span (click)="preview(fl.name)">{{ fl.name }}</span>
+                  <a class="close ml-1" (click)="removeImage(fl.name, idx)" *ngIf="!init.viewOnly">&times;</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-group-append" *ngIf="!init.viewOnly">
+          <span class="upload-arrow-wrapper" (click)="file.click()" [class.upload-disabled]="!canUpload"><i class="fa fa-upload"></i></span>
+          <div>
+            <input
+              #file
+              [formControl]="fcFile"
+              type="file"
+              style="display: none;"
+              [accept]="refDoc?.type"
+              (change)="onFileChange($event)"
+              [attr.multiple]="multiple ? multiple : null"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- TYPE : BUTTON FILE -->
+  <div *ngIf="init.type == 'btnfile'">
+    <div class="fileinput input-group flex-col">
+      <div class="input-group-append" *ngIf="!init.viewOnly">
+        <ui-button buttonType="secondary" [text]="'Select File'" (click)="file.click()" [disabled]="!canUpload"></ui-button>
+        <div>
+          <input
+            #file
+            [formControl]="fcFile"
+            type="file"
+            style="display: none;"
+            [accept]="refDoc?.type"
+            (change)="onFileChange($event)"
+            [attr.multiple]="multiple ? multiple : null"
+          />
+        </div>
+      </div>
+      <div *ngIf="imgPrevSrcList.length">
+        <div *ngFor="let fl of imgPrevSrcList; let idx = index">
+          <span *ngIf="!init.viewOnly && !fl.isReady">
+            file is uploading...
+          </span>
+          <span *ngIf="init.viewOnly || fl.isReady">
+            <i class="fa fa-file mr-1mr fileupload-exists" aria-hidden="true"></i>
+            <span (click)="preview(fl.name)">{{ fl.name }}</span>
+            <a class="close ml-1" (click)="removeImage(fl.name, idx)" *ngIf="!init.viewOnly">&times;</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ADD ERROR DISPLAY HERE -->
+  <div *ngIf="(fcFile.dirty || submitted) && fcFile.getError('invalidFile')" class="errors left">
+    {{ errorMessage }}
+  </div>
+</div>
+
+<!-- MODAL VIEW -->
+<ng-template #modalContent let-modal>
+  <ui-modal [title]="'Title'" [modal]="modal">
+    <object
+      style="width: 200px; height: 490px;"
+      [type]="refDoc?.type"
+      [data]="imgPrevSrc | safeImageFile"
+    >
+      <iframe
+        width="100%"
+        height="500px"
+        *ngIf="!init.isImg"
+        [src]="imgPrevSrc | safeImageFile"
+      ></iframe>
+      <img class="modal-img" *ngIf="init.isImg" [src]="imgPrevSrc | safeImageFile" alt="" />
+    </object>
+  </ui-modal>
+</ng-template>

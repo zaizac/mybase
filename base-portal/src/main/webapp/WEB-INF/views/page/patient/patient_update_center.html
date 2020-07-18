@@ -1,0 +1,39 @@
+<th:block>
+<bst:form th:action="@{#{url.patient.main.submt}}" th:object="${patientRst}" th:method="POST" autocomplete="off" > 
+    <th:block th:include="commons/patient_basic_info" />
+	<bst:widget>
+	<bst:widget-header>
+            <h4 class="font-widget" th:text="#{'Transfer Details'}" />
+        </bst:widget-header>
+		<bst:widget-body>
+		<div class="row form-row">
+			<div class="col-6">
+				<label th:text="#{'Current Center'}" />
+                <bst:input th:value="${patientRst.clinicDesc}" style="text-transform: uppercase;"  maxlength="255" th:readonly="true" />
+	        </div>
+	        <div class="col-md-6">
+				<label class="required" th:text="#{'Select New Center'}" />
+			    <bst:select th:field="*{clinicId}">
+			    	<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="center : ${centerNameList}" th:value="${center.branchId}" th:text="${center.branchName}" />
+				</bst:select>
+				<bst:error th:if="${#fields.hasErrors('clinicId')}" th:errors="*{clinicId}" />
+			</div>
+		</div>
+		</bst:widget-body>
+		<bst:widget-footer>
+			<div class="row form-row">
+				<div class="col-12" >
+					<div class="pull-right">						
+						<bst:btn type="button" name="cancel" th:onclick="|window.location.href='@{#{url.patient.main.submt}}'|" th:text="#{btn.cmn.can}" />
+						<bst:btn-primary type="submit" name="update" th:text="#{btn.cmn.upd}"/>
+						<input type="hidden" th:field="${patientRst.patientRefNo}"/>
+						<input type="hidden" th:field="${patientRst.patientId}"/>
+						<input type="hidden" th:field="${patientRst.ntnltyCd}"/>
+					</div>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+</bst:form>
+</th:block>

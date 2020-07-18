@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+    	<property name="LOGS_HOME" value="${sys:catalina.home}/logs/baseboot/" />
+    	<property name="LOGS_DATE_FORMAT" value="yyyy-MM-dd HH:mm:ss.SSS" />
+        <Property name="LOGS_PATTERN">
+        	[ %d{yyyy-MM-dd HH:mm:ss.SSS} %-5p] IDM - ${hostName} |%X{TraceId}|> %c{1}.%M:%L - %m%n%ex
+        </Property>
+    </Properties>
+    <Appenders>
+    	<!-- Console Appender -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOGS_PATTERN}"/>
+        </Console>
+		<!-- Rolling File Appender -->
+	    <RollingFile name="FileAppender" fileName="${LOGS_HOME}/baseboot-idm.log" 
+	             filePattern="${LOGS_HOME}/baseboot-idm.%d{yyyy-MM-dd}-%i.log">
+		   	<PatternLayout pattern="${LOGS_PATTERN}"/>
+		    <Policies>
+		        <SizeBasedTriggeringPolicy size="10MB" />
+		    </Policies>
+		    <DefaultRolloverStrategy max="10"/>
+		</RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.baseboot" level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="FileAppender" />
+        </Logger>
+
+		<Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="FileAppender" />
+        </Logger>
+        
+        <Logger name="org.springframework.security" level="debug" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="FileAppender" />
+        </Logger>
+        
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="FileAppender" />
+        </Root>
+    </Loggers>
+</Configuration>

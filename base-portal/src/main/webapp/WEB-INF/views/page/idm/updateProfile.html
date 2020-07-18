@@ -1,0 +1,76 @@
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="#{lbl.usr.prof.upd }" />
+	</bst:widget-header>
+
+	<bst:form th:action="@{/updateProfile}" th:object="${updateProfileForm}"
+		th:method="POST" autocomplete="off" enctype="multipart/form-data">
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-sm-12 col-md-12">
+					<div class="row form-row">
+						<!--/* Fullname */-->
+						<div class="col-md-6">
+							<label class="required" th:text="#{lbl.cmn.full.name}" />
+							<bst:input data-constraints="@Required" th:field="*{fullName}"
+								style="text-transform: uppercase;" maxlength="255" />
+							<bst:error th:if="${#fields.hasErrors('fullName')}"
+								th:errors="*{fullName}" />
+						</div>
+
+						<div class="col-md-6">
+							<label class="required" th:text="#{lbl.eml}" />
+							<bst:input data-constraints="@Email @Required"
+								th:field="*{email}" maxlength="100" th:readonly="${isView}" />
+							<bst:error th:if="${#fields.hasErrors('email')}"
+								th:errors="*{email}" />
+						</div>
+
+						<div class="col-md-6">
+							<label class="required" th:text="#{lbl.ntnlty}" />
+							<bst:select th:field="*{nationality}"
+								th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+								<option th:label="#{lbl.cmn.sel.pls}" value="" />
+								<option th:each="nationalityList : ${@staticData.nationalityList()}"
+									th:value="${nationalityList.ntnltyCode}" th:text="${nationalityList.ntnltyDescEn}"
+									th:disabled="${isDisable}" />
+							</bst:select>
+							<label class="errors" th:if="${#fields.hasErrors('nationality')}"
+								th:errors="*{nationality}" />
+						</div>
+
+						<div class="col-md-6">
+							<label class="required" th:text="#{lbl.gndr}" />
+							<bst:radio-group>
+								<bst:radio th:field="*{gender}" th:value="M" th:text="#{lbl.ml}"
+									th:disabled="${isView}" />
+								<bst:radio th:field="*{gender}" th:value="F"
+									th:text="#{lbl.fml}" th:disabled="${isView}" />
+							</bst:radio-group>
+							<bst:error th:if="${#fields.hasErrors('gender')}"
+								th:errors="*{gender}" />
+						</div>
+						
+						 <div class="col-md-6">
+							<label class="required" th:text="#{lbl.js.contact.no}" />
+							<bst:input data-constraints="@Required" th:field="*{contactNo}"
+								style="text-transform: uppercase;" maxlength="255"
+								th:readonly="${isView}" />
+							<bst:error th:if="${#fields.hasErrors('contactNo')}"
+								th:errors="*{contactNo}" />
+						</div>
+
+					</div>
+							
+				</div>
+			</div>
+		</bst:widget-body>
+		<bst:widget-footer>
+		    <div class="row">
+				<div class="col-12 text-right">
+		       		<bst:btn-primary type="submit" th:text="#{btn.cmn.sub}" />
+		       	</div>
+		    </div>
+		</bst:widget-footer>
+	</bst:form>
+</bst:widget>

@@ -1,0 +1,97 @@
+/* 
+  Localizable.strings
+  MyCare
+
+  Created by Cookie on 4/17/20.
+  Copyright © Mohd Nasir Selamat. All rights reserved.
+*/
+
+"languageType" = "Nepali";
+"map" = "नक्शा";
+"welcome" = "स्वागतम्";
+"foodType" = "खाद्य प्रकार";
+"phoneNo" = "तिम्रो फोन नम्बर";
+"retypePhoneNo" = "तपाईको फोन नम्बर पुन: टाइप गर्नुहोस्";
+"mobilePassport" = "मोबाइल नम्बर / पासपोर्ट नम्बर";
+"fullname" = "पुरा नाम";
+"mobileNo" = "मोबाइल नम्बर";
+"retypeMobileNo" = "मोबाइल नम्बर पुन: टाइप गर्नुहोस्";
+"gender" = "लि .्ग";
+"mealType" = "खाना प्रकार";
+"dob" = "जन्म मिति";
+"companyName" = "कम्पनी नाम";
+"postalCode" = "हुलाकी कोड";
+"district" = "जिल्ला";
+"town" = "शहर";
+"state" = "राज्य";
+"contactNo" = "सम्पर्क गर्न नम्बर";
+"companyContactNo" = "कम्पनी फोन नम्बर";
+"companyAddress" = "कम्पनीको ठेगाना";
+"passportNo" = "राहदानी नम्बर";
+"address" = "ठेगाना";
+"empInfo" = "रोजगारदाता जानकारी";
+"viewProfile" = "प्रोफाइल अवलोकन गर्नुहोस्";
+"notRegisterYet" = "अझै दर्ता गरिएको छैन?";
+"signUpNow" = "अब दर्ता गर्नुहोस्";
+"declarationText_BH" = " म यहाँ घोषणा गर्दछु कि माथि प्रस्तुत जानकारी सही छ, मेरो ज्ञान र विश्वासको उत्तममा पूर्ण र सही छ। म बुझ्छु कि मेरो जानकारी कुनै पनि चरणमा गलत वा गलत फेला परेमा म मलेसिया सरकारले लगाएको कानुनी कारबाहीको लागि उत्तरदायी हुनेछु।";
+"declarationText_PAGOH" = "I hereby declare, confirm and undertake that the information furnished above is true, complete, accurate and correct. I understand, agree and accept that in the event the information provided is found to be false, incorrect or misleading in any manner at any time, I shall be subject to and liable to legal action imposed or taken by the Government of Malaysia.";
+"chooseLanguage" = "तपाइँको मनपर्ने भाषा छान्नुहोस्";
+"selectMealType" = "भोजन प्रकार चयन गर्नुहोस्";
+"login" = "लग - इन";
+"next" = "अर्को";
+"updateProfile" = "प्रोफाइल अपडेट गर्नुहोस्";
+"update" = "अद्यावधिक गर्नुहोस्";
+"finish" = "समाप्त";
+"foodReceived" = "खाना प्राप्त";
+"received" = "प्राप्त भयो";
+"workerPhotoTitle" = "कार्यकर्ताको फोटो";
+"uploadPhotoIdentifyPurpose" = "व्यक्ति तपाईंलाई चिन्नको लागि फोटो अपलोड गर्नुहोस्।";
+"language" = "भाषा";
+"logout" = "बाहिर निस्कनु";
+"technicalIssues" = "ERROR .. टेक्निकल सर्भरले एक समस्याको सामना गर्‍यो। कृपया पछि पुन: प्रयास गर्नुहोस्";
+"mre" = "खाना खानको लागि तयार छ";
+"rawFood" = "कच्चा खाना किराना";
+"veggie" = "शाकाहारी";
+"nonVeggie" = "मांसाहारी";
+"male" = "नर";
+"female" = "महिला";
+"sureWant2Logout" = "के तपाइँ लगआउट गर्न निश्चित हुनुहुन्छ?";
+"enterFullname" = "पूरा नाम प्रविष्ट गर्नुहोस्";
+"enterPassportNo" = " कृपया राहदानी नम्बर प्रविष्ट गर्नुहोस्";
+"enterMobileNo" = "कृपया मोबाइल नम्बर प्रविष्ट गर्नुहोस्";
+"reenterMobileNo" = "कृपया मोबाइल नम्बर पुन: प्रविष्ट गर्नुहोस्";
+"notSameReenterMobileNo" = "मोबाइल नम्बर एक छैन। कृपया मोबाइल नम्बर पुन: प्रविष्ट गर्नुहोस्।";
+"selectOption" = "कृपया एक विकल्प चयन गर्नुहोस्";
+"camera" = "क्यामेरा";
+"gallery" = "ग्यालरी";
+"enterCompanyName" = "कृपया कम्पनीको नाम प्रविष्ट गर्नुहोस्";
+"successSubmitRegister" = "सफलतापूर्वक दर्ता सबमिट गर्नुहोस्।";
+"enterAddress" = "कृपया ठेगाना प्रविष्ट गर्नुहोस्";
+"enterPostcode" = "कृपया पोष्टकोड प्रविष्ट गर्नुहोस्";
+"enterTown" = "कृपया सहरको नाम प्रविष्ट गर्नुहोस्";
+"enterDistrict" = "जिल्लाको नाम प्रविष्ट गर्नुहोस्";
+"enterState" = "कृपया राज्यको नाम प्रविष्ट गर्नुहोस्";
+"enterPhoneNo" = "कृपया फोन नम्बर प्रविष्ट गर्नुहोस्";
+"retypePassportNo" = "पासपोर्ट नम्बर पुन: टाइप गर्नुहोस्";
+"profileInfo" = " प्रोफाइल जानकारी";
+"cancel" = "रद्द गर्नुहोस्";
+"notSamePassport" = "राहदानी नम्बर एकै छैन। कृपया पासपोर्ट नम्बर पुन: प्रविष्ट गर्नुहोस्।";
+"enterCompanyAddress" = "कृपया कम्पनीको ठेगाना प्रविष्ट गर्नुहोस्";
+"enterCompanyContactNumber" = "कृपया कम्पनीको फोन नम्बर प्रविष्ट गर्नुहोस्";
+"enterPassportNumber" = " कृपया पासपोर्ट नम्बर पुन: प्रविष्ट गर्नुहोस्";
+"registerStatus" = "दर्ता स्थिति";
+"approved" = "स्वीकृत";
+"pendingApproval" = "अनुमोदन पेन्डि।";
+"reject" = "अस्वीकृत";
+"sponsorInfoForm" = "प्रायोजक सूचना फारम";
+"createSponsorInfo" = "प्रायोजक जानकारी सिर्जना गर्नुहोस्";
+"orgaType" = "संगठनको प्रकार";
+"foodSponsorArea" = "खाद्य प्रायोजन क्षेत्रहरू";
+"sponsorName" = "प्रायोजक नाम";
+"sponsorId" = "प्रायोजक आईडी";
+"sponsorList" = "प्रायोजक सूची";
+"sponsorInfo" = "प्रायोजक जानकारी";
+"sponsor" = "प्रायोजक";
+"verifySponsor" = " प्रायोजक प्रमाणित गर्नुहोस्";
+"foreignWorkerList" = "विदेश वर्कर सूची";
+"verifyFW" = "विदेशी कामदार प्रमाणित गर्नुहोस्";

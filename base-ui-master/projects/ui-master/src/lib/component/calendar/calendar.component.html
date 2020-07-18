@@ -1,0 +1,275 @@
+<div class="card">
+  <div class="card-body">
+    <ng-template #eventContent let-close="close">
+      <!-- <ui-modal [title]="'Edit'" [modal]="modal">
+              <p>This is a test</p>
+            </ui-modal> -->
+      <div class="modal-header">
+        <h5 class="modal-title">{{ modalData?.action === 'Edited' ? eventConfig.editEventTitle : eventConfig.addEventTitle }}</h5>
+        <button type="button" class="close" (click)="close()"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="eventDetailForm" (ngSubmit)="onSubmit()" autocomplete="off">
+          <div class="row">
+            <div class="col-md-3">Title</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-8"><input type="text" class="form-control" formControlName="title" /></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Event Date</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-8">
+              <ui-datetime-range *ngIf="eventConfig?.dateType == 'range'"
+                formControlName="eventDate"
+                label=""
+                [submitted]="submitted"
+                required="false"
+                format="DD/MM/YYYY h:mm"
+                [showMeridian]="true"
+                [showSeconds]="false"
+                [minDate]="eventConfig.minDate"
+                [maxDate]="eventConfig.maxDate"
+              ></ui-datetime-range>              
+              <ui-date *ngIf="eventConfig?.dateType == 'date'"
+                type="datepicker"
+                formControlName="eventDate"
+                [submitted]="submitted"                
+                format="DD/MM/YYYY"
+                [minDate]="eventConfig.minDate"
+                [maxDate]="eventConfig.maxDate">
+              </ui-date>
+            </div>
+          </div>
+          <div class="row" *ngIf="eventConfig.enableAllDay">
+            <div class="col-md-3">All Day Event</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-8">
+              <ui-checkbox formControlName="allDay" [value]="evDetailFormCtrl.allDay ? true : false"></ui-checkbox>
+            </div>
+          </div>
+          <div class="row" *ngIf="eventConfig.enableDraggable">
+            <div class="col-md-3">Is Event draggable</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-8">
+              <ui-checkbox
+                formControlName="draggable"
+                [value]="evDetailFormCtrl.draggable ? true : false"
+              ></ui-checkbox>
+            </div>
+          </div>
+          <div class="row" *ngIf="eventConfig.enableSizable" formGroupName="resizable">
+            <div class="col-md-3">Is Event resizable</div>
+            <div class="col-md-1">:</div>
+            <div class="col-md-4">
+              <ui-checkbox
+                formControlName="beforeStart"
+                [value]="evDetailFormCtrl.resizable.value.beforeStart ? true : false"
+                >Before Start Date</ui-checkbox
+              >
+            </div>
+            <div class="col-md-4">
+              <ui-checkbox formControlName="afterEnd" [value]="evDetailFormCtrl.resizable.value.afterEnd ? true : false"
+                >After End Date</ui-checkbox
+              >
+            </div>
+          </div>
+          <!-- Search Buttons -->
+          <div class="row mb-2">
+            <div class="col-12">
+              <div class="pull-right">
+                <ui-button buttonType="danger" text="Cancel" (click)="close()"></ui-button>
+                <ui-button
+                  [buttonType]="modalData?.action === 'Edited' ? 'warning' : 'primary'"
+                  [icon]="modalData?.action === 'Edited' ? 'fa fa-pencil' : 'fa fa-plus-circle'"
+                  type="submit"
+                  [text]="modalData?.action === 'Edited' ? 'Edit' : 'Add'"
+                >
+                </ui-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="btn-group">
+          <a href="#" *ngIf="checkPrevDisable" class="btn btn-info disabled"> 
+            Previous
+          </a>
+          <div
+            *ngIf="view !== 'year' && !checkPrevDisable"
+            class="btn btn-info"
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="activeDayIsOpen = false"
+          >Previous</div>          
+          <div class="btn btn-info" *ngIf="view === 'year' && !checkPrevDisable" 
+            (click)="subYear(); activeDayIsOpen = false"
+          >Previous</div>
+          <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">Today</div>
+          <a href="#" *ngIf="checkNextDisable" class="btn btn-info not-allowed disabled"> 
+            Next
+          </a>
+          <div
+            *ngIf="view !== 'year' && !checkNextDisable"
+            class="btn btn-info"
+            mwlCalendarNextView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="activeDayIsOpen = false"
+          >
+            Next
+          </div>
+          <div class="btn btn-info" *ngIf="view === 'year' && !checkNextDisable" (click)="addYear(); activeDayIsOpen = false">
+            Next
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <h3 *ngIf="view !== 'year'">{{ viewDate | calendarDate: view + 'ViewTitle':'en' }}</h3>
+        <h3 *ngIf="view === 'year'">{{ viewDate.getFullYear() }}</h3>
+      </div>
+      <div class="col-md-2 text-right">
+        <div class="btn-group">
+          <ui-button
+            icon="fa fa-plus-circle"
+            text="Add Event"
+            buttonType="primary"
+            (click)="addCalEvent($event)"
+          ></ui-button>
+        </div>
+      </div>
+      <div class="col-md-3 text-right">
+        <div class="btn-group">
+          <ui-button
+            [ngStyle]="{ 'margin-right': 0 }"
+            buttonType="primary"
+            (click)="view = 'year'"
+            [class.active]="view === 'year'"
+            >Year</ui-button
+          >
+          <ui-button
+            [ngStyle]="{ 'margin-right': 0 }"
+            buttonType="info"
+            (click)="view = 'month'"
+            [class.active]="view === 'month'"
+            >Month</ui-button
+          >
+          <ui-button
+            [ngStyle]="{ 'margin-right': 0 }"
+            buttonType="success"
+            (click)="view = 'week'"
+            [class.active]="view === 'week'"
+            >Week</ui-button
+          >
+          <ui-button
+            [ngStyle]="{ 'margin-right': 0 }"
+            buttonType="warning"
+            (click)="view = 'day'"
+            [class.active]="view === 'day'"
+            >Day</ui-button
+          >
+        </div>
+      </div>
+    </div>
+    <br />
+    <div [ngSwitch]="view">
+      <ui-calendar-year-view
+        *ngSwitchCase="'year'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (monthClicked)="monthClicked($event.month)"
+        [activeMonthIsOpen]="activeDayIsOpen"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+        [yearTemplate]="customYearTemplate"
+      ></ui-calendar-year-view>
+      <mwl-calendar-month-view
+        *ngSwitchCase="'month'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        [activeDayIsOpen]="activeDayIsOpen"
+        (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+        [cellTemplate]="customCellTemplate ? customCellTemplate : defaultCustomCellTemplate"
+        [eventTitleTemplate]="customOpenDayTemplate ? customOpenDayTemplate : defaultOpenDayTemplate"
+      >
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view
+        *ngSwitchCase="'week'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+      >
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view
+        *ngSwitchCase="'day'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+      >
+      </mwl-calendar-day-view>
+    </div>
+  </div>
+</div>
+<ng-template
+  #defaultCustomCellTemplate
+  let-day="day"
+  let-openDay="openDay"
+  let-locale="locale"
+  let-tooltipPlacement="tooltipPlacement"
+  let-highlightDay="highlightDay"
+  let-unhighlightDay="unhighlightDay"
+  let-eventClicked="eventClicked"
+  let-tooltipTemplate="tooltipTemplate"
+  let-tooltipAppendToBody="tooltipAppendToBody"
+>
+<div (dblclick)="canHaveAction(day.date) ? dblClkEvent($event, day.date) : null">
+  <div class="cal-cell-top" 
+  >
+    <div>
+      <span *ngIf="day.badgeTotal > 0" class="cal-day-badge">{{ day.badgeTotal }}</span>
+      <span class="cal-day-add" *ngIf="canHaveAction(day.date)" (click)="addCalEvent($event, day.date)"
+        ><i class="fa fa-plus-circle"></i
+      ></span>
+      <span class="cal-day-number">{{ day.date | calendarDate: 'monthViewDayNumber':locale }}</span>
+    </div>
+  </div>
+  <div class="cal-events" *ngIf="day.events.length > 0">
+    <div
+      class="cal-event"
+      *ngFor="let event of day.events"
+      [style.backgroundColor]="event.color?.primary"
+      [ngClass]="event?.cssClass"
+      (mouseenter)="highlightDay.emit({ event: event })"
+      (mouseleave)="unhighlightDay.emit({ event: event })"
+      [mwlCalendarTooltip]="event.title | calendarEventTitle: 'monthTooltip':event"
+      [tooltipPlacement]="tooltipPlacement"
+      [tooltipEvent]="event"
+      [tooltipTemplate]="tooltipTemplate"
+      [tooltipAppendToBody]="tooltipAppendToBody"
+      mwlDraggable
+      [class.cal-draggable]="event.draggable"
+      dragActiveClass="cal-drag-active"
+      [dropData]="{ event: event, draggedFrom: day }"
+      [dragAxis]="{ x: event.draggable, y: event.draggable }"
+      (mwlClick)="eventClicked.emit({ event: event })"
+    ></div>
+  </div>
+</div>
+</ng-template>
+<ng-template
+  #defaultOpenDayTemplate
+  let-event="event"
+>
+  <span class="open-day-custom-title">{{event | openDayEvent}}</span>
+</ng-template>

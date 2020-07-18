@@ -1,0 +1,41 @@
+<bst:form th:action="@{#{url.patient.main.submt}}" th:object="${patientRst}" th:method="POST" autocomplete="off" > 
+    <th:block th:include="commons/patient_basic_info" />
+	<bst:widget>
+	<bst:widget-header>
+            <h4 class="font-widget" th:text="#{'Update Patient Information'}" />
+        </bst:widget-header>
+		<bst:widget-body>
+		<div class="row form-row">
+			<!--/* Id Type */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{'ID Type'}" />
+				<bst:radio-group>
+					<bst:radio  th:field="*{idType}" th:each="meta : ${@staticData.findByMetadataType('ID_TYPE')}" th:value="${meta.mtdtCd}" th:text="${meta.mtdtDesc}"  />
+				</bst:radio-group>
+			</div>
+			<div class="col-md-6" id="myKad"  style ="display : none">
+				<label class="required"  th:text="#{lbl.patient.section.identity.no}" />
+			 	<bst:input class="limit-number" type="text" data-constraints="@Required" th:field="*{nationalMyKad}" maxlength="12" />
+			 	<bst:error th:if="${#fields.hasErrors('nationalMyKad')}" th:errors="*{nationalMyKad}" />
+			</div>
+			<div class="col-md-6" id="othersId"  style ="display : none">
+				<label class="required" th:text="#{lbl.patient.section.identity.no}" />
+			 	<bst:input data-constraints="@Required" th:field="*{othNationalId}" style="text-transform: uppercase;" maxlength="20" onkeypress="restrictSpace()"/>
+			 	<bst:error th:if="${#fields.hasErrors('othNationalId')}" th:errors="*{othNationalId}" />
+			</div>
+		</div>
+		</bst:widget-body>
+		<bst:widget-footer>
+			<div class="row form-row">
+				<div class="col-12" >
+					<div class="pull-right">						
+						<bst:btn type="button" name="cancel" th:onclick="|window.location.href='@{#{url.patient.main.submt}}'|" th:text="#{btn.cmn.can}" />
+						<bst:btn-primary type="submit" name="update" th:text="#{btn.cmn.upd}"/>
+						<input type="hidden" th:field="${patientRst.patientRefNo}"/>
+						<input type="hidden" th:field="${patientRst.patientId}"/>
+					</div>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+</bst:form>

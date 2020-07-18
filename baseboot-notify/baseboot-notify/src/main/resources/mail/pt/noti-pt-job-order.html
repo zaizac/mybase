@@ -1,0 +1,73 @@
+<p style="font-family:Verdana,Arial,sans-serif;font-size:12px;">Dear <b><th:block th:text="${ptName}" /></b>,<br/></p>
+<p style="text-align:justify;font-family:Verdana,Arial,sans-serif;font-size:12px;">This is an auto generated mail to notify you that Job Order has been created under your application, by <b><th:block th:text="${agency}" /></b>,details of Job Order information as following below:</p>
+<div>
+<table style="font-family:Verdana,Arial,sans-serif;font-size:12px;">
+<tbody>
+	<tr>
+		<th style="text-align:left">Job Order No.</th>
+		<td>:</td>
+		<td th:text="${jobOrderNo}"/>
+	</tr>
+	<tr>
+		<th style="text-align:left">job Order Date</th>
+		<td>:</td>
+		<td th:text="${jobOrderDt}"/>
+	</tr>
+	<tr>
+		<th style="text-align:left">KBRI Approved Date</th>
+		<td>:</td>
+		<td th:text="${kbriApprvDt}"/>
+	</tr>
+	<tr>
+		<th style="text-align:left">Agency</th>
+		<td>:</td>
+		<td th:text="${agency}"/>
+	</tr>
+</tbody>
+</table>
+<br>
+<th:block th:if="${registrationLst != null and #lists.size(registrationLst) != 0}">
+   <table width="100%" class="breakdown" border="1px solid black" style="font-family:Verdana,Arial,sans-serif;font-size:12px;border-collapse: collapse;">
+      <thead>
+         <tr bgcolor="#DCDCDC">
+			<th align="center"><b>Name</b></th>
+            <th align="center"><b>Passport No.</b></th>
+             <th align="center"><b>Age</b></th>
+			<th align="center"><b>Gender</b></th>
+			<th align="center"><b>Nationality</b></th>
+			<th align="center"><b>Date of Birth</b></th>
+			<th align="center"><b>Job Scope</b></th>
+			<th align="center"><b>Destination Country </b></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr th:each="register : ${registrationLst}">
+            <td align="center">
+               <th:block th:text="${register?.workerName}"/>
+            </td>
+            <td align="center">
+               <th:block th:text="${register?.passportNo}"/>
+            </td>
+            <td align="center">
+               <th:block th:text="${register?.age}"/>
+            </td>
+            <td align="center">
+               <th:block th:text="${register?.gender}"/>
+            </td>
+            <td align="center">
+               <th:block th:text="${register?.country}"/>
+            </td>
+            <td align="center">
+               <th:block th:text="${register?.dob}"/>
+            </td>
+            <td align="center">
+               <th:block th:text="${register?.blkName}"/>
+            </td>
+            <td align="center">
+               <th:block th:text="${register?.destinationCountry}"/>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</th:block>
+</div>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicNotificationCell" rowHeight="138" id="KGk-i7-Jjw" customClass="BasicNotificationCell" customModule="PagohCare" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2l-uG-Rkp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pagoh Alert" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJs-cH-UUl">
+                                <rect key="frame" x="8" y="10" width="304" height="14.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun, Apr 23 2020. 18:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6L-4e-pw0">
+                                <rect key="frame" x="8" y="28.5" width="304" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To be notified whenever the token is updated, supply a delegate conforming to the messaging delegate protocol." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAJ-Mb-OTV">
+                                <rect key="frame" x="8" y="51" width="304" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5q-wn-JJ2">
+                                <rect key="frame" x="0.0" y="102" width="320" height="1"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="y4i-tI-Hte"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="m6L-4e-pw0" firstAttribute="leading" secondItem="QJs-cH-UUl" secondAttribute="leading" id="01T-MX-n32"/>
+                            <constraint firstItem="QJs-cH-UUl" firstAttribute="top" secondItem="X2l-uG-Rkp" secondAttribute="top" constant="10" id="1i5-cv-Vno"/>
+                            <constraint firstItem="Y5q-wn-JJ2" firstAttribute="leading" secondItem="X2l-uG-Rkp" secondAttribute="leading" id="9U7-kW-SZb"/>
+                            <constraint firstItem="m6L-4e-pw0" firstAttribute="top" secondItem="QJs-cH-UUl" secondAttribute="bottom" constant="4" id="Dr9-k5-U6b"/>
+                            <constraint firstItem="rAJ-Mb-OTV" firstAttribute="leading" secondItem="QJs-cH-UUl" secondAttribute="leading" id="JrB-t2-u7I"/>
+                            <constraint firstItem="rAJ-Mb-OTV" firstAttribute="trailing" secondItem="QJs-cH-UUl" secondAttribute="trailing" id="K7z-rk-Qoh"/>
+                            <constraint firstAttribute="bottom" secondItem="Y5q-wn-JJ2" secondAttribute="bottom" id="R0r-3C-kup"/>
+                            <constraint firstAttribute="trailing" secondItem="Y5q-wn-JJ2" secondAttribute="trailing" id="TNN-UD-U6c"/>
+                            <constraint firstItem="rAJ-Mb-OTV" firstAttribute="top" secondItem="m6L-4e-pw0" secondAttribute="bottom" constant="8" id="UnV-jA-0Hn"/>
+                            <constraint firstItem="m6L-4e-pw0" firstAttribute="trailing" secondItem="QJs-cH-UUl" secondAttribute="trailing" id="ig3-H5-KKb"/>
+                            <constraint firstItem="Y5q-wn-JJ2" firstAttribute="top" secondItem="rAJ-Mb-OTV" secondAttribute="bottom" constant="8" id="ilv-wc-sVa"/>
+                            <constraint firstAttribute="trailing" secondItem="QJs-cH-UUl" secondAttribute="trailing" constant="8" id="lRx-C5-4uJ"/>
+                            <constraint firstItem="QJs-cH-UUl" firstAttribute="leading" secondItem="X2l-uG-Rkp" secondAttribute="leading" constant="8" id="rzj-Wt-Gd2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="X2l-uG-Rkp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Pv4-QW-hLO"/>
+                    <constraint firstItem="X2l-uG-Rkp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YgF-C4-BeA"/>
+                    <constraint firstAttribute="trailing" secondItem="X2l-uG-Rkp" secondAttribute="trailing" id="wu6-2g-0q7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentLabel" destination="rAJ-Mb-OTV" id="acM-5r-14n"/>
+                <outlet property="dateLabel" destination="m6L-4e-pw0" id="YZK-zU-K8J"/>
+                <outlet property="holderView" destination="X2l-uG-Rkp" id="AWa-Dk-ily"/>
+                <outlet property="titleLabel" destination="QJs-cH-UUl" id="4GL-By-gWZ"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="123.21428571428571"/>
+        </tableViewCell>
+    </objects>
+</document>

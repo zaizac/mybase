@@ -1,0 +1,33 @@
+<div class="cal-month-view">
+  <div class="cal-days">
+    <div *ngFor="let rowIndex of [0, 4, 8]">
+      <div class="cal-cell-row">
+        <div
+          class="col-3"
+          *ngFor="let month of view | slice: rowIndex:rowIndex + 4"
+          (mwlClick)="monthClicked.emit({ month: month })"
+          mwlDroppable
+          dragOverClass="cal-drag-over"
+          (drop)="eventDropped(month, $event.dropData.event, $event.dropData.draggedFrom)"
+        >
+          <div style="width:100%;">
+            <span class="cal-month-badge" *ngIf="month.badgeTotal > 0">{{ month.badgeTotal }}</span>
+            <span class="month-label"> {{ month.label }} </span>
+          </div>
+        </div>
+      </div>
+      <mwl-calendar-open-day-events
+        [isOpen]="openRowIndex === rowIndex"
+        [events]="openMonth?.events"
+        [customTemplate]="openDayEventsTemplate"
+        [eventTitleTemplate]="eventTitleTemplate"
+        [eventActionsTemplate]="eventActionsTemplate"
+        (eventClicked)="eventClicked.emit({ event: $event.event })"
+        mwlDroppable
+        dragOverClass="cal-drag-over"
+        (drop)="eventDropped(openMonth, $event.dropData.event, $event.dropData.draggedFrom)"
+      >
+      </mwl-calendar-open-day-events>
+    </div>
+  </div>
+</div>

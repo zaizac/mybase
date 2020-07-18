@@ -1,0 +1,40 @@
+<a ngbDropdownToggle class="nav-link dropdown-toggle waves-effect waves-dark py-0" data-toggle="dropdown"
+aria-haspopup="true" aria-expanded="false">
+<div class="user-icon">
+    <div style="line-height: 3.5rem;">{{currentUser.userId}}</div>  
+    <!-- Profile Picture -->
+    <ui-file 
+      [init]="{type:'thumbnail', viewOnly: true, preview: false, width: '40px', height: '40px', radius: '50%'}"
+      [docMgtId]="currentUser.docMgtId" style="padding: 0.5rem; line-height: 2rem;"
+      [dmBucket]="currentUser.dmBucket">
+    </ui-file>
+</div>
+</a>
+<div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+  <ul class="dropdown-user">
+    <li *ngIf="currentUser?.status != 'F'">
+      <div class="dw-user-box">
+        <div class="u-img">
+          <!-- Profile Picture -->
+          <ui-file 
+            [init]="{type:'thumbnail', viewOnly: true, preview: false, width: '70px', height: '70px', radius: '20%'}"
+            [docMgtId]="currentUser.docMgtId" [dmBucket]="currentUser.dmBucket">
+          </ui-file>       
+        </div>
+        <div class="u-text" >
+          <h4>{{currentUser.userId}}</h4>
+          <p class="text-muted">{{currentUser.firstName}}</p>
+          <a href="#" routerLink="/profile" class="btn btn-rounded btn-danger btn-sm">My Profile</a>
+        </div>
+      </div>
+    </li>
+    <li role="separator" class="divider" *ngIf="currentUser?.status != 'F'"></li>
+    <li *ngIf="currentUser?.status != 'F'">
+      <a href="#" routerLink="/changePassword"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
+    </li>
+    <li role="separator" class="divider" *ngIf="currentUser?.status != 'F'"></li>
+    <li>
+      <a href="#" routerLink="/logout"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+    </li>
+  </ul>
+</div>

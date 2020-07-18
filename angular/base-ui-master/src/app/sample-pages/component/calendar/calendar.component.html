@@ -1,0 +1,11 @@
+<ui-card>
+  <ui-calendar
+    [events]="mockCalendarData"
+    [eventConfig]="eventConfig"
+    [activeDayIsOpen]="true"
+    (deleteEvent)="deleteEvent($event)"
+    (timeChangeEvent)="timeChangeEvent($event)"
+    (editEvent)="editEvent($event)"
+    (addEvent)="addEvent($event)"
+  ></ui-calendar>
+</ui-card>

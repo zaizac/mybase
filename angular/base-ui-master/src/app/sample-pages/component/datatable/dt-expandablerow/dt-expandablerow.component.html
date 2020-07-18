@@ -1,0 +1,53 @@
+<ui-card>
+  <div class="col-12">
+    <h1>Expandable Row</h1>
+    <p>Datatable has the capability to have expandable row, where an additional row will be shown below the main row. To
+      create a table with expandable row, we specify the column type as 'expand'. To render the template for the
+      expandable row, we will use attribute columnTemplate with Id and context. If we want the context for the each
+      template to have a dynamic value, we can update the context using column render attribute</p>
+    <ui-card>
+      <pre>
+            this.headerConfig = {{ '{' }}
+              columns: [
+                {{ '{' }}
+                  <span style='color:red;'>type: 'expand',</span>
+                  <span style='color:red;'>columnTemplate: {{ '{' }}
+                    id: 'expandTemplate'
+                  {{ '}' }},</span>
+                  <span style='color:red;'>render: (data, cell, row) => {{ '{' }}
+                    const context = {{ '{' }}
+                      name: row.name,
+                      gender: row.gender,
+                      company: row.company
+                    {{ '}' }};
+                  this.headerConfig.columns[0].columnTemplate.context = context;
+                  {{ '}' }}</span>
+                {{ '}' }},
+                {{ '{' }} field: 'SlNo' {{ '}' }}, 
+                {{ '{' }} field: 'name' {{ '}' }}, 
+                {{ '{' }} field: 'gender' {{ '}' }}, 
+                {{ '{' }} field: 'company' {{ '}' }} 
+              ],
+            {{ '}' }} 
+        </pre>
+    </ui-card>
+    <ui-datatable [tableInit]="headerConfig">
+      <ng-template uiNgTemplateCellTemplate="expandTemplate" let-item="item">
+        <table>
+          <tr>
+            <th>Name :</th>
+            <td>{{item.name}}</td>
+          </tr>
+          <tr>
+            <th>Gender :</th>
+            <td>{{item.gender}}</td>
+          </tr>
+          <tr>
+            <th>Company :</th>
+            <td>{{item.company}}</td>
+          </tr>
+        </table>
+      </ng-template>
+    </ui-datatable>
+  </div>
+</ui-card>

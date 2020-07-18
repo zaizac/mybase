@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 	<bean id="workerTeleradiologySstTask" class="com.bestinet.mipss.esb.task.EsbCommonServiceTask">
+		<property name="serviceSource" value="${worker.cdc.url.source}" />
+		<property name="serviceTarget" value="${worker.cdc.url.target}" />
+		<property name="serviceReturn" value="${worker.cdc.url.return}" />
+		<property name="esbServiceSource" ref="cdcSvcServiceClient" />
+		<property name="esbServiceTarget" ref="sstTeleServiceClient" />
+	</bean>
+	 
+	 <bean id="sstTeleradiologyWorkerTask" class="com.bestinet.mipss.esb.task.EsbCommonServiceTask">
+		<property name="serviceSource" value="${worker.telesst.url.source}" />
+		<property name="serviceTarget" value="${worker.telesst.url.target}" />
+		<property name="serviceReturn" value="${worker.telesst.url.return}" />
+		<property name="esbServiceSource" ref="cdcSvcServiceClient" />
+		<property name="esbServiceTarget" ref="sstTeleServiceClient" />
+	</bean>
+	 
+	 
+</beans>

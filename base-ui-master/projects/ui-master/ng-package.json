@@ -1,0 +1,34 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ui-master",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "ngx-perfect-scrollbar": "ngxPerfectScrollbar",
+      "ngx-logger": "ngxLogger",
+      "ngx-smart-modal": "ngxSmartModal",
+      "ngx-toastr": "ngxToastr",
+      "@ng-select/ng-select": "ngSelect",
+      "ng5-slider": "ng5Slider",
+      "google-libphonenumber": "lpn",
+      "ngx-bootstrap": "ngxBootstrap",
+      "uuid": "uuid",
+      "ngx-bootstrap/positioning": "positioning",
+      "ngx-bootstrap/component-loader": "componentLoader",
+      "ngx-bootstrap/chronos": "chronos",
+      "ngx-bootstrap/utils": "utils",
+      "ngx-bootstrap/mini-ngrx": "ng5Slider",
+      "@syncfusion/ej2-base": "ej2Base",
+      "@syncfusion/ej2-angular-grids": "ej2AngularGrids",
+      "@ng-bootstrap/ng-bootstrap": "ngBootstrap",
+      "@syncfusion/ej2-data": "ng5Sej2Datalider",
+      "@syncfusion/ej2-grids/node_modules/@syncfusion/ej2-data/src/manager": "manager",
+      "angular-calendar": "angularCalendar",
+      "calendar-utils": "calendarUtils",
+      "date-fns": "dateFns"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "."
+  ]
+}

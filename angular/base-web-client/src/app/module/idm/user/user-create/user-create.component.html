@@ -1,0 +1,109 @@
+<ui-card>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- Profile Picture -->
+      <div class="col-sm-2 col-md-3">
+        <ng-container formArrayName="fileUploads" *ngFor="let refDoc of refDocLst; let i = index">
+          <ui-file *ngIf="refDoc" [formControl]="fileUploads.controls[i]" [refDoc]="refDoc" [init]="{type:'thumbnail'}">
+          </ui-file>
+        </ng-container>
+      </div>
+      <!-- Profile Information -->
+      <div class="col-sm-10 col-md-9">
+        <div class="row">
+          <!-- Full Name -->
+          <div class="col-md-6">
+            <label class="required" i18n="@@User-FullName">First Name</label>
+            <ui-text formControlName="firstName" formatToUpperCase maxlength="255" label="First Name" [reset]="reset"
+              [submitted]="submitted"></ui-text>
+          </div>
+          <!-- Last Name -->
+          <div class="col-md-6">
+            <label i18n="@@User-FullName">Last Name</label>
+            <ui-text formControlName="lastName" formatToUpperCase maxlength="255" label="Last Name" [reset]="reset"
+              [submitted]="submitted"></ui-text>
+          </div>
+        </div>
+        <div class="row">
+          <!-- National ID / Passport -->
+          <div class="col-md-6">
+            <label class="required" i18n="@@User-FullName">National ID / Passport</label>
+            <ui-text formControlName="nationalId" formatToUpperCase maxlength="255" label="National ID / Passport"
+              [reset]="reset" [submitted]="submitted"></ui-text>
+          </div>
+          <!-- Gender -->
+          <div class="col-md-6">
+            <label class="required" i18n="@@User-Gender">Gender</label>
+            <ui-gender formControlName="gender" [reset]="reset" [submitted]="submitted"></ui-gender>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Date of Birth -->
+          <div class="col-md-6">
+            <label class="required" i18n="@@User-DOB">Date of Birth</label>
+            <ui-date formControlName="dob" label='Date of Birth' [reset]="reset" [submitted]="submitted"
+              [maxDate]="maxDate" [minDate]="minDate" format='DD/MM/YYYY'></ui-date>
+          </div>
+          <!-- Email -->
+          <div class="col-md-6">
+            <label class="required" i18n="@@User-EmailAddress">E-mail Address</label>
+            <ui-email formControlName="email" [reset]="reset" [submitted]="submitted"></ui-email>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Mobile Number -->
+          <div class="col-md-6">
+            <label class="required" i18n="@@User-MobileNo">Mobile Number</label>
+            <ui-mobile formControlName="phone" [reset]="reset" [submitted]="submitted"
+              [selectedCountryISO]="defaultCountryISO">
+            </ui-mobile>
+          </div>
+          <!-- Position -->
+          <div class="col-md-6">
+            <label i18n="@@User-FullName">Position</label>
+            <ui-text formControlName="position" formatToUpperCase maxlength="255" label="Position" [reset]="reset"
+              [submitted]="submitted"></ui-text>
+          </div>
+        </div>
+        <div class="row">
+          <!-- User Group -->
+          <div class="col-md-6">
+            <label class="required" i18n="@@User-UserGroup">User Group</label>
+            <ui-select label="User Group" [init]="selUserRoleGroupInit" formControlName="userGroup" [reset]="reset"
+              [submitted]="submitted" (change)="onChangeUserRoleGroup($event)">
+            </ui-select>
+          </div>
+          <!-- User Group - Country -->
+          <div class="col-md-6 " *ngIf="showCountrySel">
+            <label class="required">Country</label>
+            <ui-select label="Country" [init]="selUserRoleGroupCntryInit" formControlName="userGroupCntry"
+              [reset]="reset" [submitted]="submitted" (change)="onChangeUserRoleCntry($event)">
+            </ui-select>
+          </div>
+        </div>
+        <div class="row">
+          <!-- User Group - Branch -->
+          <div class="col-md-6 " *ngIf="showBranchSel">
+            <label class="required">Branch</label>
+            <ui-select label="Branch" [init]="selUserRoleGroupBrnchInit" formControlName="userGroupBrnch"
+              [reset]="reset" [submitted]="submitted">
+            </ui-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" i18n-text="@@Button-Cancel"
+            routerLink="/auth/users"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset"
+            (click)="onReset()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" text="Create" i18n-text="@@Button-Create"
+            type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>

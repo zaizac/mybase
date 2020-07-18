@@ -1,0 +1,232 @@
+<ui-card>
+  <h4>Form Wizard Step By Step Guide:</h4>
+  <ol>
+    <li>
+      <strong>Create seperate module file for Form Wizard</strong
+      ><em style="color: red">(*Refer form-wizard.module.ts in URP-UI-Master for complete example)</em><br />
+      <p>
+        Form Wizard workflow consists of several components. We create seperate module to maintain the complexity of our
+        code.
+      </p>
+      <em style="color: red">*Module can be created using 'ng g module moduleName' command</em>
+      <ui-card>
+        <p>These 3 services are mandatory to be included in wizard module providers attribute</p>
+        <ol>
+          <li>WizardFormDataService</li>
+          <li>WizardWorkflowService</li>
+          <li>WizardWorkflowGuardService</li>
+        </ol>
+        <em>Snippet from form-wizard.module.ts file</em>
+        <pre>
+            providers: [
+              {{ '{' }} provide: WizardFormDataService, useClass: WizardFormDataService {{ '}' }},
+              {{ '{' }} provide: WizardWorkflowService, useClass: WizardWorkflowService {{ '}' }},
+              {{ '{' }} provide: WizardWorkflowGuardService, useClass: WizardWorkflowGuardService {{ '}' }}
+            ],
+        </pre>
+        <p>WizardComponent also need to be included in module bootstrap</p>
+        <em>Snippet from form-wizard.module.ts file</em>
+        <pre>
+            bootstrap: [WizardComponent]
+        </pre>
+      </ui-card>
+      <em style="color: red"
+        >*When importing component to this module, make sure the components are imported only in one module file. If the
+        components need to be used in seperate module, create a shared module and import the shared module in the module
+        file</em
+      >
+    </li>
+    <li>
+      <strong>Create Form Wizard routing module file</strong
+      ><em style="color: red">(*Refer form-wizard-routing.module.ts in URP-UI-Master for complete example)</em><br />
+      <p>In routing file, we create a basic routes variable like below</p>
+      <em>Snippet from form-wizard-routing.module.ts file</em>
+      <pre>
+        const formWizardRoutes: Routes = [
+          {{ '{' }}
+            path: '',
+            component: WizardComponent,
+            data: {{ '{' }}
+              breadcrumb: 'Form Wizard',
+                previous: 'success'
+              {{ '}' }}
+            {{ '}' }},
+            children: [
+            
+            ]
+          {{ '}' }}
+        ]
+      </pre>
+      <p>We import and export the router in @NgModule metadata and export the class</p>
+      <pre>
+        @NgModule({{ '{' }}
+          imports: [RouterModule.forChild(formWizardRoutes)],
+          exports: [RouterModule]
+        {{ '}' }})
+        export class FormWizardRoutingModule {{ '{' }}{{ '}' }}
+      </pre>
+    </li>
+    <li>
+      <strong>Lazy load wizard module in main app-routing.module.ts</strong><br />
+      <pre>
+        {{ '{' }}
+          path: 'horizontal',
+          loadChildren: './sample-pages/form/form-wizard-horizontal/form-wizard.module#FormWizardModule'
+        {{ '}' }}
+      </pre>
+      <em style="color: red">*loadChildren's path is wizard module file's path relative to app-routing.module.ts</em>
+    </li>
+    <li>
+      <strong>Add components to WizardComponent's children property in app-routing.module.ts</strong><br />
+      <p>
+        The number of children routes under WizardComponent will determine the number of steppers in WizardComponent.
+        Code below will create 2 steps wizard
+      </p>
+      <pre>
+        children: [
+          {{ '{' }}
+            path: 'stepOne',
+            component: StepOneComponent,
+            data: {{ '{' }}
+
+            {{ '}' }}
+          {{ '}' }},
+          {{ '{' }}
+            path: 'stepTwo',
+            component: StepTwoComponent,
+            data: {{ '{' }}
+
+            {{ '}' }},
+          {{ '}' }},
+        ]
+      </pre>
+    </li>
+    <li>
+      <strong>Configure Wizard component</strong><br />
+      There are 2 levels of configuration in Wizard component
+      <ol>
+        <li>
+          <strong>General Configuration</strong><br />
+          <p>
+            This configuration will affect all wizard stepper. In Wizard component data's metadata, we can add following
+            properties
+          </p>
+          <ul>
+            <li>
+              <strong>clickable</strong><br />
+              <p>By default, all stepper are clickable. To make the stepper non-clickable, add "clickable: false"</p>
+            </li>
+            <li>
+              <strong>mode</strong><br />
+              <p>
+                By default, wizard stepper will display in horizontal line. To display the stepper vertically, add
+                following property "mode: 'vertical'"
+              </p>
+            </li>
+            <li>
+              <strong>statColour</strong><br />
+              <p>
+                Stepper background colour can be configured using statColour property. It is an object which take these
+                properties
+              </p>
+              <ul>
+                <li>
+                  active - Colour for active stepper: Default colour is <span style="color: #398bf7">'info'</span>
+                </li>
+                <li>
+                  previous - Colour for previous stepper: Default colour is
+                  <span style="color: #06d79c">'success'</span>
+                </li>
+                <li>
+                  next - Colour for next stepper: Default colour is <span style="color: #dee2e6">'inactive'</span>
+                </li>
+                <li>
+                  current - Colour for latest stepper (when other stepper is selected as active): Default colour is
+                  <span style="color: #ffb22b">'warning'</span>
+                </li>
+              </ul>
+              <p>Valid colour for the steppers are already predefined. These are valid value for statColour</p>
+              <p>
+                <span style="color: #398bf7">'info'</span>, <span style="color: #06d79c">'success'</span>,
+                <span style="color: #dee2e6">'inactive'</span>, <span style="color: #ffb22b">'warning'</span>,
+                <span style="color: #745af2">'primary'</span>, <span style="color: #ef5350">'danger'</span>,
+                <span style="color: #2f3d4a">'secondary'</span>
+              </p>
+              <p>If invalid value assign to statColour, default statColour for the specific property will be applied</p>
+            </li>
+          </ul>
+          <p>Example below shows how we can apply these properties</p>
+          <pre>
+            {{ '{' }}
+              path: '',
+              component: WizardComponent,
+              data: {{ '{' }}
+                breadcrumb: 'Form Wizard',
+                clickable: false,
+                mode: 'vertical',
+                statColour: {{ '{' }}
+                  active: 'primary',
+                  previous: 'inactive',
+                  next: 'secondary',
+                  current: 'danger'
+                  {{ '}' }}          
+                {{ '}' }}
+              {{ '}' }},
+            {{ '}' }}
+        </pre
+          >
+        </li>
+        <li>
+          <strong>Individual Stepper Configuration</strong><br />
+          <p>In Wizard component children data's metadata, we can add following properties</p>
+          <ul>
+            <li>
+              <strong>canActivate</strong><br />
+              <p>
+                In most cases, the stepper is only clickable when current step has been validated. To make router only
+                active when step already validated, at the following line for each router that need to be guarded
+              </p>
+              <pre>
+                canActivate: [WizardWorkflowGuardService]
+              </pre>
+            </li>
+            <li>
+                <strong>stepper</strong><br />
+                <p>Stepper's icon and label can be configured by passing stepper object with following properties</p>
+                <ul>
+                    <li>
+                        icon - set stepper Icon. By default, if no Icon is given, stepper index will be displayed
+                    </li>
+                    <li>
+                        label -set stepper label. By default, no label is displayed
+                    </li>
+                  </ul>
+            </li>
+            <li>
+              <strong>pageName</strong><br />
+              <p>Define stepper page name. This will be used as the id to store the data in the session. Also will be used in WizardWorkflowGuardService for guard validation</p>
+              <em style="color: red">* Can also pass the property formName. However it is not advisible to use this property as it is soon be deprecated</em>
+            </li>
+            <li>
+                <strong>button</strong><br />
+                <p>Stepper button configuration. It takes following properties</p>
+                <ul>
+                  <li>
+                      next - next button configuration. Any URP-button configuration is valid. By default, text is "next". No icon and color is "info"
+                  </li>
+                  <li>
+                      previous - previous button configuration. Any URP-button configuration is valid. By default, text is "previous". No icon and color is "info"
+                  </li>
+                </ul>
+                <p>By default, buttons are not displayed. To display button with default value, add the specific property as empty object, e.g: next: {{'{'}}{{'}'}}</p>
+            </li>  
+            <li>
+              <strong>title</strong><br />
+              <p>Stepper page title. By default, if no title is set, title will not be displayed</p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</ui-card>

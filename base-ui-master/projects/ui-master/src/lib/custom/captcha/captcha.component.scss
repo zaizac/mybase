@@ -1,0 +1,44 @@
+.input-group>.input-group-append>.btn, 
+.input-group>.input-group-append>.input-group-text{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.btn{
+    cursor: pointer;
+}
+.input-group-append .btn{
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.invalid-message{
+    font-size: 80%; color: #dc3545;
+  }
+
+::ng-deep {
+    .input-group {
+      ui-text {
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-bottom: 0;
+        .form-group {
+            margin-bottom: 0;
+        }
+      }
+      img {
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+      }
+    }
+
+    ui-text:last-child { 
+      .form-group {
+          .form-control {
+            //   border-top-left-radius: 0;
+            //   border-top-right-radius: 0;
+          }
+      }
+    }  
+}

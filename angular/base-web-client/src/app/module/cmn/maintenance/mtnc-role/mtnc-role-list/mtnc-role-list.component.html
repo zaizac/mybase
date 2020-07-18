@@ -1,0 +1,49 @@
+<ui-card>
+  <!-- New User Button -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="pull-right">
+        <ui-button buttonType="success" icon="fa fa-plus-circle" text="New Role" i18n-text="@@Button-NewRole"
+          routerLink="/maintenance/role/create">
+        </ui-button>
+      </div>
+    </div>
+  </div>  
+  <form [formGroup]="mtncRoleForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Role Code</label> 
+        <ui-text formControlName="roleCode" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Role Description</label> 
+        <ui-text formControlName="roleDesc" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Portal Type Code</label>
+        <ui-select label="User Type Code" [init]="selPortalTypeCodeInit" formControlName="portalTypeCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+    </div>
+
+    <!-- Search Buttons -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset" (click)="onReset()">
+          </ui-button>
+          <ui-button buttonType="primary" icon="fa fa-search" text="Search" i18n-text="@@Button-Search" type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>    
+  </form>
+  <!-- Search Result -->
+  <div class="row" mb-2>
+    <ui-datatable *ngIf="roleList" [dataValues]="roleList" [tableInit]="noDataConfig" (editRecord)="rowSelected($event)">
+      <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+        <ui-button [text]="'Delete'" (click)="deleteRow(item.row)"></ui-button>
+      </ng-template>
+    </ui-datatable>
+  </div>
+</ui-card>

@@ -1,0 +1,126 @@
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "0gr-Ja-ZxK"; */
+"0gr-Ja-ZxK.text" = "N/A";
+
+/* Class = "UITextField"; placeholder = "PassportNumber"; ObjectID = "0zc-oa-O2M"; */
+"0zc-oa-O2M.placeholder" = "PassportNumber";
+
+/* Class = "UIButton"; normalTitle = "Received"; ObjectID = "515-Ji-gAy"; */
+"515-Ji-gAy.normalTitle" = "Received";
+
+/* Class = "UITextField"; placeholder = "Meal"; ObjectID = "56j-xF-K0b"; */
+"56j-xF-K0b.placeholder" = "Meal";
+
+/* Class = "UIButton"; normalTitle = "UPDATE"; ObjectID = "5o8-lI-NPQ"; */
+"5o8-lI-NPQ.normalTitle" = "UPDATE";
+
+/* Class = "UILabel"; text = "MobileNumber"; ObjectID = "7X1-Ad-1Zp"; */
+"7X1-Ad-1Zp.text" = "MobileNumber";
+
+/* Class = "UITextField"; placeholder = "Mobile No./ PassportNumber"; ObjectID = "8pZ-RN-A06"; */
+"8pZ-RN-A06.placeholder" = "Mobile No./ PassportNumber";
+
+/* Class = "UITextField"; placeholder = "MobileNumber"; ObjectID = "Bnb-Lr-sUT"; */
+"Bnb-Lr-sUT.placeholder" = "MobileNumber";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "ExC-nl-9k1"; */
+"ExC-nl-9k1.normalTitle" = "LOGIN";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "GdP-6J-Rsj"; */
+"GdP-6J-Rsj.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "HwH-cZ-ZLf"; */
+"HwH-cZ-ZLf.text" = "Welcome";
+
+/* Class = "UILabel"; text = "09:17"; ObjectID = "Iac-UN-jO6"; */
+"Iac-UN-jO6.text" = "09:17";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Ise-35-P8B"; */
+"Ise-35-P8B.text" = "Name";
+
+/* Class = "UILabel"; text = "Company Address"; ObjectID = "JiZ-h5-J6k"; */
+"JiZ-h5-J6k.text" = "Company Address";
+
+/* Class = "UILabel"; text = "PassportNumber"; ObjectID = "KFd-Te-qqr"; */
+"KFd-Te-qqr.text" = "PassportNumber";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "Lah-LS-Ni9"; */
+"Lah-LS-Ni9.text" = "N/A";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "PKR-BK-Mee"; */
+"PKR-BK-Mee.text" = "N/A";
+
+/* Class = "UILabel"; text = "Company ContactNumber"; ObjectID = "SCq-gi-VE6"; */
+"SCq-gi-VE6.text" = "Company ContactNumber";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "UXV-vf-sCC"; */
+"UXV-vf-sCC.text" = "N/A";
+
+/* Class = "UIButton"; normalTitle = "UPDATE PROFILE"; ObjectID = "W3i-EW-suQ"; */
+"W3i-EW-suQ.normalTitle" = "UPDATE PROFILE";
+
+/* Class = "UITextField"; placeholder = "Re-type Mobile Number"; ObjectID = "WNx-gF-NsT"; */
+"WNx-gF-NsT.placeholder" = "Re-type Mobile Number";
+
+/* Class = "UILabel"; text = "22/08/2028"; ObjectID = "Xu6-kk-hDO"; */
+"Xu6-kk-hDO.text" = "22/08/2028";
+
+/* Class = "UIButton"; normalTitle = "FOOD RECEIVE"; ObjectID = "ZDZ-fq-oDI"; */
+"ZDZ-fq-oDI.normalTitle" = "FOOD RECEIVE";
+
+/* Class = "UIButton"; normalTitle = "ENGLISH"; ObjectID = "aUP-np-CPD"; */
+"aUP-np-CPD.normalTitle" = "ENGLISH";
+
+/* Class = "UILabel"; text = "Choose Your Preferred Language"; ObjectID = "byo-aW-jnh"; */
+"byo-aW-jnh.text" = "Choose Your Preferred Language";
+
+/* Class = "UITextField"; placeholder = "Company Name"; ObjectID = "cGt-T8-weK"; */
+"cGt-T8-weK.placeholder" = "Company Name";
+
+/* Class = "UILabel"; text = "Company Name"; ObjectID = "day-Y8-L51"; */
+"day-Y8-L51.text" = "Company Name";
+
+/* Class = "UIButton"; normalTitle = "Not yet registered? Sign up now"; ObjectID = "dxO-Rq-hy0"; */
+"dxO-Rq-hy0.normalTitle" = "Not yet registered? Sign up now";
+
+/* Class = "UIButton"; normalTitle = "BAHASA MALAYSIA"; ObjectID = "eh0-sm-UZg"; */
+"eh0-sm-UZg.normalTitle" = "BAHASA MALAYSIA";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "ekP-g8-PQ9"; */
+"ekP-g8-PQ9.text" = "N/A";
+
+/* Class = "UILabel"; text = "Meal Type"; ObjectID = "fYd-qV-MuR"; */
+"fYd-qV-MuR.text" = "Meal Type";
+
+/* Class = "UITextField"; placeholder = "Food Type"; ObjectID = "fd4-CT-ZF9"; */
+"fd4-CT-ZF9.placeholder" = "Food Type";
+
+/* Class = "UITextField"; placeholder = "Gender"; ObjectID = "iFL-4e-oO1"; */
+"iFL-4e-oO1.placeholder" = "Gender";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "jfd-uv-8o8"; */
+"jfd-uv-8o8.text" = "N/A";
+
+/* Class = "UILabel"; text = "Employer Info"; ObjectID = "oTZ-Rt-yGN"; */
+"oTZ-Rt-yGN.text" = "Employer Info";
+
+/* Class = "UITextField"; placeholder = "Mobile Number"; ObjectID = "oZC-6k-35D"; */
+"oZC-6k-35D.placeholder" = "Mobile Number";
+
+/* Class = "UILabel"; text = "Dwayne 'The Rock' Johnson"; ObjectID = "obU-c7-AHo"; */
+"obU-c7-AHo.text" = "Dwayne 'The Rock' Johnson";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "rJ2-aU-tgS"; */
+"rJ2-aU-tgS.text" = "N/A";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "rSC-zF-dIJ"; */
+"rSC-zF-dIJ.text" = "Gender";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "sKC-k4-3RQ"; */
+"sKC-k4-3RQ.text" = "Address";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "uVR-NV-KmG"; */
+"uVR-NV-KmG.text" = "Address";
+
+/* Class = "UITextField"; placeholder = "ContactNumber"; ObjectID = "wQm-0b-y9l"; */
+"wQm-0b-y9l.placeholder" = "ContactNumber";

@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-md-5 align-self-center">
+		<h3 class="hero-heading">
+			<span th:switch="${#strings.toLowerCase(portalModule)}">
+		    	<th:block th:case="user_mgmt" th:text="#{'Manage Users'}" />
+		    	<th:block th:case="idmupd" th:text="#{lbl.usr.prof}" />
+		    	<th:block th:case="rpt" th:text="#{lbl.rpt}" />
+		    	<th:block th:case="patient" th:text="#{lbl.ptnt.list}" />
+		    	<th:block th:case="patient_form" th:text="#{lbl.patient.mgmnt.form}" />
+				<th:block th:case="change_password" th:text="#{lbl.pword.chng}"/>
+				<th:block th:case="new_login" th:text="#{lbl.login.frst}"/>
+				<th:block th:case="lab_result" th:text="#{lbl.test.result.bulk}" />
+				<th:block th:case="test-result-list" th:text="#{lbl.test.result}" />
+				<th:block th:case="test-result-update" th:text="#{lbl.test.result.upd}" />
+				<th:block th:case="movement_history_list" th:text="#{lbl.movement.hist}" />
+				<th:block th:case="transfer" th:text="#{'Transfer Case and Update'}" />
+				<th:block th:case="contact" th:text="#{'Contact Us'}" />
+				<th:block th:case="faq" th:text="#{'Downloads'}" />
+				<th:block th:case="upload_case" th:text="#{lbl.case.result.bulk}" />
+				<th:block th:case="transfer_bulk" th:text="#{'Assign Center'}" />
+				<th:block th:case="lab-result-list" th:text="#{'Bulk Update Listing'}" />
+				<th:block th:case="lab-result-list-dtl" th:text="#{'Bulk Update Details'}" />
+			</span>
+		</h3>
+	</div>
+	<div aria-label="breadcrumb" class="col-md-7 align-self-center">
+		<ol class="breadcrumb">
+			<li th:if="${#strings.toLowerCase(portalModule) != null}" class="breadcrumb-item"><a th:href="@{#{'/home'}}"
+				class="animsition-link">Home</a></li>
+			<li aria-current="page" class="breadcrumb-item active">
+				<span th:switch="${#strings.toLowerCase(portalModule)}">
+			    	<th:block th:case="user_mgmt" th:text="#{'Manage Users'}" />
+			    	<th:block th:case="idmupd" th:text="#{lbl.usr.prof}" />
+			    	<th:block th:case="rpt" th:text="#{lbl.rpt}" />
+					<th:block th:case="change_password" th:text="#{lbl.pword.chng}"/>
+					<th:block th:case="new_login" th:text="#{lbl.login.frst}"/>
+					<th:block th:case="report" th:text="#{lbl.report.head}"/>
+					<th:block th:case="maintenance" th:text="#{lbl.maintenance.head}"/>
+					<th:block th:case="patient_form" th:text="#{lbl.patient.mgmnt.form}" />
+					<th:block th:case="inquirypage" th:text="#{lbl.inquiry.page }" />
+					<th:block th:case="lab_result" th:text="#{lbl.test.result.bulk}" />
+					<th:block th:case="test-result-list" th:text="#{lbl.test.result}" />
+					<th:block th:case="test-result-update" th:text="#{lbl.test.result.upd}" />
+					<th:block th:case="movement_history_list" th:text="#{lbl.movement.hist}" />
+					<th:block th:case="patient" th:text="#{lbl.ptnt.list}" />
+					<th:block th:case="transfer" th:text="#{'Transfer Case and Update'}" />
+					<th:block th:case="contact" th:text="#{'Contact Us'}" />
+					<th:block th:case="faq" th:text="#{'Downloads'}" />
+					<th:block th:case="upload_case" th:text="#{lbl.case.result.bulk}" />
+					<th:block th:case="transfer_bulk" th:text="#{'Assign Center'}" />
+					<th:block th:case="lab-result-list" th:text="#{'Bulk Update Listing'}" />
+					<th:block th:case="lab-result-list-dtl" th:text="#{'Bulk Update Details'}" />
+				</span>
+			</li>
+		</ol>
+	</div>
+</div>

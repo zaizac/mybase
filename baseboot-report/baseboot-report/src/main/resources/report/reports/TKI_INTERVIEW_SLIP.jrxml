@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="INTERVIEW_SLIP" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryWithPageHeaderAndFooter="true" uuid="477dea89-7a20-4a4f-97e3-c53fbf0a44b8">
+	<property name="ireport.zoom" value="0.84671089508067"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String"/>
+	<parameter name="TEST_LOCALE" class="java.lang.String"/>
+	<parameter name="RMRKS" class="java.lang.String"/>
+	<parameter name="INT_RMRKS" class="java.lang.String"/>
+	<parameter name="SGN_STMP" class="java.lang.String"/>
+	<parameter name="GEN_BY" class="java.lang.String"/>
+	<parameter name="TIME" class="java.lang.String"/>
+	<parameter name="DATE" class="java.lang.String"/>
+	<parameter name="SECT_AGENCY" class="java.lang.String"/>
+	<parameter name="RPT_TITLE" class="java.lang.String">
+		<parameterDescription><![CDATA["SLIP WAWANCARA"]]></parameterDescription>
+		<defaultValueExpression><![CDATA["INTERVIEW SLIP"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_SUBTITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["SLIP WAWANCARA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="REPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_LOGO" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\workspace_portal-master\\portal\\src\\main\\webapp\\report\\pmg\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GENERATED_BY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_MY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_GOV" class="java.lang.String"/>
+	<parameter name="docs1" class="java.lang.String"/>
+	<parameter name="TkiName" class="java.lang.String"/>
+	<parameter name="nationalId" class="java.lang.String"/>
+	<parameter name="TkiJobType" class="java.lang.String"/>
+	<parameter name="gender" class="java.lang.String"/>
+	<parameter name="nationality" class="java.lang.String"/>
+	<parameter name="dateOfBirth" class="java.lang.String"/>
+	<parameter name="age" class="java.lang.String"/>
+	<parameter name="passportNo" class="java.lang.String"/>
+	<parameter name="ivTime" class="java.lang.String"/>
+	<parameter name="ivAddress" class="java.lang.String"/>
+	<parameter name="ivAddress1" class="java.lang.String"/>
+	<parameter name="countryName" class="java.lang.String"/>
+	<parameter name="regNo" class="java.lang.String"/>
+	<parameter name="ivDate" class="java.util.Date"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<group name="docs">
+		<groupFooter>
+			<band height="47">
+				<break>
+					<reportElement x="0" y="35" width="595" height="1" uuid="9903cdfc-f4ce-4fcb-be8c-63195d734787"/>
+				</break>
+				<subreport>
+					<reportElement x="15" y="4" width="514" height="23" uuid="7e39393f-e75b-4fa1-8e89-f4f692ee74e6"/>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "TKI_INTERVIEW_SLIP_SUB1.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="842"/>
+	</background>
+	<pageHeader>
+		<band height="35">
+			<subreport>
+				<reportElement x="1" y="0" width="595" height="35" uuid="1b2f84ac-1584-42e2-b86e-57906ff7366c"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RPT_SUBTITLE">
+					<subreportParameterExpression><![CDATA[$P{RPT_SUBTITLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RPT_LOGO">
+					<subreportParameterExpression><![CDATA[$P{RPT_LOGO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RPT_TITLE">
+					<subreportParameterExpression><![CDATA[$P{RPT_TITLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{REPORT_DIR} + "header_portrait.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="601" splitType="Stretch">
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="43" width="554" height="20" isRemoveLineWhenBlank="true" uuid="85558a21-a09b-45f8-ac13-59619204fab9"/>
+				<textElement markup="styled">
+					<font size="12" isBold="true" isItalic="false" isUnderline="true"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='12' >TKI Personal Information</style> / <style size='10' isItalic=\"true\">Informasi Pribadi TKI</style>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="80" width="283" height="15" isRemoveLineWhenBlank="true" uuid="95a07c39-7466-4894-84b8-447f1636ac2c"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >TKI Full Name</style> / <style size='8' isItalic=\"true\">Nama Lengkap TKI</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="95" width="283" height="15" isRemoveLineWhenBlank="true" uuid="dcfc541d-0495-473b-9325-6be58dd9bca5"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >National ID</style> / <style size='8' isItalic=\"true\">ID Nasional</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="111" width="283" height="15" isRemoveLineWhenBlank="true" uuid="116c924c-6e58-4917-8b28-61ea1cc5cd1b"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >TKI Job Type</style> / <style size='8' isItalic=\"true\">Jenis Pekerjaan TKI</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="126" width="283" height="15" isRemoveLineWhenBlank="true" uuid="0f94e1ec-8885-4190-900a-9045a335ceac"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Gender</style> / <style size='8' isItalic=\"true\">Gender</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="141" width="283" height="15" isRemoveLineWhenBlank="true" uuid="aa835fae-b2c3-47b7-9252-a826e3dd24af"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Nationality</style> / <style size='8' isItalic=\"true\">Kebangsaan</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="156" width="283" height="15" isRemoveLineWhenBlank="true" uuid="6aaff5c4-2f85-4eae-aa8b-66f011f6aeed"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Date of Birth</style> / <style size='8' isItalic=\"true\">Tanggal Lahir</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="171" width="283" height="15" isRemoveLineWhenBlank="true" uuid="5d3e2250-edbd-4459-b126-28bd69ce3ea5"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Age</style> / <style size='8' isItalic=\"true\">Umur</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="186" width="283" height="15" isRemoveLineWhenBlank="true" uuid="2643eaa6-693c-4c16-b303-d20269ece4d2"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Passport No</style> / <style size='8' isItalic=\"true\">Nomor Paspor </style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="220" width="555" height="20" isRemoveLineWhenBlank="true" uuid="be30ea6a-e112-49c4-b447-6fd861ca9eb2"/>
+				<textElement markup="styled">
+					<font size="12" isBold="true" isItalic="false" isUnderline="true"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='12' >Interview Details</style> / <style  size='10' isItalic=\"true\">Rincian Wawancara</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="256" width="283" height="15" isRemoveLineWhenBlank="true" uuid="dd353a26-6bfb-4fe4-91b4-bf88b2a84de4"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Time</style> / <style size='8' isItalic=\"true\">Waktu</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="1" y="271" width="282" height="20" isRemoveLineWhenBlank="true" uuid="a67f49f7-42c2-462e-b8c1-2e07750c9d40"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Venue</style> / <style size='8' isItalic=\"true\">Tempat</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="401" width="577" height="15" isRemoveLineWhenBlank="true" uuid="e740bc2f-c95d-4a53-bd57-842ea9e17673"/>
+				<textElement markup="none">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2. Please bring original and related documents for the interview. Failure to bring the documents would resulted"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="479" width="109" height="20" isRemoveLineWhenBlank="true" uuid="b7761f09-2bae-46c1-99d2-7db32604d749"/>
+				<textElement>
+					<font size="10" isBold="true" isItalic="true" isUnderline="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Catatan : "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="1" y="514" width="554" height="15" isRemoveLineWhenBlank="true" uuid="5f1bad3d-1bb0-4fa9-811f-fb5919845fff"/>
+				<textElement markup="none">
+					<font size="8" isItalic="true"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2. Tolong bawa dokumen asli dan terkait untuk wawancara. Kegagalan untuk membawa dokumen akan mengakibatkan penolakan terhadap "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="384" width="555" height="15" isRemoveLineWhenBlank="true" uuid="9a2931c8-502c-48c8-827e-1c87d9400ea2"/>
+				<textElement>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1. Failure to do so will result as you are absent and your application might be rejected. "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="1" y="499" width="554" height="15" isRemoveLineWhenBlank="true" uuid="1c057134-34eb-4bab-a71f-57b290a05fa4"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1. Kegagalan untuk melakukannya akan terjadi karena Anda tidak hadir dan permohonan Anda mungkin ditolak."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="256" width="8" height="15" uuid="3c1dbb40-cc1a-4aa1-9fc9-202c697a9e42"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="272" width="8" height="15" uuid="48968fd2-3175-4ed7-b05a-13f97ab03545"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="414" width="555" height="15" isRemoveLineWhenBlank="true" uuid="260a31f6-9b6e-4c08-b961-eb4f22fa26f9"/>
+				<textElement>
+					<paragraph leftIndent="47"/>
+				</textElement>
+				<textFieldExpression><![CDATA["in rejection of your application."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="529" width="555" height="15" isRemoveLineWhenBlank="true" uuid="49b9d3fc-1d5f-4ab5-8d6a-8f51109da5e7"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+					<paragraph leftIndent="47"/>
+				</textElement>
+				<textFieldExpression><![CDATA["permohonan Anda."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="1" y="430" width="555" height="15" isRemoveLineWhenBlank="true" uuid="947c4ca2-03ee-4d05-8733-ac6a3870c11f"/>
+				<textElement>
+					<font isBold="true"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3. Supporting Documents must be compiled using comb-binding in the order list as below."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="544" width="554" height="15" isRemoveLineWhenBlank="true" uuid="790c65c0-e597-4365-bc4c-30f5154c1d02"/>
+				<textElement markup="none">
+					<font size="8" isItalic="true"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3. Dokumen pendukung harus dikompilasi dengan menggunakan sisir dalam daftar pesanan seperti di bawah ini."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="364" width="109" height="20" isRemoveLineWhenBlank="true" uuid="74aa74b7-d8c5-4754-b66f-258ed115f3f3"/>
+				<textElement>
+					<font size="10" isBold="true" isItalic="true" isUnderline="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Note : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="80" width="267" height="15" isRemoveLineWhenBlank="true" uuid="40b8e3c1-11d1-4cd2-a6eb-00613e2c7e4f"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{TkiName}!= null ? $P{TkiName} : " - "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="95" width="232" height="15" isRemoveLineWhenBlank="true" uuid="a2315988-f253-4a60-94a9-2d64d87d2bdf"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{nationalId}!= null ? $P{nationalId} : " - "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="186" width="210" height="15" isRemoveLineWhenBlank="true" uuid="9b94dea8-2009-4a92-ae69-9cfefe757ee4"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{passportNo}!= null ? $P{passportNo} : " - "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="141" width="267" height="15" isRemoveLineWhenBlank="true" uuid="80a6c43c-1688-459b-bd47-afa6694fd0b4"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{nationality}!= null ? $P{nationality} : " - "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="126" width="267" height="15" isRemoveLineWhenBlank="true" uuid="3c5e0942-c66b-4d08-b4c0-c78625a5fe66"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{gender}!= null ? $P{gender} : " - "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="156" width="267" height="15" isRemoveLineWhenBlank="true" uuid="9eab7596-d518-4fc3-a11c-a6ef10025933"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{dateOfBirth}!= null ? $P{dateOfBirth} : " - "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="111" width="275" height="15" isRemoveLineWhenBlank="true" uuid="4c5fcd39-ee80-43d3-a86d-e4b335c66a12"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{TkiJobType}!= null ? $P{TkiJobType} : " - "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="171" width="254" height="15" isRemoveLineWhenBlank="true" uuid="a762af73-5c82-42da-88d9-9c53d7cc6a1f"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{age}!= null ? $P{age} : " - "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="272" width="258" height="80" isRemoveLineWhenBlank="true" uuid="889886a4-5e89-4ef0-b5b0-b2ddccab94b0"/>
+				<textFieldExpression><![CDATA[($P{ivAddress1} != null && !$P{ivAddress1}.trim().equals("") ? $P{ivAddress1}.trim() +"\n" : " - ")]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="256" width="161" height="15" isRemoveLineWhenBlank="true" uuid="e1fdc058-8b85-48ba-b7e9-88dda5d2b8ac"/>
+				<textFieldExpression><![CDATA[$P{ivTime}!= null ? $P{ivTime} : " - "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="64" width="283" height="15" isRemoveLineWhenBlank="true" uuid="c2bf707e-2fac-4c16-b5e1-1b446e9dfaef"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Registration No</style> / <style size='8' isItalic=\"true\">Pendaftaran No</style> "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="64" width="267" height="15" isRemoveLineWhenBlank="true" uuid="1c0d6fb7-a5cc-4ac8-b564-8e9c17a7756a"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$P{regNo}!= null ? $P{regNo} : " - "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="292" y="241" width="161" height="15" isRemoveLineWhenBlank="true" uuid="c0e3a51e-323c-46df-a388-0342b4322330"/>
+				<textFieldExpression><![CDATA[$P{ivDate}!= null ? $P{ivDate} : " - "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="241" width="8" height="15" uuid="2e18f283-65bc-4f66-aac4-61b6644cda73"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="241" width="283" height="15" isRemoveLineWhenBlank="true" uuid="fd9dd9a9-e2a6-448c-881c-9862c2def2ef"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >Interview Dates</style> / <style size='8' isItalic=\"true\">Tanggal Wawancara</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="96" width="8" height="15" uuid="8af6ae0f-e094-4451-a331-c6a26b313cf2"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="80" width="8" height="15" uuid="1d6fa2cc-dfdb-4bf2-87e1-b4806a718d5e"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="64" width="8" height="15" uuid="b5bc9e95-fec8-4fff-838d-d7b96f4349f7"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="112" width="8" height="15" uuid="f82a8f6e-20ff-4750-8d05-342864d3f00b"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="127" width="8" height="15" uuid="25258b1c-13f2-4f6a-b5c6-53d665988a68"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="142" width="8" height="15" uuid="1544df0e-3e90-454d-a023-b96c7384ee7f"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="156" width="8" height="15" uuid="285d5223-ced9-489f-b06c-cd2ca40cf397"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="171" width="8" height="15" uuid="838a9d42-e3df-41b5-b755-e749988f4a8e"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="284" y="187" width="8" height="15" uuid="05463759-07d2-4a8b-8ef6-3f43a9ca583f"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="20" width="430" height="20" forecolor="#000000" uuid="aaaa7afb-d922-49fd-995f-a2c35d8cb04f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RPT_SUBTITLE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="0" width="430" height="20" forecolor="#000000" uuid="96427bcc-0c28-4a8e-99d9-9825237b2477"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RPT_TITLE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="595" height="1" uuid="128cd695-cc91-4402-8bdc-8a8fa190b953"/>
+			</line>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="40">
+			<textField evaluationTime="Report">
+				<reportElement x="543" y="12" width="29" height="14" uuid="2eab4bbd-39e7-420e-80c6-34a11d4221df"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="12" width="178" height="14" uuid="9eac7c98-8af4-472a-96da-d10fbae04d52"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="18" y="13" width="248" height="15" uuid="1eda6e90-252c-4228-9ec4-56eb77ae9b3f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Generated Date/Time: " + new java.text.SimpleDateFormat("dd/MM/yyyy hh:mm a").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

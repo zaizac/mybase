@@ -1,0 +1,19 @@
+<br />
+<ui-datatable *ngIf="header" [tableInit]='header' [events]='eventSubmit.asObservable()'
+  (editRecord)='handleRowClick($event)'>
+  <ng-template uiNgTemplateCellTemplate='myTemplate' let-item='item'>
+    <span class="badge badge-success" [ngStyle]="{'background-color': item.color}">{{item.title}}</span>   
+  </ng-template>
+  <ng-template uiNgTemplateCellTemplate='actionTemplate' let-item='item'>
+    <div ngbDropdown>
+      <button ngbDropdownToggle type="button" class="btn btn-dark btn-sm">
+        <i class="fa fa-cogs"></i>
+      </button>
+      <div class="" id="dropdown-basic" ngbDropdownMenu>
+        <div *ngFor="let action of item.info.refLevel.refTypeActionList">
+          <a class="dropdown-item" (click)="handleRowClickAction(item, action.redirectPath)">{{action.actionName}}</a>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ui-datatable>

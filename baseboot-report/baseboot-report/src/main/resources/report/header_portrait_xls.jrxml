@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-10-02T16:59:50 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HEADER_PORTRAIT" pageWidth="595" pageHeight="250" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8d673b1f-30e4-4242-b36f-98cd65f88f05">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="417"/>
+	<property name="ireport.y" value="0"/>
+	<style name="bold_text" hTextAlign="Center" hImageAlign="Center" vTextAlign="Middle" vImageAlign="Middle" fontSize="15" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="GENERATED_BY" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["//"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_TITLE" class="java.lang.String"/>
+	<parameter name="RPT_SUBTITLE" class="java.lang.String"/>
+	<parameter name="RPT_LOGO" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_MY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_GOV" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<variable name="TOTAL" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="65">
+			<line>
+				<reportElement x="0" y="62" width="596" height="1" uuid="c713c570-291a-4b84-a966-3d4019b6cd70"/>
+			</line>
+			<image>
+				<reportElement mode="Opaque" x="14" y="6" width="186" height="56" forecolor="#000000" backcolor="#FFFFFF" uuid="d271e732-d6f8-4ca4-98d6-d85fd04f3e00"/>
+				<box>
+					<rightPen lineWidth="1.0" lineColor="#FFFFFF"/>
+				</box>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+$P{RPT_LOGO_MY}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="226" y="15" width="213" height="22" forecolor="#000000" backcolor="#FFFFFF" uuid="2ef12a10-21ee-4787-9fac-d7386ef59575"/>
+				<box topPadding="2" rightPadding="15">
+					<pen lineColor="#FFFFFF"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RPT_TITLE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="14" height="62" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="fdf9181d-b549-447f-9c29-677f8f6b6169"/>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="14" y="0" width="567" height="6" backcolor="#FFFFFF" uuid="47ea8e59-e512-4103-abc4-21c5fad2a01a"/>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="200" y="6" width="381" height="9" backcolor="#FFFFFF" uuid="a35eefce-191b-4047-9571-0fbd5f4d62bd"/>
+				<box>
+					<pen lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="581" y="0" width="15" height="62" backcolor="#FFFFFF" uuid="487d7056-51ff-47cc-8af3-68a67fcd871d"/>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="226" y="37" width="213" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="5d816546-c731-4754-9c2a-396dc54443e2"/>
+				<box rightPadding="15">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RPT_SUBTITLE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="430" y="15" width="151" height="47" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="f55bbff9-d10a-4e1a-8e53-f8651a5ac11d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="200" y="15" width="26" height="47" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="96586fb7-3230-448e-9efe-bb5e8fea60a0"/>
+				<box>
+					<pen lineColor="#FFFFFF"/>
+					<topPen lineWidth="1.0"/>
+				</box>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

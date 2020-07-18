@@ -1,0 +1,6 @@
+<button [type]="type" class="btn" [ngClass]="buttonTypeClass" [disabled]="disabled" (click)="onButtonClick($event)">
+  <i *ngIf="icon" aria-hidden="true" [ngClass]="icon" (click)="onIconSpanClick($event)"></i>
+  <span (click)="onIconSpanClick($event)">{{text}}
+    <ng-content></ng-content>
+  </span>
+</button>

@@ -1,0 +1,57 @@
+<ul class="navbar-nav mobile">
+    <li class="nav-item m-l-10">
+        <a class="nav-link sidebartoggler hidden-lg-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+            <i class="ti-menu text-white" aria-hidden="true"></i>
+        </a>
+    </li>
+</ul>
+<aside class="left-sidebar">
+    <nav class="sidebar-nav" *ngIf="menus.length > 0">
+        <ul id="sidebarnav">
+            <!-- First level menu -->
+            <li [class.active]="showMenu === menu.menuCode" *ngFor="let menu of menus"
+                [routerLinkActive]="menus.length != 0 ? '' : 'active'"
+                [ngClass]="menu.menuChild?.length > 0 ? 'menu-cursor': ''">
+                <!-- <a [routerLink]="[menu.menuUrlCd]" class=""
+                    [ngClass]="menu.menuChild?.length > 0 ? (menu.menuUrlCd ? '' : '') : ''"
+                    (click)="addExpandClass(menu.menuCode)">
+                    <i aria-hidden="true" *ngIf="menu.menuIcon != undefined" [ngClass]="menu.menuIcon"></i>
+                    <span class="hide-menu">{{menu.menuDesc.en}}</span>
+                </a> -->
+                <!-- ni back up for yang atas -->
+                <a [routerLink]="[menu.menuUrlCd]"
+                    [ngClass]="menu.menuChild?.length > 0 ? (menu.menuUrlCd ? 'sub-menu two-column' : 'sub-menu') : ''"
+                    (click)="addExpandClass(menu.menuCode)">
+                    <i aria-hidden="true" *ngIf="menu.menuIcon != undefined" [ngClass]="menu.menuIcon"></i>
+                    <span class="hide-menu">{{menu.menuDesc.en}}</span>
+                </a>
+                <!-- Second level menu -->
+                <ul class="collapse" *ngIf="menu.menuChild?.length > 0"
+                    [ngClass]="{'in' : showMenu === menu.menuCode }">
+                    <li *ngFor="let subMenu of menu.menuChild" [class.active]="showSubMenu === subMenu.menuCode"
+                        [routerLinkActive]="subMenu.menuChild?.length > 0 ? '' : 'active'">
+                        <a [routerLink]="subMenu.menuChild?.length > 0 ? '' : [subMenu.menuUrlCd]"
+                            [routerLinkActive]="subMenu.menuChild?.length > 0 ? '' : 'router-link-active'"
+                            [ngClass]="{'has-arrow' : subMenu.menuChild?.length > 0 }"
+                            (click)="addActiveClass(subMenu.menuCode)">
+                            <i aria-hidden="true" [ngClass]="subMenu.menuIcon"></i>
+                            {{subMenu.menuDesc.en}}
+                        </a>
+                        <!-- Third level menu -->
+                        <ul class="collapse" *ngIf="subMenu.menuChild?.length > 0"
+                            [ngClass]="{'in' : showSubMenu === subMenu.menuCode }">
+                            <li *ngFor="let subLevelMenu of subMenu.menuChild" routerLinkActive="active">
+                                <a [routerLink]="[subLevelMenu.menuUrlCd]"
+                                    [routerLinkActive]="subLevelMenu.menuChild?.length > 0 ? '' : 'router-link-active'">
+                                    <i aria-hidden="true" *ngIf="subLevelMenu.menuIcon != undefined"
+                                        [ngClass]="subLevelMenu.menuIcon"></i>
+                                    {{subLevelMenu.menuDesc.en}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</aside>

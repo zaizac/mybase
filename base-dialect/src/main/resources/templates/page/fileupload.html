@@ -1,0 +1,288 @@
+<bst:form th:object="${components}" method="GET" enctype="multipart/form-data">
+	<bst:widget> 
+    	<bst:widget-header>
+        	<h4 th:text="#{'&lt;bst:file-thumbnail&gt; Tag'}" />
+      	</bst:widget-header>
+      	<bst:widget-body>
+        	<div class="row">
+            	<div class="col-md-4">
+               		<label> bst:file-thumbnail (Left)</label> 
+               		<input type="hidden" id="fileUploads[1].docId" name="fileUploads[1].docId" value="1" /> 
+               		<input type="hidden" id="fileUploads1.docMgtId" name="fileUploads1.docMgtId" />
+               		<bst:file-thumbnail data-img-align="left"
+                  			data-img-width="w-50" data-updm-cropper="true"
+                  			data-updm-projId="dvm" th:data="true"
+                  			th:attr="data-updm-maxSize=500000,
+                  					data-updm-minheight=0,
+                  					data-updm-maxheight=0,
+                  					data-updm-minwidth=0,
+                  					data-updm-maxwidth=0,                  
+                  					data-dimension-compulsary=0"
+                  			th:field="*{fileUploads[1].file}"
+                  			th:accept="#{'image/png'}" />
+            	</div>
+            	<div class="col-md-4">
+               		<label>bst:file-thumbnail (Center)</label> 
+               		<input type="hidden" id="fileUploads[2].docId" name="fileUploads[2].docId" value="1" /> 
+               		<input type="hidden" id="fileUploads[2].docMgtId" name="fileUploads[2].docMgtId" />
+               		<bst:file-thumbnail data-img-align="center"
+                  			data-img-width="w-50" th:data="true"
+                  			th:attr="data-updm-maxSize=500000,
+                  				data-updm-minheight=0,
+                  				data-updm-maxheight=0,
+                  				data-updm-minwidth=0,
+                  				data-updm-maxwidth=0,
+                  				data-dimension-compulsary=0"
+                  			th:field="*{fileUploads[2].file}"
+                  			th:accept="#{'image/png'}" />
+            	</div>
+            	<div class="col-md-4">
+               		<label>bst:file-thumbnail (Right)</label> 
+               		<input type="hidden" id="fileUploads[3].docId" name="fileUploads[3].docId" value="1" /> 
+               		<input type="hidden" id="fileUploads[3].docMgtId" name="fileUploads[3].docMgtId" />
+               		<bst:file-thumbnail data-img-align="right"
+                  			data-img-width="w-50" th:data="true"
+                  			th:attr="data-updm-maxSize=500000,
+                  				data-updm-minheight=0,
+                  				data-updm-maxheight=0,
+                  				data-updm-minwidth=0,
+                  				data-updm-maxwidth=0,
+                  				data-updm-cropper=true,
+                  				data-dimension-compulsary=0"
+                  			th:field="*{fileUploads[3].file}"
+                  			th:accept="#{'image/png'}" />
+            	</div>
+			</div>
+         	<br/>
+         	<!--/* [START] DOCUMENTATION FOR bst:file-thumbnail  */-->
+         	<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+            	<div class="card">
+               		<div class="card-header" role="tab" id="headingOne">
+                  		<h5 class="mb-0">
+                     		<a data-toggle="collapse" data-parent="#accordion2" href="#collapse1" aria-expanded="true" aria-controls="collapseOne"> Example</a>
+                  		</h5>
+               		</div>
+               		<div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  		<div class="card-body">
+                     		<p class="text-success" th:text="#{'&lt;!--/* File Thumbnail LEFT Alignment */--&gt;'}" ></p>
+                     		<th:block th:text="#{'&lt;bst:file-thumbnail data-img-align=\'left\' data-img-width=\'w-50\' /&gt;'}" /><br/><br/>
+                     		<p class="text-success" th:text="#{'&lt;!--/* File Thumbnail CENTER Alignment */--&gt;'}" ></p>
+                     		<th:block th:text="#{'&lt;bst:file-thumbnail data-img-align=\'center\' data-img-width=\'w-50\' /&gt;'}" /><br/><br/>
+                     		<p class="text-success" th:text="#{'&lt;!--/* File Thumbnail RIGHT Alignment */--&gt;'}" ></p>
+                     		<th:block th:text="#{'&lt;bst:file-thumbnail data-img-align=\'right\' data-img-width=\'w-50\' /&gt;'}" />
+                  		</div>
+               		</div>
+            	</div>
+            	<div class="card">
+               		<div class="card-header" role="tab" id="headingTwo">
+                  		<h5 class="mb-0">
+                     		<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse2" 
+	                     		aria-expanded="false" aria-controls="collapseTwo"> Definition and Usage </a>
+                  		</h5>
+    				</div>
+               		<div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  		<div class="card-body">
+                    		<p>The <th:block th:text="#{'&lt;bst:file-thumbnail&gt;'}" /> tag defines an image from document management in an HTML page.</p>
+                     		<p>The <th:block th:text="#{'&lt;bst:file-thumbnail&gt;'}" /> has a required attribute: placeholder or th:placeholder using Thymeleaf command.</p>
+                  		</div>
+               		</div>
+            	</div>
+            	<div class="card">
+               		<div class="card-header" role="tab" id="headingThree">
+                  		<h5 class="mb-0">
+                    		<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse3"
+                        		aria-expanded="false" aria-controls="collapseThree"> Attributes </a>
+                  		</h5>
+               		</div>
+               		<div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                  		<div class="card-body">
+                     		<bst:table-light style="font-size: 12px;">
+                        		<thead>
+		                        	<tr>
+		                            	<th>Attribute</th>
+		                              	<th>Value</th>
+		                              	<th>Description</th>
+		                           	</tr>
+		                        </thead>
+		                        <tbody>
+									<tr>
+		                            	<td>placeholder</td>
+		                              	<td>#docMgtId</td>
+		                              	<td>Specifies the docMgtId generated in DM Service</td>
+		                           	</tr>
+								</tbody>
+							</bst:table-light>
+                  		</div>
+               		</div>
+				</div>
+			</div>
+			<!--/* [END] DOCUMENTATION FOR bst:file-thumbnail  */-->
+		</bst:widget-body>
+	</bst:widget>
+	<bst:widget>
+		<bst:widget-header>
+        	<h4 th:text="#{'&lt;bst:file-thumbnail-view&gt; Tag'}" />
+      	</bst:widget-header>
+      	<bst:widget-body th:classappend="mb-10">
+        	<div class="row">
+            	<div class="col-md-4">
+               		<label>LEFT</label>
+               		<bst:file-thumbnail-view data-img-align="left" data-img-width="w-50" />
+            	</div>
+            	<div class="col-md-4">
+               		<div class="text-center"><label>CENTER</label></div>
+               		<bst:file-thumbnail-view data-img-align="center" data-img-width="w-50" />
+            	</div>
+            	<div class="col-md-4">
+               		<div class="text-right"><label>RIGHT</label></div>
+               		<bst:file-thumbnail-view data-img-align="right" data-img-width="w-50" />
+            	</div>
+         	</div>
+         	<br/>
+         	<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+            	<div class="card">
+               		<div class="card-header" role="tab" id="headingFour">
+                  		<h5 class="mb-0">
+                     		<a data-toggle="collapse" data-parent="#accordion4" href="#collapse4" aria-expanded="true"
+                        		aria-controls="collapseFour"> Example</a>
+                  		</h5>
+               		</div>
+               		<div id="collapse4" class="collapse show" role="tabpanel" aria-labelledby="headingFour">
+                  		<div class="card-body">
+                     		<p class="text-success" th:text="#{'&lt;!--/* File Thumbnail LEFT Alignment */--&gt;'}" ></p>
+                     		<th:block th:text="#{'&lt;bst:file-thumbnail-view data-img-align=\'left\' data-img-width=\'w-50\' /&gt;'}" /><br/><br/>
+                     		<p class="text-success" th:text="#{'&lt;!--/* File Thumbnail CENTER Alignment */--&gt;'}" ></p>
+                     		<th:block th:text="#{'&lt;bst:file-thumbnail-view data-img-align=\'center\' data-img-width=\'w-50\' /&gt;'}" /><br/><br/>
+                     		<p class="text-success" th:text="#{'&lt;!--/* File Thumbnail RIGHT Alignment */--&gt;'}" ></p>
+                     		<th:block th:text="#{'&lt;bst:file-thumbnail-view data-img-align=\'right\' data-img-width=\'w-50\' /&gt;'}" />
+                  		</div>
+               		</div>
+            	</div>
+            	<div class="card">
+               		<div class="card-header" role="tab" id="headingFive">
+                  		<h5 class="mb-0">
+                     		<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse5"
+                        		aria-expanded="false" aria-controls="collapseFive"> Definition and Usage </a>
+                  		</h5>
+               		</div>
+               		<div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                  		<div class="card-body">
+                     		<p>The <th:block th:text="#{'&lt;bst:file-thumbnail-view&gt;'}" /> tag defines an image from document management in an HTML page.</p>
+                     		<p>The <th:block th:text="#{'&lt;bst:file-thumbnail-view&gt;'}" /> has a required attribute: placeholder or th:placeholder using Thymeleaf command.</p>
+                  		</div>
+               		</div>
+            	</div>
+            	<div class="card">
+               		<div class="card-header" role="tab" id="headingSix">
+                  		<h5 class="mb-0">
+                     		<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse6"
+                        		aria-expanded="false" aria-controls="collapseSix"> Attributes </a>
+                  		</h5>
+               		</div>
+               		<div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                  		<div class="card-body">
+                     		<bst:table-light style="font-size: 12px;">
+                        		<thead>
+                           			<tr>
+                              			<th>Attribute</th>
+                              			<th>Value</th>
+                              			<th>Description</th>
+                           			</tr>
+                        		</thead>
+                        		<tbody>
+                           			<tr>
+                              			<td>placeholder</td>
+                              			<td>#docMgtId</td>
+                              			<td>Specifies the docMgtId generated in DM Service</td>
+                           			</tr>
+                        		</tbody>
+                     		</bst:table-light>
+                  		</div>
+               		</div>
+            	</div>
+			</div>
+		</bst:widget-body>
+   	</bst:widget>
+   	<bst:widget>
+		<bst:widget-header>
+         	<h4 th:text="#{'&lt;bst:file&gt; Tag'}" />
+      	</bst:widget-header>
+      	<bst:widget-body>
+         	<div class="row">
+				<div class="col-md-12">
+               		<label>bst:file</label> 
+               		<input type="hidden" id="fileUploads[4].docId" value="1" /> 
+               		<input type="hidden" id="fileUploads[4].docMgtId" value="" />
+               		<bst:file th:data="true" data-updm-projId="dvm"
+                  		th:attr="data-updm-maxSize=500000,
+                        		data-updm-minheight=0,
+                           		data-updm-maxheight=0,
+                           		data-updm-minwidth=0,
+                           		data-updm-maxwidth=0,
+                           		data-dimension-compulsary=false"
+                  		th:field="*{fileUploads[4].file}"
+                  		accept="application/pdf,image/png" />
+            	</div>
+         	</div>
+         	<br/>
+         	<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+            	<div class="card">
+               		<div class="card-header" role="tab" id="headingSeven">
+                  		<h5 class="mb-0">
+                     		<a data-toggle="collapse" data-parent="#accordion7" href="#collapse7" 
+                     			aria-expanded="true" aria-controls="collapseSeven"> Example</a>
+                  		</h5>
+               		</div>
+               		<div id="collapse7" class="collapse show" role="tabpanel" aria-labelledby="headingSeven">
+	                  	<div class="card-body">
+	                    	<p class="text-success" th:text="#{'&lt;!--/* File thumbnail basic */--&gt;'}" ></p>
+	                     	<th:block th:text="#{'&lt;bst:file /&gt;'}" /><br/><br/>
+	                  	</div>
+	               	</div>
+	            </div>
+	            <div class="card">
+	            	<div class="card-header" role="tab" id="headingEight">
+	                	<h5 class="mb-0">
+	                    	<a class="collapsed" data-toggle="collapse" data-parent="#accordion8" href="#collapse8"
+	                        	aria-expanded="false" aria-controls="collapseEight"> Definition and Usage </a>
+	                  	</h5>
+	               	</div>
+	               	<div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+	                  	<div class="card-body">
+	                    	<p>The <th:block th:text="#{'&lt;bst:file&gt;'}" /> tag defines an image from document management in an HTML page.</p>
+	                     	<p>The <th:block th:text="#{'&lt;bst:file&gt;'}" /> has a required attribute: data or th:data using Thymeleaf command.</p>
+	                  	</div>
+	               	</div>
+				</div>
+	            <div class="card">
+	            	<div class="card-header" role="tab" id="headingNine">
+	                	<h5 class="mb-0">
+	                    	<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse9"
+	                        	aria-expanded="false" aria-controls="collapseNine"> Attributes </a>
+	                  	</h5>
+	               	</div>
+	               	<div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="headingNine">
+	                  	<div class="card-body">
+	                    	<bst:table-light style="font-size: 12px;">
+	                        	<thead>
+	                           		<tr>
+	                              		<th>Attribute</th>
+	                              		<th>Value</th>
+	                              		<th>Description</th>
+	                           		</tr>
+	                        	</thead>
+	                        	<tbody>
+	                           		<tr>
+	                              		<td>data</td> 
+	                              		<td>#docMgtId</td>
+	                              		<td>Specifies the docMgtId generated in DM Service</td>
+	                           		</tr>
+	                        	</tbody>
+	                     	</bst:table-light>
+	                  	</div>
+	               	</div>
+				</div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+</bst:form>

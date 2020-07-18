@@ -1,0 +1,35 @@
+<div id="announce-popup" class="modal fade" role="dialog" style="top: 15%;">
+	<div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header info announcement">              
+            	<h2 class="modal-title">
+            		<th:block th:utext="${@staticData.beConfig('DOWNTIME_POPUP_TITLE')}" />
+            	</h2>  
+                <button type="button" class="close" data-dismiss="modal" >
+					<span aria-hidden="true">&times;</span>
+               		<span class="sr-only" th:text="#{btn.lbl.clse}"></span>
+				</button>
+            </div>
+			<div class="modal-body">
+				<th:block th:utext="${@staticData.beConfig('DOWNTIME_POPUP_CONTENT')}" />
+	        </div>
+	        <div class="modal-footer" th:if="${initScript == null}">&nbsp;</div>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript" type="text/javascript">
+		var notifyBefore = 1; 
+		//alert('ok');
+		function loadSession() {			
+			var yes = 0;
+			//alert('ok1');
+			setTimeout(function() {
+				$(function() {
+					$('#announce-popup').modal('show');
+				});
+			}, 250);
+		};
+		
+		loadSession();
+	</script>

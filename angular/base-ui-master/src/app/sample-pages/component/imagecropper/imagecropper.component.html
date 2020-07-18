@@ -1,0 +1,35 @@
+<div>
+  <h2>Crop Image</h2>
+  <input type="file" (change)="fileChangeEvent($event)"/>
+  <div class="row center" *ngIf="croppedImage">
+      <div class="col-12">
+          <img [src]="croppedImage"/><br/>
+      </div>
+  </div>
+</div>
+
+<ng-template #cropper let-modal>
+  <ui-modal [title]="'Crop Image'" [modal]="modal">
+      <div class="row">
+        <div class="col-12">
+          <image-cropper
+              [init]="{}"
+              [imageChangedEvent]="imageChangedEvent"
+              (imageCropped)="imageCropped($event)"
+              (imageLoaded)="imageLoaded()"
+              (cropperReady)="cropperReady()"
+              (loadImageFailed)="loadImageFailed()"
+          ></image-cropper>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+          <div class="pull-right">
+              <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel"></ui-button>
+              <ui-button buttonType="success" icon="fa fa-check" type="submit " text="Apply" (click)="crop()">
+                </ui-button>
+          </div>
+        </div>
+    </div>
+  </ui-modal>
+</ng-template>

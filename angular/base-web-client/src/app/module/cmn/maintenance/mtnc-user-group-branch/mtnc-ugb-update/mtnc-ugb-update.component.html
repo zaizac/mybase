@@ -1,0 +1,103 @@
+<ui-card>
+  <form [formGroup]="mtncUGBForm" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Type</label>
+        <ui-select label="User Type" [init]="selUserTypeCodeInit" formatToUpperCase formControlName="userTypeCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Group Code</label>
+        <ui-text label="User Group Code" formControlName="userGroupCode" formatToUpperCase [reset]="reset" [submitted]="submitted">
+        </ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Branch Code</label> 
+        <ui-text formControlName="branchCode" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Branch Name</label> 
+        <ui-text formControlName="branchName" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Branch Department</label> 
+        <ui-text formControlName="branchDept" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Address 1</label>
+        <ui-text formControlName="addr1" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Address 2</label>
+        <ui-text formControlName="addr2" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Address 3</label>
+        <ui-text formControlName="addr3" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Address 4</label>
+        <ui-text formControlName="addr4" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Address 5</label>
+        <ui-text formControlName="addr5" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">City Code</label>
+        <ui-select label="City Code" [init]="selCityCdInit" formControlName="cityCd" [reset]="reset" [submitted]="submitted"></ui-select> 
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">State Code</label>
+        <ui-select label="State Code" [init]="selStateCdInit" formControlName="stateCd" [reset]="reset" [submitted]="submitted"></ui-select> 
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Country Code</label>
+        <ui-select label="Country Code" [init]="selCntryCdInit" formControlName="cntryCd" [reset]="reset" [submitted]="submitted"></ui-select> 
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Zip Code</label> 
+        <ui-text formControlName="zipcode" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Email</label> 
+        <ui-email formControlName="email" autocomplete="off" placeholder="" [reset]="reset" [submitted]="submitted"></ui-email>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Fax No</label> 
+        <ui-text formControlName="faxNo" autocomplete="off" placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Contact No</label> 
+        <ui-mobile formControlName="contactNo" autocomplete="off" [reset]="reset" [submitted]="submitted" selectedCountryISO=""></ui-mobile>
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-4">
+        <label>Status</label> 
+        <div class="col-md-6">
+          <label class="md-check">
+            <input type="radio" name="status"  formControlName="status" [value]="true">
+            <span> true </span>
+          </label>
+          <label class="md-check">
+            <input type="radio" name="status" formControlName="status" [value]="false">
+            <span> false </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- Create Buttons -->
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" i18n-text="@@Button-Cancel"
+            routerLink="/maintenance/userGroupBranch"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset"
+            (click)="onReset()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" text="Update" i18n-text="@@Button-Update"
+            type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>

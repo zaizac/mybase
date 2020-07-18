@@ -1,0 +1,59 @@
+<ui-card>
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="pull-right">
+        <ui-button buttonType="success" icon="fa fa-plus-circle" text="New User Group" i18n-text="@@Button-NewUserGroup"
+          routerLink="/maintenance/userGroup/create">
+        </ui-button>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="userGroupFrom" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- User Group Code -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Group Code</label>
+        <ui-text formControlName="userGroupCode" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+
+      <!-- User Group Description -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Group Description</label>
+        <ui-text formControlName="userGroupDesc" formatToUpperCase maxlength="255" label="Type" [reset]="reset" [submitted]="submitted">
+        </ui-text>
+      </div>
+
+      <!-- User Group Description -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Type Code</label>
+        <ui-select label="User Type Code" [init]="selUserTypeCodeInit" formControlName="userTypeCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset"
+            (click)="onReset()">
+          </ui-button>
+          <ui-button buttonType="primary" icon="fa fa-search" text="Search" i18n-text="@@Button-Search" type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>
+<ui-card>
+  <div class="row mb-2">
+    <div class="col-12">
+      <ui-datatable *ngIf="uGroupList" (editRecord)="rowSelected($event)" [dataValues]="uGroupList" [tableInit]="noDataConfig">
+          <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+              <ui-button [text]="'Delete'" (click)="delete(item.row)"></ui-button>
+            </ng-template>
+      </ui-datatable>
+    </div>
+  </div>
+  <ul>
+  </ul>
+</ui-card>

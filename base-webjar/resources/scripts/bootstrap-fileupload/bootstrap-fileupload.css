@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.fileupload .img-thumbnail,.fileupload .thumbnail{display:inline-block;overflow:hidden;text-align:center;vertical-align:middle}
+.btn-file{position:relative;overflow:hidden;vertical-align:middle}
+.btn-file>input{position:absolute;top:0;right:0;margin:0;font-size:23px;cursor:pointer;opacity:0;filter:alpha(opacity=0);transform:translate(-300px,0) scale(4);direction:ltr}
+.btn-file>input[disabled]{cursor: not-allowed;}
+.btn-file+.fileupload-preview{padding:0 10px;vertical-align:middle;height:40px}
+.fileupload .form-control{height:35px;display:inline-block;box-shadow:none}
+.fileupload .form-control[disabled]{background-color: #e9ecef;}
+.fileupload .uneditable-input{display:inline-block;margin-bottom:0;vertical-align:middle;cursor:text}
+.fileupload .thumbnail{margin-bottom:5px;position:inherit}
+.fileupload .thumbnail img{max-height:100%;max-width:100%}
+/* .fileupload .img-thumbnail{margin-bottom:10px;border:0;border-radius:0;padding:0} */
+.fileupload .img-thumbnail img{margin-left:auto;margin-right:auto;max-height:100%}
+.fileupload .btn{vertical-align:middle;height:35px!important;border:1px solid #ced4da}
+.fileupload-exists .fileupload-new,.fileupload-new .fileupload-exists{display:none!important;height:40px!important;padding:10px!important}
+.fileupload-inline .fileupload-controls{display:inline}
+.fileupload-new .input-append .btn-file{border-radius:0 3px 3px 0}
+.fileupload-new .input-group-append .btn-file {border-top-right-radius: 10px !important;border-bottom-right-radius: 10px !important;}
+.fileupload-new .thumbnail-borderless .img-thumbnail{border:1px solid #ddd}
+.fileupload .form-input{padding:10px;margin-bottom:0;cursor:text}
+.fileupload .form-input,.fileupload-preview{display:inline-block;overflow:hidden;vertical-align:middle}
+.fileupload .fileupload-preview+.close{vertical-align:middle}
+.fileupload-preview {position:absol100%!important;:100%!important}
+.fileupload-preview .thumbnail{display:block;overflow:hidden;vertical-align:middle;position:inherit}
+.fileupload-ellipsis {text-overflow: ellipsis !important;overflow: hidden;white-space: nowrap;}
+.fileupload-ellipsis i,.fileupload-ellipsis span {margin: 0.5rem 0 0 0.3rem;vertical-align:middle;}
+.thumbnail-borderless .img-thumbnail{padding:0;border:none;border-radius:0;box-shadow:none}
+.control-group.warning .fileupload .uneditable-input{color:#a47e3c;border-color:#a47e3c}
+.control-group.warning .fileupload .fileupload-preview{color:#a47e3c}
+.control-group.warning .fileupload .img-thumbnail{border-color:#a47e3c}
+.control-group.error .fileupload .uneditable-input{color:#b94a48;border-color:#b94a48}
+.control-group.error .fileupload .fileupload-preview{color:#b94a48}
+.control-group.error .fileupload .img-thumbnail{border-color:#b94a48}
+.control-group.success .fileupload .uneditable-input{color:#468847;border-color:#468847}
+.control-group.success .fileupload .fileupload-preview{color:#468847}
+.control-group.success .fileupload .img-thumbnail{border-color:#468847}

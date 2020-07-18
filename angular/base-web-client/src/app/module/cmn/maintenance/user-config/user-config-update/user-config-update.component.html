@@ -1,0 +1,36 @@
+<ui-card>
+    <ui-title>
+        User Configuration
+      <h6 class="text-muted m-t-0">Update User Configurationp</h6>
+    </ui-title>
+    <form [formGroup]="userConfigFrom" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <label class="required">Configuration Code</label>
+          <ui-text formControlName="userCfgCode" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+            [submitted]="submitted"></ui-text>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <label class="required">Configuration Description</label>
+          <ui-text formControlName="userCfgDesc" formatToUpperCase maxlength="255" label="Type" [reset]="reset" [submitted]="submitted">
+          </ui-text>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <label class="required">Configuration Value</label>
+            <ui-text formControlName="userCfgVal" maxlength="255" label="Type" [reset]="reset" [submitted]="submitted">
+            </ui-text>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="pull-right">
+            <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="cancel()"></ui-button>
+            <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}">
+            </ui-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ui-card>

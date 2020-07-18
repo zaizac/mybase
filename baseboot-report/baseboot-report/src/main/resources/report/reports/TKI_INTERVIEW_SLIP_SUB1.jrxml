@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="INTERVIEW_SLIP_SUB1" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryWithPageHeaderAndFooter="true" uuid="477dea89-7a20-4a4f-97e3-c53fbf0a44b8">
+	<property name="ireport.zoom" value="1.0245201830476074"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="82"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String"/>
+	<parameter name="quotaRefNo" class="java.lang.String"/>
+	<parameter name="compRegNo" class="java.lang.String"/>
+	<parameter name="compName" class="java.lang.String"/>
+	<parameter name="sector" class="java.lang.String"/>
+	<parameter name="subSector" class="java.lang.String"/>
+	<parameter name="jobCategory" class="java.lang.String"/>
+	<parameter name="country" class="java.lang.String"/>
+	<parameter name="appliedDate" class="java.lang.String"/>
+	<parameter name="appliedBy" class="java.lang.String"/>
+	<parameter name="noOfQuotaapplied" class="java.lang.String"/>
+	<parameter name="intDate" class="java.lang.String"/>
+	<parameter name="intTime" class="java.lang.String"/>
+	<parameter name="venue" class="java.lang.String"/>
+	<parameter name="TEST_LOCALE" class="java.lang.String"/>
+	<parameter name="RMRKS" class="java.lang.String"/>
+	<parameter name="INT_RMRKS" class="java.lang.String"/>
+	<parameter name="SGN_STMP" class="java.lang.String"/>
+	<parameter name="GEN_BY" class="java.lang.String"/>
+	<parameter name="TIME" class="java.lang.String"/>
+	<parameter name="DATE" class="java.lang.String"/>
+	<parameter name="SECT_AGENCY" class="java.lang.String"/>
+	<parameter name="RPT_TITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["INTERVIEW SLIP"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_SUBTITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["SLIP TEMUDUGA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="REPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_LOGO" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\workspace_portal-master\\portal\\src\\main\\webapp\\report\\pmg\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="GENERATED_BY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_MY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_GOV" class="java.lang.String"/>
+	<parameter name="docs1" class="java.lang.String"/>
+	<parameter name="Title" class="java.lang.String"/>
+	<parameter name="GENERATE_DATE" class="java.lang.String"/>
+	<parameter name="GENERATE_TIME" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="docsEn" class="java.lang.String"/>
+	<field name="docsMy" class="java.lang.String"/>
+	<columnHeader>
+		<band height="443">
+			<staticText>
+				<reportElement x="503" y="13" width="31" height="15" uuid="465c7a28-958d-494b-9174-39f53d219631"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="51" width="31" height="15" uuid="ae6e9525-80f2-4a88-bc72-28cf28140a3f"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="89" width="31" height="15" uuid="d8e0b31f-de5d-4b45-9a15-b8b5c365a8c6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="127" width="31" height="15" uuid="574e5c8f-bf72-4080-b702-88d72ca00c6d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="165" width="31" height="15" uuid="2623ce7e-5d69-4e4c-9e94-a6beee79f3e3"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="328" width="216" height="20" uuid="b0cf2177-78f0-48d7-aa0d-a54379bc9490"/>
+				<text><![CDATA[Name         :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="294" y="257" width="240" height="144" uuid="4d0459fc-2a2a-4160-9b81-460c25b58370"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="348" width="217" height="20" uuid="11091801-b4fb-4003-9276-600b8d0f9991"/>
+				<text><![CDATA[Designation:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="305" y="318" width="216" height="1" uuid="b982c85b-80b5-434c-b105-89829d914762"/>
+			</line>
+			<textField>
+				<reportElement x="65" y="260" width="217" height="48" uuid="7a806ed0-91f3-4807-abee-1cbeb0e747d5"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["<style size='10' >Interviewer By</style> / <style size='8' isItalic=\"true\">Wawancara Oleh</style> "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="65" y="368" width="217" height="20" uuid="2c9f0fcc-4555-4f30-80b0-bc3e39abebc0"/>
+				<text><![CDATA[Stamp        :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="328" width="217" height="20" uuid="90d261b6-46d1-4f5f-806a-7d3a7f2ff109"/>
+				<text><![CDATA[Name         :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="305" y="260" width="216" height="48" uuid="4a93eb01-085c-48e7-93f2-4cc7dfdde49c"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["<style size='10' >Interviewer Lead</style> / <style size='8' isItalic=\"true\">Ketua Wawancara</style> "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="54" y="257" width="240" height="144" uuid="8653a5e5-3678-46b1-9ed4-98acf09344ed"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="368" width="216" height="20" uuid="c3417d7d-0281-4bbe-8bfc-5924d645872d"/>
+				<text><![CDATA[Stamp        :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="66" y="318" width="216" height="1" uuid="a2859847-a9a4-4468-aad1-4335812a89df"/>
+			</line>
+			<staticText>
+				<reportElement x="305" y="348" width="216" height="20" uuid="29ac45fe-c79a-4dd2-8776-52a4864251c7"/>
+				<text><![CDATA[Designation:]]></text>
+			</staticText>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="32" y="13" width="446" height="23" isRemoveLineWhenBlank="true" uuid="a870c8bc-e501-4d13-993c-10ca32e196da"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >1. TKI National ID</style> / <style size='8' isItalic=\"true\">ID National TKI</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="32" y="89" width="446" height="23" isRemoveLineWhenBlank="true" uuid="07b0f29b-d856-4f2d-acd4-e048ef53479a"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >3. Education Slip</style> / <style size='8' isItalic=\"true\">Slip Pendidikan</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="32" y="127" width="446" height="23" isRemoveLineWhenBlank="true" uuid="ed42e5b7-2277-41fc-b2c1-364dbea925d8"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >4. Previous Job Agreement</style> / <style size='8' isItalic=\"true\">Surat Perjanjian Pekerjaan Terdahulu</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="32" y="165" width="446" height="23" isRemoveLineWhenBlank="true" uuid="ce7fa699-28ec-43db-9a44-dc0e47d182cd"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >5. 2 Copy of Passport and Body Size Photo</style> / <style size='8' isItalic=\"true\">2 Fotokopi Paspor Ukuran dan Ukuran Tubuh</style> "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="32" y="51" width="446" height="23" isRemoveLineWhenBlank="true" uuid="11c694ae-ecd8-4c0b-9737-99b50cc84688"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >2. TKI Passport</style> / <style size='8' isItalic=\"true\">Paspor TKI</style> "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="503" y="203" width="31" height="15" uuid="bafcea4e-4c15-4ffd-bd7f-24a1fa0cc977"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="32" y="203" width="446" height="23" isRemoveLineWhenBlank="true" uuid="44ccc301-37f5-474c-b540-40715262922a"/>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph leftIndent="35"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='10' >6. Married Certificate</style> / <style size='8' isItalic=\"true\">Sertifikat menikah</style> "]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+</jasperReport>

@@ -1,0 +1,164 @@
+<!--/* BEGIN CORE JS FRAMEWORK */-->
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/jquery/jquery.min.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/popper.js/umd/popper.min.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/bootstrap/js/bootstrap.min.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/bootbox/bootbox.js'}" />
+<!--/* END CORE JS FRAMEWORK */-->
+
+
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/lightbox2/src/js/lightbox.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/jquery.intl-tel/js/intlTelInput.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/select2/dist/js/select2.min.js'}"/>
+
+
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/bootstrap-daterangepicker/moment.min.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/bootstrap-daterangepicker/js/daterangepicker.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/bootstrap-timepicker/js/bootstrap-timepicker.min.js'}" />
+
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/scripts/external.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/front.js'}" />
+ 
+<!--/* File Upload */-->
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/jquery.lazy-master/jquery.lazy.min.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/jquery.lazy-master/jquery.lazy.plugins.min.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/bootstrap-fileupload/bootstrap-fileupload.js'}"/>
+
+<!--/* DataTables */-->
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/datatables/js/jquery.dataTables.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/fnStandingRedraw.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/fnSetFilteringEnterPress.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/dataTables.buttons.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/buttons.flash.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/jszip.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/pdfmake.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/vfs_fonts.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/buttons.html5.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/buttons.print.min.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/fnSetExcelFormat.js'}"/>
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/buttons.colVis.min.js'}"/>
+<script  src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/datatables-plugins/api/datatable-core-plugin.js'}"/>
+
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/external.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/external-captcha.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/external-otp.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/external-session.js'}" />
+<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/webjars/chamaeleo-webjar/scripts/default.js'}" />
+<div id="overlay_message" class="overlay-message">
+    <div class="overlay_text">
+        <img th:src="@{/webjars/chamaeleo-webjar/images/loading.gif}" />
+    </div>
+</div>
+
+<!--/* SECURITY ALERT OVERLAY */-->
+<div id="sidebar-btn" class="sidebar-btn sidebar-right">
+	<span class="sidebar-text" th:text="#{lbl.alert.menu}" />
+</div>
+<div id="sidebar" class="sidebar">
+	<div class="sidebox">
+		<h5 class="mb-3"><strong th:text="#{lbl.alert.title}" /></h5>
+		<ul>
+			<li th:text="#{lbl.alert.content.1}" />
+			<li th:text="#{lbl.alert.content.2}" />
+			<li th:text="#{lbl.alert.content.3}" />
+			<li th:text="#{lbl.alert.content.4}" />		
+		</ul>
+		<div align="center" style="color:#dc3545;">
+			<strong th:text="#{lbl.alert.spills}" />
+		</div>
+	</div>
+</div>
+
+<script th:inline="javascript" type="text/javascript">
+   	var contextPath = [[${#httpServletRequest.getContextPath()}]];
+   	var certExpryDtDur = 90; 
+   	var certDate = new Date();
+	certDate.setDate(certDate.getDate() + 90);
+	certDate = new Date(certDate);
+	var dshbrd = {
+				1 : [[#{dshbrd.lnk.1}]],
+				2 : [[#{dshbrd.lnk.2}]],
+				3 : [[#{dshbrd.lnk.3}]],
+				4 : [[#{dshbrd.lnk.4}]],
+				5 : [[#{dshbrd.lnk.5}]],
+				6 : [[#{dshbrd.lnk.6}]],
+				7 : [[#{dshbrd.lnk.7}]]
+				}
+   	var prop = {
+   				selOptDef: '<option value="">'+[[#{lbl.cmn.sel.pls}]]+'</option>',
+   				errNoRecFnd: [[#{msg.err.rec.no.fnd}]],
+   				confAsg: [[#{msg.conf.wrkr.asg}]],
+  				confActSlip: [[#{msg.inf.acct.deact}]],
+  				confRejWrkr: [[#{msg.inf.rej.wrkr}]],
+  				confUsrDeac: [[#{msg.inf.usr.deact}]],
+  				confRefresh: [[#{msg.conf.rfrsh}]],
+  				confEmail: [[#{msg.inf.snd.mail}]],
+  				confRstPword: [[#{msg.inf.conf.rst.pword}]],
+  				succActSlip: [[#{msg.suc.acct.deact}]],
+  				succRejWrkr: [[#{msg.suc.rej.wrkr}]],
+  				succVerOTP: [[#{msg.suc.ver.otp}]],
+  				succEmail: [[#{msg.suc.snd.mail}]],
+  				errActSlip: [[#{msg.err.acct.deact}]],
+  				errRejWrkr: [[#{msg.err.rej.wrkr}]],
+  				errEmail: [[#{msg.err.snd.mail}]],
+  				errEmailReq: [[#{msg.err.applcnt.eml}]],
+  				errEmailFmt: [[#{msg.err.fmt.email}]],
+  				lblMC: [[#{lbl.mc}]],
+  				lblRaId: [[#{lbl.id.agnt}]],
+  				lblMcId: [[#{lbl.mc.id}]],
+  				lblRegFrm: [[#{lbl.wrkr.reg.frm}]],
+  				lblAsgSlip: [[#{lbl.wrkr.asg.slp}]],
+  				invDay: [[#{msg.err.inv.day}]],
+  				invMonth: [[#{msg.err.inv.mon}]],
+  				invYear: [[#{msg.err.inv.yr}]],
+  				invFmtDt: [[#{msg.err.inv.dt}]],
+  				invEmpDt: [[#{msg.err.empty.dt}]],
+  				btnYes: [[#{btn.lbl.yes}]],
+  				btnNo: [[#{btn.lbl.no}]],
+  				btnContinue: [[#{btn.cmn.con}]],
+  				btnLogout: [[#{btn.logout}]],
+  				sessionTitle: [[#{lbl.ttl.sess.inv}]],
+  				sessionContent: [[#{msg.err.sess.inv}]],
+  				otpTitle: [[#{lbl.otp.title}]],
+  				otpSendTo: [[#{lbl.otp.send.to}]],
+				otpExpInfo: [[#{lbl.otp.expiry}]],  				
+  				otpTacGen: [[#{lbl.otp.req.tac}]],
+  				otpTacVld: [[#{lbl.otp.vld.tac}]],
+  				otpErrGen: [[#{lbl.otp.snd.to}]],
+  				dtbShowingPage : [[#{lbl.dtb.sho.pge}]],
+  				dtbOf : [[#{lbl.dtb.of}]],
+  				dtbNoRcAv : [[#{lbl.no.rcrds}]],
+  				dtbNext : [[#{btn.cmn.nxt}]],
+  				dtbPrevious : [[#{btn.cmn.pre}]],
+  				termsaAndCon : [[#{lbl.signup.content.2}]]
+  			};
+   	
+    jQuery(document).ready(function() {
+    	$('[data-toggle="popover"]').popover();
+		var msg = [[${mainMessage}]];
+    	var initScrpt = [[${initScript}]];
+    	if(msg != null) {
+        	 setTimeout(function(){
+                 $('#message_modal').modal('show');
+             }, 50);
+    	}
+		setTimeout(function(){
+	    	if(initScrpt == 'rptDialog') {
+	    		$('#popup_modal').modal('show');
+	    	}
+        }, 50);
+		
+		<!--/* SESSION TIMEOUT */-->
+		/* loadSession([[${#httpSession.maxInactiveInterval}]]); */
+	});
+</script>
+<!--/* END CORE TEMPLATE JS */-->
+
+<!--/* INLINE SCRIPT PER PAGE */-->
+<th:block th:if="${portalScript != null}">
+	<th:block th:include="${'page/others/script/'+portalScript}" />
+</th:block>
+
+<!--/* PAGE SPECIFIC JS FILE */-->
+<th:block th:if="${portalScriptJs != null}">
+	<script src="#" type="application/javascript" th:src="${@webHelper.baseUrl()}+@{'/scripts/'+${portalScriptJs}+'.js'}" />
+</th:block>

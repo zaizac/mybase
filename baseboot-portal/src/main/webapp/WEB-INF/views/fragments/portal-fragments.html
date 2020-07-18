@@ -1,0 +1,60 @@
+<div th:fragment="footer">
+  &copy; 2013 Footer
+</div>
+<div th:fragment="footer-admin">
+  &copy; 2013 Admin Footer
+</div>
+
+<th:block th:fragment="portal-type">
+	<th:block th:with="portalType=#{app.portal.type}, portalLabel=#{'app.portal.' + ${portalType}}" >
+		<h4 th:text="${#strings.toUpperCase(portalLabel)}" />
+	</th:block>
+</th:block>
+
+<th:block th:fragment="lang-select">
+	<li><a href="javascript:langSelect('en')"><th:block th:text="#{lbl.lang.en}" /></a></li>
+	<li><a href="javascript:langSelect('my')"><th:block th:text="#{lbl.lang.my}" /></a></li>
+</th:block>
+
+<th:block th:fragment="page-title">
+	<div class="page-title"> 
+  		<a th:onclick="'javascript:redirectURL(\'' + #{url.home} + '\');'"><i class="icon-custom-left tip btn-social" style="margin-bottom: 0px; margin-top: 0px; margin-left: 0px;"></i></a>
+		<h3 th:text="${ptContent}"></h3>
+	</div>
+</th:block>
+
+<th:block th:fragment="page-job-dtl">
+	<div class="page-title"> 
+  		<a th:onclick="'javascript:redirectURL(\'' + #{url.main} + '\');'"><i class="icon-custom-left tip btn-social" style="margin-bottom: 0px; margin-top: 0px; margin-left: 0px;"></i></a>
+		<h3 th:text="${ptContent}"></h3>
+	</div>
+</th:block>
+
+<th:block th:fragment="config-btn">
+	<div class="form-group pull-right">
+		<bst:btn type="button" th:id="${btnCanId}" name="cancel" th:text="#{btn.cmn.can}" />
+	    <bst:btn th:id="${btnRstId}" th:type="button" name="reset" th:text="#{btn.cmn.rst}" />
+		<bst:btn-primary th:id="${btnUpdId}" disabled="disabled" th:type="submit" name="update" th:text="#{btn.cmn.upd}"/>
+	</div>
+</th:block>
+
+<th:block th:fragment="career-info">
+	<div class="col-12 col-sm-12 col-md-6 col-lg-7 col-xl-8 mt-5">
+		<div class="card login-card-dark">
+			<div class="header-title">
+				<h2><b th:text="#{lbl.main.content.1}"/></h2> 
+				<div class="header-subtitle">
+				<h6 th:text="#{lbl.main.content.2}"/>
+				</div>
+			</div>
+			<p />
+			<div class="header-title">
+				<h2><b th:text="#{lbl.main.content.3}"/></h2> 
+			</div>
+			<p />
+			<div class="register-link text-center">
+				<bst:btn-secondary type="button" th:onclick="'javascript:findOutMore(\'' + '/main/findOutMore' +'\');'" th:value="#{'Find out more'}" class="btn btn-tertiary btn-common m-1" th:text="#{lbl.find.more}" />
+			</div> 
+		</div>
+	</div>
+</th:block>

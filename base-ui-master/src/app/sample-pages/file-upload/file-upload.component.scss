@@ -1,0 +1,17 @@
+table {
+    border: 2px solid #00acc1;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 11px;
+    background-color: #00acc1;
+    color: #fff;
+  }
+
+td {
+    text-align: left;
+    padding: 8px;
+}

@@ -1,0 +1,51 @@
+@import '../plugin/datepicker/bs-datepicker';
+
+.datepicker {
+
+  .date-icon{
+    position: absolute;
+    left: 16px;
+    top: 32px;
+    background: #bdbdbd;
+    padding: 6px;
+    width: 37px;
+    height: 38px;
+    z-index: 0;
+    cursor: pointer;
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+  }
+
+  .date-input {
+    padding-left: 50px;
+  }
+}
+
+span.dateview {
+  pointer-events: none;
+}
+
+::ng-deep {
+  .input-group {
+    ui-text {
+      position: relative;
+      flex: 1 1 auto;
+      width: 1%;
+      margin-bottom: 0;
+    }
+
+    ui-text:not(:first-child) {
+      .form-group {
+        margin-bottom: 0;
+        .form-control {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+  }
+}

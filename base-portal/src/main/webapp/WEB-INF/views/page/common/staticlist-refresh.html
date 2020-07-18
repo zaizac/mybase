@@ -1,0 +1,57 @@
+<form th:action="@{static-list}" th:object="${srchTypeDto}" th:method="POST"  autocomplete="off" class="clearfix">
+	<bst:widget>
+		<bst:widget-header>
+			<h6 th:text="${'Lookup Table (Reference)'}" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-sm-12">
+					<input type="submit" th:value="#{btn.lbl.rfrsh.all}" class="btn btn-info"/>
+				</div>
+			</div>
+			<h3 class="text-muted" th:text="#{'Commons Static List'}" />
+			<hr/>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-4" style="padding:3px;" th:each="staticList : ${staticlistTypeList}">
+						<div class="col-sm-9"><th:block th:text="${#strings.toUpperCase(staticList.value)}"/></div>
+						<div class="col-sm-3"><a class="btn btn-info" style="color:#ffffff" th:href="@{/static-list/refresh(staticlistType=${staticList.code})}"  th:text="#{btn.lbl.rfrsh}"/></div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<h3 class="text-muted" th:text="#{'eQuota Static List'}" />
+			<hr/>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-4" style="padding:3px;" th:each="staticList : ${eqmStaticList}">
+						<div class="col-sm-9"><th:block th:text="${#strings.toUpperCase(staticList.value)}"/></div>
+						<div class="col-sm-3"><a class="btn btn-info" style="color:#ffffff" th:href="@{/static-list/refresh(staticlistType=${staticList.code})}"  th:text="#{btn.lbl.rfrsh}"/></div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<h3 class="text-muted" th:text="#{'FWCMS Static List'}" />
+			<hr/>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-4" style="padding:3px;" th:each="staticList : ${fwcmsStaticList}">
+						<div class="col-sm-9"><th:block th:text="${#strings.toUpperCase(staticList.value)}"/></div>
+						<div class="col-sm-3"><a class="btn btn-info" style="color:#ffffff" th:href="@{/static-list/refresh(staticlistType=${staticList.code})}"  th:text="#{btn.lbl.rfrsh}"/></div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<h3 class="text-muted" th:text="#{'IDM Static List'}" />
+			<hr/>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-4" style="padding:3px;" th:each="staticList : ${idmStaticList}">
+						<div class="col-sm-9"><th:block th:text="${#strings.toUpperCase(staticList.value)}"/></div>
+						<div class="col-sm-3"><a class="btn btn-info" style="color:#ffffff" th:href="@{/static-list/refresh(staticlistType=${staticList.code})}"  th:text="#{btn.lbl.rfrsh}"/></div>
+					</div>
+				</div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+</form>

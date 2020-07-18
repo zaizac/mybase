@@ -1,0 +1,164 @@
+<th:block th:with="isMissMand=${isMissingMandatory == null ? false : isMissingMandatory}, isNotPstv=${isNotPositive == null ? false : isNotPositive}">
+<!--/* SEARCH CRITERIA */-->
+<form th:action="@{#{'/bulk/case'}}" th:object="${uploadCaseForm}"
+	th:method="POST" class="form-no-horizontal-spacing"
+	enctype="multipart/form-data" id="uploadCaseForm">
+
+	<!--/* SEARCH RESULT */-->
+	<bst:widget>
+		<bst:widget-header>
+			<h4 class="font-widget" th:text="#{lbl.result.bulk.upd.file}" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-6">
+					<th:block th:each="refDoc, rowStat : ${docLst}">
+						<div class="form-wrap col-md-13">
+							<input type="hidden"
+								th:field="*{fileUploads[__${rowStat.index}__].docId}"
+								th:value="${refDoc.docId}" /> <label
+								th:text="${refDoc.docDesc}" /> (<a href="#" onclick="downloadSample()" th:text="#{lbl.result.bulk.smpl.file}"/>)
+							<bst:file
+								th:unless="*{fileUploads[__${rowStat.index}__]?.docMgtId} != null"
+								th:data="true"
+								th:attr="data-updm-maxSize=${refDoc.size},
+											data-updm-minheight=${refDoc.minHeight},
+											data-updm-maxheight=${refDoc.maxHeight},
+											data-updm-minwidth=${refDoc.minWidth},
+											data-updm-maxwidth=${refDoc.maxWidth},
+											data-dimension-compulsary=${refDoc.dimensionCompulsary}"
+								th:field="*{fileUploads[__${rowStat.index}__].file}"
+								th:accept="${refDoc.type}"
+								th:placeholder="*{fileUploads[__${rowStat.index}__]?.file?.filename}" />
+							<bst:error
+								th:if="${#fields.hasErrors('fileUploads[__${rowStat.index}__].file')}"
+								th:errors="*{fileUploads[__${rowStat.index}__].file}" />
+						</div>
+					</th:block>
+				</div>
+			</div>
+		</bst:widget-body>
+		<bst:widget-footer>
+			<div class="row">
+				<div class="col-12">
+					<bst:btn-group class="pull-right">
+						<bst:btn-primary id="create" name="create" title="upload"
+							class="m-1" th:text="#{btn.lbl.upld}" />
+					</bst:btn-group>
+					<div class="pull-right">
+						<bst:btn-secondary id="searchClear" name="reset" th:title="reset"
+							class="m-1" th:text="#{btn.lbl.rfrsh}" />
+					</div>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+
+	<bst:alert-danger th:if="${isMissMand and !isNotPstv}" th:text="#{lbl.result.bulk.miss.mand.field}" />
+	<bst:alert-danger th:if="${isNotPstv and !isMissMand}" th:text="#{lbl.result.bulk.test.not.pstv}" />
+	<bst:alert-danger th:if="${isNotPstv and isMissMand}" th:text="#{lbl.result.bulk.test.mandatory.not.pstv}" />
+	<bst:widget th:unless="${#lists.isEmpty(upldCaseRegList)}">
+		<bst:widget-header>
+			<h4 class="font-widget" th:text="#{lbl.case.bulk.list.ext}" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-12">
+					<bst:table-light id="tblUpldCaseReg" style="display: table">
+						<thead>
+							<tr>
+								<th th:text="#{lbl.app.no}" width="5%"/>
+								<th><label class="required" th:text="#{lbl.result.bulk.id.no}"  width="60%"/></th>
+								<th><label class="required" th:text="#{lbl.case.bulk.case.id}"  width="35%"/></th>
+							</tr>
+						</thead>
+						<tbody>
+							<th:block th:each="caseResult, iStat : ${upldCaseRegList}">
+								<tr th:attr="style='cursor: pointer;'">
+									<td th:text="${iStat.count}" />
+									<td th:text="${caseResult.identityNo}" />
+									<td th:text="${caseResult.caseId}" />
+								</tr>
+							</th:block>
+						</tbody>
+					</bst:table-light>
+				</div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+	
+	<bst:alert-info th:unless="${#lists.isEmpty(upldCaseNotRegList)}" th:text="#{lbl.case.bulk.case.pt.new}" />
+	<bst:widget th:unless="${#lists.isEmpty(upldCaseNotRegList)}">
+		<bst:widget-header>
+			<h4 class="font-widget" th:text="#{'Unregistered Patient'}" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-12">
+					<bst:table-light id="tblUpldCaseNotReg" style="display: table">
+						<thead>
+							<tr>
+								<th th:text="#{lbl.app.no}" width="5%"/>
+								<th><label class="required" th:text="#{lbl.result.bulk.id.no}"  width="60%"/></th>
+								<th><label class="required" th:text="#{lbl.case.bulk.case.id}"  width="35%"/></th>
+							</tr>
+						</thead>
+						<tbody>
+							<th:block th:each="caseResult, iStat : ${upldCaseNotRegList}">
+								<tr th:attr="style='cursor: pointer;'">
+									<td th:text="${iStat.count}" />
+									<td th:text="${caseResult.identityNo}" />
+									<td th:text="${caseResult.caseId}" />
+								</tr>
+							</th:block>
+						</tbody>
+					</bst:table-light>
+				</div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+	
+	<bst:widget th:unless="${#lists.isEmpty(upldCaseIdRegList)}">
+		<bst:widget-header>
+			<h4 class="font-widget" th:text="#{lbl.case.bulk.list.case.ext}" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-12">
+					<bst:table-light id="tblUpldCaseIdReg" style="display: table">
+						<thead>
+							<tr>
+								<th th:text="#{lbl.app.no}" width="5%"/>
+								<th><label class="required" th:text="#{lbl.result.bulk.id.no}"  width="60%"/></th>
+								<th><label class="required" th:text="#{lbl.case.bulk.case.id}"  width="35%"/></th>
+							</tr>
+						</thead>
+						<tbody>
+							<th:block th:each="caseResult, iStat : ${upldCaseIdRegList}">
+								<tr th:attr="style='cursor: pointer;'">
+									<td th:text="${iStat.count}" />
+									<td th:text="${caseResult.identityNo}" />
+									<td th:text="${caseResult.caseId}" />
+								</tr>
+							</th:block>
+						</tbody>
+					</bst:table-light>
+				</div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+	
+	<bst:widget th:if="${!isMissMand and !isNotPstv} and (${not #lists.isEmpty(upldCaseRegList) and #lists.isEmpty(upldCaseNotRegList) and #lists.isEmpty(upldCaseIdRegList)})">
+	<bst:widget-footer>
+			<div class="row">
+				<div class="col-12">
+					<bst:btn-group class="pull-right">
+						<bst:btn-primary id="submit" name="submit" title="Submit"
+							class="m-1" th:text="#{btn.cmn.sub}" />
+					</bst:btn-group>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+</form>
+</th:block>

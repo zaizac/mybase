@@ -1,0 +1,22 @@
+<header class="topbar top-header">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light" layout="column">
+        <div class="text-center position-absolute w-100 ">
+            <h3 class="portal-title">{{portalTitle}}</h3>
+        </div>
+        <div class="col-8">
+            <a class="navbar-brand">
+                <strong>
+                    <img alt="" class="dark-logo icon" src="assets/default/logo-dark-icon.png">
+                    <img alt="" class="light-logo icon" src="assets/default/logo-light-icon.png">
+                </strong>
+                <span>
+                    <img alt="" class="dark-logo text-logo" src="assets/default/logo-dark-text.png">
+                    <img alt="" class="light-logo text-logo" src="assets/default/logo-light-text.png">
+                </span>
+            </a>
+        </div>
+        <div class="col-4 navbar-collapse text-right">
+            <ng-content></ng-content>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,83 @@
+<ui-card>
+  <ui-title>
+    Oauth Client Details
+  </ui-title>  
+  <form [formGroup]="mtncOCDForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Client Id</label> 
+        <ui-text formControlName="clientId"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Resource Ids</label> 
+        <ui-text formControlName="resourceIds"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Client Secret</label> 
+        <ui-text formControlName="clientSecret"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Scope</label> 
+        <ui-text formControlName="scope"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Authorized Grant Types</label> 
+        <ui-text formControlName="authorizedGrantTypes"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Web Server Redirect URI</label> 
+        <ui-text formControlName="webServerRedirectUri"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Authorities</label> 
+        <ui-text formControlName="authorities"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Access Token Validity</label> 
+        <ui-number formControlName="accessTokenValidity"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-number>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Refresh Token Validity</label> 
+        <ui-number formControlName="refreshTokenValidity"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-number>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Additional Information</label> 
+        <ui-text formControlName="additionalInformation"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Auto Approve</label> 
+        <ui-text formControlName="autoapprove"  
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="cancel()"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{buttonCreateUpdate}}">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>
+<ui-card>
+  <div class="row">
+    <ui-datatable *ngIf="ocdList" [dataValues]="ocdList" [tableInit]="noDataConfig">
+      <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+        <ui-button [text]="'Delete'" (click)="deleteRow(item.row)"></ui-button>
+      </ng-template>
+    </ui-datatable>
+  </div>
+</ui-card>

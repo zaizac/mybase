@@ -1,0 +1,148 @@
+<bst:alert-warn th:unless="${#strings.isEmpty(patientFormDto.clinicDesc)}" th:text="#{lbl.patient.section1.unauth}+${patientFormDto.clinicDesc}+' on '+${#dates.format(patientFormDto.regDate, 'dd/MM/yyyy HH:mm aa')}" />
+<!-- <bst:widget> -->
+<!-- <bst:widget-header-acc id="accordion1"> -->
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget col-lg-12 col-md-12 col-xs-12" th:text="#{'Section 1: Patient information'}"/>
+			<!-- <div class="tooltips-box-s1">
+				<span class="tooltips-text text-light bg-dark ">Click to expand the form</span>
+				<i class="caret-down caret-custom"></i>
+			</div> -->
+		<h3 class="stat-result col-xs-12" th:if="${isView || updateOrNew}" th:switch="${patientFormDto.status}">
+			<span th:case="POS_COVID" class='badge badge-secondary badge-danger pull-right mt-2 mr-3' th:text="${patientFormDto.medicalStatus?.statusDesc}"></span>
+			<span th:case="NEG_COVID" class='badge badge-secondary badge-info pull-right mt-2 mr-3' th:text="${patientFormDto.medicalStatus?.statusDesc}"></span>
+			<span th:case="PEND_RESUL" class='badge badge-secondary badge-warning pull-right mt-2 mr-3' th:text="${patientFormDto.medicalStatus?.statusDesc}"></span>
+			<span th:case="NO_SYMPTOM" class='badge badge-secondary badge-success pull-right mt-2 mr-3' th:text="${patientFormDto.medicalStatus?.statusDesc}"></span>
+		</h3>
+	</bst:widget-header>
+	<bst:widget-body id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion1">
+		<div class="row form-row">
+			<!--/* Id Type */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{'ID Type'}" />
+				<bst:radio-group>
+					<bst:radio  th:field="*{idType}" th:each="meta : ${@staticData.findByMetadataType('ID_TYPE')}" th:value="${meta.mtdtCd}" th:text="${meta.mtdtDesc}" th:disabled="${isView || updateOrNew}" />
+				</bst:radio-group>
+				<bst:error th:if="${#fields.hasErrors('idType')}" th:errors="*{idType}" />
+			</div>
+			<!--/* ID No. */-->
+				<div class="col-md-6" id="myKad" style ="display : none">
+					<label class="required"  th:text="#{lbl.patient.section.identity.no}" />
+				 	<bst:input class="limit-number" type="text" data-constraints="@Required" th:field="*{icNo}" maxlength="12" onBlur="checkIDExist();" th:disabled="${isView || updateOrNew}"/>
+				 	<bst:error id="errIcNo" th:if="${#fields.hasErrors('icNo')}" th:errors="*{icNo}" />
+				 	<span id="errIcNoInvld" style ="display : none;" class="errors" th:text="#{'Invalid Identification No'}"/>				 	
+				</div>
+				<div class="col-md-6" id="othersId"  style ="display : none">
+					<label class="required" th:text="#{lbl.patient.section.identity.no}" />
+				 	<bst:input data-constraints="@Required" th:field="*{othersKp}" style="text-transform: uppercase;" maxlength="20" onkeypress="restrictSpace()" onBlur="checkIDExist();" th:disabled="${isView || updateOrNew}" />
+				 	<bst:error id="errOthId" th:if="${#fields.hasErrors('othersKp')}" th:errors="*{othersKp}" />
+				 	<span id="errOthIdInvld" style ="display : none;" class="errors" th:text="#{'Invalid Identification No'}"/>	
+				</div>
+				<bst:input type="hidden" id="prevIdType" th:value="${patientFormDto.idType}"/>
+				<bst:input type="hidden" id="prevIdNo" th:value="${patientFormDto.icNo}"/>
+		</div>
+		<div class="row form-row">
+			<!--/* Name */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.nm}" />
+			 	<bst:input data-constraints="@Required" th:field="*{name}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}" />
+			 	<bst:error th:if="${#fields.hasErrors('name')}" th:errors="*{name}" />
+			</div>
+			<!--/* Nationality */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.patient.section.nationality}" />
+			    <bst:select th:field="*{ntnltyCd}" th:disabled="${isView}">
+					<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+				</bst:select>
+				<bst:error th:if="${#fields.hasErrors('ntnltyCd')}" th:errors="*{ntnltyCd}" />
+			</div> 
+		</div>
+		<div class="row form-row">
+			<!--/* Citizen */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.citizen.type}" />
+				<bst:radio-group>
+					<bst:radio  th:field="*{typeCitizen}" th:each="meta : ${@staticData.findByMetadataType('CITIZEN_TYPE')}" th:value="${meta.mtdtId}" th:text="${meta.mtdtDesc}" th:disabled="${isView}" />
+				</bst:radio-group>
+				<bst:error th:if="${#fields.hasErrors('typeCitizen')}" th:errors="*{typeCitizen}" /> 
+			</div>
+			<!--/* Gender */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.gndr}" />
+				<bst:radio-group>
+					<bst:radio th:field="*{gender}" th:value="M" th:text="#{lbl.ml}" th:disabled="${isView}" onclick="checkGender();"/>
+					<bst:radio th:field="*{gender}" th:value="F" th:text="#{lbl.fml}" th:disabled="${isView}" onclick="checkGender();"/>
+				</bst:radio-group>
+				<bst:error th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" />
+			</div>
+		</div>
+		<div class="row form-row">
+			<!--/* ID No. */-->
+			<div class="col-md-6">
+				<label th:text="#{lbl.patient.section1.marital.status}" />
+			 	<bst:select th:field="*{maritalStatus}" th:attr="data-placeholder=#{lbl.cmn.sel.pls}" th:disabled="${isView}">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="meta : ${@staticData.findByMetadataType('MARITAL')}" th:value="${meta.mtdtId}" th:text="${meta.mtdtDesc}" />
+				</bst:select>
+			 	<bst:error th:if="${#fields.hasErrors('maritalStatus')}" th:errors="*{maritalStatus}" />
+			</div>
+			<div class="col-md-6">
+				<label th:text="#{lbl.patient.section1.Ethnicity }" />
+				<bst:select th:field="*{raceCd}" th:attr="data-placeholder=#{lbl.cmn.sel.pls}" th:disabled="${isView}">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="rac : ${@staticData.raceList()}" th:value="${rac.raceCd}" th:text="${rac.raceDesc}" />
+				</bst:select>
+			</div>
+		</div>
+		<div class="row form-row">
+			<!--/* Date of Birth */-->
+			<div class="col-md-6">
+				<label th:text="#{lbl.patient.section.dob}" />
+				<bst:input-date id="dobPckr" th:field="*{dob}" th:readonly="true" th:disabled="${isView}"/> 
+			</div>
+			<!--/* Age */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.patient.section.country.age}" />
+			 	<bst:input class="limit-number" maxlength="3" th:field="*{age}" th:disabled="${isView}" />
+			 	<bst:error th:if="${#fields.hasErrors('age')}" th:errors="*{age}" /> 
+			</div>
+		</div>
+
+		<div class="row form-row">
+			<!--/* Place Diagnosed */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.patient.section.country.diagnosed}" />
+			    <bst:select th:field="*{country}" th:disabled="${isView}">
+					<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+				</bst:select>
+				<bst:error th:if="${#fields.hasErrors('country')}" th:errors="*{country}" />           
+	        </div>		
+			<!--/* Residency */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.patient.section.country.residency}" />
+			    <bst:select th:field="*{resCountry}" th:disabled="${isView}">
+					<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+				</bst:select>
+				<bst:error th:if="${#fields.hasErrors('resCountry')}" th:errors="*{resCountry}" />           
+	        </div>				
+		</div>
+		<div class="row form-row">
+			<!--/* Contact No */-->
+			<div class="col-md-6">
+				<label  class="required" th:text="#{lbl.patient.section.contact.no} + ' ' + #{lbl.patient.section1.cntc.no}" />
+			 	<bst:input-contact data-constraints="@Required" th:field="*{contactNo}" maxlength="20" th:disabled="${isView}" />
+			 	<bst:error th:if="${#fields.hasErrors('contactNo')}" th:errors="*{contactNo}" />
+			</div>
+			<!--/* Nationality */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.patient.section.occupation} + ' ' + #{lbl.patient.section1.occupation}" />
+                <bst:input data-constraints="@Required" th:field="*{work}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}" />
+               <bst:error th:if="${#fields.hasErrors('work')}" th:errors="*{work}" />
+			</div>
+		</div>
+		<!--/* CURRENT, OTHER AND WORK ADDRESS */-->
+		<th:block th:include="commons/patient_section1a" />
+	</bst:widget-body>
+</bst:widget>
+<!-- </bst:widget-header-acc> -->
+<!-- </bst:widget> -->

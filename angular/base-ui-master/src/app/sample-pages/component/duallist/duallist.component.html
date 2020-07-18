@@ -1,0 +1,20 @@
+<!-- <form [formGroup]="dualList_form"> -->
+  <ui-card>
+    <h2>Dual List</h2>
+    <ui-tab-group>
+      <ui-tab tabTitle="Example">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Dual List Box</label>
+            <ui-duallistbox [sort]="keepSorted" [source]="source" [key]="key" [display]="display"
+              [(destination)]="confirmed" height="265px"></ui-duallistbox>
+          </div>
+        </div>
+      </ui-tab>
+      <ui-tab tabTitle="HTML">
+        <pre ng-non-bindable>
+            </pre>
+      </ui-tab>
+    </ui-tab-group>
+  </ui-card>
+<!-- </form> -->

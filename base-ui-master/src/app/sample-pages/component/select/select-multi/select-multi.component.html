@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+    <ui-card>
+      <h3 class="card-title">Multiselect</h3>
+      <h6 class="card-subtitle">This is a multiselect dropdown</h6>
+      <ui-select [init]="basicSelect"></ui-select>   
+      <div class="row m-t-10">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <p>Configuration</p>
+          <ui-checkbox (change)="onChangeSearchable($event)">Searchable</ui-checkbox>
+          <ui-checkbox (change)="onChangeSearchDropdown($event)">Search in Dropdown</ui-checkbox>
+          <ui-checkbox (change)="onChangeCloseOnSelect($event)">Close on Select</ui-checkbox>
+          <ui-checkbox (change)="onChangeHideSelected($event)">Hide Selected</ui-checkbox>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <pre>{{basicSelect | json}}</pre>
+        </div>
+      </div>
+    </ui-card>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-6">
+      <ui-card>
+        <h3 class="card-title">Multiselect with Server-side Processing</h3>
+        <h6 class="card-subtitle">This is a multiselect with server-side processing</h6>
+        <ui-select [init]="serverSideSelect"></ui-select>   
+        <div class="row m-t-10">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <p>Configuration</p>
+            <ui-checkbox (change)="onChangeSearchable($event,'server-side')">Searchable</ui-checkbox>
+            <ui-checkbox (change)="onChangeSearchDropdown($event,'server-side')">Search in Dropdown</ui-checkbox>
+            <ui-checkbox (change)="onChangeCloseOnSelect($event,'server-side')">Close on Select</ui-checkbox>
+            <ui-checkbox (change)="onChangeHideSelected($event,'server-side')">Hide Selected</ui-checkbox>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <pre>{{serverSideSelect | json}}</pre>
+          </div>
+        </div>
+      </ui-card>
+    </div>
+</div>

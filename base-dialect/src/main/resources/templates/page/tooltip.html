@@ -1,0 +1,112 @@
+<div class="row">
+			<div class="col-md-12">
+				<bst:widget>
+					<bst:widget-header>
+						<h4 class="m-b-0 text-white">Tooltips and Popover</h4>
+					</bst:widget-header>
+					<!-- start cardbody  -->
+					<bst:widget-body>
+						 <div class="row">
+                     <div class="col-12">
+                        <bst:widget>
+                            <bst:widget-body>
+                                <h4 class="card-title"> Interactive demo</h4>
+                                <h6 class="card-subtitle">Just put this to any tag <code>data-container="body" title="Popover title" data-toggle="popover" data-placement="top" data-content="..."</code></h6>
+                                <div class="button-box">
+                                    <bst:btn-secondary type="button" data-container="body" title="Popover title" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on top
+                                    </bst:btn-secondary>
+                                    <bst:btn-secondary type="button" data-container="body" title="Popover title" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on right
+                                    </bst:btn-secondary>
+                                    <bst:btn-secondary type="button" data-container="body" title="Popover title" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on bottom
+                                    </bst:btn-secondary>
+                                    <bst:btn-secondary type="button" data-container="body" title="Popover title" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                        Popover on left
+                                    </bst:btn-secondary>
+                                </div>
+                                <br/>
+         <div id="accordion2" class="accordion" role="tablist"
+            aria-multiselectable="true">
+            <div class="card">
+               <div class="card-header" role="tab" id="headingOne">
+                  <h5 class="mb-0">
+                     <a data-toggle="collapse" data-parent="#accordion2"
+                        href="#collapse1" aria-expanded="true"
+                        aria-controls="collapseOne"> Example</a>
+                  </h5>
+               </div>
+               <div id="collapse1" class="collapse show" role="tabpanel"
+                  aria-labelledby="headingOne">
+                  <div class="card-body">
+                     <p class="text-success" th:text="#{'&lt;!--/* Popover Top */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:btn-secondary type=\'button\' data-container=\'body\' data-toggle=\'button\' data-placement=\'top\' /&gt;'}" /><br/><br/>
+                     <p class="text-success" th:text="#{'&lt;!--/* Popover Right  */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:btn-secondary type=\'button\' data-container=\'body\' data-toggle=\'button\' data-placement=\'right\' /&gt;'}" /><br/><br/>
+                     <p class="text-success" th:text="#{'&lt;!--/* Popover Bottom */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:btn-secondary type=\'button\' data-container=\'body\' data-toggle=\'button\' data-placement=\'bottom\' /&gt;'}" /><br/><br/>
+                     <p class="text-success" th:text="#{'&lt;!--/* Popover Left */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:btn-secondary type=\'button\' data-container=\'body\' data-toggle=\'button\' data-placement=\'left\' /&gt;'}" />
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                     <a class="collapsed" data-toggle="collapse"
+                        data-parent="#accordion2" href="#collapse2"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"> Definition and
+                        Usage </a>
+                  </h5>
+               </div>
+               <div id="collapse2" class="collapse" role="tabpanel"
+                  aria-labelledby="headingTwo">
+                  <div class="card-body">
+                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary&gt;'}" /> A tooltip is often used to specify extra information about something when the user moves the mouse pointer over an element top, right, left, bottom.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" role="tab" id="headingThree">
+                  <h5 class="mb-0">
+                     <a class="collapsed" data-toggle="collapse"
+                        data-parent="#accordion2" href="#collapse3"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"> Attributes </a>
+                  </h5>
+               </div>
+               <div id="collapse3" class="collapse" role="tabpanel"
+                  aria-labelledby="headingThree">
+                  <div class="card-body">
+                     <bst:table-light style="font-size: 12px;">
+                        <thead>
+                           <tr>
+                              <th>Attribute</th>
+                              <th>Value</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>placeholder</td>
+                              <td>#docMgtId</td>
+                              <td>Specifies the docMgtId generated
+                                 in DM Service</td>
+                           </tr>
+                        </tbody>
+                     </bst:table-light>
+                  </div>
+               </div>
+            </div>
+         </div>
+                            </bst:widget-body>
+                        </bst:widget>
+                    </div>
+						 </div>
+					</bst:widget-body>
+					<!-- end cardbody -->
+				</bst:widget>
+			</div>
+		</div>

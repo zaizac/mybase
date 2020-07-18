@@ -1,0 +1,37 @@
+<ui-card>
+    <h6 class="text-muted m-t-0">Create User Group</h6>
+  <form [formGroup]="userGroupFrom" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- User Group Code -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Group Code</label>
+        <ui-text formControlName="userGroupCode" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+
+      <!-- User Group Description -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Group Description</label>
+        <ui-text formControlName="userGroupDesc" formatToUpperCase maxlength="255" label="Type" [reset]="reset" [submitted]="submitted">
+        </ui-text>
+      </div>
+
+      <!-- User Group Description -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Type Code</label>
+        <ui-select label="User Type Code" [init]="selUserTypeCodeInit" formControlName="userTypeCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="cancel()"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>

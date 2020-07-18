@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+		
+<tiles-definitions>
+    
+	<definition name="main_page" extends="login_layout">
+		<put-attribute name="title" value="Home" type="thymeleaf" />
+		<put-attribute name="content" value="page/common/main" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="disclaimer" extends="blank_layout">
+		<put-attribute name="title" value="Disclaimer" type="thymeleaf" />
+		<put-attribute name="page" value="page/common/disclaimer" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="findOutMore" extends="blank_layout">
+		<put-attribute name="title" value="Find Out More" type="thymeleaf" />
+		<put-attribute name="page" value="page/common/findOutMore" type="thymeleaf"/>
+	</definition>	
+	
+	<definition name="faq" extends="base_layout">
+		<put-attribute name="title" value="Downloads" type="thymeleaf" />
+		<put-attribute name="content" value="page/common/faq" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="contact" extends="base_layout">
+		<put-attribute name="title" value="Contact Us" type="thymeleaf" />
+		<put-attribute name="content" value="page/common/contact" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="patient_list" extends="base_layout">
+	    <put-attribute name="title" value="Patient Management" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/patient-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="patient_detail" extends="base_layout">
+	    <put-attribute name="title" value="Patient Management" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/patient" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="patient_form" extends="base_layout">
+		<put-attribute name="title" value="Patient Management" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/patient_form" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="test-result-list" extends="base_layout">
+	    <put-attribute name="title" value="Lab Result" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/test-result-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="test-result-update" extends="base_layout">
+	    <put-attribute name="title" value="Lab Result" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/update-test-result" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="movement_history" extends="base_layout">
+	    <put-attribute name="title" value="Movement History" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/movement-history" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="movement_history_list" extends="base_layout">
+	    <put-attribute name="title" value="Movement History" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/movement-history-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="transfer_list" extends="base_layout">
+	    <put-attribute name="title" value="Maintenance Management" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/transfer-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="patient_maintainance" extends="base_layout">
+		<put-attribute name="title" value="Maintenance Management" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/patient_update_center" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="patient_main_update_info" extends="base_layout">
+		<put-attribute name="title" value="Maintenance Management" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/patient_update_info" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="transferBulk_list" extends="base_layout">
+	    <put-attribute name="title" value="Maintenance Management" type="thymeleaf" />
+		<put-attribute name="content" value="page/patient/transferBulk-list" type="thymeleaf"/>
+	</definition>
+	
+</tiles-definitions>

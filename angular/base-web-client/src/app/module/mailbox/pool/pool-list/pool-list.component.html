@@ -1,0 +1,7 @@
+<br />
+<ui-datatable [dataValues]='newData' [tableInit]='header' [events]='eventSubmit.asObservable()'
+  (editRecord)='handleRowClick($event)'>
+  <ng-template uiNgTemplateCellTemplate='myTemplate' let-item='item'>
+    <span class="badge badge-success" [ngStyle]="{'background-color': item.color}">{{item.title}}</span>   
+  </ng-template>
+</ui-datatable>

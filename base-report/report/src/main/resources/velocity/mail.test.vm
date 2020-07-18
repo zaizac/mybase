@@ -1,0 +1,26 @@
+<html>
+<body>
+	<table>
+		<tr><td>This is TEST mail only</td></tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td>For any technical assistance, please reach us at the contact details provided at the bottom of this email.</td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td>Thanks,</td>
+		</tr>
+		<tr>
+			<td>eQuota Admin</td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td><font color="#FF0000"><i>Note: This is automatically generated email, please do not reply.</i></font><br></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="#6699FF">Contact Us : <a href="mailto:enquiries@fwcms.com.my">enquiries@fwcms.com.my</a> Phone: (+60) 3 8689 2822</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+use_frameworks!
+
+def shared_pod
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'Localize-Swift', '~> 2.0'
+    pod 'Firebase/Messaging'
+    pod 'SideMenu', '~> 6.0'
+    pod 'CryptoSwift', '~> 1.2.0'
+end
+
+target 'PagohCare' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # Pods for MyCare
+  shared_pod
+end
+
+target 'BHCare' do
+  shared_pod
+end

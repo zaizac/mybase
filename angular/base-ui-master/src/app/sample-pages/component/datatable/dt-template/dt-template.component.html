@@ -1,0 +1,313 @@
+<ui-card>
+  <div class="col-12">
+    <h2>Simple HTML Template using innerHTML</h2>
+    <p>
+      We can also render the template instead of value in the column. To use template, set the string template to
+      cell.innerHTML
+    </p>
+    <p style="color: red;">
+      <em>*This technique is suitable only for simple HTML template for display data. If we want to bind function on our
+        tag or use angular tags or rendering other components, this technique will not render them. It is advisable to
+        use angular templating to render template</em>
+    </p>
+    <p>e.g:</p>
+    <ui-card>
+      <pre ng-non-bindable>
+          dtConfig = {{ '{' }}
+            columns: [
+            {{ '{' }} field: 'SlNo', headerText: 'No.', width: '20%' {{ '}' }}
+            {{ '{' }} field: 'name', headerText: 'Name', width: '30%' {{ '}' }}
+            {{ '{' }}
+              field: '',
+              headerText: 'Detail',
+              width: '50%',
+              render: (data, cell, row) => {{ '{' }}
+                cell.innerHTML =
+                  '&lt;div&gt;&lt;ul&gt;Details:&lt;li&gt;Gender:' +
+                  (row.gender || '-') +
+                  '&lt;/li&gt;&lt;li&gt;Age: ' +
+                  (row.age || '-') +
+                  '&lt;/li&gt;&lt;li&gt;Company: ' +
+                  (row.company || '-') +
+                  '&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;';
+              {{ '}' }}
+            {{ '}' }}
+            ]
+          {{ '}' }}
+      </pre>
+    </ui-card>
+    <ui-datatable [dataValues]="dtData" [tableInit]="headerConfig"></ui-datatable>
+  </div>
+</ui-card>
+
+<ui-card>
+  <h2>Rendering Other Component</h2>
+  <p>
+    While rendering plain HTML template is a straight forward task, rendering another component inside our datatable
+    component can be tricky and complex
+  </p>
+  <p>There are 2 ways of rendering component dynamically</p>
+  <ol>
+    <li>Using ComponentFactoryResolver (Dynamically create a component)</li>
+    <li>Using ngTemplate (Render component from template)</li>
+  </ol>
+  <p>
+    To dynamically create a component and append it to existing element, we can use AppendDomService. However, this will
+    required the component to be defined in entryComponent. This is because dynamic component is created using component
+    factory. Component factory only created for entryComponent during bootstraping. More simplify way is to use
+    ngTemplate
+  </p>
+</ui-card>
+<ui-card>
+  <h2>Using Column template Attribute</h2>
+  <p>
+    There are 2 ways of creating template in datatable. The first one is using template attribute which accept a
+    template string. To use templating, simply add our template in our datatable tag. It is important to declare our
+    template as variable using #. In example below, our template variable name is #testTemplate
+  </p>
+  <span style="color: red;"><p>As per Angular Grid 17.3.30, using attribute template will cause error. Avoid using template attribute and only use columnTemplate Attribute with uiNgTemplateCellTemplate directive for any templating</p></span>
+  <ui-card>
+    <pre>
+        &lt;ui-datatable [dataValues]="dtData" [tableInit]="headerConfig3"&gt;
+        <span style="color: red;">
+            &lt;ng-template #testTemplate let-data&gt;
+              &lt;ui-card&gt;
+                &lt;table style='width:100%;'&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;
+                      &lt;td style='width:20%;'&gt;Name:&lt;/td&gt;&lt;td &gt;{{ "{" }}{{ "{" }}data.name{{ "}" }}{{ "}" }}&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td style='width:20%;'&gt;Age:&lt;/td&gt;&lt;td &gt;{{ "{" }}{{ "{" }}data.age{{ "}" }}{{ "}" }}&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                      &lt;td style='width:20%;'&gt;Company:&lt;/td&gt;&lt;td style="white-space: pre-wrap;"&gt;{{ "{" }}{{ "{" }}data.company{{ "}" }}{{ "}" }}&lt;/td&gt;
+                    &lt;/tr&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/ui-card&gt;
+            &lt;/ng-template&gt;
+          </span>
+          &lt;/ui-datatable&gt;
+    </pre>
+  </ui-card>
+  <p>Then, in our TS file, we need to declare our template variable as below</p>
+  <ui-card>
+    @ViewChild('testTemplate') public testTemplate: any;
+  </ui-card>
+  <p>And in our datatable config, we assign the template variable to our column template attribute</p>
+  <ui-card>
+    <pre>
+        this.headerConfig3 = {{ "{" }}
+          columns: [
+            {{ "{" }} field: 'SlNo', headerText: 'No.', width: '20%' {{ "}" }},
+            {{ "{" }} field: 'name', headerText: 'Name', width: '30%' {{ "}" }},
+            {{ "{" }}
+              field: '',
+              headerText: 'Using template field',
+              width: '50%',
+              <span style="color: red">template: this.testTemplate</span>
+            {{ "}" }}
+          ]
+          {{ "}" }};
+    </pre>
+  </ui-card>
+  <ui-datatable [dataValues]="dtData" [tableInit]="headerConfig3">
+    <ng-template #testTemplate let-data>
+      <ui-card>
+        <table style="width:100%;">
+          <tbody>
+            <tr>
+              <td style="width:20%;">Name:</td>
+              <td>{{ data.name }}</td>
+            </tr>
+            <tr>
+              <td style="width:20%;">Age:</td>
+              <td>{{ data.age }}</td>
+            </tr>
+            <tr>
+              <td style="width:20%;">Company:</td>
+              <td style="white-space: pre-wrap;">{{ data.company }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ui-card>
+    </ng-template>
+  </ui-datatable>
+  <p>Using column 'template' attribute is suitable for following scenario:-</p>
+  <ul>
+    <li>
+      Simple templating with static context
+      <p style="color:red;"><em>*When using template attribute, the context will always be the row data</em></p>
+    </li>
+    <li>Rendering same template for particular column</li>
+  </ul>
+  <p>
+    To render dynamic template or template with dynamic context, we need to use column columnTemplate attribute instead
+    of template attribute
+  </p>
+</ui-card>
+<ui-card>
+  <div class="col-12">
+    <h2>Using Column columnTemplate Attribute</h2>
+    <p>
+      Sometimes, we want to render dynamic template or template with dynamic context to our column. We can achieve this
+      by using columnTemplate attribute. Like template attribute, we also need to create our template using ngTemplate
+      inside our Datatable tag. The main difference is for columnTemplate, we are going to utilise
+      uiNgTemplateCellTemplate directive. uiNgTemplateCellTemplate directive accept a string which will be the Id for
+      our template. In below example, we going to render 2 templates in same column for different rows. Also same
+      template will have different contexts
+    </p>
+
+    <p>
+      First, in parent template, we have to define our template inside our Datatable tag with uiNgTemplateCellTemplate
+      directive. e.g:
+    </p>
+    <ui-card>
+      <pre>
+        &lt;ui-datatable [dataValues]="dtData" [tableInit]="headerConfig2"&gt;
+          <span style="color: red;">&lt;ng-template uiNgTemplateCellTemplate="mySecTemplate" let-item="item"&gt;
+            &lt;ui-file [refDoc]="item" [init]="{{ "{" }} textAlign: 'left' {{ "}" }}"&gt; &lt;/ui-file&gt;
+          &lt;/ng-template&gt;
+  
+          &lt;ng-template uiNgTemplateCellTemplate="myTemplate" let-item="item"&gt;
+            &lt;ui-button
+              buttonType="{{ "{" }}{{ "{" }} item.buttonType {{ "}" }}{{ "}" }}"
+              icon="{{ "{" }}{{ "{" }} item.icon {{ "}" }}{{ "}" }}"
+              type="{{ "{" }}{{ "{" }} item.type {{ "}" }}{{ "}" }}"
+              text="{{ "{" }}{{ "{" }} item.text {{ "}" }}{{ "}" }}"
+            &gt;
+            &lt;/ui-button&gt;
+          &lt;/ng-template&gt;</span>    
+        &lt;/ui-datatable&gt;
+      </pre>
+    </ui-card>
+    <p>
+      In template code above, we have templates with id=myTemplate and id=mySecTemplate. These ids are important because
+      columnTemplate is an object with id and context as attributes. columnTemplate id will be the id of the template
+      while columnTemplate context is the context we will use for the template. It is important to note that the
+      template context will always be let-item="item" for our template if we want to use columnTemplate.
+    </p>
+    <p>In our TS file, follow these steps</p>
+    <ol>
+      <li>
+        In our initialisation, we need to add columnTemplate attribute in our column property. id is mandatory while
+        context is optional. columnTemplate id must be same with id we pass to our directive.
+        <ui-card>
+          <pre>
+                columnTemplate: {{ '{' }}
+                  id: 'myTemplate',
+                  context: {{ '{' }} {{ '}' }}
+                {{ '}' }},
+              </pre>
+        </ui-card>
+      </li>
+      <li>
+        To add new context value base on our row data, we can reassign the columnTemplate context value in render
+        function. Example below, we want to render a template in our 3rd column.
+        <ui-card>
+          <pre>
+                  const context = {{ '{' }}
+                    buttonType: 'primary',
+                    icon: 'fa fa-search',
+                    type: 'submit',
+                    text: 'Search'
+                    {{ '}' }};
+  
+                    this.headerConfig2.columns[2].columnTemplate.context = context;
+              </pre>
+        </ui-card>
+      </li>
+      <li>
+        We can also dynamically assign the id of our template if we have multiple templates
+        <ui-card>
+          <pre>
+                  this.headerConfig2.columns[2].columnTemplate.id = ind === 0 ? 'mySecTemplate' : 'myTemplate';
+              </pre>
+        </ui-card>
+      </li>
+
+      <li>
+        The full configuration for our tableInit configuration for our example is as below
+        <ui-card>
+          <pre>
+                  this.headerConfig2 = {{ '{' }}
+                    columns: [
+                      {{ '{' }} field: 'SlNo', headerText: 'No.', width: '20%' {{ '}' }},
+                      {{ '{' }} field: 'name', headerText: 'Name', width: '30%' {{ '}' }},
+                      {{ '{' }}
+                        field: '',
+                        headerText: 'Detail',
+                        width: '50%',
+                        columnTemplate: {{ '{' }}
+                          id: 'myTemplate',
+                          context: {{ '{' }}{{ '}' }}
+                        {{ '}' }},
+                        render: (data, cell, row) => {{ '{' }}
+                          const context = {{ '{' }}
+                            buttonType: 'primary',
+                            icon: 'fa fa-search',
+                            type: 'submit',
+                            text: 'Search'
+                          {{ '}' }};
+                          const ind = Number(cell.getAttribute('index'));
+                          if (ind === 1) {{ '{' }}
+                            context.buttonType = 'danger';
+                            context.icon = 'fa fa-exclamation-triangle';
+                            context.text = 'Hazard';
+                          {{ '}' }}
+              
+                          if (ind === 2) {{ '{' }}
+                            context.buttonType = 'warning';
+                            context.icon = 'fa fa-battery-quarter';
+                            context.text = 'Caution';
+                          {{ '}' }}
+              
+                          if (ind === 3) {{ '{' }}
+                            context.buttonType = 'success';
+                            context.icon = 'fa fa-cloud-download';
+                            context.text = 'Download';
+                          {{ '}' }}
+              
+                          this.headerConfig2.columns[2].columnTemplate.context = context;
+                          this.headerConfig2.columns[2].columnTemplate.id = ind === 0 ? 'mySecTemplate' : 'myTemplate';
+                        {{ '}' }}
+                      {{ '}' }}
+                    ]
+                  {{ '}' }};
+              </pre>
+        </ui-card>
+      </li>
+    </ol>
+    <div class="col-12">
+      <ui-datatable [dataValues]="dtData" [tableInit]="headerConfig2">
+        <ng-template uiNgTemplateCellTemplate="mySecTemplate" let-item="item">
+          <ui-file [refDoc]="item" [init]="{ textAlign: 'left' }"> </ui-file>
+        </ng-template>
+
+        <ng-template uiNgTemplateCellTemplate="myTemplate" let-item="item">
+          <ui-button buttonType="{{ item.buttonType }}" icon="{{ item.icon }}" type="{{ item.type }}"
+            text="{{ item.text }}">
+          </ui-button>
+        </ng-template>
+      </ui-datatable>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <ui-datatable [dataValues]="dtData" [tableInit]="headerConfig4">
+      <ng-template uiNgTemplateCellTemplate="actionTemplate" let-item="item">
+        <div ngbDropdown>
+          <button ngbDropdownToggle type="button" class="btn btn-dark btn-sm">
+            <i class="fa fa-filter"></i>
+          </button>
+          <div class="" id="dropdown-basic" ngbDropdownMenu>
+            <a class="dropdown-item" href="javascript:void(0);" (click)="setAsRead()">Mark as read</a>
+            <a class="dropdown-item" href="javascript:void(0);" (click)="setAsUnRead()">Mark as unread</a>
+            <a class="dropdown-item" href="javascript:void(0);" (click)="deleteCheckedMail()">Delete</a>
+          </div>
+        </div>
+      </ng-template>
+    </ui-datatable>
+  </div>
+</ui-card>

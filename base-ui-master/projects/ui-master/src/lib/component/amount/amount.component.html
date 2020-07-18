@@ -1,0 +1,15 @@
+<div class="form-group">
+  <div class="amount" [ngClass]="{'input-group' : currency}">
+    <div class="input-group-prepend" *ngIf="currency">
+      <span class="input-group-text">{{currency}}</span>
+    </div>
+    <input type="text" [formControl]="fcAmount" class="form-control" [attr.placeholder]="placeholder"
+      [ngClass]="{ 'is-invalid': (fcAmount.touched || submitted) && fcAmount.errors }" [attr.min]="min" [attr.max]="max"
+      (change)="valueChange($event)" formatNumber />
+  </div>
+  <div *ngIf="(fcAmount.touched || submitted) && fcAmount.errors" class="invalid-message">
+    <div *ngFor="let key of fcAmount.errors | parseError">
+      {{formControlName + '.errors.' + key | simpleError:fcAmount.errors[key]}}
+    </div>
+  </div>
+</div>

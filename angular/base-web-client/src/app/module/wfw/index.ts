@@ -1,0 +1,1 @@
+export * from './config/config-list/config-list.component';

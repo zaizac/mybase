@@ -1,0 +1,100 @@
+<div id="login-bg" ></div>
+<div class="wrapper">
+	<div id="content">
+		<div class="container" style="margin-top: 50px">
+			<br />
+			<div class="row" >
+			<div class="col-lg-4">
+			<bst:widget>
+				<bst:widget-header>
+	    			<h6 th:text="#{lbl.job.offer.emp}"/>
+	  			</bst:widget-header>
+	    		<bst:widget-body >
+	       			<div class="row">
+						<div class="col-12 text-center">
+			            	<img class="w-75" th:src="#{data:image;base64,}+${cmpnyInfo?.cmpnyLogo}" />
+							<h5 th:text="${cmpnyInfo?.cmpnyName}" />
+							<h6 th:text="${cmpnyInfo?.cmpnyRegNo}"/>
+			        	</div>
+	       			 </div>
+				</bst:widget-body>
+			</bst:widget>
+			</div>
+			<div class="col-lg-8">
+			<bst:widget>
+				<bst:widget-header>
+					<h6 th:text="#{lbl.job.details}"/>
+				</bst:widget-header>
+				<bst:widget-body>
+					<bst:form th:action="@{${orderId}}" th:object="${jobDetailForm}" th:method="POST" autocomplete="off" enctype="multipart/form-data">
+						<div class="row">
+							<!--/* Title */-->
+							<div class="col-md-4">
+								<label th:text="#{lbl.job.title}" />
+								<div th:text="${jobDetailForm?.jobTitle}"/>
+							</div>
+							<!--/* Sector */-->
+							<div class="col-md-4">
+								<label th:text="#{lbl.job.offer.sector}" />	
+								<div th:text="${@staticData.getWrkrSectrDesc(jobDetailForm?.sectorCd)}"/>
+							</div>
+							<!--/* Year Expired */-->
+							<div class="col-md-4">	
+								<label th:text="#{lbl.job.exp.year}" />
+								<div th:text="${jobDetailForm?.expYear}"/>
+							</div>		
+						</div>
+						<div class="row">
+								<div class="col-md-12">
+									<label th:text="#{lbl.job.offer.job.desc}" />
+									<div th:text="${jobDetailForm?.jobDesc}"/>
+								</div>
+						</div>
+						<div class="row">
+								<!-- <div class="col-md-4">	 
+									<label th:text="#{lbl.job.offer.salary}" />
+									<div th:text="'MYR ' + ${jobDetailForm?.salary != null ? #numbers.formatDecimal(jobDetailForm?.salary, 0, 'COMMA', 2, 'POINT') : ''}" /> 			
+								</div> -->	
+						        <!--/* Working hour */-->
+								<div class="col-md-12">
+									<label th:text="#{lbl.job.wrkg.hours}" />
+									<div th:text="${jobDetailForm?.workingHour}"/>
+								</div>
+						</div>
+															
+						<div class="row">
+					    	<!--/* POW*/-->
+							<div class="col-md-12">
+								 <label th:text="#{lbl.job.plc.work}" />
+								  <div>
+									 <th:block th:text="${jobDetailForm?.jobPowForm?.powAddress1}"/> 
+									 <th:block th:text="${jobDetailForm?.jobPowForm?.powAddress2}"/> 
+									 <th:block th:text="${jobDetailForm?.jobPowForm?.powAddress3}"/> 
+									 <th:block th:text="${jobDetailForm?.jobPowForm?.powAddress4}"/> 
+									 <th:block th:text="${jobDetailForm?.jobPowForm?.powAddress5}"/> 
+									 <th:block th:text="${@staticData.cityDesc(jobDetailForm?.jobPowForm?.cityCd)}" />
+									 <th:block th:text="${@staticData.stateDesc(jobDetailForm?.jobPowForm?.stateCd)}" />
+									 <th:block th:text="${@staticData.countryDesc(jobDetailForm?.jobPowForm?.cntryCd)}" />	
+								  </div>						  
+							</div>
+						</div>
+						
+						<div class="row">
+					        <!--/* Benefit*/-->
+							<div class="col-md-12">							 
+								 <label th:text="#{lbl.job.benefits}" />
+								 <div th:text="${jobDetailForm?.benefit}"/>
+							</div>
+						</div>
+						<div class="pull-right">
+							<bst:btn-tertiary type="button" th:onclick="'javascript:redirectURL(\'' + '/main'  + '\');'" th:value="#{'Cancel'}" class="btn btn-primary btn-common m-1" th:text="#{btn.cmn.bak}" />
+						</div>
+					</bst:form>
+				</bst:widget-body>
+			</bst:widget>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+

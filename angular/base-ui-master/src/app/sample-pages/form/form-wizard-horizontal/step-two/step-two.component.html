@@ -1,0 +1,53 @@
+<!-- Work Tab Form Starts -->
+<form [formGroup]="stepTwoForm" class="editForm" autocomplete="off">
+  <div class="tab-pane active">
+    <p class="font-medium-2 text-center">{{ title }}</p>
+    <br />
+    <div class="row mb-2">
+      <div class="row">
+        <div class="col-offset-4 col-10 col-sm-offset-5 col-sm-4">
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              id="customRadio1"
+              required
+              name="work"
+              class="custom-control-input"
+              formControlName="work"
+              value="Design"
+              class="custom-control-input"
+            />
+            <label class="custom-control-label" for="customRadio1">Design</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              id="customRadio2"
+              required
+              name="work"
+              class="custom-control-input"
+              formControlName="work"
+              value="Code"
+              class="custom-control-input"
+            />
+            <label class="custom-control-label" for="customRadio2">Code</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              id="customRadio3"
+              required
+              name="work"
+              class="custom-control-input"
+              formControlName="work"
+              value="Deploy"
+              class="custom-control-input"
+            />
+            <label class="custom-control-label" for="customRadio3">Deploy</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

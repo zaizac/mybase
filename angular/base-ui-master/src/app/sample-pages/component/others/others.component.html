@@ -1,0 +1,108 @@
+<!-- CHECKBOX -->
+<form [formGroup]="other_form" (ngSubmit)="onSubmit()" autocomplete="off">
+  <ui-card>
+    <h3 class="card-title">Checkbox Component</h3>
+    <h6 class="card-subtitle">This is a basic component</h6>
+    <hr />
+    <div class="row">
+      <div class="col-sm-12 col-md-5 col-lg-5">
+        <ui-alert></ui-alert>
+        <label>Orders</label>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div formArrayName="orders" *ngFor="let order of other_form.controls.orders.controls; let i = index">
+              <ui-checkbox [formControlName]="i" [value]="orders[i] | json" (change)="onChangeValue($event)">
+                {{ orders[i].name }}
+              </ui-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-7 col-lg-7">
+        <div>
+          <strong>Form value:</strong>
+          <h5>
+            <pre>{{ other_form.controls.orders.value | json }}</pre>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <ui-button buttonType="success" type="submit" text="Total"></ui-button>
+  </ui-card>
+  <ui-card>
+    <h3 class="card-title">Checklist Component</h3>
+    <h6 class="card-subtitle">This is a list of checkbox</h6>
+    <hr />
+    <div class="row">
+      <div class="col-sm-12 col-md-5 col-lg-5">
+        <label>Fruits</label>
+        <ui-checklist formControlName="fruits" [items]="fruitsOption" bindLabel="name"></ui-checklist>
+      </div>
+      <div class="col-sm-12 col-md-7 col-lg-7">
+        <div>
+          <strong>Form value: (Value as Object)</strong>
+          <h5>
+            <pre>{{ other_form.controls.fruits.value | json }}</pre>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-5 col-lg-5">
+        <label>Colors</label>
+        <ui-checklist formControlName="colors" [items]="colors" bindValue="id" bindLabel="name"></ui-checklist>
+      </div>
+      <div class="col-sm-12 col-md-7 col-lg-7">
+        <div>
+          <strong>Form value: (Value as Id)</strong>
+          <h5>
+            <pre>{{ other_form.controls.colors.value | json }}</pre>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div>
+      <ui-textarea label="Text Area Full Name" formatToUpperCase formControlName="tafullname"></ui-textarea>
+      <ui-button buttonType="primary" (click)="showTextArea()">Show Text Area</ui-button>
+    </div>
+  </ui-card>
+</form>
+
+<ui-card>
+  <h3 class="card-title">Checkbox Group Component</h3>
+  <h6 class="card-subtitle">This is checkbox group component</h6>
+  <hr />
+  <div class="row">
+    <div class="col-sm-12 col-md-3 col-lg-3">
+      <ui-checkbox-group 
+            [options]="userRolesOptions" 
+            (change)="onRolesChange($event)"
+            [selectedIds]="userModel.roles"
+            [disabled]="false"></ui-checkbox-group>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <div>
+        <strong>Selected checkbox id: </strong>
+        <h5>
+          <pre>{{ userModel.roles | json }}</pre>
+        </h5>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-5 col-lg-5">
+      <div>
+        <strong>Options object: </strong>
+        <h5>
+          <pre>{{ userRolesOptions | json }}</pre>
+        </h5>
+      </div>
+    </div>
+  </div>
+</ui-card>
+
+<!-- RADIO BUTTON -->
+<ui-card>
+  <h3 class="card-title">Radio Button Component</h3>
+  <h6 class="card-subtitle">This is a basic component</h6>
+  <ui-radio>Check Me Out!</ui-radio>
+</ui-card>
+

@@ -1,0 +1,12 @@
+<ui-card>
+  <ui-title>
+    User Configuration
+    <h6 class="text-muted m-t-0">User Configuration Lists</h6>
+  </ui-title>
+  <div class="row mb-2">
+      <div class="col-12">
+        <ui-datatable *ngIf="userCfgDt" (editRecord)="rowSelected($event)" [dataValues]="userCfgDt" [tableInit]="noDataConfig">
+        </ui-datatable>
+      </div>
+    </div>
+</ui-card>

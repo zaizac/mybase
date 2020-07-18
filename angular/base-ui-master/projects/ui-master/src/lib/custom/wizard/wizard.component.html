@@ -1,0 +1,67 @@
+<section id="ngx">
+  <!-- Horizontal steppers -->
+  <ui-card *ngIf="mode !== 'vertical'">
+    <div class="board">
+      <!-- Navigation Area (Circular Tabs) -->
+      <ui-wizard-navbar [stepperConfig]="stepperConfig" [mode]="mode" [statColour]="statColour"></ui-wizard-navbar>
+      <!-- End Navigation Area (Circular Tabs) -->
+
+      <!-- Content Area -->
+      <div class="tab-content" *ngIf="stepperConfig.steps.length">
+        <!-- Nested view  -->
+        <p *ngIf="title" class="font-medium-2 text-center">{{ title }}</p>
+        <router-outlet></router-outlet>
+      </div>
+      <!-- End Content Area -->
+      <div class="button-group">
+        <ui-button *ngIf="prevButton.display" [buttonType]="prevButton.buttonType" type="button"
+          [text]="prevButton.text" [icon]="prevButton.icon" [disabled]="prevButton.disabled"
+          (click)="prevButtonClick()"></ui-button>
+        <ui-otp *ngIf="otpButton.display" [buttonType]="otpButton.buttonType" type="button"
+          [submitted]="otpButton.submitted" [otpService]="otpButton.otpService" [value]="otpButton.email"
+          [redirectURL]="otpButton.redirectURL" [icon]="otpButton.icon" [buttonText]="otpButton.text"
+          [formGroup]="otpButton.formGroup" (validate)="otpValidated()" [disabled]="otpButton.disabled" class="pull-right">
+        </ui-otp>
+        <ui-button *ngIf="nextButton.display" [buttonType]="nextButton.buttonType" type="button"
+          [text]="nextButton.text" [icon]="nextButton.icon" [disabled]="nextButton.disabled" (click)="nextButtonClick()"
+          class="pull-right"></ui-button>
+      </div>
+    </div>
+  </ui-card>
+
+  <!-- Vertical Steppers -->
+  <ui-card *ngIf="mode === 'vertical'">
+    <div class="board">
+      <div class="row">
+        <div class="col-1 pt2 mb2">
+          <!-- Navigation Area (Circular Tabs) -->
+          <ui-wizard-navbar [stepperConfig]="stepperConfig" [mode]="'vertical'" [statColour]="statColour">
+          </ui-wizard-navbar>
+          <!-- End Navigation Area (Circular Tabs) -->
+        </div>
+        <div class="col-11">
+          <!-- Content Area -->
+          <div class="tab-content" *ngIf="stepperConfig.steps.length">
+            <!-- Nested view  -->
+            <p *ngIf="title" class="font-medium-2 text-center">{{ title }}</p>
+            <router-outlet></router-outlet>
+          </div>
+          <!-- End Content Area -->
+          <div class="button-group">
+            <ui-button *ngIf="prevButton.display" [buttonType]="prevButton.buttonType" type="button"
+              [text]="prevButton.text" [icon]="prevButton.icon" [disabled]="prevButton.disabled"
+              (click)="prevButtonClick()"></ui-button>
+            <ui-otp *ngIf="otpButton.display" [buttonType]="otpButton.buttonType" type="button"
+              [submitted]="otpButton.submitted" [otpService]="otpButton.otpService" [value]="otpButton.email"
+              [redirectURL]="otpButton.redirectURL" [icon]="otpButton.icon" [buttonText]="otpButton.text"
+              [formGroup]="otpButton.formGroup" (validate)="otpValidated()" [disabled]="otpButton.disabled" class="pull-right">
+            </ui-otp>
+            <ui-button *ngIf="nextButton.display" [buttonType]="nextButton.buttonType" type="button"
+              [text]="nextButton.text" [icon]="nextButton.icon" [disabled]="nextButton.disabled"
+              (click)="nextButtonClick()" class="pull-right"></ui-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ui-card>
+</section>

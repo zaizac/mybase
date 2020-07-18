@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-6">
+        <div class="row" [formGroup]="signUpForm">
+            <div class="col-12">
+                <label>Fullname</label>
+                <ui-text formControlName="fullName" formatToUpperCase maxlength="255" label="Fullname"></ui-text>
+            </div>
+            <div class="col-12">
+                <label>Email</label>
+                <ui-text formControlName="email"></ui-text>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        This is a payload from inbox retrieved from router state object.
+        <h6>
+            <pre>{{data | json}}</pre>
+        </h6>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<br/><h5 th:text="#{'Confirmed Cases Contact'}" />
+<labe class="errors" id="confContactError" />
+<bst:table-light id="tblConfContactLst" width="100%">
+	<bst:alert-info><span>Please click <i class="fa fa-search fa-lg"></i> to search and please click <i class="fa fa-plus fa-lg"></i> icon to add and if you want to delete, please click on 
+    <i class="fa fa-trash-o fa-lg"></i></span></bst:alert-info>
+	<thead>
+		<tr th:if="${!isView}">		
+			<td colspan="2">
+				<div class="input-group">
+					<bst:input  id="confContactId" style="text-transform: uppercase;" maxlength="12" th:disabled="true" />
+					<div class="input-group-append" onClick="popupSearching('true')">
+						<span class="input-group-text cursor-pointer">
+							<a id="search"><i class="fa fa-search" aria-hidden="true" ></i></a>
+						</span>
+					</div>
+				</div>
+			</td>
+			<td >
+				<bst:input id="confContactName" style="text-transform: uppercase;" maxlength="255" th:disabled="true" />
+			</td>
+	 		<td >
+				<bst:input-date id="confContactFirstDt" th:disabled="${isView}" />
+			</td>
+		 	<td >
+				<bst:input-date id="confContactLastDt" th:disabled="${isView}" />
+			</td>
+			<td />
+			<td />
+			<td width="5%">
+				<a title="Add" id="confContactAddBtn" class="mr-2 cursor-pointer" style="color: black"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></a>
+				<a title="Update" id="confContactEditBtn" class="mr-2 cursor-pointer"  style="display:none;color: black"><i class="fa fa-edit fa-lg" aria-hidden="true"></i></a>
+				<a title="Cancel" id="confContactCancelBtn" class="cursor-pointer" style="display:none;color: black"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
+				<input type="hidden" id="confContactIdx" />
+			</td>
+		</tr>
+		<tr>
+			<th th:text="#{'No.'}" width="5%" />
+			<th th:text="#{lbl.patient.section3.contactId}" width="20%" />
+			<th th:text="#{lbl.patient.section3.name}" width="30%" />
+			<th th:text="#{lbl.patient.section3.firstdate}" width="20%" />
+			<th th:text="#{lbl.patient.section3.lastdate}" width="20%" />
+			<td /><!--/* Confirmed Case Id */-->
+			<td /><!--/* Is Active */-->
+			<th width="5%" th:text="#{'Action'}"/>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="contact, rowStat : ${patientFormDto.confirmedContacts}">
+			<td width="5%" ></td>
+			<td width="20%" ><th:block th:text="${contact.contactId}" /></td>
+			<td width="30%" ><th:block th:text="${contact.contactName}" /></td>
+			<td width="20%" ><th:block th:if="${contact.contactDtFirst != null}" th:text="${#dates.format(contact.contactDtFirst, 'dd/MM/yyyy')}" /></td>
+			<td width="20%" ><th:block th:if="${contact.contactDtLast != null}" th:text="${#dates.format(contact.contactDtLast, 'dd/MM/yyyy')}" /></td>
+			<td><th:block th:text="${contact.contactCaseId}" /></td>
+			<td><th:block th:text="${contact.isActive}" /></td>
+			<td width="5%">
+				<a title="Update" class="edit mr-2 cursor-pointer" ><i class="fa fa-edit fa-lg"></i></a>
+        		<a title="Delete" class="remove cursor-pointer" ><i class="fa fa-trash-o fa-lg"></i></a>
+        		<a title="Record Marked for Deletion" class="recordDel mr-2" style="display:none;color: red"><i class="fa fa-ban fa-lg"></i></a>
+        		<a title="Cancel" class="cancel cursor-pointer" style="display:none;color: black"><i class="fa fa-times fa-lg"></i></a>
+			</td>
+		</tr>
+	</tbody>
+</bst:table-light>
+<div class="row form-row">
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section3.exposured.cntry.cd}" />
+		<bst:select th:field="*{exposureCntryCd}" th:disabled="${isView}" >
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('exposureCntryCd')}" th:errors="*{exposureCntryCd}" />
+	</div>
+</div>
+<th:block th:include="commons/search_confirm_case"/>

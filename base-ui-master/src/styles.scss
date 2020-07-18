@@ -1,0 +1,1306 @@
+@import '../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
+// @import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '../node_modules/@ng-select/ng-select/themes/default.theme.css';
+@import '../node_modules/ng-pick-datetime/assets/style/picker.min.css';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/chartist/dist/chartist.css';
+@import '../node_modules/quill/dist/quill.snow.css';
+@import '../node_modules/ngx-toastr/toastr-bs4-alert';
+@import '../node_modules/ngx-smart-modal/ngx-smart-modal.scss';
+@import '../projects/ui-master/src/lib/component/datetime/plugin/datepicker/bs-datepicker.scss';
+@import '../node_modules/angular-calendar/css/angular-calendar.css';
+
+// Admin pro css/scss
+@import './assets/scss/ui.scss';
+@import './assets/scss/variable'; // (All the predefine varialbes colors and etc)
+@import './assets/scss/app'; //( All the Common scss contain here )
+@import './assets/scss/sidebar'; //( Left sidebar scss contain here )
+@import './assets/scss/pages'; //(All pages scss contain here )
+@import './assets/scss/widgets'; // ( This is for the all widgets of the template )
+@import './assets/scss/grid'; // ( This is for the extra grid of xlg )
+@import './assets/scss/responsive'; //( This is for the responsive scss )
+@import './assets/scss/spinners'; // ( This is for the Loader )
+@import './assets/scss/animate.css'; //( This is for the Animation )
+@import './assets/scss/theme-settings';
+
+// Admin pro Fonts & Icons
+@import './assets/scss/icons/font-awesome/scss/font-awesome';
+@import './assets/scss/icons/simple-line-icons/scss/simple-line-icons';
+@import './assets/scss/icons/themify-icons/themify-icons.css';
+@import './assets/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css';
+
+// Admin pro Theme
+@import './assets/scss/dark';
+
+// Admin pro Color
+@import './assets/scss/colors/blue-dark';
+@import './assets/scss/colors/default-dark';
+@import './assets/scss/colors/red-dark';
+@import './assets/scss/colors/green-dark';
+@import './assets/scss/colors/purple-dark';
+@import './assets/scss/colors/megna-dark';
+@import './assets/scss/colors/megna';
+@import './assets/scss/colors/blue';
+@import './assets/scss/colors/red';
+@import './assets/scss/colors/green';
+@import './assets/scss/colors/purple';
+@import './assets/scss/colors/default';
+
+// Admin pro RTL Demo
+@import './assets/scss/rtl/rtl';
+
+@mixin stepper-active($color) {
+  background: $color;
+  border-color: $color;
+  color: $white;
+  &:hover {
+    background: $color;
+    border-color: $color;
+    opacity: 0.7;
+    color: $white;
+  }
+}
+
+@mixin stepper-non-active($color) {
+  border-color: $color;
+  color: $color;
+  &:hover {
+    background: $color;
+    border-color: $color;
+    color: $white;
+  }
+}
+
+.ps .ps__scrollbar-y-rail {
+  left: 3px;
+  right: auto;
+}
+
+/*******************
+Headings
+***************/
+body .ui {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+  background: #f2f7f8;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  color: #54667a;
+  font-weight: 300;
+}
+
+.ui .btn {
+  padding: 7px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ui .btn-primary,
+.btn-primary.disabled {
+  color: #fff;
+  background: #ed8b49;
+  border: 1px solid #ed8b49;
+}
+
+.ui .btn-success,
+.btn-success.disabled {
+  color: #fff;
+  background: #55ce63;
+  border: 1px solid #55ce63;
+}
+
+.ui .btn-danger,
+.btn-danger.disabled {
+  color: #fff;
+  background: #f62d51;
+  border: 1px solid #f62d51;
+}
+
+// .left-sidebar {
+//   position: fixed;
+//   width: 100%;
+//   top: 0px;
+//   z-index: 20;
+//   padding-top: 70px;
+//   background: #fff;
+//   -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+//   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+// }
+
+.ui h1 {
+  line-height: 48px;
+  font-size: 36px;
+}
+
+.ui h2 {
+  line-height: 36px;
+  font-size: 24px;
+}
+.ui h3 {
+  line-height: 30px;
+  font-size: 21px;
+}
+
+.ui h4 {
+  line-height: 22px;
+  font-size: 18px;
+}
+
+.ui h5 {
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ui h6 {
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.ui .box {
+  border-radius: 4px;
+  padding: 10px;
+}
+
+html body.ui .dl {
+  display: inline-block;
+}
+
+html body.ui .db {
+  display: block;
+}
+
+.ui .no-wrap td,
+.no-wrap th {
+  white-space: nowrap;
+}
+
+.ui label {
+  font-weight: 500;
+  color: #867d7d;
+}
+
+.ui .errors {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545 !important;
+}
+
+.ui .required::before {
+  content: '*';
+  display: inline-block;
+  color: #a94442;
+  margin-right: 0.2em;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- Mobile International Picker
+<!-- ============================================================== --> 
+*/
+
+.ui-mobile .intl-tel-input.allow-dropdown {
+  width: 100%;
+}
+
+.ui-mobile .intl-tel-input.separate-dial-code.iti-sdc-2 input#phone {
+  padding-left: 73px !important;
+}
+
+.ui-mobile .intl-tel-input.separate-dial-code.iti-sdc-3 input#phone {
+  padding-left: 86px !important;
+}
+
+.ui-mobile .intl-tel-input.separate-dial-code.iti-sdc-4 input#phone {
+  padding-left: 96px !important;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- End Mobile International Picker
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- Select Picker
+<!-- ============================================================== --> 
+*/
+
+.ng-select.form-control .ng-select-container {
+  border: none;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- End Select Picker
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- Date / Time Picker
+<!-- ============================================================== --> 
+*/
+
+bs-datepicker-container,
+.bs-datepicker-container {
+  padding: 0px !important;
+}
+
+.bs-datepicker-body table td span.disabled,
+.bs-datepicker-body table td.disabled span {
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.bs-datepicker-body table td span {
+  border-radius: 4px;
+}
+/* 
+<!-- ============================================================== -->
+<!-- End Date / Time Picker
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- Datatable
+<!-- ============================================================== --> 
+*/
+.e-pager .e-spacing,
+.e-pager .e-numericitem:hover,
+.e-pager .e-currentitem {
+  border-radius: 5px;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- End Datatable
+<!-- ============================================================== --> 
+*/
+
+.custom-radio {
+  padding-left: 23px;
+}
+.gender_class {
+  position: ABSOLUTE;
+  right: 414px;
+  top: 32px;
+  left: 111px;
+}
+.gender_error_custom {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+input.create-class {
+  top: 125px;
+  right: 128px;
+  width: 99px;
+  position: relative;
+}
+
+.modal-header {
+  background-color: #226ab3;
+  color: #fff;
+}
+
+button.close {
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.modal-img {
+  width: 100%;
+  max-height: 580px;
+}
+
+input[type='file'] {
+  color: transparent;
+  width: 105px;
+}
+
+.right-sidebar .rpanel-title {
+  height: 70px;
+  padding: 24px 20px;
+}
+
+ui-button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: none !important;
+}
+
+button.nsm-dialog-btn-close {
+  display: none !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  text-transform: uppercase;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- Login -->
+<!-- ============================================================== --> 
+*/
+.signup-link {
+  color: #ed8b49 !important;
+  font-weight: 600;
+}
+
+.login-box {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.submit_button {
+  background: #ed8b49;
+  /* opacity: 0.7; */
+  border: 1px solid #ed8b49;
+  width: 100%;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+img.login-bg {
+  position: fixed;
+  z-index: -1;
+  height: 100%;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0px;
+  background-size: 100% 100%;
+  width: 100%;
+}
+
+.light-logo.icon {
+  width: 50px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0px 15px;
+}
+
+.light-logo.text-logo {
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+}
+
+.login-icon img {
+  width: 109px;
+  display: block;
+  margin: auto;
+  padding-top: 1.6rem;
+}
+/* 
+<!-- ============================================================== -->
+<!-- End of Login -->
+<!-- ============================================================== --> 
+*/
+
+ui-navbar {
+  width: 100%;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- Home Page -->
+<!-- ============================================================== --> 
+*/
+.home-bg {
+  width: 100%;
+  bottom: 34px;
+  position: absolute;
+  left: 0px;
+  height: auto;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.welcome-home {
+  width: 500px;
+  text-align: center;
+  margin: auto;
+}
+
+.welcome-home h3 {
+  color: #9a9a9a;
+}
+
+.welcome-home h1 {
+  font-weight: bold;
+}
+/* 
+<!-- ============================================================== -->
+<!-- End Home Page -->
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- Error Page -->
+<!-- ============================================================== --> 
+*/
+.error-box {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+.error-body {
+  // padding-top: 5%;
+}
+
+.error-body h1 {
+  font-size: 210px;
+  font-weight: 900;
+  line-height: 210px;
+}
+/* 
+<!-- ============================================================== -->
+<!-- End Error Page -->
+<!-- ============================================================== --> 
+*/
+/* 
+<!-- ============================================================== -->
+<!-- Menu
+<!-- ============================================================== --> 
+*/
+
+.sidebar-nav ul li a {
+  min-height: 60px;
+  line-height: 35px;
+}
+
+@media (min-width: 1400px) {
+  .boxed .topbar .top-navbar,
+  .boxed .sidebar-nav,
+  .boxed .container-fluid,
+  .boxed .page-titles {
+    max-width: none !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-brand {
+    padding-left: 50px;
+  }
+}
+
+@media (min-width: 769px) {
+  .hidden-lg-up {
+    display: none !important;
+  }
+}
+
+.dropdown-menu-right {
+  right: 0px !important;
+}
+
+.dropdown-menu-right.filter {
+  width: fit-content;
+  padding: 10px 5px;
+  min-width: 310px;
+}
+
+.navbar-nav.mobile {
+  position: fixed;
+  top: 15px;
+  z-index: 50;
+  left: 20px;
+}
+/* 
+<!-- ============================================================== -->
+<!-- End Menu
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- Login
+<!-- ============================================================== --> 
+*/
+.login-register {
+  background: #f2f8f8;
+}
+
+.login-bg {
+  height: auto !important;
+}
+
+@media (max-width: 767px) {
+  .login-register {
+    position: fixed;
+  }
+  .mini-sidebar .left-sidebar,
+  .mini-sidebar .sidebar-footer {
+    padding-top: 10px;
+  }
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- End Login
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- main menu
+<!-- ============================================================== --> 
+*/
+
+.top .left-sidebar {
+  position: fixed;
+  // width: 100%;
+  // height: auto;
+  // padding-top: 0px;
+  top: 70px;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- end main menu
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- header
+<!-- ============================================================== --> 
+*/
+
+// .topbar .top-header {
+//     position: sticky;
+//     z-index: 50;
+//     top: 0;
+//     box-shadow: 0 1px 5px rgba(0,0,0,.05);
+// }
+
+/* 
+<!-- ============================================================== -->
+<!-- end header
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- datepicker
+<!-- ============================================================== --> 
+*/
+
+.bs-datepicker {
+  display: flex;
+  align-items: stretch;
+  flex-flow: row wrap;
+  background: #fff;
+  // box-shadow: 0 0 10px 0 #aaa;
+  position: relative;
+  z-index: 1;
+  // left: -4.9rem;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- end datepicker
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- font
+<!-- ============================================================== --> 
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #455a64;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background: #fff;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  color: #54667a;
+  font-weight: 400;
+}
+/* 
+<!-- ============================================================== -->
+<!-- end font
+<!-- ============================================================== --> 
+*/
+
+/* 
+<!-- ============================================================== -->
+<!-- select font
+<!-- ============================================================== --> 
+*/
+
+ng-select.form-control.ng-select.ng-select-single.ng-select-searchable.ng-select-clearable.ng-pristine.ng-valid.ng-select-bottom.ng-touched.ng-select-opened {
+  color: #495057;
+  background-color: #fff;
+  border-color: #9e9e9e94;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #9e9e9e94;
+}
+
+ng-select.form-control.ng-select.ng-select-single.ng-select-typeahead.ng-select-searchable.ng-select-clearable.ng-pristine.ng-invalid.ng-select-bottom.ng-touched.ng-select-opened {
+  top: 100%;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-color: #e6e6e6;
+  margin-top: -1px;
+  color: #aaa;
+  background-color: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #9e9e9e94;
+  border-color: #9e9e9e94;
+}
+
+ng-select.form-control.ng-select.ng-select-single.ng-select-typeahead.ng-select-searchable.ng-select-clearable.ng-valid.ng-select-bottom.ng-touched.ng-dirty.ng-select-opened {
+  color: #495057;
+  background-color: #fff;
+  border-color: #9e9e9e94;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #9e9e9e94;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  text-transform: uppercase;
+  padding: 2px 10px;
+  font-size: 14px;
+  transition: 0.3s;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  color: #656565;
+  font-weight: 400;
+}
+
+.ng-dropdown-panel.ng-select-bottom {
+  top: 100%;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-color: #e6e6e6;
+  margin-top: -1px;
+  overflow-x: hidden;
+  color: #aaa;
+  background-color: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #9e9e9e94;
+  border-color: #9e9e9e94;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-disabled {
+  color: #ccc;
+  padding: 2px 10px;
+  font-size: 14px;
+  transition: 0.3s;
+  -webkit-user-select: none;
+  font-weight: 400;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  font-size: 14px;
+  transition: 0.3s;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  color: #656565;
+  font-weight: 400;
+}
+
+/*******************
+ Right side toggle
+*******************/
+ul#themecolors {
+  display: block;
+}
+ul#themecolors li {
+  display: inline-block;
+}
+ul#themecolors li:first-child {
+  display: block;
+}
+ul#themecolors div {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 5px;
+  color: transparent;
+  position: relative;
+  padding: 0;
+  border: 1px solid #fff;
+}
+ul#themecolors li a.working:before {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  font-size: 18px;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+ul#menulayout div input {
+  z-index: 99;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+ul#menulayout {
+  display: block;
+}
+ul#menulayout li {
+  display: inline-block;
+}
+ul#menulayout li:first-child {
+  display: block;
+}
+ul#menulayout div {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 5px;
+  color: transparent;
+  position: relative;
+  padding: 0;
+  border: 1px solid #fff;
+}
+ul#menulayout li a.working:before {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  font-size: 18px;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+ul#menulayout div input {
+  z-index: 99;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.custom-control-label[_ngcontent-jhq-c1] {
+  padding-left: 0;
+  width: 100%;
+}
+
+.custom-control-label[_ngcontent-jhq-c1]::before {
+  background-color: transparent;
+  border: none;
+}
+
+.custom-checkbox[_ngcontent-jhq-c1]
+  .custom-control-input[_ngcontent-jhq-c1]:checked
+  ~ .custom-control-label[_ngcontent-jhq-c1]::before {
+  background-color: transparent;
+  width: 100%;
+}
+
+.custom-checkbox[_ngcontent-jhq-c1]
+  .custom-control-input[_ngcontent-jhq-c1]:checked
+  ~ .custom-control-label[_ngcontent-jhq-c1]::after {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  color: #fff;
+  font-size: 1.5em;
+  text-align: center;
+  width: 100%;
+  background-image: none;
+}
+
+.default-theme {
+  background: #90a4ae;
+}
+
+.green-theme {
+  background: #55ce63;
+}
+
+.yellow-theme {
+  background: #ffbc34;
+}
+
+.red-theme {
+  background: #f62d51;
+}
+
+.blue-theme {
+  background: #009efb;
+}
+
+.purple-theme {
+  background: #7460ee;
+}
+
+.megna-theme {
+  background: #01c0c8;
+}
+
+.default-dark-theme {
+  background: #263238;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#263238),
+    color-stop(23%, #263238),
+    color-stop(23%, #90a4ae),
+    color-stop(99%, #90a4ae)
+  );
+  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+  background: linear-gradient(to right, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+}
+
+.green-dark-theme {
+  background: #263238;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #55ce63 23%, #55ce63 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #00c292 23%, #55ce63 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#263238),
+    color-stop(23%, #263238),
+    color-stop(23%, #55ce63),
+    color-stop(99%, #55ce63)
+  );
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #55ce63 23%, #55ce63 99%);
+  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #55ce63 23%, #55ce63 99%);
+  background: linear-gradient(to right, #263238 0%, #263238 23%, #55ce63 23%, #55ce63 99%);
+}
+
+.yellow-dark-theme {
+  background: #263238;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#263238),
+    color-stop(23%, #263238),
+    color-stop(23%, #f62d51),
+    color-stop(99%, #f62d51)
+  );
+  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+  background: linear-gradient(to right, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+}
+
+.blue-dark-theme {
+  background: #263238;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #009efb 23%, #009efb 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #009efb 23%, #009efb 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#263238),
+    color-stop(23%, #263238),
+    color-stop(23%, #009efb),
+    color-stop(99%, #009efb)
+  );
+  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #009efb 23%, #009efb 99%);
+  background: linear-gradient(to right, #263238 0%, #263238 23%, #009efb 23%, #009efb 99%);
+}
+
+.purple-dark-theme {
+  background: #263238;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #7460ee 23%, #7460ee 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #7460ee 23%, #7460ee 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#263238),
+    color-stop(23%, #263238),
+    color-stop(23%, #7460ee),
+    color-stop(99%, #7460ee)
+  );
+  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #7460ee 23%, #7460ee 99%);
+  background: linear-gradient(to right, #263238 0%, #263238 23%, #7460ee 23%, #7460ee 99%);
+}
+
+.megna-dark-theme {
+  background: #263238;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #01c0c8 23%, #01c0c8 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #01c0c8 23%, #01c0c8 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#263238),
+    color-stop(23%, #263238),
+    color-stop(23%, #01c0c8),
+    color-stop(99%, #01c0c8)
+  );
+  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #01c0c8 23%, #01c0c8 99%);
+  background: linear-gradient(to right, #263238 0%, #263238 23%, #01c0c8 23%, #01c0c8 99%);
+}
+
+.red-dark-theme {
+  background: #263238;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#263238),
+    color-stop(23%, #263238),
+    color-stop(23%, #f62d51),
+    color-stop(99%, #f62d51)
+  );
+  background: -o-linear-gradient(left, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+  background: linear-gradient(to right, #263238 0%, #263238 23%, #f62d51 23%, #f62d51 99%);
+}
+
+/*******************
+      UI Changes
+*******************/
+
+.e-input-group:not(.e-success):not(.e-warning):not(.e-error):not(.e-float-icon-left),
+.e-input-group.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error) .e-input-in-wrap,
+.e-input-group.e-control-wrapper:not(.e-success):not(.e-warning):not(.e-error):not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error) .e-input-in-wrap,
+.e-float-input.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error) .e-input-in-wrap,
+.e-float-input.e-control-wrapper.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error) .e-input-in-wrap {
+  border-color: rgba(0, 0, 0, 0.42);
+  border-width: 0 0 0px 0;
+}
+
+.e-ddl.e-input-group.e-control-wrapper .e-ddl-icon::before {
+  content: '\e969';
+  font-family: 'e-icons';
+  margin-top: -5px;
+}
+
+.e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning):not(.e-error),
+.e-input-group.e-control-wrapper.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning):not(.e-error),
+.e-float-input.e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning):not(.e-error),
+.e-float-input.e-input-group.e-input-focus:not(.e-float-icon-left).e-success:not(.e-warning):not(.e-error),
+.e-float-input.e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success).e-warning:not(.e-error),
+.e-float-input.e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning).e-error,
+.e-float-input.e-control-wrapper.e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning):not(.e-error),
+.e-float-input.e-control-wrapper.e-input-group.e-input-focus:not(.e-float-icon-left).e-success:not(.e-warning):not(.e-error),
+.e-float-input.e-control-wrapper.e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success).e-warning:not(.e-error),
+.e-float-input.e-control-wrapper.e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning).e-error,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning):not(.e-error)
+  input,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled).e-success:not(.e-warning):not(.e-error)
+  input,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success).e-warning:not(.e-error)
+  input,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning).e-error
+  input,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning):not(.e-error)
+  textarea,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled).e-success:not(.e-warning):not(.e-error)
+  textarea,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success).e-warning:not(.e-error)
+  textarea,
+.e-float-input.e-control-wrapper.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning).e-error
+  textarea,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning):not(.e-error)
+  input,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled).e-success:not(.e-warning):not(.e-error)
+  input,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success).e-warning:not(.e-error)
+  input,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning).e-error
+  input,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning):not(.e-error)
+  textarea,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled).e-success:not(.e-warning):not(.e-error)
+  textarea,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success).e-warning:not(.e-error)
+  textarea,
+.e-float-input.e-input-focus:not(.e-input-group):not(.e-float-icon-left):not(.e-disabled):not(.e-success):not(.e-warning).e-error
+  textarea,
+.e-input-group.e-input-focus:not(.e-float-icon-left).e-success:not(.e-warning):not(.e-error),
+.e-input-group.e-input-focus:not(.e-float-icon-left).e-warning:not(.e-success):not(.e-error),
+.e-input-group.e-control-wrapper.e-input-focus:not(.e-float-icon-left).e-success:not(.e-warning):not(.e-error),
+.e-input-group.e-control-wrapper.e-input-focus:not(.e-float-icon-left).e-warning:not(.e-success):not(.e-error),
+.e-input-group.e-input-focus:not(.e-float-icon-left).e-error:not(.e-success):not(.e-warning),
+.e-input-group.e-float-icon-left.e-input-focus:not(.e-success):not(.e-warning):not(.e-error) .e-input-in-wrap,
+.e-input-group.e-float-icon-left.e-input-focus.e-success:not(.e-warning):not(.e-error) .e-input-in-wrap,
+.e-input-group.e-float-icon-left.e-input-focus.e-warning:not(.e-success):not(.e-error) .e-input-in-wrap,
+.e-input-group.e-float-icon-left.e-input-focus.e-error:not(.e-success):not(.e-warning) .e-input-in-wrap {
+  border-style: solid;
+  border-width: 0px 0 0px;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #9e9e9e94;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #9e9e9e94;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.intl-tel-input.separate-dial-code .selected-flag {
+  background-color: #bdbdbd;
+}
+
+.intl-tel-input.allow-dropdown .flag-container:hover .selected-flag {
+  background-color: #bdbdbd;
+}
+
+ui-button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+@mixin wizard-stepper-colour {
+  > a.active .round-tabs {
+    @include stepper-active($info);
+  }
+
+  > a.active-primary .round-tabs {
+    @include stepper-active($primary);
+  }
+
+  > a.active-success .round-tabs {
+    @include stepper-active($success);
+  }
+
+  > a.active-warning .round-tabs {
+    @include stepper-active($warning);
+  }
+
+  > a.active-danger .round-tabs {
+    @include stepper-active($danger);
+  }
+
+  > a.active-secondary .round-tabs {
+    @include stepper-active($inverse);
+  }
+
+  > a.active-default .round-tabs {
+    @include stepper-active($border-color);
+  }
+
+  > a .round-tabs {
+    @include stepper-non-active($info);
+  }
+
+  > a.primary .round-tabs {
+    @include stepper-non-active($primary);
+  }
+
+  > a.success .round-tabs {
+    @include stepper-non-active($success);
+  }
+
+  > a.warning .round-tabs {
+    @include stepper-non-active($warning);
+  }
+
+  > a.danger .round-tabs {
+    @include stepper-non-active($danger);
+  }
+
+  > a.secondary .round-tabs {
+    @include stepper-non-active($inverse);
+  }
+
+  > a.default .round-tabs {
+    @include stepper-non-active($border-color);
+  }
+}
+$vertical-step-padding: var(--ver-step-pad);
+.wizard-vertical-navbar {
+  padding: 0px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  li {
+    list-style: none;
+    text-align: center;
+    .round-tabs {
+      padding: 20px;
+      background: white;
+      position: relative;
+      z-index: 2;
+      border: 1px solid $border-color;
+      border-radius: 100%;
+    }
+    > a {
+      padding: 0.5rem 0;
+    }
+
+    @include wizard-stepper-colour;
+  }
+
+  .vertical-step {
+    height: 12.5rem;
+  }
+}
+
+.wizard-vertical-navbar {
+  span:not(:last-child)::after {
+    width: 2px;
+    background: $border-color;
+    content: '';
+    position: absolute;
+    height: 90%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.wizard-navbar {
+  li {
+    @include wizard-stepper-colour;
+  }
+}
+
+.flex-col {
+  flex: 1 1 auto !important;
+}
+// ************************** Urp Tooltip ******************************
+.uiTooltip-example {
+  text-align: center;
+  padding: 0 50px;
+}
+.uiTooltip-example [uiTooltip] {
+  display: inline-block;
+  margin: 50px 20px;
+  width: 180px;
+  height: 50px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  line-height: 50px;
+  text-align: center;
+}
+.ng-uiTooltip {
+  position: absolute;
+  max-width: 150px;
+  font-size: 14px;
+  text-align: center;
+  color: #f8f8f2;
+  padding: 3px 8px;
+  background: #3c3e49c9;
+  border-radius: 4px;
+  z-index: 1000;
+  opacity: 0;
+}
+.ng-uiTooltip:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+}
+.ng-uiTooltip-top:after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: #3c3e49c9 transparent transparent transparent;
+}
+.ng-uiTooltip-bottom:after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: transparent transparent #3c3e49c9 transparent;
+}
+.ng-uiTooltip-left:after {
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent transparent transparent #3c3e49c9;
+}
+.ng-uiTooltip-right:after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent #3c3e49c9 transparent transparent;
+}
+.ng-uiTooltip-show {
+  opacity: 1;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 1px;
+  // margin-right: -15px;
+  margin-left: 0;
+}
+
+.e-grid .e-rowcell .e-checkbox-wrapper, .e-grid .e-rowcell .e-css.e-checkbox-wrapper {
+    vertical-align: middle;
+}

@@ -1,0 +1,22 @@
+<div class="row page-titles" *ngIf="breadcrumbs.length > 0">
+  <div class="col-md-5 align-self-center">
+    <h3 class="text-themecolor mb-0 mt-0">
+      <span>{{pageInfo}}</span>
+    </h3>
+  </div>
+  <div class="col-md-7 align-self-center">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" *ngIf="breadcrumbs.length > 0">
+        <a class="animsition-link" href="/">
+          <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+          <span> Home</span>
+        </a>
+      </li>
+      <li *ngFor="let breadcrumb of breadcrumbs; last as isLast" class="breadcrumb-item">
+        <span *ngIf="isLast">{{ breadcrumb.label }}</span>
+        <a *ngIf="!isLast" class="animsition-link" [routerLink]="[breadcrumb.url]"
+          routerLinkActive="router-link-active">{{ breadcrumb.label }}</a>
+      </li>
+    </ol>
+  </div>
+</div>

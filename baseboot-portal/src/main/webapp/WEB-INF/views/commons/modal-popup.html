@@ -1,0 +1,59 @@
+<!--/* Message Popup */-->
+<div class="modal fade message-modal" th:classappend="${mainMessageType}" tabindex="-1" id="message_modal" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            	<th:block th:if="${mainMessageType != 'success'}">
+	                <th:block th:unless="${mainMessageType == 'confirm'}">
+	                	<button type="button" th:if="${redirectLink == null or redirectLink == ''}" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only" th:text="#{btn.lbl.clse}"/></button>
+                	</th:block>
+                </th:block>
+                <h4 class="modal-title">
+                    <th:block th:if="${mainMessageType == 'info'}" ><i class="fa fa-info"></i> <th:block th:if="${#strings.isEmpty(mainPopupTitle)}" th:text="Information"></th:block></th:block>
+                	<th:block th:if="${mainMessageType == 'success'}"><i class="fa fa-check"></i> <th:block th:if="${#strings.isEmpty(mainPopupTitle)}" th:text="Success"></th:block></th:block>
+                	<th:block th:if="${mainMessageType == 'warning'}"><i class="fa fa-exclamation"></i> <th:block th:if="${#strings.isEmpty(mainPopupTitle)}" th:text="Warning"></th:block></th:block>
+                	<th:block th:if="${mainMessageType == 'danger'}"><i class="fa fa-exclamation"></i> <th:block th:if="${#strings.isEmpty(mainPopupTitle)}" th:text="Danger"></th:block></th:block>
+					<th:block th:unless="${#strings.isEmpty(mainPopupTitle)}" th:text="${mainPopupTitle}"></th:block>
+                </h4>
+            </div>
+            <div class="modal-body">
+            	<div id="mainMessageId" th:utext="${mainMessage}"/>
+            </div>
+            <th:block th:if="${redirectLink != null or mainMessageType == 'success'}">
+            	<div class="modal-footer">
+            		<th:block th:if="${mainMessageType == 'confirm'}">
+            			<button data-dismiss="modal" type="button" class="btn btn-default" th:text="#{btn.lbl.no}" />
+            			<button type="button" class="btn btn-info" th:text="#{btn.lbl.yes}" th:onclick="${redirectLink}" />
+            		</th:block>
+            		<th:block th:unless="${mainMessageType == 'confirm'}">
+            			<a th:if="${redirectLink == null}" class="btn btn-success" th:text="#{btn.cmn.ok}" data-dismiss="modal" />
+            			<a th:if="${redirectLink != null}" th:href="@{${redirectLink}}" class="btn btn-success" th:text="#{btn.cmn.ok}" />
+            		</th:block>
+            	</div>
+            </th:block>
+        </div>
+    </div>
+</div>
+<!--/* REPORT MODAL */-->
+<div class="modal modal-styled fade" id="rptDialog" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="rptTtl" th:text="${rptTtl != null} ? ${rptTtl} : #{lbl.doc.scrn}"/>
+                <i class="fa fa-arrows-alt cursor-pointer" onclick="$('#rptDialog').toggleClass('fullscreen');" />
+            </div>
+            <div class="modal-body">
+                <object id="pdfUrl" width="100%" height="500px" />
+            </div>
+        </div>
+    </div>
+</div>
+<!--/* Default Popup Modal */-->
+<div id="popup_modal" class="modal modal-styled fade" th:classappend="${mainPopupType}" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-lg" style="min-height: 500px;">
+        <div class="modal-content">
+			<th:block th:text="${mainPopupContent}"/>
+			<div id="popup_content" />
+        </div>
+    </div>
+</div>

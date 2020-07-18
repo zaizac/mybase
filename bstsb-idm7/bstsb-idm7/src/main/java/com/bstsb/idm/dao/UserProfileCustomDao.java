@@ -1,0 +1,619 @@
+/**
+ * Copyright 2018. Bestinet Sdn Bhd
+ */
+package com.bstsb.idm.dao;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
+
+import com.bstsb.idm.constants.QualifierConstants;
+import com.bstsb.idm.model.IdmProfile;
+import com.bstsb.idm.model.IdmRole;
+import com.bstsb.idm.model.IdmUserGroup;
+import com.bstsb.idm.model.IdmUserGroupRole;
+import com.bstsb.idm.model.IdmUserGroupRoleGroup;
+import com.bstsb.idm.sdk.model.UserProfile;
+import com.bstsb.util.BaseUtil;
+import com.bstsb.util.pagination.DataTableRequest;
+import com.bstsb.util.pagination.DataTableResults;
+import com.bstsb.util.pagination.PaginationCriteria;
+
+
+/**
+ * @author Mary Jane Buenaventura
+ * @since May 4, 2018
+ */
+@Repository
+@Scope(QualifierConstants.SCOPE_PROTOTYPE)
+@Qualifier(QualifierConstants.IDM_PROFILE_CUSTOM_REPOSITORY)
+public class UserProfileCustomDao {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserProfileCustomDao.class);
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	private static final String QUERY_FULL_NAME = " and r.fullName like :fullName ";
+
+	private static final String QUERY_USER_TYPE = " and r.userType = :userType ";
+
+	private static final String QUERY_USER_ROLE_GROUP_CODE = " and r.userRoleGroupCode = :userRoleGroupCode ";
+
+	private static final String LOG_QUERY = "Query: {}";
+
+	private static final String CONST_FULLNAME = "fullName";
+
+	private static final String CONST_STATUS = "status";
+
+	private static final String CONST_USER_TYPE = "userType";
+
+	private static final String CONST_USER_ROLE_GROUP_CODE = "userRoleGroupCode";
+
+	private static final String CONST_USER_ID = "userId";
+
+	private static final String CONST_USER_GROUP_CODE = "userGroupCode";
+
+	private static final String CONST_USER_ROLE_GROUP_CODES = "userRoleGroupCodes";
+
+	private static final String CONST_SYNC_FLAG = "syncFlag";
+
+	private static final String CONST_PARENT_ROLE_GROUP = "parentRoleGroup";
+
+	private static final String CONST_PROF_ID = "profId";
+
+	private static final String CONST_BRANCH_ID = "branchId";
+
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public List<IdmProfile> searchUserProfile(UserProfile userProfile) {
+		StringBuilder sb = new StringBuilder("select r ");
+		sb.append(" from IdmProfile r ");
+		sb.append(" where 1=1 ");
+
+		if (StringUtils.hasText(userProfile.getStatus())) {
+			sb.append(" and r.status =:status ");
+		}
+
+		if (StringUtils.hasText(userProfile.getFullName())) {
+			sb.append(QUERY_FULL_NAME);
+		}
+
+		if (StringUtils.hasText(userProfile.getUserType())) {
+			sb.append(QUERY_USER_TYPE);
+		}
+
+		if (StringUtils.hasText(userProfile.getUserRoleGroupCode())) {
+			sb.append(QUERY_USER_ROLE_GROUP_CODE);
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getProfId())) {
+			sb.append(" and r.profId = :profId ");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getBranchId())) {
+			sb.append(" and r.branchId = :branchId ");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getStatus())) {
+			sb.append(" and r.status = :status ");
+		}
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(LOG_QUERY, sb);
+		}
+
+		Query query = entityManager.createQuery(sb.toString());
+
+		if (StringUtils.hasText(userProfile.getStatus())) {
+			query.setParameter(CONST_STATUS, userProfile.getStatus());
+		}
+
+		if (StringUtils.hasText(userProfile.getFullName())) {
+			query.setParameter(CONST_FULLNAME, "%" + userProfile.getFullName() + "%");
+		}
+
+		if (StringUtils.hasText(userProfile.getUserType())) {
+			query.setParameter(CONST_USER_TYPE, userProfile.getUserType());
+		}
+
+		if (StringUtils.hasText(userProfile.getUserRoleGroupCode())) {
+			query.setParameter(CONST_USER_ROLE_GROUP_CODE, userProfile.getUserRoleGroupCode());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getProfId())) {
+			query.setParameter(CONST_PROF_ID, userProfile.getProfId());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getBranchId())) {
+			query.setParameter(CONST_BRANCH_ID, userProfile.getBranchId());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getStatus())) {
+			query.setParameter(CONST_STATUS, userProfile.getStatus());
+		}
+
+		return query.getResultList();
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public List<IdmProfile> search(UserProfile userProfile) {
+
+		List<IdmProfile> userList = new ArrayList<>();
+
+		StringBuilder sb = searchConfigureQueryString(userProfile);
+		LOGGER.debug(LOG_QUERY, sb);
+
+		Query query = searchAssignQueryParameter(userProfile, sb);
+
+		List<Object[]> result = query.getResultList();
+		if (!BaseUtil.isListNull(result)) {
+			for (Object[] curObj : result) {
+				if (curObj.length > 1) {
+					IdmProfile prof = (IdmProfile) curObj[0];
+					IdmUserGroupRoleGroup group = (IdmUserGroupRoleGroup) curObj[1];
+					updateUserGroupAndUserRoleGroupToUserList(prof, group, userList);
+				}
+			}
+		}
+		return userList;
+	}
+
+
+	private StringBuilder searchConfigureQueryString(UserProfile userProfile) {
+		StringBuilder sb = new StringBuilder("select r, ugrp  ");
+		sb.append(" from IdmProfile r, " + IdmUserGroupRoleGroup.class.getSimpleName() + " ugrp ");
+		sb.append(" where r.userRoleGroupCode=ugrp.userRoleGroupCode ");
+		if (StringUtils.hasText(userProfile.getStatus())) {
+			if (StringUtils.pathEquals(userProfile.getStatus(), "I")) {
+				sb.append(" and r.status != 'A' ");
+			} else {
+				sb.append(" and r.status ='A' ");
+			}
+		}
+
+		if (StringUtils.hasText(userProfile.getUserId())) {
+			sb.append(" and r.userId = :userId ");
+		}
+
+		if (StringUtils.hasText(userProfile.getFullName())) {
+			sb.append(QUERY_FULL_NAME);
+		}
+
+		if (StringUtils.hasText(userProfile.getUserType())) {
+			sb.append(QUERY_USER_TYPE);
+		}
+
+		if (StringUtils.hasText(userProfile.getUserGroupCode())) {
+			sb.append(" and ugrp.userGroupCode = :userGroupCode");
+		}
+
+		if (StringUtils.hasText(userProfile.getParentRoleGroup())) {
+			sb.append(" and ugrp.parentRoleGroup = :parentRoleGroup");
+		}
+
+		if (StringUtils.hasText(userProfile.getUserRoleGroupCode())) {
+			sb.append(QUERY_USER_ROLE_GROUP_CODE);
+		}
+
+		if (!BaseUtil.isListNull(userProfile.getUserRoleGroupCodeList())) {
+			sb.append(" and r.userRoleGroupCode in ( :userRoleGroupCodes )");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getSyncFlag())) {
+			sb.append(" and r.syncFlag in ( :syncFlag )");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getProfId())) {
+			sb.append(" and r.profId in ( :profId )");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getBranchId())) {
+			sb.append(" and r.branchId in ( :branchId )");
+		}
+
+		return sb;
+	}
+
+
+	private Query searchAssignQueryParameter(UserProfile userProfile, StringBuilder sb) {
+		Query query = entityManager.createQuery(sb.toString());
+
+		if (StringUtils.hasText(userProfile.getUserId())) {
+			query.setParameter(CONST_USER_ID, userProfile.getUserId());
+		}
+
+		if (StringUtils.hasText(userProfile.getFullName())) {
+			query.setParameter(CONST_FULLNAME, "%" + userProfile.getFullName() + "%");
+		}
+
+		if (StringUtils.hasText(userProfile.getUserType())) {
+			query.setParameter(CONST_USER_TYPE, userProfile.getUserType());
+		}
+
+		if (StringUtils.hasText(userProfile.getUserGroupCode())) {
+			query.setParameter(CONST_USER_GROUP_CODE, userProfile.getUserGroupCode());
+		}
+
+		if (StringUtils.hasText(userProfile.getParentRoleGroup())) {
+			query.setParameter(CONST_PARENT_ROLE_GROUP, userProfile.getParentRoleGroup());
+		}
+
+		if (StringUtils.hasText(userProfile.getUserRoleGroupCode())) {
+			query.setParameter(CONST_USER_ROLE_GROUP_CODE, userProfile.getUserRoleGroupCode());
+		}
+
+		if (!BaseUtil.isListNull(userProfile.getUserRoleGroupCodeList())) {
+			query.setParameter(CONST_USER_ROLE_GROUP_CODES, userProfile.getUserRoleGroupCodeList());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getSyncFlag())) {
+			query.setParameter(CONST_SYNC_FLAG, userProfile.getSyncFlag());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getProfId())) {
+			query.setParameter(CONST_PROF_ID, userProfile.getProfId());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getBranchId())) {
+			query.setParameter(CONST_BRANCH_ID, userProfile.getBranchId());
+		}
+
+		return query;
+	}
+
+
+	private void updateUserGroupAndUserRoleGroupToUserList(IdmProfile prof, IdmUserGroupRoleGroup group,
+			List<IdmProfile> userList) {
+		if (!BaseUtil.isObjNull(prof)) {
+			if (!BaseUtil.isObjNull(group)) {
+				prof.setUserGroupCode(group.getUserGroupCode());
+				if (!BaseUtil.isObjNull(group) && !BaseUtil.isObjNull(group.getUserRoleGroup())) {
+					prof.setUserRoleGroupDesc(group.getUserRoleGroup().getUserGroupDesc());
+				}
+			}
+			userList.add(prof);
+		}
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public List<IdmProfile> getUserProfileListByUserNameList(String usernames) {
+		List<String> usernameList = new ArrayList<>();
+
+		if (StringUtils.hasText(usernames)) {
+			usernameList = Arrays.asList(usernames.split("\\s*,\\s*"));
+			if (!BaseUtil.isListNull(usernameList)) {
+				usernameList.removeAll(Collections.singleton(null));
+				usernameList.removeAll(Collections.singleton(""));
+				LOGGER.debug("usernameList: {}", usernameList);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder("select r from IdmProfile r where r.userId in :usernames");
+
+		LOGGER.debug(LOG_QUERY, sb);
+		Query query = entityManager.createQuery(sb.toString());
+
+		if (!BaseUtil.isListNull(usernameList)) {
+			query.setParameter("usernames", usernameList);
+		}
+
+		return query.getResultList();
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public List<IdmProfile> findAllUsersByRoleCodes(String userRoles) {
+		List<String> roleList = new ArrayList<>();
+
+		if (!BaseUtil.isObjNull(roleList)) {
+			roleList = Arrays.asList(userRoles.split("\\s*,\\s*"));
+			if (!BaseUtil.isListNull(roleList)) {
+				roleList.removeAll(Collections.singleton(null));
+				roleList.removeAll(Collections.singleton(""));
+				LOGGER.debug("roleList: {}", roleList);
+			}
+		}
+
+		List<IdmProfile> userList = new ArrayList<>();
+
+		StringBuilder sb = new StringBuilder("select r, ugrpr  ");
+		sb.append(" from IdmProfile r, " + IdmUserGroupRole.class.getName() + " ugrpr ");
+		sb.append(" where r.userRoleGroupCode=ugrpr.userRoleGroupCode ");
+
+		if (!BaseUtil.isListNull(roleList)) {
+			sb.append("and ugrpr.roleCode in :roleList ");
+		}
+
+		LOGGER.debug(LOG_QUERY, sb);
+
+		Query query = entityManager.createQuery(sb.toString());
+
+		if (!BaseUtil.isListNull(roleList)) {
+			query.setParameter("roleList", roleList);
+		}
+
+		List<Object[]> result = query.getResultList();
+		if (!BaseUtil.isListNull(result)) {
+			for (Object[] curObj : result) {
+				if (curObj.length > 1) {
+					IdmProfile prof = (IdmProfile) curObj[0];
+					if (!BaseUtil.isObjNull(prof)) {
+						userList.add(prof);
+					}
+				}
+			}
+		}
+		return userList;
+	}
+
+
+	public List<IdmProfile> findRoleMemberByIdmRoleroleCode(String roleCode, String userId) {
+		return findRoleMemberByIdmRoleroleCode(roleCode, userId, "");
+	}
+
+
+	public List<IdmProfile> findRoleMemberByIdmRoleroleCode(String roleCode, String userId,
+			String... userRoleGroupCodes) {
+		List<IdmProfile> profilesList = new ArrayList<>();
+
+		StringBuilder sb = new StringBuilder("select ip.userId, ip.branchId, ug.roleCode, ir.roleDesc,ip.status ");
+		sb.append(" from IdmUserGroupRole ug, IdmProfile ip, IdmRole ir ");
+		sb.append(" where ip.status in ('A','I') and ug.userRoleGroupCode = ip.userRoleGroupCode and ir.roleCode = ug.roleCode and ip.branchCode != '' and ip.branchCode IS NOT NULL ");
+		sb.append(" and ug.roleCode=:roleCode and ip.createUserFlag = 0");
+
+		if (!BaseUtil.isObjNull(userRoleGroupCodes) && userRoleGroupCodes.length > 0) {
+			sb.append(" and ip.userRoleGroupCode in (:userRoleGroupCodes)");
+		}
+
+		if (userId != null) {
+			sb.append(" and ip.userId = :userId");
+		}
+
+		LOGGER.debug(LOG_QUERY, sb);
+
+		Query query = entityManager.createQuery(sb.toString()).setParameter("roleCode", roleCode);
+
+		if (userId != null) {
+			query.setParameter(CONST_USER_ID, userId);
+		}
+
+		if (!BaseUtil.isObjNull(userRoleGroupCodes) && userRoleGroupCodes.length > 0) {
+			query.setParameter(CONST_USER_ROLE_GROUP_CODES, Arrays.asList(userRoleGroupCodes));
+		}
+
+		@SuppressWarnings("unchecked")
+		List<Object[]> list = query.getResultList();
+
+		for (Object[] queryResp : list) {
+			IdmProfile profile = new IdmProfile();
+			List<IdmRole> roleList = new ArrayList<>();
+
+			IdmRole role = new IdmRole();
+			role.setRoleDesc(!StringUtils.isEmpty(queryResp[3]) ? (String) queryResp[3] : null);
+			role.setRoleCode(!StringUtils.isEmpty(queryResp[2]) ? (String) queryResp[2] : null);
+			roleList.add(role);
+
+			profile.setUserId(!StringUtils.isEmpty(queryResp[0]) ? (String) queryResp[0] : null);
+			profile.setBranchId(Integer.valueOf((String) queryResp[1]));
+			profile.setStatus(!StringUtils.isEmpty(queryResp[4]) ? (String) queryResp[4] : null);
+			profile.setRolesList(roleList);
+			profilesList.add(profile);
+		}
+
+		return profilesList;
+
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public DataTableResults<IdmProfile> searchByPagination(UserProfile userProfile,
+			DataTableRequest<IdmProfile> dataTableInRQ) {
+		StringBuilder sb = searchQueryString("select r, iug  from ", userProfile);
+
+		if (!BaseUtil.isObjNull(dataTableInRQ)) {
+			PaginationCriteria pagination = dataTableInRQ.getPaginationRequest();
+			if (!BaseUtil.isObjNull(pagination)) {
+				sb.append(pagination.getOrderByClause("r"));
+			}
+		}
+
+		// Filtered Query by pagination
+		Query query = entityManager.createQuery(sb.toString());
+		// Original Query
+		Query query2 = entityManager.createQuery(sb.toString());
+
+		searchQueryParameter(query, userProfile);
+		searchQueryParameter(query2, userProfile);
+
+		if (!BaseUtil.isObjNull(dataTableInRQ)) {
+			PaginationCriteria pagination = dataTableInRQ.getPaginationRequest();
+			if (!BaseUtil.isObjNull(pagination)) {
+				query.setFirstResult(pagination.getPageNumber());
+				query.setMaxResults(pagination.getPageSize());
+			}
+		}
+
+		DataTableResults<IdmProfile> dataTableResult = new DataTableResults<>();
+		List<Object[]> svcResp = query.getResultList();
+		List<Object[]> svcResp2 = query2.getResultList();
+		LOGGER.debug("Filtered Size: {}", svcResp.size());
+		LOGGER.debug("Original Size: {}", svcResp2.size());
+		List<IdmProfile> userList = new ArrayList<>();
+		processPaginatedSearchResult(userList, svcResp);
+
+		// Get max total records in table
+		long totalRecords = dataTableInRQ.isInitSearch() ? svcResp2.size() : totalRecords(userProfile);
+		dataTableResult.setDraw(dataTableInRQ.getDraw());
+		dataTableResult.setData(userList);
+		LOGGER.debug("isFilterByEmpty: {}", dataTableInRQ.getPaginationRequest().isFilterByEmpty());
+		dataTableResult.setRecordsTotal(BaseUtil.getStr(totalRecords));
+		if (dataTableInRQ.getPaginationRequest().isFilterByEmpty()) {
+			dataTableResult.setRecordsFiltered(BaseUtil.getStr(totalRecords));
+		} else {
+			dataTableResult.setRecordsFiltered(Integer.toString(svcResp2.size()));
+		}
+		return dataTableResult;
+	}
+
+
+	private void processPaginatedSearchResult(List<IdmProfile> userList, List<Object[]> svcResp) {
+		if (!BaseUtil.isListNull(svcResp)) {
+			for (Object[] curObj : svcResp) {
+				if (curObj.length > 1) {
+					IdmProfile prof = (IdmProfile) curObj[0];
+					IdmUserGroup group = (IdmUserGroup) curObj[1];
+					if (!BaseUtil.isObjNull(prof)) {
+						if (!BaseUtil.isObjNull(group)) {
+							prof.setUserGroupCode(group.getUserGroupCode());
+							prof.setUserRoleGroupDesc(group.getUserGroupDesc());
+						}
+						userList.add(prof);
+					}
+				}
+			}
+		}
+
+	}
+
+
+	private StringBuilder searchQueryString(String selectCriteria, UserProfile userProfile) {
+		StringBuilder sb = new StringBuilder(selectCriteria);
+		sb.append(IdmProfile.class.getSimpleName() + " r, ");
+		sb.append(IdmUserGroupRoleGroup.class.getSimpleName() + " ugrp, ");
+		sb.append(IdmUserGroup.class.getSimpleName() + " iug ");
+		sb.append(" where r.userRoleGroupCode = ugrp.userRoleGroupCode ");
+		sb.append(" and ugrp.userRoleGroupCode = iug.userGroupCode ");
+
+		if (StringUtils.hasText(userProfile.getStatus())) {
+			sb.append(" and r.status = :status ");
+		}
+
+		if (StringUtils.hasText(userProfile.getUserId())) {
+			sb.append(" and r.userId = :userId ");
+		}
+
+		if (StringUtils.hasText(userProfile.getFullName())) {
+			sb.append(QUERY_FULL_NAME);
+		}
+
+		if (StringUtils.hasText(userProfile.getUserType())) {
+			sb.append(QUERY_USER_TYPE);
+		}
+
+		if (StringUtils.hasText(userProfile.getUserGroupCode())) {
+			sb.append(" and ugrp.userGroupCode = :userGroupCode");
+		}
+
+		if (StringUtils.hasText(userProfile.getParentRoleGroup())) {
+			sb.append(" and ugrp.parentRoleGroup = :parentRoleGroup");
+		}
+
+		if (StringUtils.hasText(userProfile.getUserRoleGroupCode())) {
+			sb.append(QUERY_USER_ROLE_GROUP_CODE);
+		}
+
+		if (!BaseUtil.isListNull(userProfile.getUserRoleGroupCodeList())) {
+			sb.append(" and r.userRoleGroupCode in ( :userRoleGroupCodes )");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getSyncFlag())) {
+			sb.append(" and r.syncFlag in ( :syncFlag )");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getProfId())) {
+			sb.append(" and r.profId in ( :profId )");
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getBranchId())) {
+			sb.append(" and r.branchId in ( :branchId )");
+		}
+
+		return sb;
+	}
+
+
+	private void searchQueryParameter(Query query, UserProfile userProfile) {
+		if (StringUtils.hasText(userProfile.getStatus())) {
+			query.setParameter(CONST_STATUS, userProfile.getStatus());
+		}
+
+		if (StringUtils.hasText(userProfile.getUserId())) {
+			query.setParameter(CONST_USER_ID, userProfile.getUserId());
+		}
+
+		if (StringUtils.hasText(userProfile.getFullName())) {
+			query.setParameter(CONST_FULLNAME, "%" + userProfile.getFullName() + "%");
+		}
+
+		if (StringUtils.hasText(userProfile.getUserType())) {
+			query.setParameter(CONST_USER_TYPE, userProfile.getUserType());
+		}
+
+		if (StringUtils.hasText(userProfile.getUserGroupCode())) {
+			query.setParameter(CONST_USER_GROUP_CODE, userProfile.getUserGroupCode());
+		}
+
+		if (StringUtils.hasText(userProfile.getParentRoleGroup())) {
+			query.setParameter(CONST_PARENT_ROLE_GROUP, userProfile.getParentRoleGroup());
+		}
+
+		if (StringUtils.hasText(userProfile.getUserRoleGroupCode())) {
+			query.setParameter(CONST_USER_ROLE_GROUP_CODE, userProfile.getUserRoleGroupCode());
+		}
+
+		if (!BaseUtil.isListNull(userProfile.getUserRoleGroupCodeList())) {
+			query.setParameter(CONST_USER_ROLE_GROUP_CODES, userProfile.getUserRoleGroupCodeList());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getSyncFlag())) {
+			query.setParameter(CONST_SYNC_FLAG, userProfile.getSyncFlag());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getProfId())) {
+			query.setParameter(CONST_PROF_ID, userProfile.getProfId());
+		}
+
+		if (!BaseUtil.isObjNull(userProfile.getBranchId())) {
+			query.setParameter(CONST_BRANCH_ID, userProfile.getBranchId());
+		}
+	}
+
+
+	private long totalRecords(UserProfile userProfile) {
+		StringBuilder sb = searchQueryString("select count(r) from ", userProfile);
+
+		// Filtered Query by pagination
+		Query query = entityManager.createQuery(sb.toString());
+
+		searchQueryParameter(query, userProfile);
+
+		return (long) query.getSingleResult();
+	}
+
+}

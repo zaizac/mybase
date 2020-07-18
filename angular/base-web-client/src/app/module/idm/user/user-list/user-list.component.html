@@ -1,0 +1,61 @@
+<ui-card>
+  <!-- New User Button -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="pull-right">
+        <ui-button buttonType="success" icon="fa fa-plus-circle" text="New User" i18n-text="@@Button-NewUser"
+          routerLink="/auth/users/create">
+        </ui-button>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="manageusers" (ngSubmit)="onSubmit()" autocomplete="off">
+    <!-- Search Criteria -->
+    <div class="row">
+      <!-- Full Name -->
+      <div class="col-md-4">
+        <label>First Name</label>
+        <ui-text formControlName="firstName" formatToUpperCase maxlength="255" label="First Name" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+      <!-- Last Name -->
+      <div class="col-md-4">
+        <label>Last Name</label>
+        <ui-text formControlName="lastName" formatToUpperCase maxlength="255" label="Last Name" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+      <!-- Status -->
+      <div class="col-4">
+        <label>Status</label>
+        <ui-select label="Status" [init]="selStatusInit" formControlName="status">
+        </ui-select>
+      </div>
+    </div>
+    <div class="row">
+      <!-- User Role Group -->
+      <div class="col-4" *ngIf="userRoleGroupCodeDropDown">
+        <label>User Role Group</label>
+        <ui-select label="User Role Group" [init]="selUserRoleGroupInit" formControlName="userRoleGroupCode">
+        </ui-select>
+      </div>
+    </div>
+    <!-- Search Buttons -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset" (click)="onReset()">
+          </ui-button>
+          <ui-button buttonType="primary" icon="fa fa-search" text="Search" i18n-text="@@Button-Search" type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- Search Result -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <ui-datatable (editRecord)='rowSelected($event)' [tableInit]='tableInit'>
+      </ui-datatable>
+    </div>
+  </div>
+</ui-card>

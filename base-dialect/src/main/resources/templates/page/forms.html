@@ -1,0 +1,431 @@
+<bst:form th:object="${components}" method="GET" enctype="multipart/form-data">
+	<bst:widget>
+		<bst:widget-header>
+			<h4 class="m-b-0 text-white">Sample Basic Form</h4>
+			</bst:widget-header>
+				<bst:widget-body>
+					<div class="container-fluid">
+							<div class="row">
+									<div class="col-lg-12">
+											<bst:widget-body>
+												<div class="form-row">
+													<div class="form-body">
+														<h3 class="card-title">Person Info</h3>
+														<hr />
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label class="control-label col-form-label" for="fname">First
+																		Name</label>
+																	<bst:input-text required="required" id="fname" name="fname"
+																		class="form-control"></bst:input-text>
+																	<small class="form-control-feedback"> This is inline
+																		help </small>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group has-danger">
+																	<label class="control-label">Last Name</label>
+																	<bst:input-danger required="required" class="form-control"></bst:input-danger>
+																	<small class="form-control-feedback"> This field has
+																		error. </small>
+																</div>
+															</div>
+														</div>
+						
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group has-success">
+																	<label class="control-label">Gender</label>
+																	<bst:select th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+																		<option th:text="#{lbl.cmn.sel.pls}" value="" />
+																		<option>Male</option>
+																		<option>Female</option>
+																	</bst:select>
+																	<small class="form-control-feedback"> Select your
+																		gender </small>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label class="control-label">Date of Birth</label>
+																	<bst:input-date id="dtPckr" name="dt"
+																		placeholder="dd/mm/yyyy" />
+																</div>
+															</div>
+														</div>
+						
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label class="control-label">Category</label>
+																	<bst:select th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+																		<option th:text="#{lbl.cmn.sel.pls}" value="" />
+																		<option>Category 1</option>
+																		<option>Category 2</option>
+																		<option>Category 3</option>
+																	</bst:select>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label class="control-label">Membership</label>
+																	<div class="col-md-12">
+																		<bst:radio-group>
+																			<bst:radio>Free</bst:radio>
+																			<bst:radio checked="checked">Paid</bst:radio>
+																			<bst:radio disabled="disabled">Prepaid</bst:radio>
+																		</bst:radio-group>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<br />
+						
+														<h3 class="card-title">Address</h3>
+														<hr />
+														<div class="row">
+															<div class="col-md-12 ">
+																<div class="form-group">
+																	<label>Street</label>
+																	<bst:input required="required" id="street" name="street"
+																		class="form-control"></bst:input>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label>City</label>
+																	<bst:input required="required" id="city" name="city"
+																		class="form-control"></bst:input>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label>State</label>
+																	<bst:input required="required" id="state" name="state"
+																		class="form-control"></bst:input>
+																</div>
+															</div>
+														</div>
+						
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label>Post Code</label>
+																	<bst:input required="required" id="pcode" name="pcode"
+																		class="form-control"></bst:input>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label>Country</label>
+																	<bst:select class="search-form-control"
+																		th:attr="data-placeholder=#{'Select your Country'}">
+																		<option th:text="#{'Select Your Country'}" value="" />
+																		<option>Select your Country</option>
+																		<option>Alaska</option>
+																		<option>Belgium</option>
+																		<option>Congo</option>
+																		<option>Denmark</option>
+																		<option>Etherland</option>
+																		<option>Florida</option>
+																	</bst:select>
+						
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12">
+																<label class="card-title">File Upload</label> <input
+																	type="hidden" id="fileUploads[4].docId" value="1" /> <input
+																	type="hidden" id="fileUploads[4].docMgtId" />
+																<bst:file th:data="true"
+																	th:attr="data-updm-maxSize=500000,
+																data-updm-minheight=0,
+																data-updm-maxheight=0,
+																data-updm-minwidth=0,
+																data-updm-maxwidth=0,
+																data-dimension-compulsary=false"
+																	th:field="*{fileUploads[4].file}"
+																	accept="application/pdf,image/png" />
+															</div>
+														</div>
+														<br />
+														<div class="row">
+															<div class="col-md-4">
+																<label class="control-label text-right">Road</label>
+																<bst:input offset="3" required="required" class="form-control"></bst:input>
+															</div>
+															<div class="col-md-4">
+																<label class="control-label text-right">Poscode</label>
+																<bst:input-number required="required" min="0" max="100"
+																	class="form-control" />
+															</div>
+															<div class="col-md-4">
+																<label class="control-label text-right">Contact</label>
+																<bst:input-contact type="tel" class="form-control" />
+															</div>
+						
+														</div>
+														<br />
+														<div class="row">
+															<div class="col-md-6">
+																<label class="control-label text-right">Mileage</label>
+																<bst:input-amount required="required" value="1000"
+																	class="form-control" />
+															</div>
+															<div class="col-md-6">
+																<label class="control-label">Currency</label>
+																<bst:input-amount data-currency="MYR" required="required"
+																	value="1000" class="form-control" />
+															</div>
+															<div class="col-md-12">
+																<br /> <label class="control-label text-right">Comment</label>
+																<bst:textarea class="form-control" rows="5"/>
+															</div>
+														</div>
+													</div>
+						
+													<!-- end form-body -->
+													<div class="form-actions col-md-12">
+														<br />
+														<bst:btn-success type="submit"
+															th:text="#{'Save'}" />
+														<bst:btn-inverse type="button"
+															th:text="#{'Cancel'}" />
+													</div>
+													<!-- end form-row -->
+												</div>
+											</bst:widget-body>
+									</div>
+								</div>
+							</div>
+			</bst:widget-body>
+		</bst:widget>
+		
+		<bst:widget>
+      <bst:widget-header>
+         <h4 th:text="#{'&lt;bst:input&gt; Tag'}" />
+      </bst:widget-header>
+      <bst:widget-body th:classappend="mb-10">
+         <div class="row">
+			<div class="col-md-10">
+				<div class="form-group m-t-40 row">
+                    <label for="example-text-input" class="col-2 col-form-label">bst:input-text</label>
+                    <div class="col-10">
+                        <bst:input-text  type="text" value="Artisanal kale" id="example-text-input"></bst:input-text>
+                    </div>
+                </div>
+			</div>
+			<div class="col-md-10">
+				 <div class="form-group row">
+                     <label for="example-month-input" class="col-2 col-form-label">bst:select</label>
+                     <div class="col-10">
+                         <bst:select id="inlineFormCustomSelect">
+                             <option selected="">Choose...</option>
+                             <option value="1">One</option>
+                             <option value="2">Two</option>
+                             <option value="3">Three</option>
+                         </bst:select>
+                     </div>
+                 </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10 ">
+				<div class="form-group row">
+                   <label for="example-date-input" class="col-2 col-form-label">bst:input-date</label>
+                   <div class="col-10">
+                       <bst:input-date type="date" value="2011-08-19" id="example-date-input"></bst:input-date>
+                   </div>
+               </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<div class="form-group">
+                    <label>bst:textarea</label>
+                    <bst:textarea rows="5"></bst:textarea>
+                </div>
+			</div>
+		</div>
+		<br/>
+         <div id="accordion2" class="accordion" role="tablist"
+            aria-multiselectable="true">
+            <div class="card">
+               <div class="card-header" role="tab" id="headingOne">
+                  <h5 class="mb-0">
+                     <a data-toggle="collapse" data-parent="#accordion2"
+                        href="#collapse1" aria-expanded="true"
+                        aria-controls="collapseOne"> Example</a>
+                  </h5>
+               </div>
+               <div id="collapse1" class="collapse show" role="tabpanel"
+                  aria-labelledby="headingOne">
+                  <div class="card-body">
+                     <p class="text-success" th:text="#{'&lt;!--/* Input Text */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:input-text type=\'text\' /&gt;'}" /><br/><br/>
+                     <p class="text-success" th:text="#{'&lt;!--/* Input Select  */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:select id=\'inlineFormCustomSelect\' /&gt;'}" /><br/><br/>
+                     <p class="text-success" th:text="#{'&lt;!--/* Input Date */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:input-date type=\'date\'  /&gt;'}" />
+                     <p class="text-success" th:text="#{'&lt;!--/* Input Text Area */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:textarea rows=\'5\'  /&gt;'}" />
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                     <a class="collapsed" data-toggle="collapse"
+                        data-parent="#accordion2" href="#collapse2"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"> Definition and
+                        Usage </a>
+                  </h5>
+               </div>
+               <div id="collapse2" class="collapse" role="tabpanel"
+                  aria-labelledby="headingTwo">
+                  <div class="card-body">
+                     <p>The <th:block th:text="#{'&lt;bst:input-text&gt;'}" /> tag has a required attribute: placeholder or th:placeholder using Thymeleaf command.</p>
+                     <p>The <th:block th:text="#{'&lt;bst:select&gt;'}" /> Specifies the element belongs to. The value of this attribute must be the id attribute of a form element in the same document.</p>
+                     <p>The <th:block th:text="#{'&lt;bst:input-date&gt;'}" /> has a required attribute: placeholder or th:placeholder using Thymeleaf command.</p>
+                     <p>The <th:block th:text="#{'&lt;bst:textarea&gt;'}" /> has a required attribute: placeholder or th:placeholder using Thymeleaf command.</p>
+                     <p>The <th:block th:text="#{'&lt;bst:textarea&gt;'}" /> has a sets or returns the value of the rows attribute of a text area.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" role="tab" id="headingThree">
+                  <h5 class="mb-0">
+                     <a class="collapsed" data-toggle="collapse"
+                        data-parent="#accordion2" href="#collapse3"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"> Attributes </a>
+                  </h5>
+               </div>
+               <div id="collapse3" class="collapse" role="tabpanel"
+                  aria-labelledby="headingThree">
+                  <div class="card-body">
+                     <bst:table-light style="font-size: 12px;">
+                        <thead>
+                           <tr>
+                              <th>Attribute</th>
+                              <th>Value</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>placeholder</td>
+                              <td>#docMgtId</td>
+                              <td>Specifies the docMgtId generated
+                                 in DM Service</td>
+                           </tr>
+                            <tr>
+                              <td>id</td>
+                              <td>form_id</td>
+                              <td>Specifies the id generated
+                                 in DM Service</td>
+                           </tr>
+                           <tr>
+                              <td>row</td>
+                              <td>1-100</td>
+                              <td>Sets or returns the value of the rows attribute of a text area</td>
+                           </tr>
+                        </tbody>
+                     </bst:table-light>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </bst:widget-body>
+   </bst:widget>
+   
+   <bst:widget>
+      <bst:widget-header>
+         <h4 th:text="#{'&lt;bst:radio&gt; Tag'}" />
+      </bst:widget-header>
+      <bst:widget-body th:classappend="mb-10">
+        <div class="row">
+        <div class="col-md-12">
+			<bst:radio-group>
+				<bst:radio>Free</bst:radio>
+				<bst:radio checked="checked">Paid</bst:radio>
+				<bst:radio disabled="disabled">Prepaid</bst:radio>
+			</bst:radio-group>
+		</div>
+																</div>
+		<br/>
+         <div id="accordion2" class="accordion" role="tablist"
+            aria-multiselectable="true">
+            <div class="card">
+               <div class="card-header" role="tab" id="headingFour">
+                  <h5 class="mb-0">
+                     <a data-toggle="collapse" data-parent="#accordion2"
+                        href="#collapse4" aria-expanded="true"
+                        aria-controls="collapseFour"> Example</a>
+                  </h5>
+               </div>
+               <div id="collapse4" class="collapse show" role="tabpanel"
+                  aria-labelledby="headingFour">
+                  <div class="card-body">
+                     <p class="text-success" th:text="#{'&lt;!--/* Radio Button */--&gt;'}" ></p>
+                     <th:block th:text="#{'&lt;bst:radio checked=\'checked\' /&gt;'}" /><br/><br/>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" role="tab" id="headingFive">
+                  <h5 class="mb-0">
+                     <a class="collapsed" data-toggle="collapse"
+                        data-parent="#accordion2" href="#collapse5"
+                        aria-expanded="false"
+                        aria-controls="collapseFive"> Definition and
+                        Usage </a>
+                  </h5>
+               </div>
+               <div id="collapse5" class="collapse" role="tabpanel"
+                  aria-labelledby="headingFive">
+                  <div class="card-body">
+                     <p>The <th:block th:text="#{'&lt;bst:radio&gt;'}" /> tag defines a type attribute whose value is "radio" represents a selection of one item from a list of items (a radio button)</p>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" role="tab" id="headingSix">
+                  <h5 class="mb-0">
+                     <a class="collapsed" data-toggle="collapse"
+                        data-parent="#accordion2" href="#collapse6"
+                        aria-expanded="false"
+                        aria-controls="collapseSix"> Attributes </a>
+                  </h5>
+               </div>
+               <div id="collapse6" class="collapse" role="tabpanel"
+                  aria-labelledby="headingSix">
+                  <div class="card-body">
+                     <bst:table-light style="font-size: 12px;">
+                        <thead>
+                           <tr>
+                              <th>Attribute</th>
+                              <th>Value</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>checked</td>
+                              <td>checked or disabled</td>
+                              <td>A Boolean indicating whether or not this radio button is the currently-selected item in the group</td>
+                           </tr>
+                        </tbody>
+                     </bst:table-light>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </bst:widget-body>
+   </bst:widget>
+	</bst:form>

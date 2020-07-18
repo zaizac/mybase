@@ -1,0 +1,147 @@
+<th:block>
+<!--/* SEARCH CRITERIA */-->
+<form th:action="@{#{'/labResult'}}" th:object="${bulkFile}"
+	th:method="POST" class="form-no-horizontal-spacing"
+	enctype="multipart/form-data" id="bulkFile">
+
+	<!--/* SEARCH RESULT */-->
+	<bst:widget>
+		<bst:widget-header>
+			<h4 class="font-widget" th:text="#{lbl.result.bulk.upd.file}" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-6">
+					<th:block th:each="refDoc, rowStat : ${docLst}">
+						<div class="form-wrap col-md-13">
+							<input type="hidden"
+								th:field="*{fileUploads[__${rowStat.index}__].docId}"
+								th:value="${refDoc.docId}" /> <label
+								th:text="${refDoc.docDesc}" /> (<a href="#" onclick="downloadSample()" th:text="#{lbl.result.bulk.smpl.file}"/>)
+							<bst:file
+								th:unless="*{fileUploads[__${rowStat.index}__]?.docMgtId} != null"
+								th:data="true"
+								th:attr="data-updm-maxSize=${refDoc.size},
+											data-updm-minheight=${refDoc.minHeight},
+											data-updm-maxheight=${refDoc.maxHeight},
+											data-updm-minwidth=${refDoc.minWidth},
+											data-updm-maxwidth=${refDoc.maxWidth},
+											data-dimension-compulsary=${refDoc.dimensionCompulsary}"
+								th:field="*{fileUploads[__${rowStat.index}__].file}"
+								th:accept="${refDoc.type}"
+								th:placeholder="*{fileUploads[__${rowStat.index}__]?.file?.filename}" />
+							<bst:error
+								th:if="${#fields.hasErrors('fileUploads[__${rowStat.index}__].file')}"
+								th:errors="*{fileUploads[__${rowStat.index}__].file}" />
+						</div>
+					</th:block>
+				</div>
+			</div>
+		</bst:widget-body>
+		<bst:widget-footer>
+			<div class="row">
+				<div class="col-12">
+					<bst:btn-group class="pull-right">
+						<bst:btn-primary id="create" name="create" title="upload"
+							class="m-1" th:text="#{btn.lbl.upld}" />
+					</bst:btn-group>
+					<div class="pull-right">
+						<bst:btn-secondary id="searchClear" name="reset" th:title="reset"
+							class="m-1" th:text="#{btn.lbl.rfrsh}" />
+					</div>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+
+	<bst:alert-danger th:if="${bulkFile.totalFail != 0}" th:text="#{lbl.result.bulk.data.verfy}" />
+	<bst:widget th:if="${bulkFile.totalRecord != 0}">
+		<bst:widget-header>
+			<h4 class="font-widget" th:text="#{lbl.result.file.details}" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<strong><label th:text="#{lbl.file.name}  + ' : '" /></strong>  
+					<label th:text="${bulkFile.fileName}" />
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<strong><label th:text="#{lbl.dt.upload}  + ' : '" /></strong>
+					<label th:text="${bulkFile.createDt != null ? #dates.format(bulkFile.createDt, 'dd/MM/yyyy') : ''}"/>
+				</div>
+			</div>
+			<div class="row form-row mt-3">
+				<div class="col-sm-12 col-md-4 col-lg-4 text-center">
+					<div class="card bg-info">
+						<strong class="text-white"><label th:text="#{lbl.tot.rcd}" /></strong>
+						<h1 class="text-white" th:text="${#numbers.formatDecimal(bulkFile?.totalRecord, 0, 'COMMA', 0, 'POINT')}" />
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4 text-center">
+					<div class="card bg-success">
+						<strong class="text-white"><label th:text="#{lbl.tot.rcd.succ}" /></strong>
+						<h1 class="text-white" th:text="${#numbers.formatDecimal(bulkFile?.totalSuccess, 0, 'COMMA', 0, 'POINT')}" />
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4 text-center">
+					<div class="card bg-danger">
+						<strong class="text-white"><label th:text="#{lbl.tot.rcd.fail}" /></strong>
+						<h1 class="text-white" th:text="${#numbers.formatDecimal(bulkFile?.totalFail, 0, 'COMMA', 0, 'POINT')}" />
+					</div>
+				</div>
+			</div>
+			<th:block th:if="${bulkFile.totalFail != 0}">
+				<h4 class="font-widget" th:text="#{lbl.result.bulk.list.new}" />
+				<bst:table-light id="tblLabResultNotReg">
+					<thead>
+						<tr>
+							<th th:text="#{lbl.app.no}" />
+							<th th:text="#{lbl.result.bulk.id.type}"/>
+							<th><span class="required" th:text="#{lbl.result.bulk.id.no}"/></th>
+							<th><span class="required" th:text="#{lbl.result.bulk.pat.name}"/></th>
+							<th th:text="#{lbl.patient.test.result.sampleRcvDate}"/>
+							<th th:text="#{lbl.patient.test.result.sampling}" />
+							<th><span class="required" th:text="#{lbl.patient.test.result.rest}"/></th>
+							<th th:text="#{lbl.result.bulk.request}" />
+							<th th:text="#{lbl.patient.test.result.samplyType}" />
+							<th><span class="required" th:text="#{lbl.result.bulk.dt.lab}"/></th> 
+							<th th:text="#{lbl.patient.test.result.labName}" />
+							<th th:text="#{lbl.patient.test.result.specimen}" />
+							<th th:text="#{lbl.result.bulk.test.type}" />
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:each="labResult, iStat : ${labResultNotRegList}">
+							<tr th:attr="style='cursor: pointer;'">
+								<td th:text="${iStat.count}" />
+								<td th:text="${labResult.idType}" />
+								<td th:text="${labResult.identityNo}" />
+								<td th:text="${labResult.patientName}" />
+								<td><th:block th:if="${labResult.receiveDate != null}" th:text="${#dates.format(labResult.receiveDate, 'dd/MM/yyyy')}"/></td>
+								<td th:text="${labResult.sampling}" />
+								<td th:text="${labResult.result}" />
+								<td th:text="${labResult.requestor}" />
+								<td th:text="${labResult.sample}" />
+								<td><th:block th:if="${labResult.testDate != null}" th:text="${#dates.format(labResult.testDate, 'dd/MM/yyyy')}"/></td>
+								<td th:text="${labResult.labName}" />
+								<td th:text="${labResult.specimentId}" />
+								<td th:text="${labResult.testType}" />
+							</tr>
+						</th:block>
+					</tbody>
+				</bst:table-light>
+			</th:block>
+		</bst:widget-body>
+		<bst:widget-footer th:if="${bulkFile.totalFail == 0 and bulkFile.totalRecord != 0}">
+			<div class="row">
+				<div class="col-12">
+					<bst:btn-group class="pull-right">
+						<bst:btn-primary id="submit" name="submit" title="Submit"
+							class="m-1" th:text="#{btn.cmn.sub}" />
+					</bst:btn-group>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+</form>
+</th:block>

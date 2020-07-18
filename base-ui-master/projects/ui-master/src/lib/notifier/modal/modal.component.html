@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    <em *ngIf="type=='success'" class="fa fa-info"></em>
+    {{ title }}
+  </h4>
+  <button *ngIf="type!='confirm' && type!='success'" type="button" class="close" aria-label="Close" (click)="dismiss()">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+    <div *ngIf="message">{{ message }}</div>
+    <ng-content></ng-content>
+</div>
+<div class="modal-footer" *ngIf="type=='success'">
+  <button type="button" class="btn btn-success" (click)="dismiss()">OK</button>
+</div>
+<div class="modal-footer" *ngIf="type=='confirm'">
+  <button type="button" class="btn btn-default" (click)="decline()">{{ btnNoText }}</button>
+  <button type="button" ngbAutofocus class="btn btn-info" (click)="accept()">{{ btnOkText }}</button>
+</div>

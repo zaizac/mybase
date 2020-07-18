@@ -1,0 +1,226 @@
+/* 
+<!-- ============================================================== -->
+<!-- Datatable CSS -->
+<!-- ============================================================== --> 
+*/
+.ngx-datatable .ui-material .datatable-header .datatable-header-cell {
+    font-weight: 700 !important;    
+    font-size: 1rem;
+    color: #fff;
+}
+
+.ngx-datatable.ui-material .datatable-header {
+    background-color: #009efb !important;
+    color: #fff !important;
+}
+
+.ui-datatable {
+    margin-bottom: 20px;
+}
+
+.e-row{
+    cursor: pointer;
+}
+
+.e-row:not(.e-altrow){
+    background: #f2f4f8;
+}
+
+.e-grid .e-rowcell {
+    font-size: 15px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+}
+
+.e-headertext {
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+}
+
+.table td, .table th {
+    font-size: 1rem;
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.my-pager {   
+    font-size: .8rem;
+    margin-bottom: .5rem;
+
+    .e-pagerconstant {
+        vertical-align: text-top;  
+        margin: 0px;
+    }
+
+    .e-pagerdropdown {
+        border: 1px solid #ced4da;
+        border-radius: 0.3125rem;
+        margin-top: 0px;
+        height: 2.0625rem;
+        width: 70px;
+        margin: 0 10px;
+        span {
+            height: 100%;
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+        }
+    }
+}
+
+.default-cursor {
+    cursor: default;
+}
+
+.e-pagerexternalmsg {
+    &.e-parentmsgbar {
+        margin: 0;
+        float: left !important;
+    }
+}
+
+.hide {
+    display: none !important;
+}
+
+.e-emptyrow {
+    text-align: center;
+    font-size: 1em;
+    color: #a94442 !important;
+    background: #fff;
+    cursor: not-allowed;
+}
+
+.e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after,
+.e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before,
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::after,
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before {
+    background: none;
+}
+
+.e-input-group {
+    text-decoration: none;
+}
+// ----- edited
+.e-input-group .e-control-wrapper .e-alldrop  .e-ddl .e-lib .e-keyboard .e-valid-input {
+    text-decoration: none !important;
+}
+// -----
+.icon-expand {
+    color: #55ce63;
+}
+
+.icon-collapse {
+    color: #f62d51;
+}
+
+.expand-padding {
+    padding: 0.5rem;
+}
+
+.e-headercell,
+.e-rowcell {
+    &.custom-icon-td {
+        width: 2.625rem + 1rem;
+    }
+}
+
+.e-grid, .e-grid-menu {
+    .e-icon-descending::before {
+        content: "\f0d7";
+        font-family: FontAwesome; 
+        color: #ffffff;
+        font-size: 26px;
+    }
+    .e-icon-ascending::before{
+        content: "\f0d8";
+        font-family: FontAwesome; 
+        color: #ffffff;
+        font-size: 26px; 
+    }
+}
+.pad-card {
+    padding: 1rem;
+}
+
+.table-card{
+    border: solid 0.1rem;
+    border-radius: 0.5rem;
+    padding: 0.125rem;
+}
+
+.row-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.col-flex {
+    display: flex;
+    flex-direction: column;
+    min-width: 22rem;
+    flex: 1 1 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-row-gap: 0.625rem;
+    grid-column-gap: 0.625rem;
+    grid-template-columns: 0rem repeat(var(--total), minmax(var(--cardMin), 1fr)) 0.025rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    overflow-x: auto;
+    //IE Compatibility
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 0rem repeat(var(--total), minmax(var(--cardMin), 1fr)) 0.025rem;
+}
+
+.grid-container::before,
+.grid-container::after {
+  content: '';
+}
+
+.e-row {
+    position: relative;
+    z-index: 1;
+    .e-rowcell{
+        position: relative;
+        z-index: 2;
+        &.grid-td-dropdown {
+            overflow: visible;
+            position: relative;
+            z-index: auto;
+            opacity: 1;
+        }
+    }
+}
+
+.e-grid {
+    .e-gridcontent {
+        overflow: visible;
+        .e-content {
+            overflow: inherit !important;
+        }
+    }   
+}
+
+.disabled-element {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+.not-allowed {
+    cursor: not-allowed;
+}
+
+.e-control, .e-css {
+    font-family: "Rubik", sans-serif;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- End Datatable CSS -->
+<!-- ============================================================== --> 
+*/

@@ -1,0 +1,55 @@
+<div layout:fragment="content">
+	<div id="content-home"><div id="search_criteria">	
+		<form th:action="@{/config}" method="post" th:object="${reference}">
+			<legend></legend>
+			<fieldset>   			
+				<table id="fld_container">
+					<tbody>
+						<input type="hidden" th:field="*{typeId}"/>
+						<input type="hidden"  th:field="*{refLevel.typeId}"/>
+						<input type="hidden" th:field="*{config}" /> 
+						<tr>
+							<td th:text="#{lbl.type}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td th:text="*{description}"></td>									
+						</tr>
+						<tr th:if="*{refLevel.levelId}!=null">
+							<td th:text="#{lbl.level.id}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							 <td><input th:type="text"  th:field="*{refLevel.levelId}" readonly="readonly"/> </td>
+						</tr>	
+						<tr>
+							<td th:text="#{lbl.desc}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{refLevel.description}"/> </td>
+						</tr>
+						<tr th:if="*{refLevel.levelId}!=null">
+							<td th:text="#{lbl.flow.no}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{refLevel.flowNo}"/> </td>
+						</tr>	
+						<tr>
+							<td th:text="#{lbl.status}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input type="radio" th:field="*{refLevel.status}" value="1"/>Active
+							<input type="radio" th:field="*{refLevel.status}" value="0" />Inactive</td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.roles}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{refLevel.roles}"/> </td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td></td>
+							<td>
+								<input th:type="submit" name="cancel" th:value="#{btn.cmn.bck}"/> 	
+								<input th:type="submit" name="update" th:value="${reference.action}" /> 
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>	
+		</form>  
+	</div></div>
+</div>

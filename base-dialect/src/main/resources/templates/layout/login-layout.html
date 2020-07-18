@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:tiles="http://www.thymeleaf.org">
+ 	<head lang="en" >
+      <th:block th:include="templates/commons/main-head" />
+      <title tiles:string="title"><th:block th:text="#{app.portal.name}"/>&nbsp;</title>
+   	</head>
+    <body th:with="systemType=#{system.type}" th:classappend="${#strings.toLowerCase(systemType)}">
+    	<th:block th:replace="templates/fragments/default-fragments :: preloader" />
+        <th:block th:include="templates/commons/main-header" />
+    	<th:block th:include="templates/commons/main-menu"/>
+		<th:block tiles:include="content" />
+    </body>
+    <th:block th:include="templates/commons/main-foot"/>
+    <th:block th:include="templates/commons/modal-popup"/>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+	<deployment>	
+		<exclusions>
+			<!-- first exclude -->
+			<module name="javaee.api" />
+			<module name="org.apache.log4j"/>
+            <module name="org.slf4j"/> 
+            <module name="javax.persistence.api"/>
+            <module name="org.hibernate" />
+            <module name="com.mongodb"/>           
+		</exclusions>		
+		<dependencies>
+			<!-- then include filtered -->
+			<module name="org.apache.log4j" />
+			<module name="javaee.api">
+				<imports>
+					<exclude path="org/apache/xml/security/**" />
+				</imports>
+			</module>
+		</dependencies>
+		<exclude-subsystems> <subsystem name="jpa" /> </exclude-subsystems>
+	</deployment>		
+</jboss-deployment-structure>

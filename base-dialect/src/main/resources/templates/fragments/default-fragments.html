@@ -1,0 +1,73 @@
+<th:block th:fragment="theme-switcher">
+	<button href="javascript:void(0);" class="right-side-toggle waves-effect waves-light btn-info btn-circle btn-sm pull-right m-l-10 setting-icon">
+		<i class="ti-settings text-white" aria-hidden="true"></i>
+	</button>
+	<div id="service_panel">
+		<div class="rpanel-title">
+			Service Panel <span><i class="ti-open right-side-toggle" aria-hidden="true"></i></span>
+		</div>
+		<div class="r-panel-body">
+			<ul id="themecolors" class="m-t-20">
+				<li><strong>Color Theme</strong></li>
+				<li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+				<li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+				<li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+				<li><a href="javascript:void(0)" data-theme="blue" class="blue-theme">4</a></li>
+				<li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+				<li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
+			</ul>
+			<ul id="themesidemode" class="m-t-20">
+				<li><strong>Sidebar Mode</strong></li>
+				<li><a href="javascript:void(0)" data-sidemode="light" class="light-side">7</a></li>
+				<li><a href="javascript:void(0)" data-sidemode="dark" class="dark-side">8</a></li>
+			</ul>
+			<ul id="themelayout" class="m-t-20">
+				<li><strong>Menu Position</strong></li>
+				<li><a href="javascript:void(0)" data-layout="main" class="left-side">9</a></li>
+				<li><a href="javascript:void(0)" data-layout="horizontal" class="horizontal">10</a></li>
+				<li><a href="javascript:void(0)" data-layout="main-rtl" class="right-side">11</a></li>
+			</ul>
+		</div>
+		<div style="padding: 20px;">
+			<bst:btn-primary type="button" onclick="applyLayoutStyles()" class="btn pull-right" th:text="#{'Apply Theme'}" />
+		</div>
+	</div>
+</th:block>
+
+<th:block th:fragment="preloader">
+	<div class="preloader">
+		<svg class="circular" viewBox="25 25 50 50">
+	    	<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+	    </svg>
+	</div>
+</th:block>
+
+<th:block th:fragment="portal-type">
+	<th:block th:with="portalType=#{app.portal.type}, portalLabel=#{'app.portal.' + ${portalType}}" >
+		<h4 th:text="${#strings.toUpperCase(portalLabel)}"></h4>
+	</th:block>
+</th:block>
+
+<th:block th:fragment="lang-select">
+	<ul>
+		<li><a href="javascript:langSelect('my')"><th:block th:text="#{lbl.lang.my}" /></a></li>
+		<li><a href="javascript:langSelect('en')"><th:block th:text="#{lbl.lang.en}" /></a></li>
+	</ul>
+</th:block>
+
+<th:block th:fragment="star-rating">
+	<th:block th:switch="${starRating}">
+		<th:block th:case="null"><i class="bst-star-o" aria-hidden="true"></i></th:block>
+		<th:block th:case="0"><i class="bst-star-o" aria-hidden="true"></i></th:block>
+		<th:block th:case="0.5"><i class="bst-star-half" aria-hidden="true"></i></th:block>
+		<th:block th:case="1"><i class="bst-star-one" aria-hidden="true"></i></th:block>
+		<th:block th:case="1.5"><i class="bst-star-half-one" aria-hidden="true"></i></th:block>
+		<th:block th:case="2"><i class="bst-star-two" aria-hidden="true"></i></th:block>
+		<th:block th:case="2.5"><i class="bst-star-half-two" aria-hidden="true"></i></th:block>
+		<th:block th:case="3"><i class="bst-star-three" aria-hidden="true"></i></th:block>
+		<th:block th:case="3.5"><i class="bst-star-half-three" aria-hidden="true"></i></th:block>
+		<th:block th:case="4"><i class="bst-star-four" aria-hidden="true"></i></th:block>
+		<th:block th:case="4.5"><i class="bst-star-half-four" aria-hidden="true"></i></th:block>
+		<th:block th:case="5"><i class="bst-star-five" aria-hidden="true"></i></th:block>
+	</th:block> 
+</th:block>

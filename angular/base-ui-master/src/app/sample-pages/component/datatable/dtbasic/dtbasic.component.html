@@ -1,0 +1,97 @@
+<ui-card>
+  <div class="col-12">
+    <p>Urp Datatable has two basic input properties.</p>
+    <ol>
+      <li>
+        <strong>tableInit</strong>: Datatable initialiasation instance. Datatable can be configured through this
+        property. This is required for server side pagination.
+        <ui-card>
+          &lt;ui-datatable [tableInit]="dataConfig"&gt;&lt;/ui-datatable&gt;
+        </ui-card>
+      </li>
+      <li>
+        <strong>dataValues</strong>: The data source for the table. This property only required for Frontend pagination.
+        For server side pagination, this is not required.
+        <ui-card>
+          &lt;ui-datatable [dataValues]="data"&gt;&lt;/ui-datatable&gt;
+        </ui-card>
+      </li>
+    </ol>
+  </div>
+</ui-card>
+
+<ui-card>
+  <div class="col-12">
+    <h2>No Data:</h2>
+    <p>If there is no data inside the table, it will display as below</p>
+    <ui-datatable [dataValues]="noData" [tableInit]="noDataConfig"></ui-datatable>
+  </div>
+</ui-card>
+
+<ui-card>
+  <div class="col-12">
+    <h2>Frontend Pagination:</h2>
+    <p>
+      The example below is the most basic configuration for Urp Datatable. we pass a list of data to dataValues
+      property. This is a frontend pagination
+    </p>
+    <p>
+      In example below, we has a list of data assigned to variable dtData. Then we pass dtData to datatable dataValues
+      property
+    </p>
+    <ui-card>
+      <pre ng-non-bindable>
+      In TS file, set the dataValues, e.g: 
+      dtData = [
+        {{
+          '{'
+        }} name: 'Ethel Price', gender: 'female', company: 'Johnson, Johnson and Partners, LLC CMP DDC', age: 22m {{
+          '}'
+        }},
+        {{ '{' }} name: 'Claudine Neal', gender: 'female', company: 'Sealoud', age: 55{{ '}' }}
+      ]
+    </pre>
+      <ui-card>&lt;ui-datatable [dataValues]="dtData" &gt; &lt;/ui-datatable &gt;</ui-card>
+    </ui-card>
+    <ul>
+      If no configuration supply, Urp Datatable will have following properties
+      <li>It will take object key as header</li>
+      <li>Column will be based on object key and value</li>
+      <li>15 rows will be displayed per page</li>
+      <li>All columns are sortable</li>
+    </ul>
+    <p>Urp Datatable can also be used multiple times in single component (this is the 2nd table)</p>
+  </div>
+  <div class="col-12">
+    <ui-datatable [dataValues]="dtData"></ui-datatable>
+  </div>
+</ui-card>
+
+<ui-card>
+  <div class="col-12">
+    <h2>Serverside Pagination:</h2>
+    <p>
+      For Serverside pagination, datatable configuration need to be initialiased and assigned to Urp Datatable
+      'tableInit' property
+    </p>
+    <p>
+      For basic configuration, service api call need to be done in tableInit data method. This method will return an
+      observable to datatable and contains a callback function with datatable request payload as parameter which can be
+      used for service payload e.g:
+    </p>
+    <ui-card>
+      <pre ng-non-bindable>
+          dtConfig = {{ '{' }}
+            data: request => {{ '{' }}
+              return mockServerSidePaginationResponse({{ '{' }}
+                start: request.start,
+                length: request.length,
+                draw: request.draw
+              {{ '}' }});
+          {{ '}' }}
+        </pre>
+      <ui-card>&lt;ui-datatable [tableInit]="dtConfig"&gt;&lt;/ui-datatable&gt;</ui-card>
+    </ui-card>
+    <ui-datatable [tableInit]="dtConfig"></ui-datatable>
+  </div>
+</ui-card>

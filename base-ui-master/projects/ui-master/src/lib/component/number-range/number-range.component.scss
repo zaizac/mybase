@@ -1,0 +1,116 @@
+.numrangepicker {
+  position: absolute;
+  color: inherit;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 278px;
+  max-width: none;
+  padding: 0;
+  margin-top: 7px;
+  top: 100px;
+  left: 20px;
+  z-index: 3001;
+  font-family: arial;
+  font-size: 12px;
+  line-height: 1em;
+
+  .form-control {
+    font-size: 12px !important;
+    min-height: 20px !important;
+  }
+
+  .nrp-slider {
+    padding: 0px 10px;
+  }
+
+  .nrp-buttons {
+    clear: both;
+    text-align: right;
+    padding: 8px;
+    border-top: 1px solid #ddd;
+    line-height: 12px;
+    vertical-align: middle;
+  }
+
+}
+
+.ng-clear-wrapper {
+  cursor: pointer;
+  position: absolute;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  right: 0px;
+  height: 100%;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.6rem;
+  .ng-clear {
+      display: inline-block;
+      font-size: 18px;
+      line-height: 1;
+      pointer-events: none;
+  }
+}
+  
+// We need to use ::ng-deep to overcome view encapsulation
+::ng-deep {
+  .nrp-slider .ng5-slider .ng5-slider-bar {
+    background: #ffe4d1;
+    height: 2px;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-selection {
+    background: #02c2cb;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-bubble {
+    bottom: 14px;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-limit {
+    font-weight: bold;
+    color: #02c2cb;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-tick {
+    width: 1px;
+    height: 10px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #ffe4d1;
+    top: -1px;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+    background: #02c2cb;
+  }
+
+  .nrp-slider .ng5-slider-span .ng5-slider-bubble .ng5-slider-model-value {
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.333;
+    text-shadow: none;
+    padding: 1px 5px;
+    background: #02c2cb;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .nrp-slider .ng5-slider .ng5-slider-ticks-values-under .ng5-slider-tick-value {
+      bottom: -15px !important;
+  }
+}

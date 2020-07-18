@@ -1,0 +1,138 @@
+<ui-card>
+  <ui-title>
+    Sample Basic Forms
+    <h6 class="text-muted m-t-0">This is a basic form</h6>
+  </ui-title>
+  <form #fc="ngForm" [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- Full Name -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Full Name</label>
+        <ui-text label="Full Name" formatToUpperCase formControlName="fullname"></ui-text>
+      </div>
+      <!-- Email -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">E-mail Address
+          <i aria-hidden="true" class="fa fa-info-circle cursor-pointer" uiTooltip="This is ui-email component"
+            placement="right" delay="500"></i>
+          <ng-template #email>
+            This is a custom email component. <a [routerLink]="['/email']">Learn More</a>
+          </ng-template>
+        </label>
+        <ui-email formControlName="email" [reset]="reset" [submitted]="fc.submitted"></ui-email>
+      </div>
+      <!-- Mobile Number -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Mobile Number
+          <i aria-hidden="true" class="fa fa-info-circle cursor-pointer" placement="right" [ngbPopover]="mobilepicker"
+            popoverTitle="Mobile <ui-mobile>"></i>
+          <ng-template #mobilepicker>
+            This is a custom mobile international picker. <a [routerLink]="['/mobile']">Learn More</a>
+          </ng-template>
+        </label>
+        <ui-mobile formControlName="phone" [submitted]="submitted" [required]="true" selectedCountryISO="sa">
+        </ui-mobile>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Date of Birth -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Date of Birth
+          <i aria-hidden="true" class="fa fa-info-circle cursor-pointer" placement="right" [ngbPopover]="dtPicker"
+            popoverTitle="Date <ui-date>"></i>
+          <ng-template #dtPicker>
+            This is a custom date picker. <a [routerLink]="['/datepicker']">Learn More</a>
+          </ng-template>
+        </label><br>
+        <ui-date formControlName="dob" label='Date of Birth' [submitted]="submitted" required="true" type="datepicker"
+          [maxDate]="maxDate" [minDate]="minDate" format='YYYY' mode="'year'"></ui-date>
+      </div>
+      <!-- Gender -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Gender
+          <i aria-hidden="true" class="fa fa-info-circle cursor-pointer" placement="right" [ngbPopover]="gender"
+            popoverTitle="Gender <ui-gender>"></i>
+          <ng-template #gender>
+            This is a custom gender component. <a [routerLink]="['/gender']">Learn More</a>
+          </ng-template>
+        </label>
+        <ui-gender formControlName="gender" [submitted]="submitted" [required]="true"></ui-gender>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Status
+          <i aria-hidden="true" class="fa fa-info-circle cursor-pointer" placement="right" [ngbPopover]="checkbox"
+            popoverTitle="Checkbox <ui-checkbox>"></i>
+          <ng-template #checkbox>
+            This is a custom checkbox component. <a [routerLink]="['/mobile']">Learn More</a>
+          </ng-template>
+        </label>
+        <ui-checkbox formControlName="status">Active</ui-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Country
+          <i aria-hidden="true" class="fa fa-info-circle cursor-pointer" placement="right" [ngbPopover]="popSelect"
+            popoverTitle="Select <ui-select>"></i>
+          <ng-template #popSelect>
+            This is a custom checkbox component. <a [routerLink]="['/select-basic']">Learn More</a>
+          </ng-template>
+        </label>
+        <ui-select [init]="basicSelect" formControlName="country" [submitted]="fc.submitted" [required]="true">
+        </ui-select>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Age</label>
+        <ui-number formControlName="age"></ui-number>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Age Range</label>
+        <ui-number-range formControlName="ageRange" min="10" max="50" label="Age range" [submitted]="fc.submitted">
+        </ui-number-range>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Mileage</label>
+        <ui-amount formControlName="mileage" min=0 uiTooltip="Example: 220.00" placement="bottom" delay="500">
+        </ui-amount>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Price</label>
+        <ui-amount currency="MYR" formControlName="price" uiTooltip="Example: 120.00" [submitted]="fc.submitted"
+          placement="top" delay="500">
+        </ui-amount>
+      </div>
+    </div>
+    <div class="row">
+      <!-- OTP -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">OTP Email</label>
+        <ui-otp-email formControlName="otpEmail" [submitted]="fc.submitted" [otpService]="mockService"></ui-otp-email>
+      </div>
+      <!-- Captcha -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Captcha</label>
+        <ui-captcha formControlName="captcha" [submitted]="fc.submitted" [captchaService]="mockService"></ui-captcha>
+      </div>
+      <!-- QR -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">QR Authentication</label>
+        <!-- <ui-qr formControlName="otpEmail" [submitted]="fc.submitted" [qrService]="mockService"></ui-qr> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" routerLink="/home"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()" [disabled]="true"></ui-button>
+          <!-- Using OTP verify button -->
+          <ui-otp buttonType="success" icon="fa fa-plus-circle" type="submit" buttonText="Create"
+            [otpService]="mockService" [formGroup]="userForm" [value]="'ilhomjon.abdu@bestinet.com.my'"
+            [redirectURL]="'home'" [disabled]="false"></ui-otp>
+          <!-- <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="Create"></ui-button> -->
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>

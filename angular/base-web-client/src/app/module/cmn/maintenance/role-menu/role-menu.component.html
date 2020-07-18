@@ -1,0 +1,21 @@
+<ui-card>
+  <ui-title>
+    User Role and Menu Maintenance Page
+  </ui-title>
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="pull-right">
+        <ui-button buttonType="success" icon="fa fa-plus-circle" text="Add Role Menu" i18n-text="@@Button-NewUser"
+          routerLink="/maintenance/roleMenu/NEW">
+        </ui-button>
+      </div>
+    </div>
+    <div class="col-12">
+      <ui-datatable [tableInit]="roleTableInit" (editRecord)="rowSelected($event)" >
+        <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+          <ui-button [text]="'Delete'" (click)="deleteRow(item.row)"></ui-button>
+        </ng-template>
+      </ui-datatable>
+    </div>
+  </div>
+</ui-card>

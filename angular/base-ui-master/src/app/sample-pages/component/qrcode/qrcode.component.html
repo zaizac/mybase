@@ -1,0 +1,92 @@
+<ui-card>
+  <h2>QR Code Generate</h2>
+  <ui-tab-group>
+    <ui-tab tabTitle="Example">
+      <div class="row">
+        <div class="col-md-6">
+          <ui-text type="text" placeholder="Enter name to generate QR Code" [(ngModel)]="qrcodename"></ui-text>
+          <ui-button buttonType="warning-rd-blk" text="Generate QR Code" (click)="generateQRCode()"></ui-button>
+        </div>
+        <div class="col-md-6">
+          <ui-qrcode [elementType]="img" [value]="value" errorCorrectionLevel="M" version="5">
+          </ui-qrcode>
+        </div>
+      </div>
+    </ui-tab>
+    <ui-tab tabTitle="HTML">
+      <ui-card>
+        <pre ng-non-bindable>
+          &lt;ui-qrcode <strong>[elementType]="img" [value] = "value" errorCorrectionLevel = "M"
+            version = "5"</strong>&gt;&lt;/ui-qrcode&gt;
+      </pre>
+      </ui-card>
+      <ui-card>
+        <div class="col-12">
+          <h2>Definition properties:</h2>
+          <ui-card>
+            <p>
+              <strong>[elementType]</strong>
+            </p>
+            <p>
+              ElementType for generating QRcode base on the which elements. for example img or URL or canvas
+            </p>
+            <p>
+              For example: <br />
+              [elementType]="img" OR <br />
+              [elementType]="url" OR <br />
+              [elementType]="canvas"
+            </p>
+          </ui-card>
+          <ui-card>
+            <p>
+              <strong>[value]</strong>
+            </p>
+            <p>
+              passing the value for generate QRCode
+            </p>
+            <p>
+              For example: <br />
+              [value]="value"
+            </p>
+          </ui-card>
+          <ui-card>
+            <p>
+              <strong>errorCorrectionLevel</strong>
+            </p>
+            <p>
+              Error correction capability allows to successfully scan a QR Code even if the symbol is dirty or damaged.
+              Four levels are available to choose according to the operating environment. <br />
+              Level L (Low) 7% of data bytes can be restored. <br />
+              Level M (Medium) 15% of data bytes can be restored. <br />
+              Level Q (Quartile) 25% of data bytes can be restored. <br />
+              Level H (High) 30% of data bytes can be restored. <br />
+            </p>
+            <p>
+              For example: <br />
+              errorCorrectionLevel = "L" OR <br />
+              errorCorrectionLevel = "M" OR <br />
+              errorCorrectionLevel = "Q" OR <br />
+              errorCorrectionLevel = "H"
+            </p>
+          </ui-card>
+          <ui-card>
+            <p>
+              <strong>version</strong>
+            </p>
+            <p>
+              indicating the overall dimensions of the QRCode. total version 1 to 40. <br />
+              For more information and QRCode design refer here https://en.wikipedia.org/wiki/QR_code#Storage
+            </p>
+            <p>
+              For example: <br />
+              version = "1" OR <br />
+              version = "5" OR <br />
+              version = "25" OR <br />
+              version = "40"
+            </p>
+          </ui-card>
+        </div>
+      </ui-card>
+    </ui-tab>
+  </ui-tab-group>
+</ui-card>

@@ -1,0 +1,152 @@
+<th:block th:with="isNew=${userId=='new'} ? true : false, 
+		isView=${userId != 'new' and (isInactive and userProfile.status == 'I')} ? true : false, 
+		isLoginUser=${userId=='id'} ? true : false,
+		title=${isNew} ? #{btn.usr.cre} : (${isView} ? #{lbl.usr.prof} : (${isLoginUser} ? #{lbl.usr.prof.my} : #{lbl.usr.prof.upd}))">
+	<bst:widget>
+		<bst:widget-header>
+			<h3 class="font-widget" th:text="${title}" />
+		</bst:widget-header>
+		<bst:form th:action="@{'?id=' + ${userId}}" th:object="${userProfile}" th:method="POST" autocomplete="off" enctype="multipart/form-data">
+			<bst:widget-body>
+				<div class="row form-row" th:if="${isNew}">
+					<!--/* User Id */-->
+					<div class="col-sm-12 col-md-6 col-lg-6">
+						<label class="required" th:text="#{lbl.usr.id}" />
+						<bst:input data-constraints="@Required" th:field="*{userId}" maxlength="20"
+						th:readonly="${isView}" autocomplete="off" /> 
+						<bst:error th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" />
+					</div>
+					<!--/* Temporary Password */-->
+					<div class="col-sm-12 col-md-6 col-lg-6">
+						<label class="required" th:text="#{lbl.pword.temp}" />
+						<div class="pwd-icon">
+						<bst:input-password offset="3" th:field="*{password}"  maxlength="20" autocomplete="new-password" />
+						<bst:checkbox class="" onclick="displayPassword()"/>
+						</div>
+						<p class="errors" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
+					</div>
+				</div>	
+				<div class="row">
+				<div class="col-12">
+					<div class="row form-row">
+						<!--/* First Name */-->
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label class="required" th:text="#{lbl.fname}" />
+						 	<bst:input th:field="*{firstName}" style="text-transform: uppercase;" maxlength="100" th:readonly="${isView}" />
+						 	<bst:error th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
+						</div>
+						<!--/* Last Name */-->
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label th:text="#{lbl.lname}" />
+						 	<bst:input data-constraints="@Required" th:field="*{lastName}" style="text-transform: uppercase;" maxlength="100" th:readonly="${isView}" />
+						 	<bst:error th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
+						</div>
+					</div>
+					<div class="row form-row">
+						<!--/* Mykad No */-->
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label th:text="#{'MyKad No.'}" />
+							<bst:input th:field="*{nationalId}" maxlength="12" style="text-transform: uppercase;" th:readonly="${isView}" />
+							<bst:error th:if="${#fields.hasErrors('nationalId')}" th:errors="*{nationalId}" />
+						</div>
+						<!--/* Gender */-->
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label th:text="#{lbl.gndr}" />
+							<bst:radio-group>
+								<bst:radio th:field="*{gender}" th:value="M" th:text="#{lbl.ml}" th:disabled="${isView}" />
+								<bst:radio th:field="*{gender}" th:value="F" th:text="#{lbl.fml}" th:disabled="${isView}" />
+							</bst:radio-group>
+							<bst:error th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"/>
+						</div>
+					</div>
+					<div class="row form-row">
+						<!--/* Mobile No */-->
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label th:text="#{lbl.mbl.no}" />
+							<bst:input-contact th:field="*{contactNo}" maxlength="15" th:readonly="${isView}"/>
+							<bst:error th:if="${#fields.hasErrors('contactNo')}" th:errors="*{contactNo}" />
+						</div>
+						<!--/* Email */-->
+						<div class="col-sm-12 col-md-6 col-lg-6">
+			                <label class="required" th:text="#{lbl.eml}"/>
+							<bst:input data-constraints="@Required" th:field="*{email}" maxlength="100" th:readonly="${isView}" /> 
+			                <span class="focus-input100"></span>
+							<bst:error th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+		                </div>
+					</div>
+					<div class="row form-row">
+						<!--/* Position */-->
+						<div class="col-sm-12 col-md-6 col-lg-6">
+							<label th:text="#{'Position'}" />
+							<bst:select data-minimum-results-for-search="Infinity" data-constraints="@Required" th:field="*{position}" th:disabled="${isView}">
+									<option th:text="#{lbl.cmn.sel.pls}" value="" />
+									<option th:each="meta : ${@staticData.findByMetadataType('POSITION')}" th:value="${meta.mtdtCd}" th:text="${meta.mtdtDesc}" />
+								</bst:select>
+							<bst:error th:if="${#fields.hasErrors('position')}" th:errors="*{position}" />
+						</div>
+						
+						<!--/* User Group */-->
+						<th:block th:if="${!isLoginUser and isAdmin}">
+							<div class="col-sm-12 col-md-6 col-lg-6">
+								<label class="required" th:text="#{lbl.usr.grp}" />
+								<bst:select data-minimum-results-for-search="Infinity" data-constraints="@Required" th:field="*{userRoleGroupCode}" th:disabled="${isView}">
+									<option th:text="#{lbl.cmn.sel.pls}" value="" />
+									<option th:each="group : ${userRoleGroupList}" th:value="${group.userGroupCode}" th:text="${group.userGroupDesc}"  />
+								</bst:select>
+								<bst:error th:if="${#fields.hasErrors('userRoleGroupCode')}" th:errors="*{userRoleGroupCode}" />
+							</div>
+						</th:block>
+					</div>
+					<div class="row form-row">
+						<!--/* State */-->
+						<th:block th:if="${!isLoginUser}">
+							<div class="col-sm-12 col-md-6 col-lg-6" id="stateDrpdwn" th:style="${!isSelCountry} ? 'display:none'">
+								<label class="required" th:text="#{'State'}" />
+								<bst:select data-minimum-results-for-search="Infinity" data-constraints="@Required" th:field="*{stateCd}" th:disabled="${isView}">
+									<option th:text="#{lbl.cmn.sel.pls}" value="" />
+									<option th:each="group : ${@staticData.findAllStateList()}" th:if="${group.stateCd != '016'}" th:value="${group.stateCd}" th:text="${group.stateDesc}"  />
+								</bst:select>
+								<bst:error th:if="${#fields.hasErrors('stateCd')}" th:errors="*{stateCd}" />
+							</div>
+						</th:block>
+						<!--/* District */-->
+						<th:block th:if="${!isLoginUser}">
+							<div class="col-sm-12 col-md-6 col-lg-6" id="branchDrpdwn" th:style="${!isSelBranch} ? 'display:none'">
+								<label class="required" th:text="#{'Center'}" />
+								<bst:select data-minimum-results-for-search="Infinity" data-constraints="@Required" th:field="*{userGroupRoleBranchCd}" th:disabled="${isView}">
+									<option th:text="#{lbl.cmn.sel.pls}" value="" />
+									<option th:each="group : ${districtList}" th:value="${group.branchCode}" th:text="${group.branchName}"  />
+								</bst:select>
+								<bst:error th:if="${#fields.hasErrors('userGroupRoleBranchCd')}" th:errors="*{userGroupRoleBranchCd}" />
+							</div>
+						</th:block>
+					</div>	
+				</div>
+				<input th:if="${!isNew}" type="hidden" name="userId" th:value="${userId}" /> 
+				<input type="hidden" th:field="*{userTypeCode}" />
+				<input type="hidden" th:field="*{status}" />
+				<input type="hidden" name="action" th:value="${userId}" />
+				</div>
+			</bst:widget-body>
+			<bst:widget-footer>
+				<div class="row">
+					<div class="col-12">
+						<bst:btn-group class="pull-right">
+							<bst:btn type="button" th:if="${!isLoginUser}" th:onclick="|window.location.href='@{#{url.usr.prf.lst}}'|" th:text="${isView} ? #{btn.cmn.bak} : #{btn.cmn.can}" />
+				       		<bst:btn th:if="${!isView}" type="submit" name="reset" th:text="#{btn.cmn.rst}" />
+							<bst:btn-warn th:if="${!isNew and userProfile.status=='A' and !isLoginUser}" type="submit" name="resetPwd" th:text="#{lbl.cmn.pword.rst}" />
+							<bst:btn-warn th:if="${!isNew and userProfile.status=='A' and !isLoginUser}" type="submit" name="deactivate" th:text="#{btn.deactivate}" />	
+							<bst:btn-warn th:if="${!isNew and userProfile.status == 'I'}" type="submit" name="activate" th:text="#{btn.activate}"/>
+		        			<bst:btn-warn  th:if="${!isNew and userProfile.status == 'F'}" type="submit" name="resent" th:text="#{btn.resent.cred}" />
+							<bst:btn-primary th:if="${isNew}" type="submit" name="create" th:text="#{btn.cmn.cre}"/>
+							<th:block th:if="${!isNew and !isView and userProfile.status!='I'}">
+								<bst:btn-primary th:if="${isLoginUser}" type="submit" name="updateProfile" th:text="#{btn.cmn.upd}"/>
+								<bst:btn-primary th:unless="${isLoginUser}" type="submit" name="update" th:text="#{btn.cmn.upd}"/>
+							</th:block>
+						</bst:btn-group>
+					</div>
+				</div>
+			</bst:widget-footer>
+		</bst:form>
+	</bst:widget>
+</th:block>

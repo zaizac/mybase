@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPT_001" pageWidth="640" pageHeight="841" whenNoDataType="AllSectionsNoDetail" columnWidth="600" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="477dea89-7a20-4a4f-97e3-c53fbf0a44b8">
+	<property name="ireport.zoom" value="1.0245201830476225"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String"/>
+	<parameter name="sector" class="java.lang.String"/>
+	<parameter name="subSector" class="java.lang.String"/>
+	<parameter name="jobCategory" class="java.lang.String"/>
+	<parameter name="country" class="java.lang.String"/>
+	<parameter name="TEST_LOCALE" class="java.lang.String"/>
+	<parameter name="GEN_BY" class="java.lang.String"/>
+	<parameter name="TIME" class="java.sql.Timestamp"/>
+	<parameter name="DATE" class="java.lang.String"/>
+	<parameter name="paymentDate" class="java.lang.String"/>
+	<parameter name="paymentAmnt" class="java.lang.String"/>
+	<parameter name="expiryDate" class="java.lang.String"/>
+	<parameter name="REPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_SUBTITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_LOGO" class="java.lang.String"/>
+	<parameter name="GENERATED_BY" class="java.lang.String"/>
+	<parameter name="RPT_TITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["PAYMENT SLIP"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Jhayne\\environment\\Workspace\\SPPA\\report\\report-service\\src\\main\\resources\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_LOGO_MY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_GOV" class="java.lang.String"/>
+	<parameter name="PORTAL_URL" class="java.lang.String"/>
+	<parameter name="age" class="java.lang.String"/>
+	<parameter name="gender" class="java.lang.String"/>
+	<parameter name="dateOfBirth" class="java.util.Date"/>
+	<parameter name="religion" class="java.lang.String"/>
+	<parameter name="passportNo" class="java.lang.String"/>
+	<parameter name="passExpiryDt" class="java.util.Date"/>
+	<parameter name="contactNo" class="java.lang.String"/>
+	<parameter name="regNo" class="java.lang.String"/>
+	<parameter name="APJATI" class="java.lang.String"/>
+	<parameter name="billSlipNo" class="java.lang.String"/>
+	<parameter name="IMAGE" class="java.io.InputStream"/>
+	<parameter name="approveDt" class="java.util.Date"/>
+	<parameter name="reqDt" class="java.util.Date"/>
+	<parameter name="tkiApplied" class="java.lang.String"/>
+	<parameter name="empEmail" class="java.lang.String"/>
+	<parameter name="empName" class="java.lang.String"/>
+	<parameter name="empGender" class="java.lang.String"/>
+	<parameter name="empContactNo" class="java.lang.String"/>
+	<parameter name="TkiJobType" class="java.lang.String"/>
+	<parameter name="nationalId" class="java.lang.String"/>
+	<parameter name="TkiName" class="java.lang.String"/>
+	<parameter name="nationality" class="java.lang.String"/>
+	<parameter name="apjatiEmail" class="java.lang.String"/>
+	<parameter name="branchName" class="java.lang.String"/>
+	<parameter name="address1" class="java.lang.String"/>
+	<parameter name="address2" class="java.lang.String"/>
+	<parameter name="address3" class="java.lang.String"/>
+	<parameter name="address4" class="java.lang.String"/>
+	<parameter name="IMAGE2" class="java.io.InputStream"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="cmpnyNm" class="java.lang.String"/>
+	<field name="cmpnyAdr" class="java.lang.String"/>
+	<field name="cmpnyRegNo" class="java.lang.String"/>
+	<field name="cmpnyPhnNo" class="java.lang.String"/>
+	<field name="ownrEmail" class="java.lang.String"/>
+	<background>
+		<band height="801" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="600" height="801" uuid="de317184-e352-4824-bf7b-1cc85b780dbb"/>
+				<box>
+					<pen lineWidth="3.0"/>
+					<topPen lineWidth="3.0"/>
+					<leftPen lineWidth="3.0"/>
+					<bottomPen lineWidth="3.0"/>
+					<rightPen lineWidth="3.0"/>
+				</box>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="35" splitType="Stretch">
+			<subreport>
+				<reportElement x="3" y="0" width="593" height="35" uuid="9cdadedf-85bb-46ff-b7d1-e0bb8acb2711"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RPT_SUBTITLE">
+					<subreportParameterExpression><![CDATA[$P{RPT_SUBTITLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RPT_LOGO">
+					<subreportParameterExpression><![CDATA[$P{RPT_LOGO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RPT_TITLE">
+					<subreportParameterExpression><![CDATA[$P{RPT_TITLE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{REPORT_DIR} + "header_portrait.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="551" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement isPrintRepeatedValues="false" x="161" y="186" width="161" height="13" isRemoveLineWhenBlank="true" uuid="1cb650ce-4095-4a8b-9b62-5944464b74e4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{TkiJobType}!= null ? $P{TkiJobType} : " - "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="173" width="161" height="13" isRemoveLineWhenBlank="true" uuid="2a5ab5de-c192-40c7-9dbc-473bec80919f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{approveDt}!= null ? $P{approveDt} : " - "]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="2" width="578" height="1" uuid="89baad8a-84c5-40ce-b449-4e623eb7015e">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement isPrintRepeatedValues="false" x="160" y="160" width="162" height="13" isRemoveLineWhenBlank="true" uuid="6f69af4c-1c51-4fa2-ac88-93dcac04fe9e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font isItalic="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reqDt}!= null ? $P{reqDt} : " - "]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="477" width="578" height="1" uuid="087fec9c-9e43-4702-9e58-0502155c614d">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="13" y="133" width="292" height="18" uuid="54e8c9dc-e1be-49b9-a608-a6237a721c2f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Booking Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="160" width="141" height="13" uuid="92f5cbca-3089-4c4d-9de2-f69c347a772f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employer Requested Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="160" width="7" height="13" uuid="c6a60224-41b7-4905-81a9-065a45baddd2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="173" width="141" height="13" uuid="90e77dbe-a499-46cb-be2d-1570c639d49a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APS Approved Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="173" width="7" height="13" uuid="3efee21f-115a-4876-aa7b-b1d938760f32">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="248" width="139" height="13" uuid="3e20b9b6-f709-4398-8d84-3ad95b1b7cd7">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="248" width="7" height="13" uuid="47ecdaa8-4489-4507-a0bc-2df4fc37b0fa">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="248" width="161" height="13" isRemoveLineWhenBlank="true" uuid="0113b1e1-e564-42c3-9d39-81ab0e8c186e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{TkiName}!= null ? $P{TkiName} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="187" width="141" height="13" uuid="ac5a95d6-62de-4a67-962e-8a06b12d3d8d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Job Order Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="187" width="7" height="13" uuid="7cb3e4fd-f227-495f-9e86-c1355555dda4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="201" width="141" height="13" uuid="336259c8-6cec-48b5-973e-8d1e443f3823">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. of TKI Applied]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="201" width="7" height="13" uuid="f2ede8fa-3fee-4645-8639-be45097ba54c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="200" width="161" height="13" isRemoveLineWhenBlank="true" uuid="4a9a5453-d7ec-4bdc-9266-00a47204235b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{tkiApplied}!= null ? $P{tkiApplied} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="261" width="139" height="13" uuid="ba8aac6c-7a3d-4f36-aca0-083b563d1714">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="261" width="7" height="13" uuid="734c7711-418f-41c2-b210-6c6996a7a6a0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="261" width="161" height="13" isRemoveLineWhenBlank="true" uuid="0b22b5a8-4dfc-425c-adec-4335c0539e1f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{gender}!= null ? $P{gender} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="274" width="139" height="13" uuid="e1f500c2-83ba-4669-8393-8b247757d04a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Passport No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="274" width="7" height="13" uuid="10015f05-7c6b-4697-9fcc-ffff3f75033c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="274" width="161" height="13" isRemoveLineWhenBlank="true" uuid="5f1ce76e-196b-49e0-8891-2db86bce8846">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{passportNo}!= null ? $P{passportNo} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="287" width="139" height="13" uuid="39c975bf-38d8-4fce-a1ee-ed546ea66cb4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ApjatiGO Reg ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="287" width="7" height="13" uuid="5a43127e-447e-4529-b947-8f96d2ce852e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="287" width="161" height="13" isRemoveLineWhenBlank="true" uuid="a7be9df5-2753-4f94-8a26-e0dc04178868">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{regNo}!= null ? $P{regNo} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="300" width="139" height="13" uuid="8805e812-07a6-40ab-93d0-c452e0873cbd">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nationality]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="300" width="7" height="13" uuid="42d159ce-ad06-470a-a1ed-2a20d6293cc7">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="300" width="161" height="13" isRemoveLineWhenBlank="true" uuid="43abd595-4058-4f88-bd6c-5fbfc508e588">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{nationality}!= null ? $P{nationality} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="313" width="139" height="13" uuid="1ba32f82-4843-454d-9005-1848695dfe3c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Birth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="313" width="7" height="13" uuid="e1c8a0fb-cf3f-498d-9121-87209b2db8dd">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="313" width="161" height="13" isRemoveLineWhenBlank="true" uuid="08f03ea3-c3cb-4660-833a-04de9914db2a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{dateOfBirth}!= null ? $P{dateOfBirth} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="326" width="139" height="13" uuid="8f82e11a-6b39-4978-b2b8-ece548c9eb09">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Age]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="326" width="7" height="13" uuid="9fb88800-2bed-475b-90ba-5900a2b4c238">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="326" width="161" height="13" isRemoveLineWhenBlank="true" uuid="641d4a6e-f12f-4544-819c-67fddc2191d8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{age}!= null ? $P{age} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="339" width="139" height="13" uuid="9fb774cf-f4c3-4bee-85de-309990a44d9f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Religion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="339" width="7" height="13" uuid="94aa2805-c1e9-4c8d-899a-41600885a16e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="339" width="161" height="13" isRemoveLineWhenBlank="true" uuid="47165359-3673-44ea-b0bd-2d0fe422a951">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{religion}!= null ? $P{religion} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="352" width="139" height="13" uuid="0f47373d-8558-4121-8198-6b6dd52fe77e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Passport Expiry Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="352" width="7" height="13" uuid="1fe07969-25d4-4c68-b586-0821c262a1c2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="352" width="161" height="13" isRemoveLineWhenBlank="true" uuid="963cdb93-8589-4005-b888-422607c882a2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{passExpiryDt}!= null ? $P{passExpiryDt} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="83" y="9" width="400" height="28" uuid="935a122a-1768-471f-821a-8400dd8ab2d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[BOOKING SLIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="13" y="221" width="292" height="18" uuid="0d63d74e-7415-4406-9905-785a1c106111">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Foreign Domestic Helper Details (TKI)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="443" width="161" height="13" isRemoveLineWhenBlank="true" uuid="ce08a196-64c3-4c24-babe-de73f649645a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{empEmail}!= null ? $P{empEmail} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="153" y="430" width="7" height="13" uuid="81be56b8-fd94-4cd2-81ec-667e22aa7437">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="416" width="137" height="13" uuid="bd879e2c-748d-4262-9fb6-2527a117293a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="403" width="161" height="13" isRemoveLineWhenBlank="true" uuid="bc5deb5c-943c-4a43-a692-6e52d51078c9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{empName}!= null ? $P{empName} : " - "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="416" width="161" height="13" isRemoveLineWhenBlank="true" uuid="0e51f406-ad72-4991-a321-21498f873cca">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{empGender}!= null ? $P{empGender} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="153" y="443" width="7" height="13" uuid="352fb6ae-775d-422d-8f9f-cd236c3cd7dc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="161" y="430" width="161" height="13" isRemoveLineWhenBlank="true" uuid="17baa69d-ba26-4a95-9638-99a17ab07603">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{empContactNo}!= null ? $P{empContactNo} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="443" width="137" height="13" uuid="e1461f19-ae0b-461f-900d-64b985e12046">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="15" y="376" width="290" height="18" uuid="a0a6a926-fd95-4ccc-b765-49c554d78db1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employer Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="403" width="7" height="13" uuid="878e5bcb-580d-465a-96ab-a0999112852f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="430" width="137" height="13" uuid="31772821-b8c5-4ac7-99c2-a8cfd67439f3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contact No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="403" width="137" height="13" uuid="88a7cdd1-7b5d-459b-8c74-c429f3fc69b8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="416" width="7" height="13" uuid="de613225-7c51-477e-a160-62c298350ad1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="47" width="62" height="13" uuid="976c3c50-ac70-4b2d-ab22-4d0ce969763c"/>
+				<text><![CDATA[Billing Slip No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="403" y="47" width="10" height="13" uuid="754ff44c-6647-417c-9e77-ae23280f9eef"/>
+				<text><![CDATA[ :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="47" width="147" height="13" uuid="b7e17ac0-77dd-49e2-bace-3404e621d284"/>
+				<textFieldExpression><![CDATA[$P{billSlipNo}!= null ? $P{billSlipNo} : " - "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="190" width="95" height="13" uuid="68ad1784-2c3c-4db9-918a-f8f0ebb1a15b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Passport Photo ]]></text>
+			</staticText>
+			<image scaleImage="RealHeight" isLazy="true" onErrorType="Icon">
+				<reportElement x="404" y="77" width="106" height="107" uuid="835467bd-55f6-46e0-a260-b5fa945e01fe"/>
+				<imageExpression><![CDATA[$P{IMAGE}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="14" y="48" width="269" height="13" uuid="3cc73424-87a3-4f0f-bacb-89169a1d2a45"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{branchName}!= null ? $P{branchName} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="61" width="267" height="66" uuid="d44d7072-78d5-42f2-935a-10af34c3b39d"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[($P{address1} != null && !$P{address1}.trim().equals("") ? $P{address1}.trim() +"\n" : "")
++($P{address2} != null && !$P{address2}.trim().equals("") ? $P{address2}.trim() +"\n" : "")
++($P{address3} != null && !$P{address3}.trim().equals("") ? $P{address3}.trim() +"\n" : "")
++($P{address4} != null && !$P{address4}.trim().equals("") ? $P{address4}.trim() +"\n" : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="487" width="100" height="13" uuid="ae4d7cf9-f68e-4b32-887f-371ecb043433">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remarks :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="515" width="526" height="13" uuid="59e29ab1-9330-46b4-8104-f4ad16a7da56">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1. This BookingSlip indicate that your requested Housemaid has been approved]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="530" width="526" height="13" uuid="a41aae3e-b47e-4f15-8a86-32383bcb49cf">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2. Please contact your selection Agensi Pekerjaan Swasta (APS) for further process]]></text>
+			</staticText>
+			<image scaleImage="RealHeight" isLazy="true" onErrorType="Icon">
+				<reportElement x="407" y="266" width="106" height="137" uuid="1a55738f-5c41-4242-adf5-6d9a36fc0931"/>
+				<imageExpression><![CDATA[$P{IMAGE2}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="410" y="408" width="95" height="13" uuid="b026bec3-2dc2-4f12-bea2-064912d2ac1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Full Body Photo ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="25">
+			<textField evaluationTime="Report">
+				<reportElement x="567" y="3" width="29" height="20" forecolor="#000000" uuid="ff7da649-fe60-4519-a106-86e2570f60a7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="3" width="178" height="20" forecolor="#000000" uuid="8ae2641a-7ed3-46ee-8596-52756ff9348d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="84" y="10" width="10" height="13" uuid="e57b8c02-d07e-4f36-afdd-f781272b6256"/>
+				<text><![CDATA[ :]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="94" y="10" width="151" height="13" uuid="5af9c414-4d8e-46eb-8caf-cba02f66fb42"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy hh:mm a").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="10" width="77" height="13" uuid="8c5ef2b4-9e7d-4ed2-850c-dcd32a3cc2a5"/>
+				<text><![CDATA[Date Generated]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

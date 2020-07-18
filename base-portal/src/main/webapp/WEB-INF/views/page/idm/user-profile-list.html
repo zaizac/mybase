@@ -1,0 +1,76 @@
+<!--/* SEARCH CRITERIA */-->
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.srch.crtr}" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div th:if="${session.viewCreateBtn} != null ? 'true' : 'false'" class="alert alert-info wrap"><label th:text="${session.viewCreateBtn}"></label></div>
+ 		<div class="row form-row">
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.fname}" />
+			  <bst:input id="firstName" name="firstName" data-constraints="@Required" style="text-transform: uppercase;"/>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.lname}" />
+			  <bst:input id="lastName" name="lastName" data-constraints="@Required" style="text-transform: uppercase;"/>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4" th:if="${#arrays.length(userRoleGroupList) > 0}">
+				<label th:text="#{lbl.usr.role.grp}" />
+				<bst:select data-minimum-results-for-search="Infinity" id="userRoleGroupCode" class="urgSrch" th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="userGroup : ${userRoleGroupList}" th:value="${userGroup.userGroupCode}" th:text="${userGroup.userGroupDesc}"  />
+				</bst:select>
+			</div>
+		</div>
+		<div class="row form-row">
+		   	<div class="col-sm-12 col-md-4 col-lg-4">
+			    <label th:text="#{lbl.stat}" />
+			   	<bst:select id="status" data-minimum-results-for-search="Infinity" th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="status : ${@staticData.defaultUserStatusList()}" th:value="${status.key}" th:text="${status.value}"/>
+				</bst:select>
+			</div>
+		</div>
+	</bst:widget-body>
+	<bst:widget-footer>
+		<div class="row">
+			<div class="col-12" >
+				<div class="pull-right">
+			 		<bst:btn id="searchClear" name="reset" th:title="reset" class="m-1" th:text="#{btn.lbl.rfrsh}" />
+					<bst:btn-primary id="searchFilter" name="search" title="search" class="m-1" th:text="#{btn.cmn.sea}" />
+				</div>
+			</div>
+		</div>
+	</bst:widget-footer>
+</bst:widget>
+<!--/* SEARCH RESULT */-->
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.usr.lst}" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row form-row">
+			<div class="col-12" >
+				<div class="pull-right" th:if="${session.viewCreateBtn} == null ? 'true' : 'false'">
+	       			<bst:btn-primary th:onclick="|window.location.href='@{#{url.usr.prf.cre}}'|" th:text="#{'Add User'}" />
+	   			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-lg-12 col-md-12">
+				<bst:table-light id="tblUserLst" width="100%">
+					<thead>
+						<tr>
+							<th th:text="#{lbl.app.no}" width="5%" />
+							<th th:text="#{lbl.usr.name}" width="15%"/>
+							<th th:text="#{lbl.fname}" width="20%"/>
+							<th th:text="#{lbl.lname}" width="20%"/>
+							<th th:text="#{lbl.usr.role.grp}" width="30%"/>
+							<th th:text="#{lbl.stat}" width="15%"/>
+						</tr>
+					</thead>
+				</bst:table-light>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>

@@ -1,0 +1,20 @@
+<a ngbDropdownToggle class="nav-link dropdown-toggle waves-effect waves-dark py-0" style="line-height: 4rem; height: 100%;"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  <i class="fa fa-globe fa-lg" aria-hidden="true"></i>
+</a>
+<div class="dropdown-menu dropdown-menu-right lang" ngbDropdownMenu>
+  <ul class="dropdown-lang">    
+    <li>
+      <a href="{{redirectUrl}}" (click)="setLanguage('/ms/')"><i class="fa fa-key" aria-hidden="true"></i> Bahasa Melayu</a>
+    </li>          
+    <li>
+      <a href="{{redirectUrl}}" (click)="setLanguage('/bn/')"><i class="fa fa-key" aria-hidden="true"></i> Bengali</a>
+    </li>
+    <li>
+        <a href="{{redirectUrl}}" (click)="setLanguage('/en/')"><i class="fa fa-key" aria-hidden="true"></i> English</a>
+    </li>
+    <li>
+        <a href="{{redirectUrl}}" (click)="setLanguage('/ta/')"><i class="fa fa-key" aria-hidden="true"></i> Tamil</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<aside class="left-sidebar sidebar-r">
+     <!--/* Sidebar scroll */-->
+     <div class="scroll-sidebar">
+         <!--/* Sidebar navigation */-->
+         <nav class="sidebar-nav">
+			<bst:menu data-lang="${#locale}" th:if="${#authorization.expression('isAuthenticated()')}"></bst:menu> 
+			<th:block th:replace="fragments/portal-fragments :: open-menu"></th:block>
+         </nav>
+     </div>
+</aside>

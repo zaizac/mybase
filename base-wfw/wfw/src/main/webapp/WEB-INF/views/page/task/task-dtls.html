@@ -1,0 +1,155 @@
+<div layout:fragment="content">
+     <div id="content-home">
+
+		<div id="search_criteria">	
+		<form th:action="@{/task/details}" method="post" th:object="${task}">     	
+     		<legend th:text="#{lbl.tsk.dtls}"></legend>
+     		<fieldset>   	
+     		<input th:unless="${isNew}" type="hidden" th:field="*{taskMasterId}"/>
+     		<table id="fld_container">
+                <tbody>
+                <div th:unless="${isNew}">
+                	<tr>
+						<td width="39%" align="right" th:text="#{lbl.task.mstr.id}"></td>
+						<td width="2%">:</td>							
+						<td th:text="*{taskMasterId}"></td>
+					</tr>
+					<tr>
+						<td th:text="#{lbl.mod.id}"></td>
+						<td>:</td>
+						<td th:text="*{refType.moduleId}"></td>							
+					</tr>	
+										<tr>
+						<td th:text="#{lbl.trans.id}"></td>
+						<td>:</td>
+						<td th:text="*{refType.tranId}"></td>								
+					</tr>
+					</div>
+					<tr th:if="${isNew}">
+						<td th:text="#{lbl.role}"></td>
+						<td>:</td>
+						<td><select th:field="*{roles}" style="width: 200px;">
+							<option value="">---- Select ----</option>
+							<option th:each="lvlRoles : ${roleList}" th:value="${lvlRoles.levelRolePk.roleCd}"
+								th:text="${lvlRoles.levelRolePk.roleCd}">
+							</option>
+						</select></td>
+					</tr>	
+					<tr th:unless="${isNew}">
+						<td th:text="#{lbl.type.id}"></td>
+						<td>:</td>								
+						<td th:text="${isNew}"></td>
+					</tr>
+		
+					<tr>
+						<td width="39%" align="right" th:text="#{lbl.refno}"></td>
+						<td width="2%">:</td>							
+						<td><input th:type="text" th:field="*{appRefNo}" th:readonly="${disable}"/></td>
+					</tr>					
+					<tr>
+						<td th:text="#{lbl.usr.appcant.id}"></td>
+						<td>:</td>								
+						<td><input th:type="text" th:field="*{applicantId}" th:readonly="${disable}"/></td>
+					</tr>							
+					<tr>
+						<td th:text="#{lbl.usr.appcant.name}"></td>
+						<td>:</td>								
+						<td><input th:type="text" th:field="*{applicant}" th:readonly="${disable}"/></td>
+					</tr>							
+					<tr th:unless="${isNew}">
+						<td th:text="#{lbl.app.date}"></td>
+						<td>:</td>							
+						<td th:text="*{#dates.format(appDate, 'dd/MM/yyyy')}"></td>
+					</tr>						
+					<tr>
+						<td th:text="#{lbl.app.status.id}"></td>
+						<td>:</td>
+						<td><input th:type="text"  th:field="*{appStatus}" th:readonly="${disable}" /></td>								
+					</tr>							
+					<tr>
+						<td th:text="#{lbl.remark}"></td>
+						<td>:</td>
+						<td><textarea th:field="*{remark}" rows="2" th:readonly="${disable}" ></textarea></td>								
+					</tr>															
+					<tr>
+						<td th:text="#{lbl.submit.by}"></td>
+						<td>:</td>
+						<td th:field="*{submitBy}"><input th:type="text" th:field="*{submitBy}" /></td>								
+					</tr>
+					<tr>
+						<td th:text="#{lbl.submit.by.nm}"></td>
+						<td>:</td>
+						<td><input th:type="text" th:field="*{submitByName}"/></td>								
+					</tr>
+					<tr>
+						<td th:text="#{lbl.addtl.info}"></td>
+						<td>:</td>
+						<td><textarea th:field="*{additionalInfo}" rows="3" th:readonly="${disable}" ></textarea></td>								
+					</tr>	
+					<div th:unless="${isNew}">
+					<tr>
+						<td th:text="#{lbl.claim.by}"></td>
+						<td>:</td>
+						<td  th:field="*{claimBy}"></td>								
+					</tr>		
+					<tr>
+						<td th:text="#{lbl.claim.by.nm}"></td>
+						<td>:</td>
+						<td  th:field="*{claimByName}"></td>								
+					</tr>																							
+					<tr>
+						<td th:text="#{lbl.level}"></td>
+						<td>:</td>
+						<td th:if="*{refLevel}!=null" th:text="*{refLevel.description}"></td>
+						<td th:unless="*{refLevel}">N/A</td>							
+					</tr>	
+					<tr>
+						<td th:text="#{lbl.prev.level}"></td>
+						<td>:</td>						
+						<td th:if="*{prevLevel}!=null" th:text="*{prevLevel.description}"></td>
+						<td th:unless="*{prevLevel}">N/A</td>	
+					</tr>	
+					<tr>
+						<td th:text="#{lbl.status}"></td>
+						<td>:</td>
+<!-- 						<td th:if="*{refStatus}!=null" th:text="*{refStatus.statusDesc}"></td>			 -->
+						
+						<td th:if="*{refStatus}!=null">
+						<select th:field="*{refStatus.statusCd}" style="width: 200px;">
+							<option value="">---- Select ----</option>
+							<option th:each="statuses : ${statusList}" th:value="${statuses.statusCd}"
+								th:text="${statuses.statusDesc}">
+							</option>
+						</select></td>	
+						<td th:unless="*{refStatus}">N/A</td>			
+					</tr>
+					<tr>
+						<td th:text="#{lbl.prev.status}"></td>
+						<td>:</td>
+						<td th:if="*{prevStatus}!=null" th:text="*{prevStatus.statusDesc}"></td>		
+						<td th:unless="*{prevStatus}">N/A</td>					
+					</tr>						
+					<tr>
+					<td>&nbsp;</td>
+					  <td>&nbsp;</td>
+						<td style="text-align:left;">									
+							<a th:href="@{/task/details(taskMasterId=*{taskMasterId}, history=true)}"><span>View History</span></a>
+						</td>
+					</tr>
+					</div>
+					<tr>
+					 <td>&nbsp;</td>
+					  <td>&nbsp;</td>
+						<td style="text-align:left;">
+							<input th:type="submit" name="cancel" th:value="${btnBck}"/> 	
+							<input th:if="${isNew}" th:type="submit" name="create" th:value="${action}" />
+							<input th:unless="${isNew}" th:type="submit" name="update" th:value="${action}" />
+						</td>
+					</tr>
+				</tbody>
+            </table>
+		</fieldset>	
+    </form>  
+	</div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="form-group">
+  <input type="text" [formControl]="fcText" class="form-control" [maxlength]="maxlength" (change)="valueChange($event)"
+    [ngClass]="{ 'is-invalid': (fcText.touched || submitted) && fcText.errors }" [attr.placeholder]="placeholder" />
+  <div *ngIf="(fcText.touched || submitted)  && fcText.errors" class="invalid-feedback">
+    <div *ngFor="let key of fcText.errors | parseError">
+      {{formControlName + '.errors.' + key | simpleError:fcText.errors[key]}}
+    </div>
+  </div>
+</div>

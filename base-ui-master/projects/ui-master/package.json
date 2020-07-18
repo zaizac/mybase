@@ -1,0 +1,23 @@
+{
+  "name": "ui-master",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@angular/common": "~7.2.0",
+    "@angular/core": "~7.2.0"
+  },
+  "dependencies": {
+    "@angular/cdk": "^7.3.7",
+    "@syncfusion/ej2-angular-grids": "^17.3.30",
+    "@syncfusion/ej2-data": "^17.3.30",
+    "@syncfusion/ej2-base": "^17.3.27",
+    "angular-calendar": "^0.25.2",
+    "google-libphonenumber": "^3.2.2",
+    "numeral": "2.0.6",
+    "ngx-toastr": "10.0.4",
+    "@ng-bootstrap/ng-bootstrap": "^4.2.1",
+    "@ng-select/ng-select": "^2.20.4",
+    "ngx-bootstrap": "^4.2.0",
+    "ngx-perfect-scrollbar": "^8.0.0",
+    "ng5-slider": "^1.2.4"
+  }
+}

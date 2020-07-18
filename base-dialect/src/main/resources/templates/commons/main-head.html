@@ -1,0 +1,50 @@
+<th:block th:with="baseUrl=${@webHelper.baseUrl()},systemType=#{system.type}">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="robots" content="noindex" />
+  	<meta name="apple-mobile-web-app-capable" content="yes" />
+  	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	
+	<meta content="" name="description" />
+  	<meta content="" name="author" />
+	
+	<link rel="shortcut icon" href="#" th:href="@{'/webjars/base-webjar/images/' + ${#strings.toLowerCase(systemType)} + '/favicon.png'}" th:attr="onerror='this.href=\'' + @{/webjars/base-webjar/images/favicon.png} + '\';'" />
+
+	<!--/* CORE CSS FRAMEWORK  */-->
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/font-awesome/css/font-awesome.min.css}" />
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600" />
+	
+	<!--/* CSS TEMPLATE  */-->
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/lightbox2/src/css/lightbox.css}" />
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/select2/css/select2.min.css}" />
+	
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/monster-ui/plugins/cropper/cropper.min.css}" />
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/monster-ui/plugins/toast-master/css/jquery.toast.css}" />
+	
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/monster-ui/scripts/jquery.intl-tel/css/intlTelInput.css}" />
+	
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/base-webjar/styles/fontastic.min.css}" />
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/base-webjar/styles/dataTables.css}" />
+
+	<link rel="stylesheet" type="text/css" href="#" th:href="${baseUrl}+@{/webjars/monster-ui/styles/theme-switcher.css}" />
+	
+	<!--/* DYNAMIC TEMPLATE  */-->
+	<link rel="stylesheet" type="text/css" href="#" id="cssStyle" th:href="${baseUrl}+@{${@themeHelper.baseStyle('/css/', 'style')}}" /> 
+	<link rel="stylesheet" type="text/css" href="#" id="theme" th:href="${baseUrl}+@{${@themeHelper.baseStyle('/css/colors/', 'theme')}}" /> 
+	<link rel="stylesheet" type="text/css" href="#" id="sidemode" th:href="${baseUrl}+@{${@themeHelper.baseStyle('sidemode/', 'sidemode')}}" /> 
+	
+	<!--/* CUSTOM STYLE  */-->
+	<link rel="stylesheet" href="#" th:href="${baseUrl}+@{'/webjars/base-webjar/styles/' + ${#strings.toLowerCase(systemType)} + '/style.css'}" th:attr="onerror='this.src=\'' + ${baseUrl}+@{/webjars/base-webjar/styles/style.css} + '\';'" />
+	
+	<!--/* TEMPORARY FIX FOR PLACEHOLDER OF CONTACT  */-->
+	<style>
+		input.input-contact::placeholder {
+			color: #d5d3d3e8 !important;
+		}
+	</style>
+</th:block>

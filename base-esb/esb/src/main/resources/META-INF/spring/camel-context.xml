@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/util
+         http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/osgi
+         http://www.springframework.org/schema/osgi/spring-osgi.xsd
+         http://www.springframework.org/schema/osgi-compendium
+         http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+         http://camel.apache.org/schema/spring
+         http://camel.apache.org/schema/spring/camel-spring.xsd
+         http://www.springframework.org/schema/osgi
+         http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+	<!-- JMS/ActiveMQ configuration -->
+	<bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="${activemq.broker.url}" />
+		<property name="userName" value="${activemq.username}"/>
+        <property name="password" value="${activemq.password}"/>
+	</bean>
+
+	<bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory" init-method="start" destroy-method="stop">
+		<property name="connectionFactory" ref="amqConnectionFactory" />
+	</bean>
+
+	<bean id="jmsTransactionMgr" class="org.springframework.jms.connection.JmsTransactionManager">
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+	</bean>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory">
+			<!-- lets wrap in a pool to avoid creating a connection per send -->
+			<bean class="org.springframework.jms.connection.SingleConnectionFactory">
+				<property name="targetConnectionFactory">
+					<ref local="amqConnectionFactory" />
+				</property>
+			</bean>
+		</property>
+		<property name="messageConverter" ref="messageConverter" />
+	</bean>
+
+	<bean id="messageConverter" class="com.bestinet.mipss.esb.common.CustomMessageConverter" />
+
+	<bean id="amqComponent" class="org.apache.activemq.camel.component.ActiveMQComponent">
+		<property name="connectionFactory" ref="amqConnectionFactory" />
+		<property name="transacted" value="true" />
+		<property name="transactionManager" ref="jmsTransactionMgr" />
+		<property name="acceptMessagesWhileStopping" value="false" />
+		<property name="alwaysCopyMessage" value="true" />
+	</bean>
+
+	<!-- JMS Template Component which is used to send Message to Queues -->
+	<bean id="jmsTemplateComponent" class="com.bestinet.mipss.esb.common.JmsTemplateComponent">
+		<property name="jmsTemplate" ref="jmsTemplate" />
+	</bean>
+
+ 
+	
+	<bean name="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="locations">
+	        <list>
+	            <value>file:///${KARAF_HOME}/conf/mipss-esb-mys.properties</value>
+	        </list>
+	    </property>
+	    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+	</bean>
+
+	<!-- [START] CAMEL CONFIGURATION -->
+	
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+		<!-- Property place holder for all task configuration details 
+		 -->
+		<propertyPlaceholder id="properties" location="file:${env:KARAF_HOME}/conf/mipss-esb-mys.properties" />
+		<routeContextRef ref="mipssMysRoutes"/>
+	</camelContext>
+	<!-- [END] CAMEL CONFIGURATION -->
+	
+	<import resource="task-beans.xml"/>
+	<import resource="routes.xml"/>
+
+	<!-- [START] SERVICE INTEGRATION -->
+	<bean id="esbRestTemplate" class="com.bestinet.mipss.esb.client.EsbRestTemplate"/>
+	 
+	 <bean id="cdcSvcServiceClient" class="com.bestinet.mipss.esb.client.EsbServiceClient">
+		<property name="clientId" value="${idm.service.client}" />
+		<property name="token" value="${idm.service.skey}" />
+		<property name="url" value="${cdcsvc.service.url}" />
+		<property name="restTemplate" ref="esbRestTemplate" />
+	</bean>
+	
+ 	<bean id="sstTeleServiceClient" class="com.bestinet.mipss.esb.client.EsbServiceClient">
+		<property name="clientId" value="${tele.service.client}" />
+		<property name="token" value="${tele.service.skey}" />
+		<property name="url" value="${telesst.service.url}" />
+		<property name="restTemplate" ref="esbRestTemplate" />
+	</bean>
+	<!-- [END] SERVICE INTEGRATION -->
+
+</beans>

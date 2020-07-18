@@ -1,0 +1,228 @@
+/* 
+  Localizable.strings
+  MyCare
+
+  Created by Cookie on 4/17/20.
+  Copyright © Mohd Nasir Selamat. All rights reserved.
+*/
+
+"languageType" = "English";
+"map" = "Map";
+"welcome" = "Welcome";
+"foodType" = "Food Type";
+"phoneNo" = "Your Contact Number";
+"retypePhoneNo" = "Re-Type Your Contact Number";
+"mobilePassport" = "Contact Number";
+"mykad" = "MyKad Number";
+"fullname" = "Full Name";
+"mobileNo" = "Contact Number";
+"retypeMobileNo" = "Re-Type Contact Number";
+"gender" = "Gender";
+"mealType" = "Meal Type";
+"dob" = "Date of Birth";
+"companyName" = "Company Name";
+"postalCode" = "Postal Code";
+"district" = "District";
+"selectDistrict" = "-- Select District --";
+"town" = "-- Select Town --";
+"state" = "State";
+"selectState" = "-- Select State -- ";
+"selectMukim" = "-- Select Mukim --";
+"contactNo" = "Contact Number";
+"companyContactNo" = "Company Contact Number";
+"companyAddress" = "Company Address";
+"passportNo" = "Passport Number";
+"address" = "Address";
+"empInfo" = "Employer Info";
+"viewProfile" = "View Profile";
+"notRegisterYet" = "Not Registered Yet?";
+"signUpNow" = "Sign Up";
+"nowOnly" = " Now"; // dont remove 1st space
+"declarationText_BH" = "I hereby declare, confirm and undertake that the information furnished above is true, complete, accurate and correct. I understand, agree and accept that in the event the information provided is found to be false, incorrect or misleading in any manner at any time, I shall be subject to and liable to legal action imposed or taken by the Government of Bangladesh.";
+"declarationText_PAGOH" = "I hereby declare, confirm and undertake that the information furnished above is true, complete, accurate and correct. I understand, agree and accept that in the event the information provided is found to be false, incorrect or misleading in any manner at any time, I shall be subject to and liable to legal action imposed or taken by the Government of Malaysia.";
+"chooseLanguage" = "Choose Your Preferred Language";
+"selectGender" = "-- Select Gender --";
+"selectMealTypeAlertTitle" = "Select Meal Type";
+"selectMealType" = "-- Select Meal Type--";
+"selectMarital" = "-- Select Marital Status --";
+"selectRace" = "-- Select Race --";
+"selectOccupation" = "-- Select Occupation --";
+"age" = "Age";
+"placeOfBirth" = "Place of Birth";
+"race" = "Race";
+"maritalStatus" = "Marital Status";
+"titleSummary" = "Profile Summary";
+"myKadCharLimit" = "MyKad Number Not Same. Please Re-Enter MyKad Number";
+"mobileNoLimit" = "Contact Number Must Be 10 to 11 Characters";
+
+"login" = "LOGIN";
+"checkRegStatus" = "CHECK REGISTRATION STATUS";
+"next" = "NEXT";
+"updateProfile" = "Update Profile";
+"update" = "Update";
+"finish" = "Finish";
+"foodReceived" = "Food Received";
+"received" = "Received";
+"workerPhotoTitle" = "Worker Photo";
+"uploadPhotoIdentifyPurpose" = "Please Upload A Photo for Identification Purposes";
+"language" = "Language";
+"logout" = "Logout";
+"technicalIssues" = "Error.. We Are Facing Technical Issue. Please Try Again Later.";
+"sureWant2Logout" = "Are You Sure You Want to Logout?";
+"enterFullname" = "Please Enter Full Name";
+"enterPassportNo" = "Please Enter Passport Number";
+"enterMobileNo" = "Please Enter Contact Number";
+"reenterMobileNo" = "Please Re-Enter Contact Number";
+"enterMykadNo" = "Please Enter MyKad Number";
+"reenterMykadNo" = "Please Re-Enter MyKad Number";
+"notSameReenterMobileNo" = "Contact Number Not Same. Please Re-Enter Contact Number";
+"selectOption" = "Please Select an Option";
+"pleaseSelectOccupation" = "Please Select Occupation";
+"camera" = "Camera";
+"gallery" = "Gallery";
+"enterCompanyName" = "Please Enter Company Name";
+"successSubmitRegister" = "Registration Successfully Submitted";
+"enterAddress" = "Please Enter Address";
+"enterPostcode" = "Please Enter Postcode";
+"enterTown" = "Please Enter Town";
+"enterDistrict" = "Please Enter District";
+"enterState" = "Please Enter State";
+"enterPhoneNo" = "Please Enter Contact Number";
+"retypePassportNo" = "Please Re-type Passport Number";
+"profileInfo" = "Profile Info";
+"cancel" = "Cancel";
+"notSamePassport" = "Passport Number Not Same. Please Re-enter Passport Number.";
+"enterCompanyAddress" = "Please Enter Company Address";
+"enterCompanyContactNumber" = "Please Enter Company Contact Number";
+"enterPassportNumber" = "Please Re-enter Passport Number";
+"registerStatus" = "Registration Status";
+"approved" = "Approved";
+"pendingApproval" = "Pending Approval";
+"reject" = "Reject";
+"sponsorInfoForm" = "Sponsor Information Form";
+"createSponsorInfo" = "Create Sponsor Information";
+"orgaType" = "Organization Type";
+"foodSponsorArea" = "Food Sponsorship Areas";
+"sponsorName" = "Sponsor Name";
+"sponsorId" = "Sponsor ID";
+"sponsorList" = "Sponsor List";
+"sponsorInfo" = "Sponsor Information";
+"sponsor" = "Sponsor";
+"verifySponsor" = "Verify Sponsor";
+"foreignWorkerList" = "Foreign Worker List";
+"verifyFW" = "Verify Foreign Worker";
+
+//USED FOR LISTING.
+"governSector" = "GOVERNMENT SECTOR";
+"privateSector" = "PRIVATE SECTOR";
+"selfEmployed" = "SELF EMPLOYED";
+"governPensioner" = "GOVERNMENT PENSIONER";
+"notWorking" = "UNEMPLOYED";
+"mre" = "MRE";
+"rawFood" = "RAW FOOD GROCERIES";
+"veggie" = "VEGETARIAN";
+"nonVeggie" = "NON-VEGETARIAN";
+"male" = "MALE";
+"female" = "FEMALE";
+
+"profileSummary" = "Profile Summary";
+"pleaseReadAccept" = "Please read and accept the declaration before submitting";
+"pleaseSelectRace" = "Please Select Race";
+"pleaseSelectFoodType" = "Please Select Food Type";
+"pleaseSelectMarital" = "Please Select Marital Status";
+"pleaseReenterMyKadNumber" = "Please Re-enter MyKad Number";
+"enterDOB" = "Please Enter Date of Birth";
+"pleaseSelectMukim" = "Please Select Mukim";
+"pleaseSelectMealType" = "Please Select Meal Type";
+"pleaseEnterAge" = "Please Enter Age";
+"pleaseSelectGender" = "Please Select Gender";
+"mobileNumberNotSame" = "Contact Number Not Same. Please Re-enter Contact Number.";
+"pleaseFirstEnterState" = "Please First Enter The State.";
+"pleaseFirstEnterDistrict" = "Please First Enter The District.";
+"doesntHavePermissionPrivacySettings" = " doesn't have permission to use location. Please change it in privacy settings.";
+"currentPosition" = "Current Position";
+"searchAddress" = "Search Address";
+"companyContactNumberNotCorrect" = "Company Contact Number is not correct.";
+"mealReadyToEat" = "Meal Ready To Eat";
+"food" = "Food";
+"loading" = "Loading";
+"success" = "Success";
+"failed" = "Failed";
+"close" = "Close";
+"workerPhoto" = "Worker Photo";
+"capturePhotoPhoneSettings" = "To capture photo then need to allow camera access in iPhone Settings.";
+"mobileNumberLimitation" = "Contact Number Must be 10 to 11 Characters";
+"myKadNumberLimitation" = "MyKad Number Must be 12 number of Characters";
+"charactersLimitation" = "Please Enter at least 5 of Characters";
+"occupation" = "Occupation";
+"selectFoodType" = "-- Select Food Type --";
+
+"single" = "SINGLE";
+"married" = "MARRIED";
+"widowed" = "WIDOWED";
+"divorced" = "DIVORCED";
+
+"exitRegistration" = "Are you sure want to exit regsitration?\nData during registration will not be saved";
+
+"Yes" = "Yes";
+"No" = "No";
+"Done" = "Done";
+"Back" = "Back";
+"agree" = "Agree";
+"disagree" = "Disagree";
+
+"defaultImageName" = "noImage"; // "imgLoading";
+
+"regFailed" = "Registration Failed";
+"regSuccess" = "Registration Successful";
+"noRecordFound" = "No Record Found";
+"updateProfileFailed" = "Update Failed";
+"updateProfileSuccess" = "Update Successful";
+"recordAlreadyExist" = "Record already exist";
+"invalidLogin" = "Invalid Login";
+"myKadContactNumberIncorret" = "MyKad or Contact Number is incorrect";
+"userAlreadyLoginRelogin" = "User already login in other device";
+
+"unableToProceed" = "Unable to proceed. Try again later.";
+"enconterServerError" = "Encountered an error while trying to connect to the server";
+"noInternet" = "Check your internet connection and try again";
+
+"bumiputera" = "BUMIPUTERA";
+"malay" = "MALAY";
+"chinese" = "CHINESE";
+"indians" = "INDIANS";
+"otherRaces" = "OTHERS";
+"declaration" = "Declaration";
+
+"reqInfo" = "Required Information";
+"optInfo" = "Optional Information";
+
+"clickHere" = "Click here upon\n receiving food";
+"profile" = "Profile";
+"notifications" = "Notification";
+"message" = "Message";
+"updatePhotoMealType" = "Update Photo & Meal Type";
+"pleaseConfirmDetails" = "Please confirm your details";
+"successfullyVerified" = "Successfully Confirmed";
+
+// Face detect
+"noFaceDetect" = "Could Not Detect The Face. Please Capture Your Face Again.";
+"captureFaceAgain" = "Please Capture Your Face Again";
+"readingFace" = "Reading Face";
+
+"noMessages" = "No Messages";
+"nothingToUpdate" = "Nothing To Update";
+"profilePictureUpdated" = "Profile Picture Updated Successfully";
+"mealTypeUpdated" = "Meal Type Updated Successfully";
+"sureToUpdateProfile" = "Are you sure want to update profile?";
+"pleaseScanAgain" = "Please Scan Again";
+"recipientAlreadyScanned" = "Recipient Already Scanned";
+"recipientNotInEventList" = "Recipient Not in Event List";
+"qrCodeUnreadable" = "QR Code unreadable. Please scan again";
+"residentDetails" = "Resident Details";
+"pleaseSelectTodayEvent" = "Please Select Today's Event";
+"bringYourPhoneAndFlash" = "Bring your phone and flash this QR Code at the event's counter";
+"approachTheEventOfficer" = "Approach the event's officer for further assistance";
+"todayEvent" = "Today Events";
+"name" = "Name";
+

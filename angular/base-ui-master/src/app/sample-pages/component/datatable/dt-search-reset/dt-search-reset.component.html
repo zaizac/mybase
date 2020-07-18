@@ -1,0 +1,122 @@
+<ui-card>
+  <div class="col-12">
+    <h2>Search and Reset Datatable (Server Side pagination)</h2>
+    <p>
+      By default, when Datatable component is created, 3 internal methods will be created for tableInit instance,
+      refresh(), reload() and redraw() : -
+    </p>
+    <ul>
+      <li> <strong>refresh()</strong> - refresh data according to current datatable request and redraw datatable</li>
+      <li> <strong>reload()</strong> - refresh data according to initial datatable request and redraw datatable</li>
+      <li> <strong>redraw()</strong> - redraw datatable without fetching new data</li>
+    </ul>
+    <p>
+
+    </p>
+    <p>
+      So, refresh() is used to search new data for datatable while reload() is used to reset datatable data to it
+      initial value. Since both methods are part of tableInit instance, we need to have tableInit model to access them
+    </p>
+    <p>
+      In example below, we demonstrate how to search and reset with server side pagination. To search, we need to pass
+      our formGroup/formControl to property searchForm
+    </p>
+    <ui-card>
+      <pre>
+            {{ '{' }}
+              columns: [{{ '{' }} field: 'SlNo' {{ '}' }}, {{ '{' }} field: 'name' {{ '}' }}, {{
+          '{'
+        }} field: 'gender' {{ '}' }}, {{ '{' }} field: 'company' {{ '}' }}],
+              <span style='color: red;'>searchForm: this.f</span>,
+              data: request => {{ '{' }} 
+                return mockServerSidePaginationResponse(request);
+              {{ '}' }};
+        </pre>
+    </ui-card>
+    <p>
+      In our search function, we call tableInit.refresh() method
+    </p>
+    <ui-card>
+      <pre>
+          onSubmit() {{ '{' }}
+            <span style="color: red;">this.headerConfig.refresh();</span>
+          {{ '}' }}      
+      </pre>
+    </ui-card>
+    <p>
+      In our reset function, we call tableInit.reload() method. Do not forget to reset our form in our reset function
+      since reload() method only reset datatable request, not the form since the form is outside Datatable component.
+    </p>
+    <ui-card>
+      <pre>
+            reset() {{ '{' }}
+              this.testForm.reset();
+              <span style="color: red;">this.headerConfig.reload();</span>
+            {{ '}' }}      
+        </pre>
+    </ui-card>
+    <form [formGroup]="testForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <!-- Search Criteria -->
+      <div class="row mb-2">
+        <!-- Full Name -->
+        <div class="col-4">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+      </div>
+      <!-- Search Buttons -->
+      <div class="row mb-2">
+        <div class="col-12">
+          <div class="pull-right">
+            <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="reset()"></ui-button>
+            <ui-button buttonType="primary" icon="fa fa-search" type="submit" text="Search"> </ui-button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- Search Result -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <ui-datatable [tableInit]="headerConfig"></ui-datatable>
+      </div>
+    </div>
+  </div>
+</ui-card>
+
+<ui-card>
+  <h2>Search and Reset Datatable (Frontend pagination)</h2>
+  <p>Since frontend pagination only required the data to be passed to Datatable, user need to update data by themselves
+    when searching and resetting the data</p>
+  <p>Example:-</p>
+  <p>let say we create a datatable component like below in our component</p>
+  <pre>
+      <ui-card>&lt;ui-datatable [dataValues]="newData" &gt; &lt;/ui-datatable &gt;</ui-card>
+    </pre>
+  <p>During user's component initialisation, we set our newData to data that we have newly subscribed</p>
+  <ui-card>
+    <pre>
+          public ngOnInit(): void {{ '{' }}
+            this.userService.userList(searchParams).subscribe(data => {{ '{' }}
+              this.newData = data;
+            {{ '}' }}, 
+            error => {{ '{' }}
+              console.log(error)
+            {{ '}' }})
+          {{ '}' }}
+      </pre>
+  </ui-card>
+  <p>During our search or reset, when we have updated our searchParams with our form or any value, we need to update
+    again our newData like below</p>
+  <ui-card>
+    <pre>
+          public onSubmit(): void {{ '{' }}
+            this.userService.userList(searchParams).subscribe(data => {{ '{' }}
+              this.newData = data;
+            {{ '}' }}, 
+            error => {{ '{' }}
+              console.log(error)
+            {{ '}' }})
+          {{ '}' }}
+      </pre>
+  </ui-card>
+</ui-card>

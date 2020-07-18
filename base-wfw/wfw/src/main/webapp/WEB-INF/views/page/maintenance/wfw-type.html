@@ -1,0 +1,66 @@
+<div layout:fragment="content">
+	<div id="content-home">
+	<div id="search_criteria">	
+		<form th:action="@{/config}" method="post" th:object="${reference}">
+			<legend>Workflow Type</legend>
+			<fieldset>   			
+				<table id="fld_container">
+					<tbody>
+						<input type="hidden" th:field="*{typeId}"/>
+						<tr th:if="*{typeId}!=null">
+							<td th:text="#{lbl.type.id}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text" th:field="*{typeId}" disabled="disabled"/></td>
+						</tr>	
+						<tr>
+							<td th:text="#{lbl.desc}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text" th:field="*{description}"/> </td>
+						</tr>	
+						<tr>
+							<td th:text="#{lbl.auto.claim}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td>
+								<input type="radio" th:field="*{autoClaim}" value="1" />Auto
+								<input type="radio" th:field="*{autoClaim}" value="0"/>Manual
+							</td>
+						</tr>	
+						<tr>
+							<td th:text="#{lbl.status}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td>
+								<input type="radio" th:field="*{status}" value="1"/>Active
+								<input type="radio" th:field="*{status}" value="0" />Inactive
+							</td>
+						</tr>						
+						<tr>
+							<td th:text="#{lbl.trans.id}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{tranId}"/> </td>
+						</tr>							
+						<tr>
+							<td th:text="#{lbl.mod.id}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{moduleId}"/> </td>
+						</tr>	
+						<tr>
+							<td th:text="#{lbl.redirect.path}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{redirectPath}"/> </td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td></td>
+							<td>	
+								<input th:type="submit" name="cancel" th:value="#{btn.cmn.bck}" />
+								<input th:type="submit" name="update" th:value="${reference.action}" /> 
+<!-- 								<input th:if="*{typeId}!=null"  th:type="submit" name="update" th:value="#{btn.cmn.upd}" /> -->
+							</td>
+						</tr>
+					</tbody>	
+				</table>
+			</fieldset>	
+		</form>  
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+<ui-card>
+  <!-- New User Button -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="pull-right">
+        <ui-button buttonType="success" icon="fa fa-plus-circle" text="New User Group Branch" i18n-text="@@Button-NewUserGroupBranch"
+          routerLink="/maintenance/userGroupBranch/create">
+        </ui-button>
+      </div>
+    </div>
+  </div>  
+  <form [formGroup]="mtncUGBForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label >User Type</label>
+        <ui-select label="User Type" [init]="selUserTypeCodeInit" formControlName="userTypeCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label >User Group Code</label>
+        <ui-text formControlName="userGroupCode" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label >Branch Code</label> 
+        <ui-text formControlName="branchCode" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label >Branch Name</label> 
+        <ui-text formControlName="branchName" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Branch Department</label> 
+        <ui-text formControlName="branchDept" autocomplete="off" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-4">
+        <label>Status</label> 
+        <div class="col-md-6">
+          <label class="md-check">
+            <input type="radio" name="status"  formControlName="status" [value]="true">
+            <span> true </span>
+          </label>
+          <label class="md-check">
+            <input type="radio" name="status" formControlName="status" [value]="false">
+            <span> false </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Buttons -->
+    <div class="row mb-2">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset" (click)="onReset()">
+          </ui-button>
+          <ui-button buttonType="primary" icon="fa fa-search" text="Search" i18n-text="@@Button-Search" type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>    
+  </form>
+  <!-- Search Result -->
+  <div class="row" mb-2>
+    <ui-datatable *ngIf="ugbList" [dataValues]="ugbList" [tableInit]="noDataConfig" (editRecord)="rowSelected($event)">
+      <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+        <ui-button [text]="'Delete'" (click)="deleteRow(item.row)"></ui-button>
+      </ng-template>
+    </ui-datatable>
+  </div>
+</ui-card>

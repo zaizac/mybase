@@ -1,0 +1,46 @@
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.result.details}" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row form-row">
+			<!--/* Reg No */-->
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.bulk.ref.no}  + ' : '" /></strong>
+				<label th:text="${bulkFile.bulkRefNo}" />
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.tot.rcd}  + ' : '" /></strong>
+				<label th:text="${bulkFile.totalRecord}" />
+			</div>
+		</div>
+		<div class="row form-row">
+			<!--/* Reg Date */-->
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.file.name}  + ' : '" /></strong>  
+				<label th:text="${bulkFile.fileName}" />
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.tot.rcd.succ}  + ' : '" /></strong>
+				<label th:text="${bulkFile.totalSuccess}" />
+			</div>
+		</div>
+		<div class="row form-row">
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.dt.upload}  + ' : '" /></strong>
+				<label th:text="${bulkFile.createDt != null ? #dates.format(bulkFile.createDt, 'dd/MM/yyyy') : ''}"/>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.tot.rcd.fail}  + ' : '" /></strong>
+				<label th:text="${bulkFile.totalFail}" />
+			</div>
+		</div>
+		<div class="row form-row">
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<strong><label th:text="#{lbl.status}  + ' : '" /></strong>
+				<label th:text="${bulkFile.status}"/>
+				<input type="hidden" th:field="${bulkFile.bulkFileId}" />
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>

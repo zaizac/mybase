@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="bn">
+    <body>
+      <trans-unit id="ngb.alert.close" datatype="html">
+        <source>Close</source><target state="new">ঘনিষঢ়ঠ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/alert/alert.d.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.previous" datatype="html">
+        <source>Previous</source><target state="new">আগে</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.next" datatype="html">
+        <source>Next</source><target state="new">পরবরঢ়তী</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.previous-month" datatype="html">
+        <source>Previous month</source><target state="new">পূরঢ়ববরঢ়তী মাস</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.next-month" datatype="html">
+        <source>Next month</source><target state="new">পরের মাসে</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-month" datatype="html">
+        <source>Select month</source><target state="new">মাস নিরঢ়বাচন করঢ়ন</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-year" datatype="html">
+        <source>Select year</source><target state="new">বছর নিরঢ়বাচন করঢ়ন</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first" datatype="html">
+        <source>««</source><target state="new">««</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous" datatype="html">
+        <source>«</source><target state="new">«</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next" datatype="html">
+        <source>»</source><target state="new">»</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last" datatype="html">
+        <source>»»</source><target state="new">»»</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first-aria" datatype="html">
+        <source>First</source><target state="new">পঢ়রথম</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+        <source>Previous</source><target state="new">আগে</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next-aria" datatype="html">
+        <source>Next</source><target state="new">পরবরঢ়তী</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last-aria" datatype="html">
+        <source>Last</source><target state="new">গত</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{getPercentValue()}}"/>%</source><target state="new"><x id="INTERPOLATION" equiv-text="{{getPercentValue()}}"/>%</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/progressbar/progressbar.d.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-hours" datatype="html">
+        <source>Increment hours</source><target state="new">বৃদঢ়ধি ঘনঢ়টা</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.HH" datatype="html">
+        <source>HH</source><target state="new">HH</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.hours" datatype="html">
+        <source>Hours</source><target state="new">ঘনঢ়টার</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-hours" datatype="html">
+        <source>Decrement hours</source><target state="new">হঢ়রাস ঘনঢ়টা</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-minutes" datatype="html">
+        <source>Increment minutes</source><target state="new">বৃদঢ়ধি মিনিট</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.MM" datatype="html">
+        <source>MM</source><target state="new">MM</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.minutes" datatype="html">
+        <source>Minutes</source><target state="new">মিনিট</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-minutes" datatype="html">
+        <source>Decrement minutes</source><target state="new">হঢ়রাস মিনিট</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-seconds" datatype="html">
+        <source>Increment seconds</source><target state="new">বৃদঢ়ধি সেকেনঢ়ড</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.SS" datatype="html">
+        <source>SS</source><target state="new">SS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.seconds" datatype="html">
+        <source>Seconds</source><target state="new">সেকেনঢ়ড</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-seconds" datatype="html">
+        <source>Decrement seconds</source><target state="new">হঢ়রাস সেকেনঢ়ড</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.PM" datatype="html">
+        <source>PM</source><target state="new">PM</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.AM" datatype="html">
+        <source>AM</source><target state="new">AM</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/timepicker/timepicker.d.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit><trans-unit id="Login-Password" datatype="html">
+        <source>Password</source><target state="new">পাসওয়ারঢ়ড</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../node_modules/ui-master/lib/component/password/password.component.d.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      
+      
+      
+      <trans-unit id="ChgPwd-CurrentPwd" datatype="html">
+        <source>Current Password</source><target state="new">বরঢ়তমান পাসওয়ারঢ়ড</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/changepassword/changepassword.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ChgPwd-NewPwd" datatype="html">
+        <source>New Password</source><target state="new">নতঢ়ন পাসওয়ারঢ়ড</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/changepassword/changepassword.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ChgPwd-ConfirmPwd" datatype="html">
+        <source>Confirm New Password</source><target state="new">নিশঢ়চিত কর নতঢ়ন গোপননমঢ়বর</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/changepassword/changepassword.component.html</context><context context-type="linenumber">21</context></context-group></trans-unit><trans-unit id="Button-Submit" datatype="html">
+        <source>Submit</source><target state="new">Submit</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/changepassword/changepassword.component.html</context><context context-type="linenumber">28</context></context-group></trans-unit>
+      <trans-unit id="FgtPwd-ResetPwd" datatype="html">
+        <source>Reset Password</source><target state="new">পাসওয়ারঢ়ড রিসেট করঢ়ন</target>
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/forgotpassword/forgotpassword.component.html</context><context context-type="linenumber">2</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/forgotpassword/forgotpassword.component.html</context><context context-type="linenumber">19</context></context-group></trans-unit>
+      <trans-unit id="FgtPwd-EnterEmailAddress" datatype="html">
+        <source>Enter the username associated with your account.</source><target state="new">আপনার অঢ়যাকাউনঢ়টের সাথে সমঢ়পরঢ়কিত ইমেল ঠিকানা লিখঢ়ন।</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/forgotpassword/forgotpassword.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FgtPwd-EmailLink" datatype="html">
+        <source>We will email you a link to reset your password</source><target state="new">আমরা আপনাকে আপনার পাসওয়ারঢ়ডটি পঢ়নরায় সেট করতে ঝকটি লিঙঢ়ক ইমেল করব</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/forgotpassword/forgotpassword.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FgtPwd-EnterEmail" datatype="html">
+        <source>Enter your username</source><target state="new">তঢ়মার ইমেইল পঢ়রবেশ করাও</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/forgotpassword/forgotpassword.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FgtPwd-UsernameRequired" datatype="html">
+        <source>Username is required</source><target state="new">ইউজার নাম দরকার</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/forgotpassword/forgotpassword.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FgtPwd-BackLogin" datatype="html">
+        <source>Back to Login</source><target state="new">পঢ়রবেশ করতে পেছান</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/forgotpassword/forgotpassword.component.html</context><context context-type="linenumber">25</context></context-group></trans-unit>
+      <trans-unit id="Login-Username" datatype="html">
+        <source>Username</source><target state="new">বঢ়যবহারকারীর নাম</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Login-ErrUsernameRequired" datatype="html">
+        <source>Username is required</source><target state="new">ইউজার নাম দরকার</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/login/login.component.html</context><context context-type="linenumber">9</context></context-group></trans-unit>
+      <trans-unit id="Login-ErrUsernameLength" datatype="html">
+        <source>Username must be at least 8 characters
+        </source><target state="new">বঢ়যবহারকারীর নাম কমপকঢ়ষে 8 টি অকঢ়ষর হতে হবে</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/login/login.component.html</context><context context-type="linenumber">10</context></context-group></trans-unit>
+      <trans-unit id="Login-Login" datatype="html">
+        <source>Login</source><target state="new">পঢ়রবেশ করঢ়ন</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/login/login.component.html</context><context context-type="linenumber">19</context></context-group></trans-unit>
+      <trans-unit id="Login-ForgotPwd" datatype="html">
+        <source>Forgot Password </source><target state="new">পাসওয়ারঢ়ড ভঢ়লে গেছেন </target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/login/login.component.html</context><context context-type="linenumber">24</context></context-group></trans-unit>
+      <trans-unit id="Login-NoAccount" datatype="html">
+        <source>Don't have an account? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a>"/>Sign Up<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/></source><target state="new">কোন অঢ়যাকাউনঢ়ট নেই? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a>"/>নিবনঢ়ধন করঢ়ন<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/></target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/login/login.component.html</context><context context-type="linenumber">25</context></context-group></trans-unit>
+      <trans-unit id="Home-Welcome" datatype="html">
+        <source>Welcome to</source><target state="new">সঢ়বাগতম</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/home/home.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Home-Title" datatype="html">
+        <source>Universal Recruitment Platform</source><target state="new">সরঢ়বজনীন নিয়োগ পঢ়লঢ়যাটফরঢ়ম</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/idm/home/home.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="Button-NewUser" datatype="html">
+        <source>New User</source><target state="new">নতঢ়ন বঢ়যবহারকারী</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-list/user-list.component.html</context><context context-type="linenumber">6</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/user-type/user-type.component.html</context><context context-type="linenumber">5</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/role-menu/role-menu.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit><trans-unit id="User-FullName" datatype="html">
+        <source>First Name</source><target state="new">পঢ়রো নাম</target>
+        
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">32</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">38</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">46</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">78</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">16</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">22</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">30</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">63</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/wfw/config/level/level-details/level-details.component.html</context><context context-type="linenumber">18</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/wfw/config/level/level-details/level-details.component.html</context><context context-type="linenumber">41</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/register/reg-confirm/reg-confirm.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit><trans-unit id="User-UserRoleGroup" datatype="html">
+        <source>Menu</source><target state="new">বঢ়যবহারকারী ভূমিকা গঢ়রঢ়প</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/role-menu/role-menu-create/role-menu-create.component.html</context><context context-type="linenumber">16</context></context-group></trans-unit><trans-unit id="Button-NewUserGroupBranch" datatype="html">
+        <source>New User Group Branch</source><target state="new">New User Group Branch</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-list/mtnc-ugb-list.component.html</context><context context-type="linenumber">6</context></context-group></trans-unit><trans-unit id="Button-NewRole" datatype="html">
+        <source>New Role</source><target state="new">New Role</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-list/mtnc-role-list.component.html</context><context context-type="linenumber">6</context></context-group></trans-unit><trans-unit id="User-Status" datatype="html">
+        <source>User Role</source><target state="new">অবসঢ়থা</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/role-menu/role-menu-create/role-menu-create.component.html</context><context context-type="linenumber">9</context></context-group></trans-unit><trans-unit id="Button-Reset" datatype="html">
+        <source>Reset</source><target state="new">রিসেট</target>
+        
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-list/user-list.component.html</context><context context-type="linenumber">46</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">133</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">100</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/menu/menu-add.component.html</context><context context-type="linenumber">56</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/user-group/user-group.component.html</context><context context-type="linenumber">37</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-create/mtnc-ugb-create.component.html</context><context context-type="linenumber">94</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-list/mtnc-ugb-list.component.html</context><context context-type="linenumber">54</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-update/mtnc-ugb-update.component.html</context><context context-type="linenumber">94</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-create/mtnc-role-create.component.html</context><context context-type="linenumber">24</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-list/mtnc-role-list.component.html</context><context context-type="linenumber">33</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-update/mtnc-role-update.component.html</context><context context-type="linenumber">24</context></context-group></trans-unit><trans-unit id="Button-Search" datatype="html">
+        <source>Search</source><target state="new">অনঢ়সনঢ়ধান</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-list/user-list.component.html</context><context context-type="linenumber">48</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/menu/menu-add.component.html</context><context context-type="linenumber">59</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/user-group/user-group.component.html</context><context context-type="linenumber">40</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-list/mtnc-ugb-list.component.html</context><context context-type="linenumber">56</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-list/mtnc-role-list.component.html</context><context context-type="linenumber">35</context></context-group></trans-unit><trans-unit id="User-UserId" datatype="html">
+        <source>User ID</source><target state="new">বঢ়যবহারকারীর পঢ়রমানপতঢ়র</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">16</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/wfw/config/level/level-details/level-details.component.html</context><context context-type="linenumber">11</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/wfw/config/level/level-details/level-details.component.html</context><context context-type="linenumber">24</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/wfw/config/level/level-details/level-details.component.html</context><context context-type="linenumber">48</context></context-group></trans-unit><trans-unit id="User-EmailAddress" datatype="html">
+        <source>E-mail Address</source><target state="new">ই-মেইল ঠিকানা</target>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">65</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">49</context></context-group></trans-unit><trans-unit id="User-DOB" datatype="html">
+        <source>Date of Birth</source><target state="new">জনঢ়ম তারিখ</target>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">59</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">43</context></context-group></trans-unit><trans-unit id="User-Gender" datatype="html">
+        <source>Gender</source><target state="new">লিঙঢ়গ</target>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">52</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">36</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/wfw/config/level/level-details/level-details.component.html</context><context context-type="linenumber">30</context></context-group></trans-unit><trans-unit id="User-MobileNo" datatype="html">
+        <source>Mobile Number</source><target state="new">মোবাইল নমঢ়বর</target>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">72</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">56</context></context-group></trans-unit><trans-unit id="User-UserGroup" datatype="html">
+        <source>User Group</source><target state="new">বঢ়যবহারকারী দল</target>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">86</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">71</context></context-group></trans-unit><trans-unit id="Button-Cancel" datatype="html">
+        <source>Cancel</source><target state="new">বাতিল</target>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">131</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">98</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-create/mtnc-ugb-create.component.html</context><context context-type="linenumber">92</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-update/mtnc-ugb-update.component.html</context><context context-type="linenumber">92</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-create/mtnc-role-create.component.html</context><context context-type="linenumber">22</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-update/mtnc-role-update.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit><trans-unit id="Button-ResetPwd" datatype="html">
+        <source>Reset Password</source><target state="new">পাসওয়ারঢ়ড রিসেট করঢ়ন</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">135</context></context-group></trans-unit><trans-unit id="Button-ResendCredential" datatype="html">
+        <source>Resend Credential</source><target state="new">শংসাপতঢ়র পঢ়নরায় পাঠান</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">137</context></context-group></trans-unit><trans-unit id="Button-Activate" datatype="html">
+        <source>Activate</source><target state="new">সকঢ়রিয় করা</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">142</context></context-group></trans-unit><trans-unit id="Button-Deactivate" datatype="html">
+        <source>Deactivate</source><target state="new">করঢ়মততপরতা বানঢ়দ করা</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">144</context></context-group></trans-unit><trans-unit id="Button-Update" datatype="html">
+        <source>Update</source><target state="new">হালনাগাদ</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-update/user-update.component.html</context><context context-type="linenumber">148</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-update/mtnc-ugb-update.component.html</context><context context-type="linenumber">96</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-update/mtnc-role-update.component.html</context><context context-type="linenumber">26</context></context-group></trans-unit><trans-unit id="Button-Create" datatype="html">
+        <source>Create</source><target state="new">সৃষঢ়টি</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/module/idm/user/user-create/user-create.component.html</context><context context-type="linenumber">102</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-user-group-branch/mtnc-ugb-create/mtnc-ugb-create.component.html</context><context context-type="linenumber">96</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/module/cmn/maintenance/mtnc-role/mtnc-role-create/mtnc-role-create.component.html</context><context context-type="linenumber">26</context></context-group></trans-unit><trans-unit id="Error-404" datatype="html">
+        <source>Page Not Found !</source><target state="new">পৃষঢ়ঠা খঢ়ঝজে পাওয়া যায়নি !</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/page/error/error.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="Error-Note" datatype="html">
+        <source>YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</source><target state="new">আপনি নিজের উপায়ে খঢ়ঝজে পেতে চেষঢ়টা করছেন বলে মনে করছেন</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/page/error/error.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="Error-BackHome" datatype="html">
+        <source>Back to home</source><target state="new">বাড়িতে ফিরে যাও</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/shared/page/error/error.component.html</context><context context-type="linenumber">7</context></context-group></trans-unit><trans-unit id="Button-NewMenu" datatype="html">
+        <source>New Menu</source><target state="new">New Menu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/cmn/maintenance/menu/menu-add.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="Button-NewUserGroup" datatype="html">
+        <source>New User Group</source><target state="new">New User Group</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/module/cmn/maintenance/user-group/user-group.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

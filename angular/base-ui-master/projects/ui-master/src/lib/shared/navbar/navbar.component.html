@@ -1,0 +1,17 @@
+<!-- ============================================================== -->
+<!-- Navigation Bar -->
+<!-- ============================================================== -->
+<ul class="navbar-nav float-right">    
+    <!-- ============================================================== -->
+    <!-- Language -->
+    <!-- ============================================================== -->
+    <li aclass="nav-item dropdown" ngbDropdown placement="bottom-right">
+        <ui-navlang [currentUser]="currentUser" ></ui-navlang>
+    </li>
+    <!-- ============================================================== -->
+    <!-- User -->
+    <!-- ============================================================== -->
+    <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
+        <ui-navuser [currentUser]="currentUser"></ui-navuser>          
+    </li>    
+</ul>

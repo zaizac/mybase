@@ -1,0 +1,518 @@
+<!--/* HORIZONTAL TABS */-->
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="m-b-0 text-white">Horizontal Tab</h4>
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row">
+			<!--/* Default Tab */-->
+			<div class="col-lg-6">
+				<h4 class="card-title">Default Tab</h4>
+				<bst:tab>
+					<bst:tab-ul>
+						<bst:tab-li href="#tab1" th:classappend="'active'" th:text="#{'Tab 1'}" />
+						<bst:tab-li href="#tab2" th:classappend="'badge-success'" th:text="#{'Tab 2'}" />
+						<bst:tab-li href="#tab3" th:classappend="'badge-info'" th:text="#{'Tab 3'}" />
+						<bst:tab-li href="#tab4" th:classappend="'badge-warning'" th:text="#{'Tab 4'}" />
+						<bst:tab-li href="#tab5" th:classappend="'badge-danger'" th:text="#{'Tab 5'}" />
+						<bst:tab-li href="#tab6" th:classappend="'badge-primary'" th:text="#{'Tab 6'}" />
+					</bst:tab-ul>
+					<bst:tab-panes>
+						<bst:tab-pane id="tab1" th:classappend="'active'">
+							<div class="p-20">Default tab header</div>
+						</bst:tab-pane>
+						<bst:tab-pane id="tab2">
+							<div class="p-20">Tab header with class <em class="text-success">badge-success</em>.</div>
+						</bst:tab-pane>
+						<bst:tab-pane id="tab3">
+							<div class="p-20">Tab header with class <em class="text-info">badge-info</em>.</div>
+						</bst:tab-pane>
+						<bst:tab-pane id="tab4">
+							<div class="p-20">Tab header with class <em class="text-warning">badge-warning</em>.</div>
+						</bst:tab-pane>
+						<bst:tab-pane id="tab5">
+							<div class="p-20">Tab header with class <em class="text-danger">badge-danger</em>.</div>
+						</bst:tab-pane>
+						<bst:tab-pane id="tab6">
+							<div class="p-20">Tab header with class <em class="text-primary">badge-primary</em>.</div>
+						</bst:tab-pane>
+					</bst:tab-panes>
+				</bst:tab>
+			</div>
+			<!--/* Custom Tab */-->
+			<div class="col-lg-6">
+				<h4 class="card-title">Custom Tab</h4>
+				<bst:tab>
+					<bst:tab-ul th:classappend="customtab">
+						<bst:tab-li href="#tab1" th:classappend="'active'">Tab 1</bst:tab-li>
+						<bst:tab-li href="#tab2">Tab 2</bst:tab-li>
+						<bst:tab-li href="#tab3">Tab 3</bst:tab-li>
+					</bst:tab-ul>
+					<bst:tab-panes>
+						<bst:tab-pane id="tab1" th:classappend="'active'">
+							<div class="p-20">Tab 1 Content</div>
+						</bst:tab-pane>
+						<bst:tab-pane id="tab2">
+							<div class="p-20">Tab 2 Content</div>
+						</bst:tab-pane>
+						<bst:tab-pane id="tab3">
+							<div class="p-20">Tab 3 Content</div>
+						</bst:tab-pane>
+					</bst:tab-panes>
+				</bst:tab>
+			</div>
+		</div>
+		<br/>
+		<div class="accordion" role="tablist" aria-multiselectable="true">
+          	<div class="card">
+           		<div class="card-header" role="tab" id="headingOne">
+              		<h5 class="mb-0">
+                 		<a data-toggle="collapse" data-parent="#accordion2" href="#collapse1" aria-expanded="true" aria-controls="collapseOne"> Example</a>
+              		</h5>
+           		</div>
+           		<div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+              		<div class="card-body">
+                  		<th:block th:text="#{'&lt;bst:tab&gt;'}" /><br/>
+                  		<em class="text-success" th:text="#{'&lt;!--/* Tab Header */--&gt;'}" ></em><br/>
+						<span class="ml-3" th:text="#{'&lt;bst:tab-ul&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-li href=\'#tab1\' th:classappend=\'active\'&gt;Tab 1&lt;/bst:tab-li&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-li href=\'#tab2\'&gt;Tab 2&lt;/bst:tab-li&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-li href=\'#tab3\'&gt;Tab 3&lt;/bst:tab-li&gt;'}" /><br/>
+						<span class="ml-3" th:text="#{'&lt;/bst:tab-ul&gt;'}" /><br/>
+                  		<em class="text-success" th:text="#{'&lt;!--/* Tab Content */--&gt;'}" ></em><br/>
+						<span class="ml-3" th:text="#{'&lt;bst:tab-panes&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pane id=\'tab1\' th:classappend=\'active\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 1 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:tab-pane&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pane id=\'tab2\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 2 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:tab-pane&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pane id=\'tab3\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 3 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:tab-pane&gt;'}" /><br/>
+						<span class="ml-3" th:text="#{'&lt;/bst:tab-panes&gt;'}" /><br/>
+						<span th:text="#{'&lt;/bst:tab&gt;'}" /><br/>
+              		</div>
+           		</div>
+			</div>
+           	<div class="card">
+				<div class="card-header" role="tab" id="headingTwo">
+               		<h5 class="mb-0">
+                   		<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse2" aria-expanded="false" aria-controls="collapseTwo"> Definition and Usage </a>
+                 	</h5>
+              	</div>
+              	<div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+               		<div class="card-body">
+                   		<p>The <th:block th:text="#{'&lt;bst:tab&gt;'}" /> tag defines a horizontal tab in an HTML page.</p>
+                   		<p>To define a clickable tab header button, <th:block th:text="#{'&lt;bst:tab-ul&gt;'}" /> and <th:block th:text="#{'&lt;bst:tab-li&gt;'}" /> tags are required.</p>
+                   		<p>To define the tab content, <th:block th:text="#{'&lt;bst:tab-panes&gt;'}" /> and <th:block th:text="#{'&lt;bst:tab-pane&gt;'}" /> tags are required.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" role="tab" id="headingThree">
+               		<h5 class="mb-0">
+                    	<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse3" aria-expanded="false" aria-controls="collapseThree"> Attributes </a>
+					</h5>
+				</div>
+              	<div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                 	<div class="card-body">
+                 		<strong th:text="#{'&lt;bst:tab-ul&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th style="width:20%;">Attribute</th>
+	                              <th style="width:20%;">Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>customtab</td>
+	                              <td>Specifies the tab as custom tab</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+                 		<strong th:text="#{'&lt;bst:tab-li&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th>Attribute</th>
+	                              <th>Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>href</td>
+	                              <td>URL / Tab Content ID</td>
+	                              <td>Specifies the URL of the tab content to be open</td>
+	                           </tr>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>active</td>
+	                              <td>Specifies the tab as active</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+						<strong th:text="#{'&lt;bst:tab-pane&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th>Attribute</th>
+	                              <th>Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>id</td>
+	                              <td></td>
+	                              <td>Specifies the unique id of the tab content</td>
+	                           </tr>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>active</td>
+	                              <td>Specifies the tab as active</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+                 	</div>
+              	</div>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+<!--/* VERTICAL TABS */-->
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="m-b-0 text-white">Vertical Tab</h4>
+	</bst:widget-header>
+	<bst:widget-body>		
+		<div class="row">
+			<!--/* Default Tab */-->
+			<div class="col-lg-6">
+				<h4 class="card-title">Default Tab</h4>
+				<bst:vtab>
+					<bst:vtab-ul>
+						<bst:vtab-li href="#vtab1" th:classappend="'active'">Vertical Tab 1</bst:vtab-li>
+						<bst:vtab-li href="#vtab2">Vertical Tab 2</bst:vtab-li>
+						<bst:vtab-li href="#vtab3">Vertical Tab 3</bst:vtab-li>
+					</bst:vtab-ul>
+					<bst:vtab-panes>
+						<bst:vtab-pane id="vtab1" th:classappend="'active'">
+							<div class="p-20">Vertical Tab 1 Content</div>
+						</bst:vtab-pane>
+						<bst:vtab-pane id="vtab2">
+							<div class="p-20">Vertical Tab 2 Content</div>
+						</bst:vtab-pane>
+						<bst:vtab-pane id="vtab3">
+							<div class="p-20">Vertical Tab 3 Content</div>
+						</bst:vtab-pane>
+					</bst:vtab-panes>
+				</bst:vtab>
+			</div>
+			<!--/* Custom Tab */-->
+			<div class="col-lg-6">
+				<h4 class="card-title">Custom Tab</h4>
+				<bst:vtab th:classappend="customvtab">
+					<bst:vtab-ul>
+						<bst:vtab-li href="#home2" th:classappend="'active'">Home</bst:vtab-li>
+						<bst:vtab-li href="#profile2">Profile</bst:vtab-li>
+						<bst:vtab-li href="#messages2">Messages</bst:vtab-li>
+					</bst:vtab-ul>
+					<bst:vtab-panes>
+						<bst:vtab-pane id="home2" th:classappend="'active'">
+							<div class="p-20">
+								<h3>Best Clean Tab ever</h3>
+								<h4>you can use it with the small code</h4>
+								<p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
+							</div>
+						</bst:vtab-pane>
+						<bst:vtab-pane id="profile2">Profile Content</bst:vtab-pane>
+						<bst:vtab-pane id="messages2">Messages Content</bst:vtab-pane>
+					</bst:vtab-panes>
+				</bst:vtab>
+			</div>
+		</div>
+		<br/>
+		<div class="accordion" role="tablist" aria-multiselectable="true">
+          	<div class="card">
+           		<div class="card-header" role="tab" id="vtabHead1">
+              		<h5 class="mb-0">
+                 		<a data-toggle="collapse" data-parent="#accordion2" href="#vtabCollapse1" aria-expanded="true" aria-controls="collapseOne"> Example</a>
+              		</h5>
+           		</div>
+           		<div id="vtabCollapse1" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+              		<div class="card-body">
+                  		<th:block th:text="#{'&lt;bst:vtab&gt;'}" /><br/>
+                  		<em class="text-success" th:text="#{'&lt;!--/* Tab Header */--&gt;'}" ></em><br/>
+						<span class="ml-3" th:text="#{'&lt;bst:vtab-ul&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:vtab-li href=\'#tab1\' th:classappend=\'active\'&gt;Tab 1&lt;/bst:vtab-li&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:vtab-li href=\'#tab2\'&gt;Tab 2&lt;/bst:vtab-li&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:vtab-li href=\'#tab3\'&gt;Tab 3&lt;/bst:vtab-li&gt;'}" /><br/>
+						<span class="ml-3" th:text="#{'&lt;/bst:vtab-ul&gt;'}" /><br/>
+                  		<em class="text-success" th:text="#{'&lt;!--/* Tab Content */--&gt;'}" ></em><br/>
+						<span class="ml-3" th:text="#{'&lt;bst:vtab-panes&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:vtab-pane id=\'tab1\' th:classappend=\'active\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 1 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:vtab-pane&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:vtab-pane id=\'tab2\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 2 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:vtab-pane&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:vtab-pane id=\'tab3\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 3 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:vtab-pane&gt;'}" /><br/>
+						<span class="ml-3" th:text="#{'&lt;/bst:vtab-panes&gt;'}" /><br/>
+						<span th:text="#{'&lt;/bst:vtab&gt;'}" /><br/>
+              		</div>
+           		</div>
+			</div>
+           	<div class="card">
+				<div class="card-header" role="tab" id="vtabHead2">
+               		<h5 class="mb-0">
+                   		<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="vtabCollapse2" aria-expanded="false" aria-controls="collapseTwo"> Definition and Usage </a>
+                 	</h5>
+              	</div>
+              	<div id="vtabCollapse2" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+               		<div class="card-body">
+                   		<p>The <th:block th:text="#{'&lt;bst:vtab&gt;'}" /> tag defines a horizontal tab in an HTML page.</p>
+                   		<p>To define a clickable tab header button, <th:block th:text="#{'&lt;bst:vtab-ul&gt;'}" /> and <th:block th:text="#{'&lt;bst:vtab-li&gt;'}" /> tags are required.</p>
+                   		<p>To define the tab content, <th:block th:text="#{'&lt;bst:vtab-panes&gt;'}" /> and <th:block th:text="#{'&lt;bst:vtab-pane&gt;'}" /> tags are required.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" role="tab" id="vtabHead3">
+               		<h5 class="mb-0">
+                    	<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#vtabCollapse3" aria-expanded="false" aria-controls="collapseThree"> Attributes </a>
+					</h5>
+				</div>
+              	<div id="vtabCollapse3" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                 	<div class="card-body">
+                 		<strong th:text="#{'&lt;bst:vtab&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th style="width:20%;">Attribute</th>
+	                              <th style="width:20%;">Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>customvtab</td>
+	                              <td>Specifies the tab as custom tab</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+                 		<strong th:text="#{'&lt;bst:tab-li&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th style="width:20%;">Attribute</th>
+	                              <th style="width:20%;">Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>href</td>
+	                              <td>URL / Tab Content ID</td>
+	                              <td>Specifies the URL of the tab content to be open</td>
+	                           </tr>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>active</td>
+	                              <td>Specifies the tab as active</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+						<strong th:text="#{'&lt;bst:tab-pane&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th style="width:20%;">Attribute</th>
+	                              <th style="width:20%;">Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>id</td>
+	                              <td></td>
+	                              <td>Specifies the unique id of the tab content</td>
+	                           </tr>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>active</td>
+	                              <td>Specifies the tab as active</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+                 	</div>
+              	</div>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+<!--/* NAV PILLS TABS */-->
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="m-b-0 text-white">Nav Pills Tab</h4>
+	</bst:widget-header>
+	<bst:widget-body>
+		<bst:tab-pills>
+			<bst:tab-pills-ul>
+				<bst:tab-pills-li href="#tab-pills1" th:classappend="'active'" th:text="#{'Tab 1'}" />
+				<bst:tab-pills-li href="#tab-pills2" th:classappend="'badge-success'" th:text="#{'Tab 2'}" />
+				<bst:tab-pills-li href="#tab-pills3" th:classappend="'badge-info'" th:text="#{'Tab 3'}" />
+				<bst:tab-pills-li href="#tab-pills4" th:classappend="'badge-warning'" th:text="#{'Tab 4'}" />
+				<bst:tab-pills-li href="#tab-pills5" th:classappend="'badge-danger'" th:text="#{'Tab 5'}" />
+				<bst:tab-pills-li href="#tab-pills6" th:classappend="'badge-primary'" th:text="#{'Tab 6'}" />
+			</bst:tab-pills-ul>
+			<bst:tab-pills-panes>
+				<bst:tab-pills-pane id="tab-pills1" th:classappend="'active'">
+					<div class="p-20">Default tab-pills header</div>
+				</bst:tab-pills-pane>
+				<bst:tab-pills-pane id="tab-pills2">
+					<div class="p-20">Tab header with class <em class="text-success">badge-success</em>.</div>
+				</bst:tab-pills-pane>
+				<bst:tab-pills-pane id="tab-pills3">
+					<div class="p-20">Tab header with class <em class="text-info">badge-info</em>.</div>
+				</bst:tab-pills-pane>
+				<bst:tab-pills-pane id="tab-pills4">
+					<div class="p-20">Tab header with class <em class="text-warning">badge-warning</em>.</div>
+				</bst:tab-pills-pane>
+				<bst:tab-pills-pane id="tab-pills5">
+					<div class="p-20">Tab header with class <em class="text-danger">badge-danger</em>.</div>
+				</bst:tab-pills-pane>
+				<bst:tab-pills-pane id="tab-pills6">
+					<div class="p-20">Tab header with class <em class="text-primary">badge-primary</em>.</div>
+				</bst:tab-pills-pane>
+			</bst:tab-pills-panes>
+		</bst:tab-pills>
+		<br/>
+		<div class="accordion" role="tablist" aria-multiselectable="true">
+          	<div class="card">
+           		<div class="card-header" role="tab" id="pillsHead1">
+              		<h5 class="mb-0">
+                 		<a data-toggle="collapse" data-parent="#accordion2" href="#pillsCollapse1" aria-expanded="true" aria-controls="pillsHead1"> Example</a>
+              		</h5>
+           		</div>
+           		<div id="pillsCollapse1" class="collapse show" role="tabpanel" aria-labelledby="pillsHead1">
+              		<div class="card-body">
+                  		<th:block th:text="#{'&lt;bst:tab-pills&gt;'}" /><br/>
+                  		<em class="text-success" th:text="#{'&lt;!--/* Tab Header */--&gt;'}" ></em><br/>
+						<span class="ml-3" th:text="#{'&lt;bst:tab-pills-ul&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pills-li href=\'#tab-pills1\' th:classappend=\'active\'&gt;Tab 1&lt;/bst:tab-pills-li&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pills-li href=\'#tab-pills2\'&gt;Tab 2&lt;/bst:tab-pills-li&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pills-li href=\'#tab-pills3\'&gt;Tab 3&lt;/bst:tab-pills-li&gt;'}" /><br/>
+						<span class="ml-3" th:text="#{'&lt;/bst:tab-pills-ul&gt;'}" /><br/>
+                  		<em class="text-success" th:text="#{'&lt;!--/* Tab Content */--&gt;'}" ></em><br/>
+						<span class="ml-3" th:text="#{'&lt;bst:tab-pills-panes&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pills-pane id=\'tab-pills1\' th:classappend=\'active\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 1 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:tab-pills-pane&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pills-pane id=\'tab-pills2\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 2 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:tab-pills-pane&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;bst:tab-pills-pane id=\'tab-pills3\'&gt;'}" /><br/>
+						<span class="ml-5" th:text="#{'&lt;div class=\'p-20\'&gt;Tab 3 Content&lt;/div&gt;'}" /><br/>
+						<span class="ml-4" th:text="#{'&lt;/bst:tab-pills-pane&gt;'}" /><br/>
+						<span class="ml-3" th:text="#{'&lt;/bst:tab-pills-panes&gt;'}" /><br/>
+						<span th:text="#{'&lt;/bst:tab-pills&gt;'}" /><br/>
+              		</div>
+           		</div>
+			</div>
+           	<div class="card">
+				<div class="card-header" role="tab" id="pillsHead2">
+               		<h5 class="mb-0">
+                   		<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#pillsCollapse2" aria-expanded="false" aria-controls="pillsHead2"> Definition and Usage </a>
+                 	</h5>
+              	</div>
+              	<div id="pillsCollapse2" class="collapse" role="tabpanel" aria-labelledby="pillsHead2">
+               		<div class="card-body">
+                   		<p>The <th:block th:text="#{'&lt;bst:tab-pills&gt;'}" /> tag defines a nav pills tab in an HTML page.</p>
+                   		<p>To define a clickable tab header button, <th:block th:text="#{'&lt;bst:tab-pills-ul&gt;'}" /> and <th:block th:text="#{'&lt;bst:tab-pills-li&gt;'}" /> tags are required.</p>
+                   		<p>To define the tab content, <th:block th:text="#{'&lt;bst:tab-pills-panes&gt;'}" /> and <th:block th:text="#{'&lt;bst:tab-pills-pane&gt;'}" /> tags are required.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" role="tab" id="pillsHead3">
+               		<h5 class="mb-0">
+                    	<a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#pillsCollapse3" aria-expanded="false" aria-controls="pillsHead3"> Attributes </a>
+					</h5>
+				</div>
+              	<div id="pillsCollapse3" class="collapse" role="tabpanel" aria-labelledby="pillsHead3">
+                 	<div class="card-body">
+                 		<strong th:text="#{'&lt;bst:tab-pills-ul&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th style="width:20%;">Attribute</th>
+	                              <th style="width:20%;">Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>customtab</td>
+	                              <td>Specifies the tab as custom tab</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+                 		<strong th:text="#{'&lt;bst:tab-pills-li&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th style="width:20%;">Attribute</th>
+	                              <th style="width:20%;">Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>href</td>
+	                              <td>URL / Tab Content ID</td>
+	                              <td>Specifies the URL of the tab content to be open</td>
+	                           </tr>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>active</td>
+	                              <td>Specifies the tab as active</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+						<strong th:text="#{'&lt;bst:tab-pills-pane&gt;'}" /><br/>
+	                   	<bst:table-light style="font-size: 12px;">
+	                        <thead>
+	                           <tr>
+	                              <th style="width:20%;">Attribute</th>
+	                              <th style="width:20%;">Value</th>
+	                              <th>Description</th>
+	                           </tr>
+	                        </thead>
+	                        <tbody>
+	                           <tr>
+	                              <td>id</td>
+	                              <td></td>
+	                              <td>Specifies the unique id of the tab content</td>
+	                           </tr>
+	                           <tr>
+	                              <td>th:classappend</td>
+	                              <td>active</td>
+	                              <td>Specifies the tab as active</td>
+	                           </tr>
+	                        </tbody>
+						</bst:table-light>
+                 	</div>
+              	</div>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>

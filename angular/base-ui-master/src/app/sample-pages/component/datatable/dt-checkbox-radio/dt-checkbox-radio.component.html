@@ -1,0 +1,78 @@
+<ui-card>
+  <div class="col-12">
+    <h2>Checkbox</h2>
+    <p>A column can be defined as checkbox by setting the type value as checkbox when initialise tableInit columns</p>
+    <p>To select a row, we need to click on the checkbox itself. The selected data can be retrieved by calling table init <strong><em>selectedData</em></strong> attribute. The attribute will return an array. If no checkbox checked, it will return null value. The checkbox can be placed in any column.</p>
+    <ui-card>
+      <pre>
+            this.headerConfig = {{ '{' }}
+              columns: [
+                {{ '{' }} field: 'SlNo' {{ '}' }}, 
+                {{ '{' }}
+                  type: 'checkbox'
+                {{ '}' }}, 
+                {{ '{' }} field: 'name' {{ '}' }}, 
+                {{ '{' }} field: 'gender' {{ '}' }}, 
+                {{ '{' }} field: 'company' {{ '}' }} 
+              ],
+            {{ '}' }} 
+        </pre
+      >
+    </ui-card>
+    <ui-datatable [tableInit]="headerConfig"></ui-datatable>
+    <p>To retrieve the data, just call tableInit selected data. e,g: <em>this.headerConfig.selectedData</em></p>
+    <p>selected - {{ this.headerConfig.selectedData | json }}</p>
+  </div>
+</ui-card>
+
+<ui-card>
+  <div class="col-12">
+    <h2>Radiobutton</h2>
+    <p>A column can be defined as radio button by setting the type value as radio when initialise tableInit columns</p>
+    <p>To select a row, we need to click on the radio button itself. The selected data can be retrieved by calling table init <strong><em>selectedRowData</em></strong> attribute. The attribute will return the selected row data object. If no radio button checked, it will return null value. The radio button can be placed in any column</p>
+    <ui-card>
+        <pre>
+              this.headerConfig = {{ '{' }}
+                columns: [
+                  {{ '{' }}
+                    type: 'radio'
+                  {{ '}' }}, 
+                  {{ '{' }} field: 'SlNo' {{ '}' }}, 
+                  {{ '{' }} field: 'name' {{ '}' }}, 
+                  {{ '{' }} field: 'gender' {{ '}' }}, 
+                  {{ '{' }} field: 'company' {{ '}' }} 
+                ],
+              {{ '}' }} 
+          </pre
+        >
+      </ui-card>
+    <div>
+      <ui-datatable [tableInit]="headerConfig2"></ui-datatable>
+    </div>
+    <p>Selected row data: {{ headerConfig2.selectedRowData | json }}</p>
+  </div>
+</ui-card>
+
+<ui-card>
+    <div class="col-12">
+      <h2 style="color:red;">Important</h2>
+      <p>When using both checkbox and radio on same table, the radio button will not be rendered. Because only 1 selection type can be used per table. If both type defined in the column, only checkbox column will render because it take precedent over radio button</p>
+      <ui-card>
+        <pre>
+              this.headerConfig = {{ '{' }}
+                columns: [
+                  {{ '{' }} field: 'SlNo' {{ '}' }}, 
+                  {{ '{' }}
+                    type: 'checkbox'
+                  {{ '}' }}, 
+                  {{ '{' }} field: 'name' {{ '}' }}, 
+                  {{ '{' }} field: 'gender' {{ '}' }}, 
+                  {{ '{' }} field: 'company' {{ '}' }} 
+                ],
+              {{ '}' }} 
+          </pre
+        >
+      </ui-card>
+      <ui-datatable [tableInit]="headerConfig3"></ui-datatable>
+    </div>
+  </ui-card>

@@ -1,0 +1,166 @@
+<bst:widget>
+<bst:widget-header-acc id="accordion4">
+<bst:widget>
+	<bst:widget-header id="headingFour">
+		<h4 class="font-widget col-lg-12 col-md-12 col-xs-12 collapse-iconic collapsed" th:text="#{lbl.patient.section4.isolation.Outcome}" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne" />
+		<div class="tooltips-box">
+				<span class="tooltips-text text-light bg-dark">Click to expand the form</span>
+				<i class="caret-down caret-custom"></i>
+			</div>
+	</bst:widget-header>
+	<bst:widget-body id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion4">
+		<div class="row form-row">
+			<div class="col-6">
+				<label th:text="#{lbl.patient.section4.isolation.datesub}" />
+				<bst:input-date id="dtResubRepPckr" th:field="*{dtResubRep}" th:readonly="true" th:disabled="${isView}"/>		
+				<bst:error th:if="${#fields.hasErrors('dtResubRep')}" th:errors="*{dtResubRep}" />
+			</div>
+		</div>
+		<div class="row form-row mt-2">
+			<!--/* Email */-->
+			<div class="col-md-12">
+				<label th:text="#{lbl.patient.section4.asymptomatic}" />
+				<bst:radio-group>
+			        <bst:radio  th:field="*{asymtoTime}" th:value="Y" th:text="#{'Yes'}" th:disabled="${isView}"/>
+			         <em class="fa fa-info-circle mr-3"  data-toggle="tooltip" title="Yes, asymptomatic case (as previously reported) developed symptoms and/or signs of illness"></em>
+				    <bst:radio th:field="*{asymtoTime}" th:value="N" th:text="#{'No'}" th:disabled="${isView}"/>
+				     <em class="fa fa-info-circle" data-toggle="tooltip" title="No (i.e., case remains asymptomatic)"></em>
+				</bst:radio-group>
+				<bst:error th:if="${#fields.hasErrors('asymtoTime')}" th:errors="*{asymtoTime}" />
+			</div>
+			<div class="col-6" id="symptomsDtId" style ="display : none" >
+			<div class="col-md-12" >
+				<label class="required" th:text="#{'if yes date of symptoms.'}" />
+				<bst:input-date id="systomDate" th:field="*{symptomsDt}" th:readonly="true" th:disabled="${isView}"/>
+				<bst:error th:if="${#fields.hasErrors('symptomsDt')}" th:errors="*{symptomsDt}" />		
+			</div>
+		    </div>
+		</div>
+		<br/><h4><strong th:text="#{lbl.patient.section4.asymptomatic.course}" /></h4>
+		<div class="row form-row">
+			<div class="col-6">
+				<label th:text="#{lbl.patient.section4.asymptomatic.hospital}" />
+				<bst:radio-group>
+			        <bst:radio th:field="*{adHosp}" th:value="Y" th:text="#{'Yes'}" th:disabled="${isView}"/>
+				    <bst:radio th:field="*{adHosp}" th:value="N" th:text="#{'No'}" th:disabled="${isView}"/>
+				</bst:radio-group>
+				<bst:error th:if="${#fields.hasErrors('adHosp')}" th:errors="*{adHosp}" />
+			</div>
+		</div>
+		<div class="row form-row" id="dateShow" style ="display : none">
+			<div class="col-6" >
+				<label class="required" th:text="#{lbl.patient.section4.admit.first.hospital}" />
+				<bst:input-date id="stDtAmtHospPckr" th:field="*{stDtAmtHosp}" th:readonly="true" th:disabled="${isView}"/>
+				<bst:error th:if="${#fields.hasErrors('stDtAmtHosp')}" th:errors="*{stDtAmtHosp}" />		
+			</div>
+			<!--/* Admission Hospital */-->
+			<div class="col-md-6">
+				<label class="required" th:text="#{lbl.patient.section4.hospital}" />
+			    <bst:select th:field="*{ccAdmHospitalCd}" th:disabled="${isView}">
+			  	    <option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="hosp : ${@staticData.hospitalList()}" th:value="${hosp.hospitalId}" th:text="${hosp.hospitalDesc}" />
+				</bst:select>
+				<bst:error th:if="${#fields.hasErrors('ccAdmHospitalCd')}" th:errors="*{ccAdmHospitalCd}" />           
+	        </div>
+		</div>
+		<div class="row form-row" id="icuShow" style ="display : none">
+			
+			<div class="col-6">
+				<input type="hidden" th:field="*{ccHealthStatusId}" th:disabled="${isView}"/>
+				<label class="required" th:text="#{lbl.patient.section4.admit.hospital.icu}" />
+			</div>
+			<div class="col-6">
+				<bst:radio-group>
+		 			<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{insCareSection4}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}"/>
+		 		</bst:radio-group>
+		 		<bst:error th:if="${#fields.hasErrors('insCareSection4')}" th:errors="*{insCareSection4}" />
+			</div>
+		</div>
+		<div class="row form-row" id="ventilatinShow" style ="display : none">
+			<div class="col-6">
+				<label class="required" th:text="#{lbl.patient.section4.admit.ventilation}" />
+			</div>
+			<div class="col-6">
+				<bst:radio-group>
+		 			<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{rcvVentSection4}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}"/>
+		 		</bst:radio-group>
+		 		<bst:error th:if="${#fields.hasErrors('rcvVentSection4')}" th:errors="*{rcvVentSection4}" />
+			</div>
+		</div>
+		<div class="row form-row" id="oxygenationShow" style ="display : none">
+			<div class="col-6">
+				<label class="required" th:text="#{lbl.patient.section4.admit.oxygenation}" />
+			</div>
+			<div class="col-6">
+				<bst:radio-group>
+		 			<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{rvcExtraMemBrOxySection4}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}"/>
+		 		</bst:radio-group>
+		 		<bst:error th:if="${#fields.hasErrors('rvcExtraMemBrOxySection4')}" th:errors="*{rvcExtraMemBrOxySection4}" />
+			</div>
+		</div>
+		<br/><h4><strong th:text="#{lbl.patient.section4.admit.Health.Outcome}" /></h4>
+		<div class="row form-row" id="healthOutCm">
+		<div class="col-md-12" id="comorbidityLst">
+				<bst:radio-group>
+					<bst:radio th:each="health : ${@staticData.findByMetadataType('HLTH_OUTC')}" th:field="*{healthOutCm}" th:value="${health.mtdtCd}" th:text="${health.mtdtDesc}" th:disabled="${isView}"/>
+				</bst:radio-group>
+			</div>
+		</div>
+		<div class="row form-row mb-2">
+			<div class="col-md-6" id="explainId"  style ="display : none">
+				<label class="required" th:text="#{lbl.patient.section4.please.explain}" />
+			 	<bst:input data-constraints="@Required" th:field="*{others}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}"/>
+			 	<bst:error th:if="${#fields.hasErrors('others')}" th:errors="*{others}" />
+			</div>
+		</div>
+		<div class="row form-row mb-2">
+			<div class="col-md-6" id="dateDeathId" style ="display : none">
+				<label class="required" th:text="#{lbl.patient.section4.date.release}" />
+				<bst:input-date data-constraints="@Required" id="dtRelHspPckr" th:field="*{dtRelHsp}" th:readonly="true" th:disabled="${isView}"/>
+				<bst:error th:if="${#fields.hasErrors('dtRelHsp')}" th:errors="*{dtRelHsp}" />		
+			</div>
+			<div class="col-md-6" id="causeDeathId" style ="display : none">
+				<label class="required" th:text="#{lbl.patient.section4.cause.death}" />
+				<bst:input data-constraints="@Required" th:field="*{causeOfDeath}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}"/>
+				<bst:error th:if="${#fields.hasErrors('causeOfDeath')}" th:errors="*{causeOfDeath}" />
+			</div>
+		</div>
+		<div class="row form-row mb-2" >
+			<div class="col-md-6" id="resultTestId" style ="display : none">
+				<label class="required" th:text="#{'Results of last test:'}" />
+				<bst:radio-group>
+					<bst:radio th:field="*{rsltLastTest}" th:value="P" th:text="#{'Positive'}" th:disabled="${isView}"/>
+					<bst:radio th:field="*{rsltLastTest}" th:value="N" th:text="#{'Negative '}" th:disabled="${isView}"/>
+				</bst:radio-group>
+				<bst:error th:if="${#fields.hasErrors('rsltLastTest')}" th:errors="*{rsltLastTest}" />
+			</div>
+			<div class="col-md-6" id="dateLabTest" style ="display : none">
+				<label class="required" th:text="#{lbl.patient.section4.date.test}" />
+			 	<bst:input-date data-constraints="@Required" id="dtLstLbritoryTstPckr" th:field="*{dtLstLbritoryTst}" th:readonly="true" th:disabled="${isView}"/>
+			 	<bst:error th:if="${#fields.hasErrors('dtLstLbritoryTst')}" th:errors="*{dtLstLbritoryTst}" />
+			</div>
+	    </div>
+	    <div class="row form-row mb-2">
+			<div class="col-md-6" id="dateDischargeId" style ="display : none">
+				<label th:text="#{lbl.patient.section4.date.discharge}" />
+				<bst:input-date data-constraints="@Required" id="dateDischargePkr" th:field="*{dateDischarge}" th:readonly="true" th:disabled="${isView}"/>
+				<bst:error th:if="${#fields.hasErrors('dateDischarge')}" th:errors="*{dateDischarge}" />
+			</div>
+			<div class="col-md-6" id="finalDiagnosid" style ="display : none">
+				<label th:text="#{lbl.patient.section4.final.diagnosis}" />
+				<bst:input data-constraints="@Required" th:field="*{finalDiagnosis}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}"/>
+				<bst:error th:if="${#fields.hasErrors('finalDiagnosis')}" th:errors="*{finalDiagnosis}" />
+			</div>
+		</div>
+
+		<div class="row form-row mb-2">
+		  	<div class="col-md-6">
+				<label th:text="#{lbl.patient.section4.total.number}" />
+			 	<bst:input class="limit-number" data-constraints="@Required" th:field="*{totContact}" maxlength="5" onkeypress="allowAlphaNumericNoSpace(event);" th:disabled="${isView}"/>
+			 	<bst:error th:if="${#fields.hasErrors('totContact')}" th:errors="*{totContact}" />
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+</bst:widget-header-acc>
+</bst:widget>

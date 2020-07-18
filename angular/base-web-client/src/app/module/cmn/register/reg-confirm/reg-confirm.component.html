@@ -1,0 +1,16 @@
+<form [formGroup]="confirmForm" autocomplete="off" class="col-12 ">
+  <div class="row">
+    <div class="form-group" >
+      <ui-radio-group formControlName="status" inline='true'>
+          <div *ngFor="let status of statusList">
+          <ui-radio inline='true' [value]="status.statusCd">{{status.statusDesc}}</ui-radio>
+      </div>
+      </ui-radio-group>
+    </div>
+  </div>
+  <div class="row">
+      <label class="required" i18n="@@User-FullName">Remarks</label>
+      <ui-text formControlName="remarks" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+        [submitted]="submitted"></ui-text>
+  </div>
+</form>

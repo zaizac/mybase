@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyCare</string>
+    <string name="lbl_lang_eng">English</string>
+    <string name="lbl_lang_bgd">বাংলা</string>
+    <string name="lbl_lang_nepal">नेपाली</string>
+
+    <string name="lbl_select_meal">Select Meal Type</string>
+
+
+    <string-array name="arrFoodType">
+        <item>MRE</item>
+        <item>RAW FOOD GROCERIES</item>
+    </string-array>
+
+    <string-array name="arrMealType">
+        <item>VEGETARIAN</item>
+        <item>NON-VEGETARIAN</item>
+    </string-array>
+
+    <string-array name="arrGender">
+        <item>MALE</item>
+        <item>FEMALE</item>
+        <item>MALE &amp; FEMALE</item>
+    </string-array>
+</resources>

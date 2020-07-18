@@ -1,0 +1,191 @@
+<!-- CURRENT ADDRESS -->
+<br/><h4><strong th:text="#{lbl.patient.section.addr.current}" ></strong></h4>
+<div class="row form-row">
+	<!--/* Current Address 1 */-->
+	<div class="col-md-12">
+		<label class="required" th:text="#{lbl.patient.section1.address}" />
+	 	<bst:input data-constraints="@Required" th:field="*{currAddress1}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}" />
+		<bst:error th:if="${#fields.hasErrors('currAddress1')}" th:errors="*{currAddress1}" />
+	</div>
+	<input type="hidden" th:field="${patientFormDto.patientAddrId1}"/>
+</div>
+<div class="row form-row">
+	<!--/* Current State */-->
+	<div class="col-md-6">
+		<label class="required" th:text="#{lbl.patient.section1.state}" />
+              <bst:select id="selCurrState" data-constraints="@Required" th:field="*{currStateCd}" th:disabled="${isView}"
+              th:attr="data-placeholder=#{lbl.cmn.sel.pls}"
+              onChange="onChangeState('selCurrState','selCurrDistrict');"
+		     onload="onChangeState('selCurrState','selCurrDistrict');">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="state : ${@staticData.findAllStateList()}" th:value="${state.stateCd}" th:text="${state.stateDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('currStateCd')}" th:errors="*{currStateCd}" />
+	</div>
+	<!--/* Current District */-->
+	<div class="col-md-6">
+		<label class="required" th:text="#{lbl.patient.section1.District}" />
+              <bst:select id="selCurrDistrict" data-constraints="@Required" th:field="*{currDistrictCd}" th:disabled="${isView}"
+               th:attr="data-placeholder=#{lbl.cmn.sel.pls}"
+               onChange="onChangeDistrict('selCurrDistrict','selCurrMukimCd');"
+		       onload="onChangeDistrict('selCurrDistrict','selCurrMukimCd');">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="district : ${@staticData.districtList()}" th:value="${district.districtCd}" th:text="${district.districtDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('currDistrictCd')}" th:errors="*{currDistrictCd}" />
+	</div>
+</div>
+<div class="row form-row">
+	<!--/* Current Mukim */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Mukim}" />
+              <bst:select id="selCurrMukimCd" data-constraints="@Required" th:field="*{currMukimCd}" th:disabled="${isView}">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="mukim : ${@staticData.mukimList()}" th:value="${mukim.mukimCd}" th:text="${mukim.mukimDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('currMukimCd')}" th:errors="*{currMukimCd}" />
+	</div>
+	
+	<!--/* Current Postcode */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Postcode}" />
+        <bst:input th:field="*{currPostcode}" maxlength="20" th:readonly="${isView}" th:disabled="${isView}"/>
+        <bst:error th:if="${#fields.hasErrors('currPostcode')}" th:errors="*{currPostcode}" />
+	</div>		
+</div>
+<div class="row form-row">
+	<!--/* Current Country */-->
+	<div class="col-md-6">
+		<label class="required" th:text="#{lbl.patient.section1.Country}" />
+		    <bst:select th:field="*{currCntyCd}" th:disabled="${isView}">
+			<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('currCntyCd')}" th:errors="*{currCntyCd}" />
+	</div>
+</div>
+
+<!-- OTHER ADDRESS -->
+<br/><h4><strong th:text="#{lbl.patient.section.addr.other} " /></h4>
+<div class="row form-row">
+	<!--/* Other Address 1 */-->
+	<div class="col-md-12">
+		<label class="required"><th:block  th:text="#{lbl.patient.section1.address }" /><th:block th:utext="#{tooltip.address}" /></label>
+	 	<bst:input th:field="*{otherAddress1}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}" />
+		<bst:error th:if="${#fields.hasErrors('otherAddress1')}" th:errors="*{otherAddress1}" />
+	</div>
+	<input type="hidden" th:field="${patientFormDto.patientAddrId2}"/>
+</div>
+<div class="row form-row">
+	<!--/* Other State */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.state}" />
+        <bst:select id="selOtherState" data-constraints="@Required" th:field="*{otherStateCd}" th:disabled="${isView}"
+              th:attr="data-placeholder=#{lbl.cmn.sel.pls}"
+              onChange="onChangeState('selOtherState','selOtherDistrict');"
+		     onload="onChangeState('selOtherState','selOtherDistrict');">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="state : ${@staticData.findAllStateList()}" th:value="${state.stateCd}" th:text="${state.stateDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('otherStateCd')}" th:errors="*{otherStateCd}" />
+	</div>
+	<!--/* Other District */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.District }" />
+            <bst:select id="selOtherDistrict" data-constraints="@Required" th:field="*{otherDistrictCd}" th:disabled="${isView}"
+            th:attr="data-placeholder=#{lbl.cmn.sel.pls}"
+               onChange="onChangeDistrict('selOtherDistrict','selOtherMukimCd');"
+		       onload="onChangeDistrict('selOtherDistrict','selOtherMukimCd');">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="district : ${@staticData.districtList()}" th:value="${district.districtCd}" th:text="${district.districtDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('otherDistrictCd')}" th:errors="*{otherDistrictCd}" />
+	</div>
+</div>
+<div class="row form-row">
+	<!--/* Other Mukim */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Mukim}" />
+              <bst:select id="selOtherMukimCd" data-constraints="@Required" th:field="*{otherMukimCd}" th:disabled="${isView}">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="mukim : ${@staticData.mukimList()}" th:value="${mukim.mukimCd}" th:text="${mukim.mukimDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('otherMukimCd')}" th:errors="*{otherMukimCd}" />
+	</div>
+	<!--/* Other Postcode */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Postcode}" />
+        <bst:input th:field="*{otherPostcode}" maxlength="20" th:disabled="${isView}" />
+        <bst:error th:if="${#fields.hasErrors('otherPostcode')}" th:errors="*{otherPostcode}" />
+	</div>
+</div>
+<div class="row form-row">
+	<!--/* Other Country */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Country}" />
+		    <bst:select th:field="*{otherCntyCd}" th:disabled="${isView}">
+		    <option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('otherCntyCd')}" th:errors="*{otherCntyCd}" />
+	</div>
+</div>
+<!-- WORK ADDRESS -->
+<br/><h4><strong th:utext="#{lbl.patient.section.addr.office}" ></strong></h4>
+<div class="row form-row">
+	<!--/* Office Address 1 */-->
+	<div class="col-md-12">
+		<label th:text="#{lbl.patient.section1.address}" />
+	 	<bst:input th:field="*{offAddress1}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}" />
+	</div>
+	<input type="hidden" th:field="${patientFormDto.patientAddrId3}"/>
+</div> 
+<div class="row form-row">
+	<!--/* Office State */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.state}" />
+        <bst:select id="selOffState" data-constraints="@Required" th:field="*{offStateCd}" th:disabled="${isView}"
+              th:attr="data-placeholder=#{lbl.cmn.sel.pls}"
+              onChange="onChangeState('selOffState','selOffDistrict');"
+		     onload="onChangeState('selOffState','selCurrDistrict');">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="state : ${@staticData.findAllStateList()}" th:value="${state.stateCd}" th:text="${state.stateDesc}" />
+		</bst:select>
+	</div>
+	<!--/* Office District */-->
+	<div class="col-md-6">
+		<label  th:text="#{lbl.patient.section1.District}" />
+            <bst:select id="selOffDistrict" data-constraints="@Required" th:field="*{offDistrictCd}" th:disabled="${isView}"
+            th:attr="data-placeholder=#{lbl.cmn.sel.pls}"
+            onChange="onChangeDistrict('selOffDistrict','selOffMukimCd');"
+		    onload="onChangeDistrict('selOffDistrict','selOffMukimCd');">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="district : ${@staticData.districtList()}" th:value="${district.districtCd}" th:text="${district.districtDesc}" />
+		</bst:select>
+		<bst:error th:if="${#fields.hasErrors('offDistrictCd')}" th:errors="*{offDistrictCd}" />
+	</div>
+</div>
+<div class="row form-row">
+	<!--/* Office Mukim */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Mukim}" />
+              <bst:select id="selOffMukimCd" th:field="*{offMukimCd}" th:disabled="${isView}">
+			<option th:text="#{lbl.cmn.sel.pls}" value="" />
+			<option th:each="mukim : ${@staticData.mukimList()}" th:value="${mukim.mukimCd}" th:text="${mukim.mukimDesc}" />
+		</bst:select>
+	</div>
+	
+	<!--/* Office Postcode */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Postcode}" />
+        <bst:input th:field="*{offPostcode}" maxlength="20" th:disabled="${isView}" />
+	</div>
+</div>
+<div class="row form-row">
+<!--/* Office Country */-->
+	<div class="col-md-6">
+		<label th:text="#{lbl.patient.section1.Country}" />
+	    <bst:select th:field="*{offCntyCd}" th:disabled="${isView}">
+			<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCd}" th:text="${cntry.cntryDesc}" />
+		</bst:select>         
+	 </div>		
+</div>

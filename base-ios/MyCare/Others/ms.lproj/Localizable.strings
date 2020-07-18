@@ -1,0 +1,221 @@
+/* 
+  Localizable.strings
+  MyCare
+
+  Created by Cookie on 4/17/20.
+  Copyright © Mohd Nasir Selamat. All rights reserved.
+*/
+
+"languageType" = "Bahasa Malaysia";
+"map" = "Peta";
+"welcome" = "Selamat Datang";
+"foodType" = "Jenis Makanan";
+"phoneNo" = "Nombor Telefon Anda";
+"retypePhoneNo" = "Taip Semula Nombor Telefon Anda";
+"mobilePassport" = "Nombor Telefon";
+"mykad" = "Nombor MyKad";
+"fullname" = "Nama Penuh";
+"mobileNo" = "Nombor Telefon";
+"retypeMobileNo" = "Taipkan Semula Nombor Telefon";
+"gender" = "Jantina";
+"mealType" = "Jenis Makanan";
+"dob" = "Tarikh Lahir";
+"companyName" = "Nama Syarikat";
+"postalCode" = "Poskod";
+"district" = "Daerah";
+"selectDistrict" = "-- Pilih Daerah --";
+"town" = "-- Pilih Bandar --";
+"state" = "Negeri";
+"selectState" = "-- Pilih Negeri -- ";
+"selectMukim" = "-- Pilin Mukim --";
+"contactNo" = "Nombor Untuk Dihubungi";
+"companyContactNo" = "Nombor Telefon Syarikat";
+"companyAddress" = "Alamat Syarikat";
+"passportNo" = "Nombor Paspot";
+"address" = "Alamat";
+"empInfo" = "Maklumat Majikan";
+"viewProfile" = "Lihat Profil";
+"notRegisterYet" = "Belum Berdaftar?";
+"signUpNow" = "Daftar";
+"nowOnly" = " Sekarang"; // dont remove 1st space
+"declarationText_PAGOH" = "Dengan ini saya mengaku bahawa maklumat yang diberikan di atas adalah benar, lengkap dan betul pada pengetahuan saya. Saya memahami bahawa sekiranya maklumat saya didapati tidak benar atau salah, saya akan dikenakan tindakan undang-undang oleh Kerajaan Malaysia.";
+"chooseLanguage" = "Bahasa Pilihan Anda";
+"selectMealTypeAlertTitle" = "Pilih Jenis Makanan";
+"selectMealType" = "-- Pilih Jenis Makanan --";
+"selectGender" = "-- Pilih Jantina --";
+"selectMarital" = "-- Pilih Status Perkahwinan --";
+"selectRace" = "-- Pilih Bangsa --";
+"selectOccupation" = "-- Pilih Pekerjaan --";
+"age" = "Umur";
+"placeOfBirth" = "Tempat Lahir";
+"race" = "Bangsa";
+"maritalStatus" = "Status Perkahwinan";
+"myKadCharLimit" = "Nombor MyKad Mestilah Mempunyai 12 Karaketer";
+"mobileNoLimit" = "Nombor Telefon Hendaklah Mempunyai Antara 10 ke 11 Karakter";
+"plsEnterMukim" = "Sila Pilih Mukim";
+
+"login" = "LOG MASUK";
+"checkRegStatus" = "SEMAK STATUS PENDAFTARAN";
+"next" = "SETERUSNYA";
+"updateProfile" = "Kemaskini Profil";
+"update" = "Kemaskini";
+"finish" = "Selesai";
+"foodReceived" = "Makanan Diterima";
+"received" = "Diterima";
+"workerPhotoTitle" = "Foto Pekerja";
+"uploadPhotoIdentifyPurpose" = "Muat Naik Foto Bagi Tujuan Pengenalan Diri";
+"language" = "Bahasa";
+"logout" = "Log Keluar";
+"technicalIssues" = "Ralat .. Pelayan Mengalami Ganguan Teknikal. Sila Cuba Sebentar Lagi";
+"sureWant2Logout" = "Adakah Anda Pasti Mahu log Keluar?";
+"enterFullname" = "Sila Masukkan Nama Penuh";
+"enterPassportNo" = "Sila Masukkan Nombor Paspot";
+"enterMobileNo" = "Sila Masukkan Nombor Telefon Bimbit";
+"reenterMobileNo" = "Sila Masukkan Semula Nombor Telefon Bimbit";
+"enterMykadNo" = "Sila Masukkan Nombor MyKad";
+"reenterMykadNo" = "Taipkan Semula nombor MyKad";
+"notSameReenterMobileNo" = "Nombor Telefon Bimbit Tidak Sama. Sila Masukkan Semula Nombor Telefon Bimbit.";
+"selectOption" = "Tentukan Pilihan";
+"pleaseSelectOccupation" = "Sila Pilih Pekerjaan";
+"camera" = "Kamera";
+"gallery" = "Galeri";
+"enterCompanyName" = "Sila Masukkan Nama Syarikat";
+"successSubmitRegister" = "Berjaya Menghantar Pendaftaran";
+"enterAddress" = "Sila Masukkan Alamat";
+"enterPostcode" = "Sila Masukkan Poskod";
+"enterTown" = "Sila Masukan Nama Bandar";
+"enterDistrict" = "Sila Masukan Nama Daerah";
+"enterState" = "Sila Masukkan Nama Negeri";
+"enterPhoneNo" = "Sila Masukkan Nombor Telefon";
+"retypePassportNo" = "Taipkan Semula Passport Nombor";
+"profileInfo" = "Maklumat Profil";
+"cancel" = "Batal";
+"notSamePassport" = "Nombor Pasport Tidak Sama. Sila Masukkan Semula Nombor Pasport.";
+"enterCompanyAddress" = "Sila Masukkan Alamat Syarikat";
+"enterCompanyContactNumber" = "Sila Masukkan Nombor Telefon Syarikat";
+"enterPassportNumber" = "Sila Masukkan Semula Nombor Pasport";
+"registerStatus" = "Status Pendaftaran";
+"approved" = "Diluluskan";
+"pendingApproval" = "Menunggu Kelulusan";
+"reject" = "Ditolak";
+"sponsorInfoForm" = "Borang Maklumat Penaja";
+"createSponsorInfo" = "Buat Maklumat Penaja";
+"orgaType" = "Jenis Organisasi";
+"foodSponsorArea" = "Kawasan Penajaan Makanan";
+"sponsorName" = "Nama Penaja";
+"sponsorId" = " ID Penaja";
+"sponsorList" = "Senarai Penaja";
+"sponsorInfo" = "Maklumat Penaja";
+"sponsor" = "Penaja";
+"verifySponsor" = "Sahkan Penaja";
+"foreignWorkerList" = "Senarai Pekerja Asing";
+"verifyFW" = "Sahkan Pekerja Asing";
+
+"governSector" = "KERAJAAN";
+"privateSector" = "SWASTA";
+"selfEmployed" = "BEKERJA SENDIRI";
+"governPensioner" = "PESARA KERAJAAN";
+"notWorking" = "TIDAK BEKERJA";
+"mre" = "MAKANAN SIAP UNTUK DIMAKAN";
+"rawFood" = "BARANG BASAH MENTAH";
+"veggie" = "VEGETARIAN";
+"nonVeggie" = "NON-VEGETARIAN";
+"male" = "LELAKI";
+"female" = "PEREMPUAN";
+
+"profileSummary" = "Maklumat Profil";
+"pleaseReadAccept" = "Sila Baca Dan Bersetuju Dengan Deklarasi Sebelum Menghantar Permohonan";
+"pleaseSelectRace" = "Sila Pilih Bangsa";
+"pleaseSelectFoodType" = "Sila Pilih Jenis Makanan";
+"pleaseSelectMarital" = "Sila Pilih Status Perkahwinan";
+"pleaseReenterMyKadNumber" = "Sila Masukkan Semula Nombor MyKad";
+"enterDOB" = "Sila Masukkan Tarikh Lahir"; // "Sila masukkan semula tarikh lahir";
+"pleaseSelectMukim" = "Sila Pilih Mukim";
+"pleaseSelectMealType" = "Sila Pilih Jenis Makanan";
+"pleaseEnterAge" = "Sila Masukkan Umur";
+"pleaseSelectGender" = "Sila Pilih Jantina";
+"mobileNumberNotSame" = "Nombor Telefon Yang Dimasukkan Tidak Sama. Sila Masukkan Semula.";
+"pleaseFirstEnterState" = "Sila Masukkan Negeri";
+"pleaseFirstEnterDistrict" = "Sila Masukkan Daerah";
+"doesntHavePermissionPrivacySettings" = " tidak dibenarkan mengambil kedudukan terkini. Sila tetapkan kebenaran telefon anda untuk mengambil kedudukan terkini.";
+"currentPosition" = "Lokasi Sekarang";
+"searchAddress" = "Carian Alamat";
+"companyContactNumberNotCorrect" = "Nombor Telefon Majikan Anda Tidak Sah";
+"mealReadyToEat" = "MAKANAN SIAP UNTUK DIMAKAN"; //"MAKANAN SIAP DIMAKAN";
+"food" = "Makanan";
+"loading" = "Sedang Process";
+"success" = "Berjaya";
+"failed" = "Tidak Berjaya";
+"close" = "Tutup";
+"workerPhoto" = "Gambar";
+"capturePhotoPhoneSettings" = "Sila Tetapkan Kebenaran Telefon Anda Untuk Mengambil Gambar";
+"mobileNumberLimitation" = "Nombor Telefon Hendaklah Mempunyai Antara 10 ke 11 Karakter";
+"myKadNumberLimitation" = "Nombor MyKad Mestilah Mempunyai 12 Karaketer";
+"charactersLimitation" = "Sila Masukkan Minimum 5 Karakter";
+"occupation" = "Pekerjaan";
+"selectFoodType" = "-- Sila Pilih Jenis Makanan --";
+
+"single" = "BUJANG";
+"married" = "BERKAHWIN";
+"widowed" = "JANDA";
+"divorced" = "BERCERAI";
+
+"exitRegistration" = "Anda pasti untuk batalkan pendaftaran?\nMaklumat pendaftaran tidak akan disimpan";
+
+"Yes" = "Ya";
+"No" = "Tidak";
+"Done" = "Selesai";
+"Back" = "Belakang";
+"agree" = "Setuju";
+"disagree" = "Tidak Bersetuju";
+
+"defaultImageName" = "noImageMalay"; // asset name
+
+"regFailed" = "Pendaftaran Tidak Berjaya";
+"regSuccess" = "Pendaftaran Telah Berjaya";
+"noRecordFound" = "Tiada Rekod Dijumpai";
+"updateProfileFailed" = "Kemaskini Tidak Berjaya";
+"updateProfileSuccess" = "Kemaskini Telah Berjaya";
+"recordAlreadyExist" = "Rekod telah wujud";
+"invalidLogin" = "Log Masuk Tidak Sah";
+"myKadContactNumberIncorret" = "MyKad atau Nombor Telefon tidak betul";
+"userAlreadyLoginRelogin" = "Pengguna ini telah log masuk pada peranti lain"; // "Pengguna Sudah Masuk. Sila Log Keluar Untuk Masuk Semula.";
+
+"unableToProceed" = "Tidak dapat meneruskan. Cuba lagi nanti.";
+"enconterServerError" = "Mengalami ralat semasa cuba menyambung ke pelayan";
+"noInternet" = "Periksa sambungan internet anda dan cuba lagi";
+
+"bumiputera" = "BUMIPUTERA";
+"malay" = "MELAYU";
+"chinese" = "CINA";
+"indians" = "INDIA";
+"otherRaces" = "LAIN - LAIN";
+"declaration" = "Pengisytiharan";
+
+"reqInfo" = "Maklumat Wajib";
+"optInfo" = "Maklumat Tidak Wajib";
+
+"clickHere" = "Tekan di sini semasa\n menerima makanan";
+"profile" = "Profil";
+"notifications" = "Notifikasi";
+"message" = "Mesej";
+"updatePhotoMealType" = "Kemaskini Gambar & Jenis Makanan";
+"pleaseConfirmDetails" = "Sila sahkan maklumat anda";
+"successfullyVerified" = "Pengesahan Telah Berjaya";
+
+// Face detect
+"noFaceDetect" = "Tidak Dapat Mengesan Wajah. Tangkap Gambar Wajah Anda Lagi.";
+"captureFaceAgain" = "Sila Tangkap Gambar Muka Anda Sekali Lagi";
+"readingFace" = "Membaca Muka";
+
+"noMessages" = "Tiada Mesej";
+"nothingToUpdate" = "Tiada Yang Perlu Dikemaskini";
+"profilePictureUpdated" = "Gambar Profil Berjaya Dikemaskini";
+"mealTypeUpdated" = "Jenis Makanan Berjaya Dikemaskini";
+"sureToUpdateProfile" = "Adakah Anda Pasti Mahu Kemaskini Profil?";
+"residentDetails" = "Maklumat Penduduk";
+"pleaseSelectTodayEvent" = "Sila pilih Aturcara Majlis hari ini";
+"bringYourPhoneAndFlash" = "Bawa telefon anda dan imbas kod QR ini di kaunter aturcara";
+"approachTheEventOfficer" = "Sila berhubung dengan urusetia majlis untuk bantuan";
+"todayEvent" = "Aturcara Majlis Hari ini";
+"name" = "Nama";

@@ -1,0 +1,32 @@
+li.menu-cursor{
+    cursor: pointer;
+}
+a.sub-menu{
+    pointer-events:none; 
+}
+.nested-menu {
+    .list-group-item {
+        cursor: pointer;
+    }
+    .nested {
+        list-style-type: none;
+    }
+    ul.submenu {
+        display: none;
+        width: 30px;
+        height: 0;
+    }
+    & .expand {
+        ul.submenu {
+        display: block;
+        list-style-type: none;
+        height: auto;
+        li {
+            a {
+            padding: 10px;
+            display: block; 
+            }
+        }
+        }
+    }
+}

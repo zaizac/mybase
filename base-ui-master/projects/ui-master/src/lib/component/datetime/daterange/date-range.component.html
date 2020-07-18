@@ -1,0 +1,13 @@
+<div class="datepicker form-group">
+  <div class="date-icon" (click)="dp.toggle()">
+    <i class="fa fa-calendar pl-1 " aria-hidden="true"></i>
+  </div>
+  <input type="text" class="form-control date-input" [formControl]="fcDate" #dp="bsDaterangepicker" bsDaterangepicker
+    [bsConfig]="bsRangeConfig" [placeholder]="placeholder" (bsValueChange)="changeValue($event)" maxlength="maxlength"
+    [ngClass]="{ 'is-invalid': (fcDate.touched || submitted) && fcDate.errors}" placement="bottom left" />
+  <div class="invalid-feedback" *ngIf="(fcDate.touched || submitted) && fcDate.errors">
+    <div *ngFor="let key of fcDate.errors | parseError">
+      {{formControlName + '.errors.' + key | simpleError:fcDate.errors[key]}}
+    </div>
+  </div>
+</div>

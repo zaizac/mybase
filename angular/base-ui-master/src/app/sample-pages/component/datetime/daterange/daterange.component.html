@@ -1,0 +1,111 @@
+<form [formGroup]="date_form" (ngSubmit)="onSubmit()">
+    <ui-card>
+        <h2>Date Range Picker</h2>
+        <ui-tab-group>
+            <ui-tab tabTitle="Example">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Select Date Range</label>
+                        <ui-date-range formControlName="dob" format='DD/MM/YYYY'></ui-date-range>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Selected Value</label><br />
+                        <pre ng-non-bindable>{{ date_form.controls.dob.value | json }}</pre>
+                    </div>
+                </div>
+            </ui-tab>
+            <ui-tab tabTitle="HTML">
+                <pre
+                    ng-non-bindable>&lt;ui-date-range <strong>format='DD/MM/YYYY' formControlName="variable_name" label='Daterangepicker' [submitted]="submitted"
+                        required="true" [maxDate]="maxDate" [minDate]="minDate"</strong>&gt;&lt;/ui-date-range&gt;</pre>
+            </ui-tab>
+        </ui-tab-group>
+    </ui-card>
+    <ui-card>
+        <h2>Date Range Picker Read Only</h2>
+        <ui-tab-group>
+            <ui-tab tabTitle="Example">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Select Date Range</label>
+                        <ui-date-range formControlName="dob" format='DD/MM/YYYY' readOnly='isReadonly'></ui-date-range>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Selected Value</label><br />
+                        <pre ng-non-bindable>{{ date_form.controls.dob.value | json }}</pre>
+                    </div>
+                </div>
+            </ui-tab>
+            <ui-tab tabTitle="HTML">
+                <pre
+                    ng-non-bindable>&lt;ui-date-range <strong>format='DD/MM/YYYY' formControlName="variable_name" label='Daterangepicker' [submitted]="submitted"
+                        required="true" [maxDate]="maxDate" [minDate]="minDate" readOnly='isReadonly'</strong>&gt;&lt;/ui-date-range&gt;</pre>
+            </ui-tab>
+        </ui-tab-group>
+    </ui-card>
+    <ui-card>
+        <h2>Year Range Picker</h2>
+        <ui-tab-group>
+            <ui-tab tabTitle="Example">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Select Year</label>
+                        <ui-date-range type="datepicker" formControlName="year" format='YYYY' mode="year">
+                        </ui-date-range>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Selected Value</label><br />
+                        <pre>{{ date_form.controls.year.value | json }}</pre>
+                    </div>
+                </div>
+            </ui-tab>
+            <ui-tab tabTitle="HTML">
+                <pre ng-non-bindable>&lt;ui-date <strong>format="YYYY" mode="year" formControlName="variable_name" label='Daterangepicker' [submitted]="submitted"
+                    required="true"</strong>&gt;&lt;/ui-date&gt;</pre>
+            </ui-tab>
+        </ui-tab-group>
+    </ui-card>
+    <ui-card>
+        <h2>Month Picker</h2>
+        <ui-tab-group>
+            <ui-tab tabTitle="Example">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Select Month</label>
+                        <ui-date-range type="datepicker"  formControlName="month" format='MM' mode="month">
+                        </ui-date-range>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Selected Value</label><br />
+                        <pre>{{ date_form.controls.month.value | json }}</pre>
+                    </div>
+                </div>
+            </ui-tab>
+            <ui-tab tabTitle="HTML">
+                <pre ng-non-bindable>&lt;ui-date <strong>format='MM' mode="month" formControlName="variable_name" label='Daterangepicker' [submitted]="submitted"
+                        required="true"</strong>&gt;&lt;/ui-date&gt;</pre>
+            </ui-tab>
+        </ui-tab-group>
+    </ui-card>
+</form>
+<ui-card>
+    <h2>Definition & Usage</h2>
+    <div class="row">
+        <div class="col-12">
+            <p>Urp datepicker function base on the configuration</p>
+            <ol>Definition of every attribute
+                <li>type = type of daterange for example single datepicker or daterangepicker </li>
+                <li>formControlName = for variable name </li>
+                <li>lable = Datepicker lable name </li>
+                <li>submitted = submitted the form </li>
+                <li>required = It’s a mandatory field, for example required="true" mandatory if required="false" is not
+                    a
+                    mandatory</li>
+                <li>minDate = enabling the minimum select date </li>
+                <li>maxDate = enabling the maximum select date </li>
+                <li>mode = display the months or years only </li>
+                <li>format = formatting the date value </li>
+            </ol>
+        </div>
+    </div>
+</ui-card>

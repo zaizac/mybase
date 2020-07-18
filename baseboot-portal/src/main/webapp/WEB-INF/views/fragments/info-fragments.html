@@ -1,0 +1,156 @@
+<!--/* RECEIVER BASIC INFORMATION */-->
+<th:block th:fragment="basic-profile">
+	<div class="row form-row">
+		<div class="col-md-6">
+			<h5 th:text="#{lbl.cmn.full.name}" />
+			<bst:input readonly="true" th:value="${#strings.toUpperCase(brmProfile.name)}" />
+			<bst:input-hidden th:field="*{name}" />
+		</div>
+		<div class="col-md-6">
+			<h5 th:text="#{lbl.ic.no}" />
+			<bst:input th:value="${brmProfile.icNo}" readonly="true" />
+		</div>
+	</div>
+	<div class="row form-row">
+		<div class="col-md-6">
+			<h5 th:text="#{lbl.gndr}" />
+			<bst:input readonly="true" th:value="${brmProfile.gender == 'M'} ? 'MALE' : 'FEMALE'" />
+			<bst:input-hidden th:field="*{gender}" />
+		</div>
+		<div class="col-md-6">
+			<h5 th:text="#{lbl.dt.birth}" />
+			<bst:input th:value="${brmProfile.dob != null} ? ${#dates.format(brmProfile.dob, #messages.msg('dd/MM/YYYY'))}" readonly="true" />
+			<bst:input-hidden th:field="*{dob}" />
+		</div>
+	</div>
+	<div class="row form-row">
+		<div class="col-md-12">
+			<h5 th:text="#{lbl.addr}" />
+			<textarea class="form-control" readonly="true" th:with="address=(*{#strings.isEmpty(address1)} ? '' : ' ' + *{address1})
+								 + (*{#strings.isEmpty(address2)} ? '' : ' ' + *{address2})
+								 + (*{#strings.isEmpty(address3)} ? '' : ' ' + *{address3})
+								 + (*{#strings.isEmpty(address4)} ? '' : ' ' + *{address4})
+								 + (*{#strings.isEmpty(address5)} ? '' : ' ' + *{address5})
+								 " th:text="${#strings.toUpperCase(address)}"/>
+			<bst:input-hidden th:field="*{address1}" />
+			<bst:input-hidden th:field="*{address2}" />
+			<bst:input-hidden th:field="*{address3}" />
+			<bst:input-hidden th:field="*{address4}" />
+			<bst:input-hidden th:field="*{address5}" />
+		</div>
+	</div>
+	<div class="row form-row">
+		<div class="col-md-6">
+			<h5>Postcode</h5>
+			<bst:input th:value="${brmProfile.postcode}" readonly="true" />
+			<bst:input-hidden th:field="*{postcode}" />
+		</div>
+		<div class="col-md-6">
+			<h5>City</h5>
+			<bst:input th:value="${@staticData.cityDesc(brmProfile?.city)}" readonly="true" />
+			<bst:input-hidden th:field="*{city}" />
+		</div>
+	</div>
+	<div class="row form-row">
+		<div class="col-md-5">
+			<h5>State</h5>
+			<bst:input th:value="${@staticData.stateDesc(brmProfile.state)}" readonly="true" />
+			<bst:input-hidden th:field="*{state}" />
+		</div>
+	</div>
+</th:block>
+
+<!--/* CARD INFORMATION */-->
+<th:block th:fragment="card-info">
+	<div th:if="${brmProfile.cardInfoHstry != null} and ${#lists.size(brmProfile.cardInfoHstry) > 1}" class="col-md-12">
+		<div class="pull-right">
+			<bst:btn-info type="button" onclick="$('#popup_hstry').modal('show')" th:text="#{'View Card History'}" />
+			<div id="popup_hstry" class="modal modal-styled fade" role="dialog" data-backdrop="static">
+			    <div class="modal-dialog modal-lg" style="min-height: 500px;">
+			        <div class="modal-content">
+						<th:block th:include="page/br1m/popup/card-history" />
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<th:block th:with="hasCard=${#strings.isEmpty(brmProfile.cardType)} ? false : true, isBank=${#authentication.principal.profile.bankCode} == ${brmProfile?.cardInfo?.bankCd} ? false : true">
+		<div class="row form-row">
+			<div class="col-md-6">
+				<h5 th:text="#{lbl.card.stat}" />
+				<!-- <bst:input th:if="${hasCard and isBank}" th:attr="readonly=${isBank}" th:with="cardStatDesc=${brmProfile.cardStatus == 'N'} ? #{'New'} : (${brmProfile.cardStatus  == 'R'} ? #{Replacement})" th:value="${#strings.toUpperCase(cardStatDesc)}" /> -->
+				<bst:input th:if="${hasCard} and ${brmProfile?.cardInfo?.id != null} and ${isBank}" th:attr="readonly=${isBank}" readonly="true" th:value="${@staticData.statusDescByStatusType(brmProfile?.cardStatus, 'CRDSTT')}" />
+				<select th:unless="${hasCard} and ${brmProfile?.cardInfo?.id != null} and ${isBank}" th:field="*{cardStatus}" class="form-control">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<th:block th:with="hasCardInfo=${#strings.isEmpty(brmProfile.cardType)} ? false : true">
+						<th:block th:each="status : ${@staticData.statusList('CRDSTT')}">
+							<option th:if="${!hasCard and status.statusCd == 'N'} or  ${status.statusCd == 'N' and brmProfile?.cardInfo?.id == null}" selected="selected" th:value="${status.statusCd}" th:text="${status.statusDescEn}" />
+							<option th:if="${hasCard and status.statusCd != 'N'} and ${brmProfile?.cardInfo?.id != null}" th:attr="selected=*{cardStatus} == ${status.statusCd} ? 'selected'" th:value="${status.statusCd}" th:text="${status.statusDescEn}" />
+						</th:block>
+					</th:block>
+				</select>
+				<p class="errors" th:if="${#fields.hasErrors('cardStatus')}" th:errors="*{cardStatus}"/>
+			</div>
+			<div class="col-md-6">
+				<h5 th:text="#{lbl.card.type}" />
+				<th:block  th:if="${hasCard} and ${brmProfile?.cardInfo?.id != null}">
+					<bst:input readonly="true" th:value="${@staticData.statusDescByStatusType(brmProfile?.cardType, 'CRDTYP')}" />
+					<bst:input-hidden th:field="*{cardType}" />
+				</th:block>
+				<select th:unless="${hasCard} and ${brmProfile?.cardInfo?.id != null}" class="select1 form-control" th:field="*{cardType}" onchange="onChangeCardType(value);">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="status : ${@staticData.statusList('CRDTYP')}" th:value="${status.statusCd}" th:text="${status.statusDescEn}" />
+				</select>
+				<p class="errors" th:if="${#fields.hasErrors('cardType')}" th:errors="*{cardType}"/>
+			</div>
+		</div>
+		<div class="row form-row">
+			<div class="col-md-6">
+				<h5>Issuing Bank</h5>
+				<th:block  th:if="${hasCard} and ${brmProfile?.cardInfo?.id != null}">
+					<bst:input readonly="true" th:value="${@staticData.bankDesc(brmProfile?.cardInfo?.bankCd)}" />
+					<bst:input-hidden th:field="*{cardInfo.bankCd}" />
+				</th:block>
+				<select th:unless="${hasCard} and ${brmProfile?.cardInfo?.id != null}" th:field="*{cardInfo.bankCd}" class="select1 form-control select-bank">
+					<option th:each="bank : ${@staticData.bankList()}" th:if="${bank.bankCode} == ${#authentication.principal.profile.bankCode}" selected="selected" th:value="${bank.bankCode}" th:text="${bank.bankName}" />
+				</select>
+				<p class="errors" th:if="${#fields.hasErrors('cardInfo.bankCd')}" th:errors="*{cardInfo.bankCd}"/>
+			</div>
+			<div class="col-md-6">
+				<h5>Card Number</h5>
+				<th:block  th:if="${hasCard}">
+					<bst:input th:if="${hasCard}" th:attr="readonly=${isBank}" th:field="*{cardInfo.accNo}" />
+				</th:block>
+				<bst:input th:unless="${hasCard}" th:field="*{cardInfo.accNo}" type="text"  class="input-card" />
+				<p class="errors" th:if="${#fields.hasErrors('cardInfo.accNo')}" th:errors="*{cardInfo.accNo}"/>
+			</div>
+		</div>
+		<bst:input-hidden th:field="*{cardInfo.id}" />
+		<div th:unless="${hasCard}" class="row small-text">
+			<p class="col-md-12">NOTE - Please recheck before submiting</p>
+		</div>
+	</th:block>
+</th:block>
+
+<!--/* CRITERIA INFORMATION */-->
+<th:block th:fragment="criteria-info">
+	<div class="row form-row">
+		<div class="col-md-6">
+			<h5>Batch</h5>
+			<bst:input th:value="${brmProfile?.crtria?.crtriaBatch}" readonly="true" />
+			<bst:input-hidden th:field="*{crtria.crtriaBatch}" />
+		</div>
+		<div class="col-md-6">
+			<h5>Grand Amount</h5>
+			<bst:input th:value="'RM ' + ${brmProfile?.crtria?.grandAmt != null ? brmProfile?.crtria?.grandAmt : '0.00'}" readonly="true" />
+			<bst:input-hidden th:field="*{crtria.grandAmt}" />
+		</div>
+	</div>
+	<div class="row form-row">
+		<div class="col-md-12">
+			<h5>Criteria</h5>
+			<textarea class="form-control" th:text="${brmProfile?.crtria?.crtriaDesc}" readonly="true" />
+			<bst:input-hidden th:field="*{crtria.crtriaDesc}" />
+		</div>
+	</div>
+</th:block>

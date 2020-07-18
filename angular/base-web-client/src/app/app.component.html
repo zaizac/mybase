@@ -1,0 +1,7 @@
+<session-expiration-alert [alertAt]="alertAt" [startTimer]="startTimer"></session-expiration-alert>
+<ui-theme-switcher [showSwitcher]="showSwitcher" [themeSwitcher]="myTheme"
+    (updateThemeSwitcher)="updateThemeSwitcher($event)">
+    <router-outlet>
+        <ui-spinner></ui-spinner>
+    </router-outlet>
+</ui-theme-switcher>

@@ -1,0 +1,13 @@
+<br />
+<ui-datatable [tableInit]='header' (editRecord)='handleRowClick($event)'>
+  <ng-template uiNgTemplateCellTemplate='myTemplate' let-item='item'>    
+    <span class="badge badge-success" [ngStyle]="{'background-color': item.legend}">{{item.title}}</span>   
+  </ng-template>
+  <ng-template uiNgTemplateCellTemplate='expandTemplate' let-item='item'>
+    <ui-datatable [dataValues]='item.data' [tableInit]='item.header'>
+      <ng-template uiNgTemplateCellTemplate='mychildTemplate' let-item='item'>
+        <span class="badge badge-success" [ngStyle]="{'background-color': item.legend}">{{item.title}}</span>   
+      </ng-template>
+    </ui-datatable>
+  </ng-template>
+</ui-datatable>

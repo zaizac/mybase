@@ -1,0 +1,25 @@
+.mat-radio-button{
+  padding-right: 20px;
+  padding-top: 3px;
+}
+
+::ng-deep.mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: #ced4da;
+}
+
+/*inner ring color change*/
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
+  color: #fff;
+  background-color: #67757c; 
+}
+
+/*outer ring color change*/
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #67757c; 
+}
+
+/*outer ring color change when invalid*/
+::ng-deep.mat-radio-button.mat-accent.is-invalid .mat-radio-outer-circle {
+  border:1px solid #dc3545; 
+}
+

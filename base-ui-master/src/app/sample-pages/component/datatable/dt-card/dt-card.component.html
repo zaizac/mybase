@@ -1,0 +1,136 @@
+<ui-card>
+  <h2>Template Card</h2>
+  <p>
+    Datatable also has card feature. To use this feature, set datatable type to '<span style="color: red">card</span>'
+  </p>
+  <ui-card> &lt;ui-datatable type="<span style="color: red">card</span>" [tableInit]="headerConfig3"&gt; </ui-card>
+  <p>
+    The card version does not have any template. It only an empty card with card border. Users will need to design their
+    own template for the card using ngTemplate with uiNgTemplateCellTemplate directive. However, for the template to
+    work properly in our card, we need to encapsulate the tags in one container tag. The container can be any tag such
+    as div, table, tr etc.
+  </p>
+
+  <p>
+    To configure Card datatable, users need to initialise card configuration by using tableInit cardSetting attribute.
+    This attribute has following properties :-
+  </p>
+  <ol>
+    <li><Strong>template</Strong> - (object) - <em>Mandatory</em> - Has 2 properties, Id (string) which is the template
+      Id and context (object) which is the template context.
+      It is important to note that the template context will always have the <strong><em>row data</em></strong> as
+      <strong><em>data</em></strong> attribute in the context. This means users can use row data in the template by
+      calling item.data</li>
+    <li><Strong>cardPerRow</Strong> - (number) - <em>Optional</em> - Number or card to display per row. By default, it
+      will display 1 card per row. By default, the size of the card
+      will be divided evenly according to table width.</li>
+    <li><Strong>cardDataBound</Strong> - (Callback function) - <em>Optional</em> - This method return back cardConfig
+      object as its parameter and can be used to dynamically change each card template context.
+      Users can change the template using <strong><em>templateId</em></strong> attribute and template context using
+      <strong><em>templateContext</em></strong> of the cardConfig object.
+    </li>
+    <li><Strong>cardMinSize</Strong> - (string) - <em>Optional</em> - Use this attribute to set the minimum width for
+      the card. When there is multiple cards per row, the size will be equally divided. However, if the number of cards
+      per row is too many, the card will be too small and not readable.
+      To avoid this, by default datatable has the mininum card size to be 21.875rem which is around 350px if the base
+      pixel is 16px. This attribute will overwrite the default min width</li>
+  </ol>
+  <p>Below is the configuration for the following example</p>
+
+  <ui-card>
+    <pre>
+        this.headerConfig3 = {{ '{' }}
+          columns: [
+            {{ '{' }} field: 'name', headerText: 'Name' {{ '}' }},
+            {{ '{' }} field: 'gender', headerText: 'Gender' {{ '}' }},
+            {{ '{' }} field: 'company', headerText: 'Company' {{ '}' }}
+          ],
+          <span style="color:red;">cardSetting: {{ '{' }}
+            cardPerRow: 5,
+            template: {{ '{' }}
+              id: 'rowTemplate',
+              context: {{ '{' }}
+                title: 'Dynamic Card Template',
+                data: {{ '{' }} id: 5 {{ '}' }}
+                {{ '}' }}
+                {{ '}' }},
+            cardMinSize: '300px',
+            cardDataBound: cardConfig => {{ '{' }}
+              if (cardConfig.cardIndex === 0) {{ '{' }}
+                cardConfig.templateContext.extraInfo = 'This card is the first card for this page';
+              {{ '}' }}
+            {{ '}' }}
+          {{ '}' }},</span>
+          data: request => {{ '{' }}
+            return mockServerSidePaginationResponse(request);
+          {{ '}' }}
+        {{ '}' }};
+    </pre>
+  </ui-card>
+  <p>And below is how the template looked like</p>
+  <ui-card>
+    <pre>
+      &lt;ui-datatable type="card" [tableInit]="headerConfig3"&gt;
+        &lt;ng-template uiNgTemplateCellTemplate="rowTemplate" let-item="item"&gt;
+          &lt;div&gt;
+            &lt;div&gt;This is your template content. It will render inside table card&lt;/div&gt;
+            &lt;div&gt;this is your individual context: {{ '{' }}{{ '{' }}item | json {{ '}' }}{{ '}' }}&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/ng-template&gt;
+      &lt;/ui-datatable&gt;
+    
+    </pre>
+  </ui-card>
+
+  <ui-datatable type="card" [tableInit]="headerConfig3">
+    <ng-template uiNgTemplateCellTemplate="rowTemplate" let-item="item">
+      <div>
+        <div>This is your template content. It will render inside table card</div>
+        <div>this is your individual context: {{ item | json }}</div>
+      </div>
+    </ng-template>
+  </ui-datatable>
+</ui-card>
+
+<ui-card>
+  <h2>Example Card</h2>
+  <p>Below is and example of creating a card with photo placeholder and listing member's details</p>
+  <ui-datatable type="card" [tableInit]="headerConfig">
+    <ng-template uiNgTemplateCellTemplate="cardRowTemplate" let-item="item">
+      <table style="height:100%;" cellpadding="3" cellspacing="2">
+        <colgroup>
+          <col width="30%" *ngIf="item.showImage" />
+          <col width="item.showImage ? 70% : 100%" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <td class="rowphoto" style="text-align: center;" *ngIf="item.showImage">
+              <div class="thumbnail">
+                <img class="img-thumbnail" [src]="item.cardImage" alt="" />
+              </div>
+            </td>
+            <td class="details">
+              <div style="text-align: center; border-bottom: solid 0.1rem" *ngIf="item.showTitle">
+                <strong> {{ item.title }}</strong>
+              </div>
+              <div>
+                <table width="100%" cellpadding="3" cellspacing="2">
+                  <colgroup>
+                    <col width="30%" />
+                    <col width="70%" />
+                  </colgroup>
+                  <tbody>
+                    <tr *ngFor="let val of item.data | keyvalue">
+                      <td class="CardHeader">{{ val.key }} <span class="pull-right">:</span></td>
+                      <td>{{ val.value || ' - ' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ui-datatable>
+</ui-card>

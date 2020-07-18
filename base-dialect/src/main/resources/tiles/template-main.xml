@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+		
+<tiles-definitions>
+    
+	<definition name="base_layout" template="templates/layout/base-layout" templateType="thymeleaf" />	
+	
+	<definition name="landing_layout" template="templates/layout/landing-layout" templateType="thymeleaf" />
+	
+	<definition name="login_layout" template="templates/layout/login-layout" templateType="thymeleaf" />
+	
+	<definition name="blank_layout" template="templates/layout/blank-layout" templateType="thymeleaf" />
+	
+	<definition name="popup_modal" template="templates/commons/modal_popup" templateType="thymeleaf" />
+	
+	<definition name="pg_error" extends="base_layout">
+		<put-attribute name="title" value="Error" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/error" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_forms" extends="base_layout">
+		<put-attribute name="title" value="Components - Forms" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/forms" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_fileupload" extends="base_layout">
+		<put-attribute name="title" value="Components - File Upload" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/fileupload" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_buttons" extends="base_layout">
+		<put-attribute name="title" value="Components - Buttons" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/buttons" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_tabs" extends="base_layout">
+		<put-attribute name="title" value="Components - Tabs" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/tabs" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_tables" extends="base_layout">
+		<put-attribute name="title" value="Components - Tables" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/tables" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_user-cards" extends="base_layout">
+		<put-attribute name="title" value="Components - User Cards" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/user-cards" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_alert" extends="base_layout">
+		<put-attribute name="title" value="Components - Alert" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/alert" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_typography" extends="base_layout">
+		<put-attribute name="title" value="Components - Typography" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/typography" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_tooltip" extends="base_layout">
+		<put-attribute name="title" value="Components - Tooltip" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/tooltip" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_notification" extends="base_layout">
+		<put-attribute name="title" value="Components - Notification" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/notification" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_bootstrap-ui" extends="base_layout">
+		<put-attribute name="title" value="Components - Bootstrap UI" type="thymeleaf" />
+		<put-attribute name="content" value="templates/page/bootstrap-ui" type="thymeleaf"/>
+	</definition>
+	
+</tiles-definitions>

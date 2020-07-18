@@ -1,0 +1,102 @@
+<div layout:fragment="content">
+	<div id="content-home"><div id="search_criteria">	
+		<form th:action="@{/config}" method="post" th:object="${reference}">     	
+			<legend></legend>
+			<fieldset>   			
+				<table id="fld_container">
+					<tbody>
+						<input type="hidden" th:field="*{typeId}"/>
+						<input th:type="hidden" th:field="*{refStatus.typeId}"/> 
+						<input type="hidden"  th:field="*{refStatus.levelId}"/>
+						<input type="hidden" th:field="*{config}" /> 
+						<tr>
+							<td th:text="#{lbl.type}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td th:text="*{description}"></td>									
+						</tr>
+						<tr>
+							<td th:text="#{lbl.level}"></td>
+							<td>&nbsp;:&nbsp;</td>	
+							<td th:text="*{refLevel.description}"></td>										 
+						</tr>	
+						<tr th:if="*{refStatus.statusId}!=null">
+							<td th:text="#{lbl.status.id}"></td>
+							<td>&nbsp;:&nbsp;</td>									
+							 <td><input th:type="text"  th:field="*{refStatus.statusId}"/> </td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.status.cd}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input style="text-transform: uppercase;" th:type="text"  th:field="*{refStatus.statusCd}"/> </td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.desc}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input style="text-transform: uppercase;" th:type="text"  th:field="*{refStatus.statusDesc}"/> </td>
+						</tr>								
+						<tr th:if="*{refStatus.statusId}!=null">
+							<td th:text="#{lbl.status.seq}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{refStatus.statusSequence}"/> </td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.next.level}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td>
+							<select th:field="*{refStatus.nextLevelId}" style="width: 200px;">
+									<option value="">---- Select ----</option>
+									<option th:each="nlevel : ${nextLevel}" th:value="${nlevel.levelId}"
+										th:text="${nlevel.description}">
+									</option>
+							</select>
+						</td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.no.release}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input th:type="text"  th:field="*{refStatus.noRelease}"/> </td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.display}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input type="radio" th:field="*{refStatus.display}" value="1"/>Yes
+							<input type="radio" th:field="*{refStatus.display}" value="0" />No</td>
+						</tr>								
+						<tr>
+							<td th:text="#{lbl.ini.state}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input type="radio" th:field="*{refStatus.initialState}" value="1"/>Yes
+							<input type="radio" th:field="*{refStatus.initialState}" value="0" />No</td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.email.req}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input type="radio" th:field="*{refStatus.emailRequired}" value="1"/>Yes
+							<input type="radio" th:field="*{refStatus.emailRequired}" value="0" />No</td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.skip.apprvr}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input type="radio" th:field="*{refStatus.skipApprover}" value="1"/>Yes
+							<input type="radio" th:field="*{refStatus.skipApprover}" value="0" />No</td>
+						</tr>
+						<tr>
+							<td th:text="#{lbl.status}"></td>
+							<td>&nbsp;:&nbsp;</td>
+							<td><input type="radio" th:field="*{refStatus.status}" value="1"/>Active
+							<input type="radio" th:field="*{refStatus.status}" value="0" />Inactive</td>
+						</tr>						
+						<tr>
+							<td></td>
+							<td></td>
+							<td>
+								<input th:type="submit" name="cancel" th:value="#{btn.cmn.bck}"/> 	
+								<input th:type="submit" name="update" th:value="${reference.action}" /> 
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>	
+		</form>  
+	</div></div>
+</div>

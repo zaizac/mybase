@@ -1,0 +1,210 @@
+<script th:inline="javascript" type="text/javascript">
+$(document).ready(function() {
+	/*<![CDATA[*/
+	/** -- set predefined colours -- **/
+	const chartLineColors = {
+		red: 'rgb(255, 99, 132)',
+		orange: 'rgb(255, 159, 64)',
+		yellow: 'rgb(255, 205, 86)',
+		green: 'rgb(75, 192, 192)',
+		blue: 'rgb(54, 162, 235)',
+		purple: 'rgb(153, 102, 255)',
+		grey: 'rgb(201, 203, 207)'
+	};
+
+	const chartBarBackColors = {
+		red: 	'rgba(255, 99, 132, 0.2)',
+		blue: 	'rgba(54, 162, 235, 0.2)',
+		yellow: 'rgba(255, 206, 86, 0.2)',
+		green: 	'rgba(75, 192, 192, 0.2)',
+		purple: 'rgba(153, 102, 255, 0.2)',
+		orange: 'rgba(255, 159, 64, 0.2)'
+	};
+
+	const chartBarLineColors = {
+		red: 	'rgba(255, 99, 132, 1)',
+		blue: 	'rgba(54, 162, 235, 1)',
+		yellow: 'rgba(255, 206, 86, 1)',
+		green: 	'rgba(75, 192, 192, 1)',
+		purple: 'rgba(153, 102, 255, 1)',
+		orange: 'rgba(255, 159, 64, 1)'
+	};
+
+	/** ---------------- BAR CHART - START ---------------**/
+	const ctxBarChart = $("#canvasBarChart");
+	if (ctxBarChart) {
+		const configBarChart = {
+			type: 'bar',
+			data: {
+				labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+				datasets: [{
+					label: '# of Votes',
+					data: [12, 19, 3, 5, 2, 3],
+					backgroundColor: [
+						chartBarBackColors.red,
+						chartBarBackColors.blue,
+						chartBarBackColors.yellow,
+						chartBarBackColors.green,
+						chartBarBackColors.purple,
+						chartBarBackColors.orange
+					],
+					borderColor: [
+						chartBarLineColors.red,
+						chartBarLineColors.blue,
+						chartBarLineColors.yellow,
+						chartBarLineColors.green,
+						chartBarLineColors.purple,
+						chartBarLineColors.orange
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				layout: {
+					padding: {
+						left: 20,
+						right: 20,
+						top: 0,
+						bottom: 0
+					}
+				}
+			}
+		};
+
+		const myBarChart = new Chart(ctxBarChart, configBarChart);
+	}
+
+	/** ---------------- LINE CHART - START ---------------**/
+	const ctxLineChart = $("#canvasLineChart");
+	if( ctxLineChart ) {
+		const configLineChart = {
+			type: 'line',
+			data: {
+				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				datasets: [{
+					label: 'My First dataset',
+					backgroundColor: chartLineColors.red,
+					borderColor: chartLineColors.red,
+					data: [10, 30, 39, 20, 25, 34, -10],
+					fill: false,
+				}, {
+					label: 'My Second dataset',
+					fill: false,
+					backgroundColor: chartLineColors.blue,
+					borderColor: chartLineColors.blue,
+					data: [18, 33, 22, 19, 11, 39, 30],
+				}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Min and Max Settings'
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							// the data minimum used for determining the ticks is Math.min(dataMin, suggestedMin)
+							suggestedMin: 10,
+
+							// the data maximum used for determining the ticks is Math.max(dataMax, suggestedMax)
+							suggestedMax: 50
+						}
+					}]
+				},
+				layout: {
+					padding: {
+						left: 20,
+						right: 20,
+						top: 0,
+						bottom: 0
+					}
+				}
+			}
+		};	
+	
+		const myLineChart = new Chart(ctxLineChart, configLineChart);
+	}
+
+	/** ---------------- BAR CHART - Cases by States - START ---------------**/
+	const ctxCaseStatesBarChart = $("#canvasCaseStatesBarChart");
+	if (ctxCaseStatesBarChart) {
+		const configCaseStatesBarChart = {
+			type: 'bar',
+			data: {
+				labels: ['Johor', 'Kedah', 'Kelantan', 'KualaLumpur', 'Labuan', 'Melaka', 'NegeriSembilan', 'Pahang', 'Penang', 'Perak', 'Perlis', 'Putrajaya', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu' ],
+				datasets: [{
+					label: 'Cases by States',
+					data: [  259, 73, 98, 323, 5, 33, 138, 70, 80, 159, 10, 34, 182, 110, 546, 41 ],
+					backgroundColor: [
+						chartBarBackColors.red,
+						chartBarBackColors.blue,
+						chartBarBackColors.yellow,
+						chartBarBackColors.green,
+						chartBarBackColors.purple,
+						chartBarBackColors.orange,
+						chartBarBackColors.red,
+						chartBarBackColors.blue,
+						chartBarBackColors.yellow,
+						chartBarBackColors.green,
+						chartBarBackColors.purple,
+						chartBarBackColors.orange,
+						chartBarBackColors.red,
+						chartBarBackColors.blue,
+						chartBarBackColors.yellow,
+						chartBarBackColors.green
+					],
+					borderColor: [
+						chartBarLineColors.red,
+						chartBarLineColors.blue,
+						chartBarLineColors.yellow,
+						chartBarLineColors.green,
+						chartBarLineColors.purple,
+						chartBarLineColors.orange,
+						chartBarLineColors.red,
+						chartBarLineColors.blue,
+						chartBarLineColors.yellow,
+						chartBarLineColors.green,
+						chartBarLineColors.purple,
+						chartBarLineColors.orange,
+						chartBarLineColors.red,
+						chartBarLineColors.blue,
+						chartBarLineColors.yellow,
+						chartBarLineColors.green
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				layout: {
+					padding: {
+						left: 20,
+						right: 20,
+						top: 50,
+						bottom: 20
+					}
+				}
+			}
+		};
+
+		const myCaseStatesBarChart = new Chart(ctxCaseStatesBarChart, configCaseStatesBarChart);
+	}
+
+	// ** more example at https://www.chartjs.org/docs/latest/charts/ **/
+	/*]]>*/
+});
+</script>

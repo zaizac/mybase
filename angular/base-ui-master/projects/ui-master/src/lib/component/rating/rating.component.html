@@ -1,0 +1,74 @@
+<div class="col-md-6 form-group" *ngIf="mode === 'basic'">
+      <ngb-rating [(rate)]="currentRate" max="5" [formControl]="fcRate" (click)="changeValue($event)">
+        <ng-template let-fill="fill">
+          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+      </ngb-rating>
+</div>
+
+<div class="col-md-6 form-group" *ngIf="mode === 'decimal'">
+      <ng-template #t let-fill="fill">
+        <span *ngIf="fill === 100" class="heart full">&#9733;</span>
+        <span *ngIf="fill === 0" class="heart">&#9733;</span>
+        <span *ngIf="fill < 100 && fill > 0" class="heart">
+          <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+        </span>
+      </ng-template>
+      <ngb-rating [(rate)]="currentRate2" [starTemplate]="t" [readonly]="readonly" max="5" [formControl]="fcRate" (click)="changeValue($event)"></ngb-rating>
+      <!-- <div>Rate: <b>{{currentRate2}}</b></div> -->
+      <div *ngIf="type === 'decimalbtn'">
+      <div><b></b></div>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 1.0">1</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 1.5">1.5</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 2.0">2.0</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 2.5">2.5</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 2.75">2.75</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 3.0">3.0</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 3.50">3.50</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 4.0">4.0</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 4.5">4.5</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 4.60">4.60</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 5.0">5.0</button>
+    </div>
+</div>
+
+<div class="col-md-6 form-group" *ngIf="mode === 'percent'">
+        <ng-template #t let-fill="fill">
+          <span *ngIf="fill === 100" class="heart full">&#9733;</span>
+          <span *ngIf="fill === 0" class="heart">&#9733;</span>
+          <span *ngIf="fill < 100 && fill > 0" class="heart">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+        <ngb-rating [(rate)]="currentRate2" [starTemplate]="t" [readonly]="readonly" max="5" [formControl]="fcRate" (click)="ratePercentage($event)"></ngb-rating>
+        <!-- <div>Rate Percentage: <b>{{((currentRate2/5)*100).toFixed()}}%</b></div> -->
+        <div *ngIf="type === 'percentbtn'">
+        <div><b></b></div>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 1.0">1</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 1.5">1.5</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 2.0">2.0</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 2.5">2.5</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 2.75">2.75</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 3.0">3.0</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 3.50">3.50</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 4.0">4.0</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 4.5">4.5</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 4.60">4.60</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 5.0">5.0</button>
+      </div>
+  </div>
+
+  <!-- <div class="col-md-6 form-group" *ngIf="mode === 'colour'">
+      <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Colour rating</h3>
+          <ngb-rating [(rate)]="currentRate" [max]="5" [formControl]="fcRate">
+            <ng-template let-fill="fill">
+              <span class="starColour" [class.filled2]="fill === 100" [class.color1]="index < 1"
+                [class.color2]="index < 3">&#9733;</span>
+            </ng-template>
+          </ngb-rating>
+    
+        </div>
+      </div>
+    </div> -->

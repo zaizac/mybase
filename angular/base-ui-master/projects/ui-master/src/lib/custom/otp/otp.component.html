@@ -1,0 +1,8 @@
+<ui-button [type]="type" [buttonType]="buttonType" [text]="buttonText" [icon]="icon" (click)="onClick()" [disabled]="disabled"></ui-button>
+<ng-template #content let-modal>
+  <ui-modal [title]="'One Time Password'" [modal]="modal">
+    <ui-otp-template [emailIdToSend]="value" [otpService]="otpService" [otpAction]="otpPopupAction"
+      [otpUniqueId]="otpUniqueId" [navigateURL]="redirectURL">
+    </ui-otp-template>
+  </ui-modal>
+</ng-template>

@@ -1,0 +1,13 @@
+<ui-header portalTitle="Base Web Portal">
+    <ui-navbar [currentUser]="currentUser"></ui-navbar>
+</ui-header>
+<ui-menu [menus]="userMenu" *ngIf="currentUser?.status != 'F'"></ui-menu>
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <ui-breadcrumb></ui-breadcrumb>
+        <router-outlet>
+            <ui-spinner></ui-spinner>
+        </router-outlet>
+    </div>
+</div>
+<ui-footer></ui-footer>

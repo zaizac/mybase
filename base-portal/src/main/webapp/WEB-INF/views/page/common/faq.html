@@ -1,0 +1,42 @@
+<bst:widget>
+	<bst:widget-body>
+		<div class="row">
+			<div class="col-7">
+				<center>
+					<h4>The followings are available to be downloaded.</h4>
+					<h5>Click on each Link below to download</h5>
+				</center>
+				<br/>
+				<bst:table-light width="100%">
+					<thead>
+						<tr>
+							<th width="5%">No.</th>
+							<th width="70%">Document Name</th>
+							<th width="25%">Link</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="form, rowStat : ${@staticData.beConfigByPrefix('FORM_')}">
+							<td><th:block th:text="${rowStat.count}" /></td>
+							<td><th:block th:text="${form.configDesc}" /></td>
+							<td><a href="#" th:onclick="'javascript:downloadDocForm(\'' + ${form.configCode} + '\');'">Download</a></td>
+						</tr>
+					</tbody>
+				</bst:table-light>
+			</div>
+	       	<div class="col-5 text-center">
+	       		<div>
+					<img alt="" class="error-art" th:src="@{/webjars/outbreak-webjar/images/download.png}"/>
+	       		</div>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+<script>
+function downloadDocForm(form) {
+	if(form) {
+		location.href = contextPath +"/documents/download/form/" + form;
+		portalUtil.showMainLoading(false);	 
+	}
+}
+</script>

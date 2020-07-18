@@ -1,0 +1,103 @@
+<div class="email-container bg-white">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 bg-info">
+      <div class="pb-3 pt-3 d-flex">
+        <h3 class="mr-3 text-white">{{mailboxHeaderText | titlecase}}</h3>
+      </div>
+    </div>
+    <div class="col-sm-9 col-md-10 bg-info">
+      <div class="pb-3 pt-3 d-flex">
+        <div *ngIf="hasReleaseClaim" class="btn-group btn-group-toggle mr-1" ngbRadioGroup name="radioBasic"
+          [(ngModel)]="appType">
+          <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" (click)="inboxDrop.close()" [routerLink]="['inbox']" value="inbox"> Inbox
+            {{getRefApp}}
+          </label>
+          <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" (click)="inboxDrop.close()" [routerLink]="['pool']" value="pool"> Pool
+            {{getRefApp}}
+          </label>
+          <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" (click)="inboxDrop.close()" [routerLink]="['history']" value="history">
+            History {{getRefApp}}
+          </label>
+        </div>
+        <div class="b-btn mr-1" data-toggle="tooltip" data-placement="top" data-animation="false" title="Back">
+          <button (click)="getBack()" type="button" class="btn btn-dark btn-sm">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="b-btn mr-1" data-toggle="tooltip" data-placement="top" data-animation="false" title="Refresh">
+          <button type="button" (click)="refresh()" class="btn btn-dark btn-sm">
+            <span class="fa fa-refresh"></span>
+          </button>
+        </div>
+        <div class="custom-control custom-checkbox p-0" *ngIf="hasReleaseClaim">
+          <ui-button buttonType="success" text="Release" (click)="release()"
+            *ngIf="appType == 'inbox' && !isCurrInboxEmpty"></ui-button>
+          <ui-button buttonType="success" text="Claim" (click)="claim()" *ngIf="appType == 'pool'&& !isCurrPoolEmpty">
+          </ui-button>
+        </div>
+        <div class="ml-auto row m-0">
+          <div ngbDropdown #inboxDrop="ngbDropdown" class="mega-dropdown pr-3 w-auto" [autoClose]="false">
+            <button ngbDropdownToggle type="button" class="btn btn-dark btn-sm">
+              <i class="fa fa-filter" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+              <ul class="mega-dropdown-menu">
+                <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                      <label>Ref No</label>
+                      <input formControlName="appRefNo" type="text" class="form-control text-uppercase"
+                      [resultFormatter]="formatter" [inputFormatter]="formatter"
+                      [ngbTypeahead]="searchSmart" [ngbTypeahead]="search">
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                      <label>Appl. Date</label>
+                      <ui-date-range  formControlName="appDate" label='' required="true" format='DD/MM/YYYY'>
+                      </ui-date-range>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                      <label>Applicant</label>
+                      <input formControlName="applicant" type="text" class="form-control text-uppercase"
+                      [resultFormatter]="formatterApp" [inputFormatter]="formatterApp"
+                      [ngbTypeahead]="searchSmartApp">
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                      <label>Status</label>
+                      <ui-select label="Status" [init]="selStatusInit" formControlName="statusCd"></ui-select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="pull-right">
+                        <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()">
+                        </ui-button>
+                        <ui-button type="submit" buttonType="primary" icon="fa fa-search" name="search" text="Search"
+                          (click)="inboxDrop.close()">
+                        </ui-button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </ul>
+            </div>
+          </div>
+          <div class="d-inline">
+            <input [formControl]="globalSearch" (keyup)='search($event.target.value)'
+              class="form-control form-control-md" type="text" placeholder="Search mail...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="bg-white col-12">
+      <div class="inbox-right-panel">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

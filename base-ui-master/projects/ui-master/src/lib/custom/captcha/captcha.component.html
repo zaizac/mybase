@@ -1,0 +1,12 @@
+<div class="form-group">
+    <div class="input-group" [formGroup]="captchaForm">
+        <img alt="" height="100%" width="100%" src="{{image}}"/>
+        <ui-text formControlName="captcha" label="Code" [maxlength]="captchaLen" (change)="getValue()"
+        [submitted]="submitted" [ngClass]="{ 'is-invalid': submitted && captchaForm.controls.captcha.errors }"
+            placeholder="Enter the above code here"></ui-text>
+        <ui-button buttonType="secondary" icon="fa fa-refresh" (click)="onReloadCaptcha()"></ui-button>
+    </div>
+    <div class="invalid-message" *ngIf="!captchaForm.controls.captcha.errors && !isvalid">
+        Invalid captcha
+    </div>
+</div>

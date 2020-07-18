@@ -1,0 +1,129 @@
+<div layout:fragment="content">
+<br/>
+     <table width="100%" align="center" >
+        <tr>
+			<td th:text="#{lbl.type.id}" align="right" width="30%"></td>
+			<td>:</td>
+			<td>
+				<select style="width: 350px;" id="cmbWfwType" onchange="onChangeType()">											
+					<option th:each="refType : ${typeList}" th:value="${refType.typeId}"
+						th:text="${refType.description}+' ('+${refType.typeId}+')'">
+					</option>
+				</select>									
+			</td>
+		</tr>
+     </table>
+     <br/>
+     <div id="content-home">
+		<div id="config_table">
+		    <div style="width:90%; margin-left:2%; text-align: right;">
+						  <p><a style="text-decoration: underline;" th:href="@{/config/type(typeId=)}"><span>Add New Type</span></a></p></div>
+			<table id="tbl_data_config" border="1">	
+					<tr class="table_title_row" id="table_title_row">
+						<th colspan="8">Configuration</th>
+					</tr>		
+				<tr>
+					<th th:text="Type" width="20%"></th>
+					<th th:text="Level" width="20%"></th>
+					<th th:text="Status" width="60%"></th>
+				</tr>
+				<tr th:each="type : ${reference}" >
+				     <td>
+				     	<br/>
+						<p  th:text="'Type ID : '+${type.typeId}"></p>
+						<p  th:text="'Type : '+${type.description}"></p>
+						<p  th:text="'Auto Claim : '+${type.autoClaim=='0'?'No':'Yes'}"></p>
+						  <p  th:text="'Is Active : '+${type.status=='0'?'No':'Yes'}"></p>
+						  <br/>
+						  <p th:text="#{lbl.trans.id}+': '+${type.tranId}"></p>
+						  <p th:text="#{lbl.mod.id}+': '+${type.moduleId}"></p>
+						  <p th:text="#{lbl.view.path}+': '+${type.redirectPath}"></p>
+						  <div style="width:90%; text-align: right;">
+						  <p>
+						  	<a style="text-decoration: underline;" th:href="@{/config/type(typeId=${type.typeId})}"><span>Edit</span></a>&nbsp;&nbsp;&nbsp;
+	<!-- 						  <a style="text-decoration: underline;" th:href="@{/config/type(typeId=, isDetail=true)}"><span>Add New Type</span></a> -->
+						  </p>
+						  </div>
+						  
+					</td>	
+					<td colspan="2" style="vertical-align: top;"> 
+					
+						<table style="width:100%; padding: 0;">
+						<tr>
+						<td>
+						<div style="width:90%; text-align: right;">						  				
+						  	  <p><a style="text-decoration: underline;" th:href="@{/config/level(typeId=${type.typeId}, levelId=)}"><span>Add Level</span></a></p>
+						  	</div>
+						  	</td>
+						  	</tr>
+						      <tr th:each="level : ${type.refLevelList}">
+								<td width="25%">
+									<p>Level ID :
+										<a style="text-decoration: underline;" 
+ 												th:href="@{/config/level(typeId=${type.typeId}, levelId=${level.levelId})}"><span th:text="${level.levelId}"></span></a>
+									</p>
+									<p th:text="'Level : '+${level.description}"></p>
+									<p th:text="'Flow No : '+${level.flowNo}"></p>	
+									<p  th:text="'Is Active : '+${level.status=='0'?'No':'Yes'}"></p>
+						  			<p th:text="'User Role : '+${level.roles}"></p>								
+<!-- 									<div style="width: 90%; text-align: right;"> -->
+<!-- 										<p> -->
+<!-- 											<a style="text-decoration: underline;" -->
+<!-- 												th:href="@{/maintenance/wf-config-edit(id=${level.levelId},type=L, action=edit)}"><span>Edit</span></a> -->
+<!-- 											&nbsp;&nbsp;&nbsp; <a style="text-decoration: underline;" -->
+<!-- 												th:href="@{/maintenance/wf-config-edit(id=${type.typeId},type=L, action=add)}"><span>Add -->
+<!-- 													Level</span></a> -->
+<!-- 										</p> -->
+<!-- 									</div> -->
+								</td>
+								<td>
+							      <div style="width:99%; text-align: right;">
+						  				<a style="text-decoration: underline; text-align: right;" th:href="@{/config/status(levelId=${level.levelId}, statusId=, typeId=)}"><span>Add Status</span></a>
+						  				</div>
+							         <table style="width:100%">
+										<tr th:if="${#lists.isEmpty(level.refStatus)==false}">
+											<td style="text-align: center; 
+												padding:3px 3px 3px 3px;	
+												border-top:1px solid #fafafa; 
+												border-bottom:1px solid #e0e0e0;
+												background: #fff;
+												font-weight:bold;	
+												background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+												background: -moz-linear-gradient(top,  #ededed,  #ebebeb);">ID</td>
+											<th>Status</th>
+											<th>App Status</th>
+											<th>Flow No</th>
+											<th>Next Level</th>
+											<th>Is Display</th>
+											<th>Is Initial</th>
+											<th>Email</th>
+											<th>Skip Approver</th>
+											<th>Is Active</th>
+										</tr>
+										<tr th:each="status : ${level.refStatus}">
+											<td>
+												<a style="text-decoration: underline;" 
+ 												th:href="@{/config/status(levelId=${level.levelId}, statusId=${status.statusId}, typeId=${type.typeId})}"><span th:text="${status.statusId}"></span></a>
+											</td>
+											<td align="left" th:text="${status.statusDesc}"></td>
+											<td align="left" th:text="${status.statusCd}"></td>
+											<td th:text="${status.statusSequence}"></td>
+											<td th:text="${status.nextLevelId}"></td>
+											<td th:text="${status.display==0?'No':'Yes'}"></td>
+											<td th:text="${status.initialState==0?'No':'Yes'}"></td>
+											<td th:text="${status.emailRequired==0?'No':'Yes'}"></td>
+											<td th:text="${status.skipApprover==0?'No':'Yes'}"></td>
+											<td th:text="${status.status=='N'?'No':'Yes'}"></td>											
+										</tr>
+									</table>
+									<br/>
+							      </td>
+						      </tr>
+						  </table>
+					  </td>
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+</div>

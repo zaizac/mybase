@@ -1,0 +1,30 @@
+<div [formGroup]="popupForm">
+  <div class="row">
+    <div class="col-sm-3"><label>OTP Sent To:</label></div>
+    <div class="col-sm-9"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;
+      <i aria-hidden="true">{{emailIdToSend}}</i>
+    </div>
+  </div>
+  <label id="otpErrorMsg" *ngIf="errorMsg">{{errorMsg}}</label>
+  <label id="otpSuccessMsg" *ngIf="successMsg">{{successMsg}}</label>
+  <div class="row otp-input">
+    <div class="col-sm-12">
+      <div class="input-group">
+        <ui-text formControlName="otp" maxlength="6"></ui-text>
+        <div class="input-group-append">
+          <span id="generateOtp" class="input-group-text btn btn-primary" (click)="requestOtp();"
+            *ngIf="!otpAction">Request OTP</span>
+          <span id="validateOtp" class="input-group-text btn btn-secondary" (click)="validateOtp();"
+            *ngIf="otpAction">Validate OTP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-left" style="margin-bottom:0 !important;">
+    <div class="col-sm-12">
+      Enter your OTP within
+      <span id="otpTimerDisplay">{{RndNr}}</span> seconds<label id="otpGenMsg" class="errors">** You can
+        only regenerate the OTP after 15 minutes.</label>
+    </div>
+  </div>
+</div>

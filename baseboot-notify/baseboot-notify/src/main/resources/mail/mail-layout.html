@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div style="font-family:Verdana,Arial,sans-serif;font-size:12px;">
+<table width="685" border="0" align="center" cellpadding="10" style="border-color:#3b4447;background-color:#B8B8B8;" >
+<tbody>
+<tr>
+<td>
+<div style="margin-bottom:10px">
+<center><img src="../images/logo.png" data-th-src="|cid:MAIL_HEADER|" th:alt="${MAIL_HEADER}" th:title="${MAIL_HEADER}" width="260" height="110" style="border:0" tabindex="0" /></center>
+<br/>
+<table width="700" cellpadding="1" style="margin-top:10px;background-color:#fff;font-family:Verdana,Arial,sans-serif;font-size:12px;">
+<tbody>
+<tr>
+<td>
+<p align="right">Date : <th:block th:text="${GEN_DATE}" /><br></p>
+<!--/* END HEADER */-->
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" >
+<tbody>
+<tr>
+<td style="font-size:11px;line-height:12px;color:#666666">
+<!--/* START CONTENT */-->
+<th:block th:utext="${content}" />
+<!--/* END CONTENT */-->
+<br/>
+<br/><p>Thanks,<br>System Admin</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!--/* START FOOTER */-->
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="bottom" width="70%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td colspan="2" valign="bottom">
+<div style="margin-left: 20px;">
+<span style="font-size:10px;line-height:12px;font-weight:bold;color:#666666"> 
+<div><br/><b>For any technical assistance, please contact us at </b><th:block th:text="${CUST_CARE_CONTACT}" /></div> or email us at <a th:href="'mailto:' + ${CUST_CARE_EMAIL}" th:text="${CUST_CARE_EMAIL}" target="_blank" /><br/>
+</span>
+</div>
+</td>
+<tr>
+<tr>
+<td valign="bottom" >
+<center><p style="font-size:10px;line-height:12px;font-weight:bold;color:#666666">Copyright © 2017 FDHP. All rights reserved.</p></center>
+</td>
+<tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--/* END FOOTER */-->
+</td>
+</tbody>
+</table>
+<p align="center" style="color:red"><b>Note:</b> This is automatically generated email, please do not reply. </p>
+</div>
+</html>

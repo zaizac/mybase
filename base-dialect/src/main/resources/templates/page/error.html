@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="error-container">
+	<div th:if="${errorcode=='EXC'}">
+		<div class="http-error-container">
+		    <h1>HTTP Status - Error Occurred!!!</h1>
+		    <p style="text-align: left; color: #a94442;">
+		    	<th:block th:text="${errorMsg}" />
+		    </p>
+		</div>
+	</div>
+	<th:block th:unless="${errorcode=='EXC'}" >
+        <!-- <div class="error-code">
+        	<th:block th:text="${errorcode}" />
+        </div> --> <!-- /.error-code -->
+        <div class="error-details col-xs-4 col-md-12 col-lg-12">
+        	<div class="row">
+        		<div class="col-xs-4 col-md-4 col-lg-4"></div>
+	        	<div class="col-xs-4 col-md-4 col-lg-4 text-center">
+		          	<h4>
+			          	<span class="text-primary">
+				          	<th:block th:switch="${errorcode}">
+				          		<th:block th:case="404"><img alt="" th:src="@{/images/404.png}" class="error-art" th:attr="onerror='this.src=\'' + @{/webjars/base-webjar/images/404.png} + '\';'"/></th:block>
+				          		<th:block th:case="405"><img alt="" th:src="@{/images/405.png}" class="error-art" th:attr="onerror='this.src=\'' + @{/webjars/base-webjar/images/405.png} + '\';'"/></th:block>
+				          		<th:block th:case="500"><img alt="" th:src="@{/images/500.png}" class="error-art" th:attr="onerror='this.src=\'' + @{/webjars/base-webjar/images/500.png} + '\';'"/></th:block>
+				          	</th:block> 
+			          	</span>
+		          	</h4>
+		
+		          	<span class="btn btn-info btn-block back-homepage">
+		          	<th:block th:switch="${errorcode}">
+		          		<th:block th:case="404"><a href="#" th:href="@{/}">home page</a>.</th:block>
+		          		<th:block th:case="405"><a href="#" th:href="@{/}">home page</a></th:block>
+		          		<th:block th:case="500"><a href="#" th:href="@{/}">home page</a></th:block>
+		          		<th:block th:case="EXC">
+		          			<p style="text-align: left; color: #a94442;">
+						    	<th:block th:text="${errorMsg}" />
+						    </p>
+		          		</th:block>
+		          	</th:block>
+					</span>
+				</div>
+				<div class="col-xs-4 col-md-4 col-lg-4"></div>
+			</div>
+        </div> <!-- /.error-details -->
+        </th:block>
+	</div>
+</div>

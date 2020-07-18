@@ -1,0 +1,30 @@
+<div #datatable class="ui-datatable">
+  <div *ngIf="type != 'card'">
+    <ejs-grid #grid [dataSource]="dataEmitter$ | async" (rowSelected)="rowSelected($event)"
+      [allowSorting]="allowSorting" (actionBegin)="onActionBegin($event)" [columns]="tableInit.columns"
+      allowPaging="true" height="auto" [pageSettings]="initialPage" (dataBound)="dataBound()"
+      (queryCellInfo)="customiseRowCells($event)" (rowDataBound)="rowDataBound($event)" (load)="load()"
+      [selectionSettings]="selectionOptions" (rowDeselected)="rowDeselected($event)"
+      (rowSelecting)="rowSelecting($event)" (rowDeselecting)="rowDeselecting($event)" [allowTextWrap]="textWrap"
+      [textWrapSettings]="wrapSettings" (destroyed)="onTableDestroyed($event)" [editSettings]="editSettings"
+      [toolbar]="toolbar">
+    </ejs-grid>
+    <ng-template #dtRadioTemplate> <input type="radio" name="selectRadio" class="dtRadio" /> </ng-template>
+    <ng-template #dtExpandTemplate let-item="item">
+      <i aria-hidden="true" name="expandButton" class="fa fa-plus-circle icon-expand"></i>
+    </ng-template>
+  </div>
+  <div *ngIf="type == 'card'">
+    <ejs-grid #grid [dataSource]="dataEmitter$ | async" (rowSelected)="rowSelected($event)"
+      [allowSorting]="allowSorting" (actionBegin)="onActionBegin($event)" allowPaging="true" height="auto"
+      [pageSettings]="initialPage" (queryCellInfo)="customiseRowCells($event)" (dataBound)="dataBound()"
+      (rowDataBound)="cardRowDataBound($event)" (load)="load()" width="100%" [selectionSettings]="selectionOptions"
+      (rowDeselected)="rowDeselected($event)" (rowSelecting)="rowSelecting($event)"
+      (rowDeselecting)="rowDeselecting($event)" [allowTextWrap]="textWrap" [textWrapSettings]="wrapSettings"
+      (destroyed)="onTableDestroyed($event)" [editSettings]="editSettings" [toolbar]="toolbar">
+      <e-columns>
+        <e-column headerText=""></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>

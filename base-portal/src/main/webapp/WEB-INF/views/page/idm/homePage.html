@@ -1,0 +1,13 @@
+<div id="login-bg"></div>
+<div class="wrapper">
+	<div id="content">
+		<div class="container">
+			<div align ="center" class="col">
+				<th:block th:replace="fragments/portal-fragments :: homePage-info" />
+			</div>
+		</div>
+	</div>
+</div>
+<th:block sec:authorize="isAuthenticated()" th:if="${@staticData.beConfig('DOWNTIME_POPUP_ANNOUNCE_HOME')=='Y'}">
+	<div id="announcement"><th:block  th:include="commons/misc/announcement" /></div>
+</th:block>

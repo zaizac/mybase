@@ -1,0 +1,72 @@
+<div id="login-bg"></div>
+<div class="wrapper">
+	<div id="content">
+		<div class="container">
+			<div class="row" style="margin-top: 50px">
+				<div
+					class="col-12 col-sm-12 col-md-6 col-lg-7 col-xl-8 align-self-center">
+					<div class="card login-card-dark"
+						style="width: 69em; height: 15em;">
+						<div class="header-title">
+							Get Hired With The Career That You Deserve.<br />
+							<div class="header-subtitle">Find out your dream jobs
+								listing in our portal with a single click below.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <form th:action="@{/main}" th:object="${jobOpeningForm}" th:method="POST" class="form-no-horizontal-spacing">
+				<bst:widget>
+					<bst:widget-header>
+						<h6 th:text="#{lbl.srch.crtr}" />
+					</bst:widget-header>
+					<bst:widget-body>
+						<div class="row form-row">
+							<div class="col-sm-6">
+								<label th:text="#{lbl.cntry}" /> 
+								<select class="form-control" th:field="*{placeOfWork}">
+									<option th:label="#{lbl.cmn.sel.pls}" value="" />
+									<option th:each="cntry : ${@staticData.countryList()}" th:value="${cntry.cntryCode}" th:text="${cntry.cntryDesc}" />
+								</select> 
+								<label class="errors" th:if="${#fields.hasErrors('placeOfWork')}" th:errors="*{placeOfWork}" />
+							</div>
+							<div class="col-sm-6">
+								<label th:text="#{lbl.job.sector}" /> 
+								<select class="form-control" th:field="*{sectorCd}">
+									<option th:label="#{lbl.cmn.sel.pls}" value="" />
+									<option th:each="sector : ${sectorLst}" th:value="${sector.sectorCode}" th:text="${sector.sectorDescEn}" />
+								</select>
+							</div>
+							<div class="col-sm-4">
+								<label th:text="#{lbl.job.sal.range}" /><label th:text="#{' (RM)'}" />
+								<div class="input-group number-range">
+									<bst:input-number th:classappend="input-group-prepend" th:field="*{salaryFrom}" min="0" placeholder="min"/>
+									<span class="input-group-addon"><label th:text="#{'to'}" /></span>
+									<bst:input-number th:classappend="input-group-append" th:field="*{salaryTo}" min="0" placeholder="max"/>
+								</div>
+							</div>
+						</div>
+					</bst:widget-body>
+					<bst:widget-footer>
+						<div class="row">
+							<div class="col-12" >
+								<div class="pull-right">
+							 		<bst:btn-secondary type="submit" name="reset" th:text="#{btn.cmn.rst}" />
+									<bst:btn-primary type="submit" name="search" th:text="#{btn.cmn.sea}" />
+								</div>
+							</div>
+						</div>
+					</bst:widget-footer>
+				</bst:widget>
+			</form>
+			<bst:widget>
+				<bst:widget-header>
+					<h6 th:text="#{lbl.job.op.list}" />
+				</bst:widget-header>
+				<bst:widget-body>
+					<th:block th:replace="fragments/js-fragments :: job-open-table (jobOpenLst=${jobOpeningDtoList},redirectUrl='/main/job/',hideSalary='yes')" />
+				</bst:widget-body>
+			</bst:widget> -->
+		</div>
+	</div>
+</div>

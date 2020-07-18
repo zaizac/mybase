@@ -1,0 +1,104 @@
+<style>
+.pdfobject-container { height: 30rem; border: 1rem solid rgba(0,0,0,.1); }
+#date {
+	border: 1px solid #ced4da;
+    opacity: 100%;
+}
+</style>
+<th:block th:include="commons/patient_basic_info" /> 
+<bst:form id="movementForm" th:action="@{'/patient/movement/update/'} + ${patientRefNo}" th:object="${movementHistoryForm}" th:method="POST" autocomplete="off" > 
+	<bst:alert-info th:if="${isDispMessage}" th:utext="#{msg.suc.mov.his.no.sym}" />
+	<bst:widget>
+		<bst:widget-header>
+			<h4 class="font-widget" th:text="#{lbl.movement.history}" />
+		</bst:widget-header>
+		<bst:widget-body>
+	    	<input type="hidden" th:field="*{patientId}"/>
+	 		<div class="row form-row">
+	 		    <div class="col-sm-12 col-md-6 col-lg-6">
+				  	<label th:text="#{lbl.movement.day}" class="required"/>
+				  	<bst:select id="status" data-minimum-results-for-search="Infinity"  th:field="*{dayMtdtId}"
+				 			 th:attr="data-placeholder=#{lbl.cmn.sel.pls}" onchange="loadOnChangeDays(this);">
+						<option th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:each="status : ${movementHistoryLst}" th:value="${status.mtdtId}" th:text="${status.mtdtDesc}"/>
+					</bst:select>
+					<bst:error th:if="${#fields.hasErrors('dayMtdtId')}" th:errors="*{dayMtdtId}" />
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6">
+				   <label th:text="#{lbl.movement.Date}" class="required"/>
+				   <bst:input-date id="moventDatePckr" th:field="*{date}" th:readonly="${isDispMessage}" th:alt="${isDispMessage}"/> 
+				   <bst:error th:if="${#fields.hasErrors('date')}" th:errors="*{date}" />
+				</div>
+			</div>
+			<bst:alert-info><span>Please click <i class="fa fa-plus fa-lg"></i> icon to add  and if you want to delete, please click on <i class="fa fa-trash-o fa-lg"></i></span></bst:alert-info>
+			<labe class="errors" id="movementError" />
+		  	<bst:table-light id="tblMovementLst" width="100%">
+				<thead>
+					<tr>
+						<td colspan="2"><bst:input  id="movementActivities" maxlength="5000" style="text-transform: uppercase;"/></td>
+						<td><bst:input  id="movementContactName" style="text-transform: uppercase;" /></td>
+						<td><bst:input-contact  id="movementContactPhone" style="text-transform: uppercase;" /></td>
+						<td></td>
+						<td></td>
+						<td width="5%">
+							<a title="Add" id="movementAddBtn" class="mr-2 cursor-pointer" style="color: black"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></a>
+							<a title="Update" id="movementEditBtn" class="mr-2 cursor-pointer"  style="display:none;color: black"><i class="fa fa-edit fa-lg" aria-hidden="true"></i></a>
+							<a title="Cancel" id="movementCancelBtn" class="cursor-pointer" style="display:none;color: black"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
+							<input type="hidden" id="movementIdx" />
+						</td>				
+					</tr>
+					<tr>
+						<th width="5%" th:text="#{'No.'}"></th>
+						<th th:text="#{lbl.movement.activities}" width="50%"></th>
+						<th th:text="#{lbl.movement.contactName}" width="25%"></th>
+						<th th:text="#{lbl.movement.contactPhone}" width="30%"></th>
+						<td></td>
+						<td></td>
+						<th width="5%" th:text="#{'Action'}"/>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="hist : ${movementHistoryDataLst}">
+						<td></td>
+						<td width="45%"><th:block th:text="${hist.activity}" /></td>
+						<td width="25%"><th:block th:text="${hist.contactName}" /></td>
+						<td width="25%"><th:block th:text="${hist.contactPrhoneNo}" /></td>
+						<td><th:block th:text="${hist.isActive}" /></td>
+						<td><th:block th:text="${hist.patientInvesId}" /></td>
+						<td width="5%">
+							<a title="Update" class="edit mr-2 cursor-pointer" ><i class="fa fa-edit fa-lg"></i></a>
+			        		<a title="Delete" class="remove cursor-pointer" ><i class="fa fa-trash-o fa-lg"></i></a>
+			        		<a title="Record Marked for Deletion" class="recordDel mr-2" style="display:none;color: red"><i class="fa fa-ban fa-lg"></i></a>
+			        		<a title="Cancel" class="cancel cursor-pointer" style="display:none;color: black"><i class="fa fa-times fa-lg"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</bst:table-light>
+		</bst:widget-body>
+		<bst:widget-footer>
+			<div class="row">
+				<div class="col-12" >
+					<div class="pull-right">
+						<bst:btn type="button" th:onclick="'javascript:redirectURL(\'/patient/movement\');'" 
+				 		th:title="reset" class="m-1" th:text="#{btn.cmn.can}" />
+				 		<bst:btn-primary id="savemomentHistory" name="submit" title="save" class="m-1" th:text="#{btn.cmn.sav}" />
+					<bst:btn-primary type="button" title="Print" class="m-1" th:text="#{lbl.cmn.view.print}" th:onclick="'javascript:documentMoveHistory2(\'patient/movement/print/genMovHistory\',\'Movement History\');'"/>
+					</div>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+</bst:form>
+<script src="#" th:src="@{/webjars/jquery/jquery.min.js}" />
+<script type="text/javascript" th:inline="javascript">
+jQuery(document).ready(function() {
+	var msg = [[${isDispMessage}]];
+	if(msg == null) {
+	$('input[name="date"]').attr('readonly','true');
+	//$('#moventDatePckr').remove();
+	$("#moventDatePckr").css("pointer-events","none"); 
+	}else{
+		$("#moventDatePckr").css("pointer-events","visible");
+		}
+});
+</script>

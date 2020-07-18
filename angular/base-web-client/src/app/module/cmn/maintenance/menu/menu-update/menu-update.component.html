@@ -1,0 +1,81 @@
+<ui-card>
+  <ui-title>
+    Menu
+    <h6 class="text-muted m-t-0">Update Menu</h6>
+  </ui-title>
+  <form [formGroup]="UpdateMenuFrom" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- Menu Code -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Menu Code</label>
+        <ui-text formControlName="menuCode" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+
+      <!-- Menu Description -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Menu Description</label>
+        <ui-text formControlName="menuDesc" maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+    </div>
+      <div class="row">
+    <!-- Menu_URL -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Menu URL</label>
+        <ui-text formControlName="menuUrl" maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+
+      <!-- menu icon -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Menu Icon</label>
+        <ui-text formControlName="menuIcon" maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+  </div>
+
+  <div class="row">
+          <!-- Menu Level -->
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <label class="required">Menu Level </label>
+            <div class="form-group">
+              <ui-radio-group formControlName="menuLevel" inline='true'>
+                <ui-radio inline='true'  value='1'>1</ui-radio>
+                <ui-radio inline='true' #c2 value='2' (change)="menuParentCode1(1)">2</ui-radio>
+                <ui-radio inline='true' #c3 value='3' (change)="menuParentCode2(2)">3</ui-radio>
+              </ui-radio-group>
+            </div>
+          </div>
+          <!-- Menu Parent Code -->
+          <div *ngIf="c2.checked" class="col-sm-12 col-md-6 col-lg-4">
+            <label class="required">Menu Parent Code</label>
+              <ui-select label="Menu Parent Code" [init]="selMenuLevelCode1Init" formControlName="menuParent" [reset]="reset">
+            </ui-select>
+          </div>
+          <div *ngIf="c3.checked" class="col-sm-12 col-md-6 col-lg-4">
+            <label class="required">Menu Parent Code</label>
+              <ui-select label="Menu Parent Code" [init]="selMenuLevelCode2Init" formControlName="menuParent" [reset]="reset">
+            </ui-select>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <label class="required">Menu Sequence</label>
+            <ui-text formControlName="menuSequence" maxlength="255" label="Type" [reset]="reset"
+              [submitted]="submitted"></ui-text>
+          </div>
+        </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="cancel()"></ui-button>
+          <!-- <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()"></ui-button> -->
+          <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>

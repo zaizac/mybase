@@ -1,0 +1,97 @@
+<ui-card>
+  <form [formGroup]="typeForm" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- TYPE -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Type</label>
+        <ui-text formControlName="typesDesc" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+      <!-- AUTO CLAIM -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Is Auto Claim </label>
+        <div class="form-group">
+          <ui-radio-group formControlName="autoClaim" inline='true'>
+            <ui-radio inline='true' value='1'>YES</ui-radio>
+            <ui-radio inline='true' value='0'>NO</ui-radio>
+          </ui-radio-group>
+        </div>
+      </div>
+      <!-- STATUS -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Is Active </label>
+        <div class="form-group">
+          <ui-radio-group formControlName="status" inline='true'>
+            <ui-radio inline='true' value='1'>YES</ui-radio>
+            <ui-radio inline='true' value='0'>NO</ui-radio>
+          </ui-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- TRAN ID -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Transaction ID</label>
+        <ui-text formControlName="tranId" formatToUpperCase maxlength="255" label="Transaction ID" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+      <!-- MODULE ID -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Module</label>
+        <ui-text formControlName="moduleId" formatToUpperCase maxlength="255" label="Module Id" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+      <!-- REDIRECT PATH -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Redirect Path</label>
+        <ui-text formControlName="redirectPath" maxlength="255" label="Redirect Path" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" routerLink="/workflow/configuration" text="Cancel"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset"></ui-button>
+          <ui-button buttonType="success" *ngIf="!isNew" icon="fa fa-plus-circle" text="New Level" routerLink="/workflow/configuration/level"
+            [queryParams]="{ typeId: f.typeId.value }">
+          </ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="mt-2" *ngIf="!isNew">    
+    <div class="row mb-2">
+      <div class="col-12">
+        <ui-datatable (editRecord)='rowLevelSelected($event)' [tableInit]='tableLevelInit'>
+          <ng-template uiNgTemplateCellTemplate='expandTemplate' let-item='item'>
+            <!-- <ui-card> -->
+            <div class="row">
+              <div class="col-12">
+                <div class="row mb-2">
+                  <div class="col-lg-8">
+                    <label>Status List</label>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="pull-right">
+                      <ui-button buttonType="success" icon="fa fa-plus-circle" text="New Status"
+                        (click)="rowStatusSelected(item)">
+                      </ui-button>
+                    </div>
+                  </div>
+                </div>
+                <ui-datatable (editRecord)='rowStatusSelected($event)' [dataValues]='item.data' [tableInit]='item.header'>
+                  <ng-template uiNgTemplateCellTemplate='legendTemplate' let-item='item'>
+                    <span *ngIf="item.color" class="fa fa-circle" [ngStyle]="{color: item.color}"></span>
+                  </ng-template>
+                </ui-datatable>
+              </div>
+            </div>
+          </ng-template>
+        </ui-datatable>
+      </div>
+    </div>
+  </div>
+</ui-card>

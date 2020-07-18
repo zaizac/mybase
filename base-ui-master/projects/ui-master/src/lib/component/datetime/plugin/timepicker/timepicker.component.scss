@@ -1,0 +1,98 @@
+
+.bs-chevron {
+    border-style: solid;
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    border-width: 5px 0px 0 5px;
+    color: darkgray;
+    }
+  
+.bs-chevron-up {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    // top: -18px;
+    }
+  
+.bs-chevron-down {
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    // top: -1px;
+    // margin-left: -34px;
+    }
+  
+.bs-timepicker-field {
+    width: 50px;
+}
+
+.row-box-time-input {
+    display: flex;  //or just flex
+    justify-content: space-between;
+}
+.box-time-input {}
+.hourSelect {
+    display: block;
+    // margin-left: 71px;
+    // margin-top: -23px;
+    display: inline-block;
+    margin-left: -30px;
+    height: 38px;
+    float: right;
+    width: 30px;
+}
+
+.minuteSelect {
+    display: block;
+    // margin-left: 71px;
+    // margin-top: -23px;
+    display: inline-block;
+    margin-left: -30px;
+    height: 38px;
+    float: right;
+    width: 30px;
+}
+.secondSelect {
+    // display: block;
+    // margin-left: 71px;
+    // margin-top: -23px;
+    display: inline-block;
+    margin-left: -30px;
+    height: 38px;
+    float: right;
+    width: 30px;
+}
+.a-select-btn-up {
+    height: 20px;
+    width: 30px;
+    text-align: center;
+    margin-top: -5px;
+}
+.a-select-btn-down {
+    height: 20px;
+    width: 30px;
+    text-align: center;
+    margin-top: -22px;
+}
+
+input.hourtext {
+    width: 100px;
+    text-align: center;
+    height: 25px;
+}
+input.minutetext {
+    width: 100px;
+    text-align: center;
+    height: 25px;
+}
+input.secondtext {
+    width: 100px;
+    text-align: center;
+    height: 25px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

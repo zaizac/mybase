@@ -1,0 +1,26 @@
+<!-- Personal Tab Form Starts -->
+<form [formGroup]="stepOneForm" class="editForm" autocomplete="off">
+  <div class="tab-pane active">
+    <p class="font-medium-2 text-center">{{ title }}</p>
+    <br />
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <label class="form-control-label required">First Name</label>
+        <input class="form-control input-md" type="text" formControlName="firstName" required>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-control-label required">Last Name</label>
+        <input class="form-control input-md" type="text" formControlName="lastName" required>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <label class="form-control-label required">Email</label>
+        <input class="form-control input-md" type="text" formControlName="email" required>
+      </div>
+    </div>
+  </div>
+</form>
+
+<ui-datatable [tableInit]="headerConfig"></ui-datatable>
+<!-- Personal Tab Form Ends -->

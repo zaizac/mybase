@@ -1,0 +1,286 @@
+<ui-card>
+  <h2>Image Thumbnail Upload</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <label> Thumbnail (Left)</label>
+      <ui-file [formControl]="fileLeft" [refDoc]="refDoc" [init]="{ type: 'thumbnail', textAlign: 'left' }"> </ui-file>
+      <div *ngIf="fileLeft.value" style="height: 200px; overflow:scroll;">
+        <p>
+          <br />File Object: <br /><br />
+          {{ fileLeft.value | json }}
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label class="md-title"> Thumbnail (Center)</label>
+      <ui-file [refDoc]="refDoc" [formControl]="fileCenter" [init]="{ type: 'thumbnail', textAlign: 'center' }">
+      </ui-file>
+      <div *ngIf="fileCenter.value" style="height: 200px; overflow:scroll;">
+        <p>
+          <br />File Object: <br /><br />
+          {{ fileCenter.value | json }}
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label> Thumbnail (Right)</label>
+      <ui-file [refDoc]="refDoc" [formControl]="fileRight" [init]="{ type: 'thumbnail', textAlign: 'right' }">
+      </ui-file>
+      <div *ngIf="fileRight.value" style="height: 200px; overflow:scroll;">
+        <p>
+          <br />File Object: <br /><br />
+          {{ fileRight.value | json }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <ui-card>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+            &lt;ui-file&gt;  
+              [refDoc]="refDoc"
+              [init]="{{ '{' }}type:'thumbnail', textAlign:'right'{{ '}' }}"&gt;
+            &lt;/ui-file&gt;
+        </pre>
+      </div>
+    </div>
+  </ui-card>
+  <br />
+  <h2>Image Thumbnail View</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <label> Thumbnail (Left)</label>
+      <ui-file
+        [refDoc]="refDoc"
+        docMgtId="5d64fcdec39a075baccc7fb7"
+        [init]="{ type: 'thumbnail', textAlign: 'left', viewOnly: true }"
+      >
+      </ui-file>
+    </div>
+    <div class="col-md-4">
+      <label> Thumbnail (Center)</label>
+      <ui-file
+        [refDoc]="refDoc"
+        docMgtId="5d64fcdec39a075baccc7fb7"
+        [init]="{ type: 'thumbnail', textAlign: 'center', viewOnly: true }"
+      >
+      </ui-file>
+    </div>
+    <div class="col-md-4">
+      <label> Thumbnail (Right)</label>
+      <ui-file
+        [refDoc]="refDoc"
+        docMgtId="5d64fcdec39a075baccc7fb7"
+        [init]="{ type: 'thumbnail', textAlign: 'right', viewOnly: true }"
+      >
+      </ui-file>
+    </div>
+  </div>
+  <ui-card>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+            &lt;ui-file&gt;  
+              [docMgtId]="docMgtId"
+              [init]="{{ '{' }}type:'thumbnail', textAlign:'right', viewOnly: true{{ '}' }}"&gt;
+            &lt;/ui-file&gt;
+        </pre>
+      </div>
+    </div>
+  </ui-card>
+</ui-card>
+<ui-card>
+  <h2>File Upload</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <label> Basic File Upload </label>
+      <ui-file [refDoc]="refDoc" [formControl]="file" [init]="{ textAlign: 'left', autoUpload: false }"> </ui-file>
+      <br />
+    </div>
+    <!-- <div class="col-md-8" *ngIf="file.value" style="height: 200px; overflow:scroll;">
+      <p>
+        <br />File Object: <br /><br />
+        {{file.value | json}}
+      </p>
+    </div> -->
+  </div>
+  <ui-card>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+            &lt;ui-file&gt;  
+              [refDoc]="refDoc"
+              [init]="{{ '{' }}textAlign:'left'{{ '}' }}"&gt;
+            &lt;/ui-file&gt;
+        </pre>
+      </div>
+    </div>
+  </ui-card>
+  <div class="row">
+    <div class="col-md-4">
+      <label> Button File Upload </label>
+      <ui-file [refDoc]="refDoc" [formControl]="fileBtn" [init]="{ type: 'btnfile', textAlign: 'left' }"> </ui-file>
+      <br />
+    </div>
+    <!-- <div class="col-md-8" *ngIf="fileBtn.value" style="height: 200px; overflow:scroll;">
+      <p>
+        <br />File Object: <br /><br />
+        {{fileBtn.value | json}}
+      </p>
+    </div> -->
+  </div>
+  <ui-card>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+            &lt;ui-file&gt;  
+              [refDoc]="refDoc"
+              [init]="{{ '{' }}type:'btnfile', textAlign:'left'{{ '}' }}"&gt;
+            &lt;/ui-file&gt;
+        </pre>
+      </div>
+    </div>
+  </ui-card>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>File View</h4>
+      <ui-file [refDoc]="refDoc" docMgtId="5d635a18c39a075baccc7f95" [init]="{ viewOnly: true, textAlign: 'left' }">
+      </ui-file>
+    </div>
+  </div>
+  <ui-card>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+            &lt;ui-file&gt;  
+              [docMgtId]="docMgtId"
+              [init]="{{ '{' }}viewOnly:true, textAlign:'left'{{ '}' }}"&gt;
+            &lt;/ui-file&gt;
+        </pre>
+      </div>
+    </div>
+  </ui-card>
+</ui-card>
+<ui-card>
+  <table style="width:100%;">
+    <thead>
+      <tr>
+        <th style="width:25%;">Attribute</th>
+        <th>Type</th>
+        <th>Value</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>docMgtId</td>
+        <td>string</td>
+        <td>
+          document Id <br />
+          *Mandatory if init viewOnly = true
+        </td>
+        <td>
+          <pre ng-non-bindable>[docMgtId]="docMgtId"</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>formControl</td>
+        <td>FormControl</td>
+        <td>Transaction document</td>
+        <td>
+          <pre ng-non-bindable>[formControl] = "file"</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>refDoc</td>
+        <td>FileConfig</td>
+        <td>
+          RefDocuments <br />
+          *Mandatory if init viewOnly = false
+        </td>
+        <td>
+          <pre ng-non-bindable>[refDoc]="refDoc"</pre>
+        </td>
+      </tr>
+      <tr>
+        <td>init</td>
+        <td>FileUploadConfig</td>
+        <td>
+          <li>type : string &#8227; default value == 'file'</li>
+          <li>viewOnly : boolean &#8227; default value == false</li>
+          <li>textAlign : string &#8227; default value == 'center'</li>
+          <li>width : string &#8227; default value == '100%'</li>
+          <li>height : string &#8227; default value == '100%'</li>
+          <li>radius : string &#8227; default value == '4px'</li>
+          <li>autoUpload : boolean &#8227; default value == false</li>
+          <li>cropper : boolean &#8227; default value == false</li>
+          <li>noImgSrc : string &#8227; default value == 'assets/default/images/no_image.jpg'</li>
+        </td>
+        <td>
+          <pre ng-non-bindable>
+[init]={{ '{' }}
+              type:'thumbnail', 
+              viewOnly: true, 
+              width: '70px', 
+              height: '70px', 
+              radius: '20%',
+              noImgSrc: 'assets/default/images/no_image.jpg'
+              {{ '}' }}
+            </pre
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-secondary btn-file" (click)="modalSvc.success('test only')">SUCCESS</button>
+  <button type="button" class="btn btn-secondary btn-file" (click)="modalSvc.error('test only')">ERROR</button>
+  <button type="button" class="btn btn-secondary btn-file" (click)="confirm()">ELEMENT</button>
+  <ng-template #content let-modal>
+    <ui-modal [title]="'Title'" [modal]="modal">
+      <app-file-upload></app-file-upload>
+    </ui-modal>
+  </ng-template>
+</ui-card>
+
+<div class="col-md-12 m-2">
+  <ui-file
+    [refDoc]="refDoc"
+    [docMgtId]="['5d78a16dc39a070e46f1be91', '5dd21304c39a073e3df26f43']"
+    [init]="{ viewOnly: true, textAlign: 'left' }"
+  ></ui-file>
+</div>
+
+<div class="col-md-12 m-2">
+  <ui-file
+    [refDoc]="refDoc"
+    docMgtId="5d78a16dc39a070e46f1be91"
+    [init]="{ viewOnly: true, textAlign: 'left' }"
+  ></ui-file>
+</div>
+
+<ui-card>
+  <h2>Updating file</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <label> Update File Upload </label>
+      <ui-file
+        [refDoc]="getRefDocSix()"
+        [formControl]="updFile"
+        [init]="{ textAlign: 'left'}"
+      >
+      </ui-file>
+      <br />
+    </div>
+  </div>
+</ui-card>

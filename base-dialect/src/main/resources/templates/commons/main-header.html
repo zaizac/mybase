@@ -1,0 +1,57 @@
+<header class="topbar" th:with="systemType=#{system.type}">
+	<nav class="navbar top-navbar navbar-expand-md navbar-light">	
+    	<div class="navbar-header">
+       		<div class="navbar-brand col-xs-12 pull-left">
+	       		<a th:href="@{/}" class="logo">
+	             	<img alt="" th:src="@{'/webjars/base-webjar/images/' + ${#strings.toLowerCase(systemType)} + '/logo.png'}" class="light-logo icon" th:attr="onerror='this.src=\'' + @{/webjars/base-webjar/images/logo.png} + '\';'"/>
+	       		</a>	   
+         	</div>	
+		</div>
+       	<div class="navbar-collapse" th:with="appPortalMode=#{app.portal.mode}" >
+       		<div class="portal-box col-md-10 col-xs-4" th:if="${appPortalMode != ''}">
+       			<h3 class="portal-text col-md-2" th:text="#{app.portal.mode}" />
+       		</div>
+	        	<ul class="navbar-nav hamburger-box">
+					<li class="nav-item">
+	               		<a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu" aria-hidden="true"></i></a> 
+	               	</li>
+	           	</ul>
+           		<ul class="navbar-nav my-lg-0 lang-box float-right" th:if="${appPortalMode == '' || appPortalMode == 'DEVELOPMENT'}">   
+	           		<li class="lang-box2" th:if="${appPortalMode == ''}">
+							<div class="col-md-2"></div>
+					</li>          
+	                <li class="nav-item dropdown">
+				       	<div class="main-lang">
+							<div id="langNavbar" class=" navbar-right dropdown">
+								<span class="lang-title"><th:block th:text="#{lbl.lang.sel}" /></span>
+								<i class="lang-icon mdi mdi-earth mdi-24px" aria-hidden=""></i>
+								<a href="#" class="dropdown-toggle link-lang" data-toggle="dropdown"> 
+									<th:block th:switch="${#strings.toUpperCase(#locale.toString())}">
+										<th:block th:case="EN">EN</th:block>
+										<th:block th:case="MY">MY</th:block>
+									</th:block>
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu drop-lang" role="menu">
+									<th:block th:replace="fragments/portal-fragments :: lang-select" />
+								</ul> 
+							</div>
+						</div>
+	                </li>
+	            </ul>
+	            <th:block sec:authorize="isAuthenticated()">
+           		<ul class="navbar-nav my-lg-0">             
+	                <li class="nav-item dropdown">
+	                	<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                    	<i class="fa fa-user-circle profile-pic" aria-hidden="true"></i>
+	                    </a>
+	                    <!-- <div class="dropdown-menu dropdown-menu-right animated flipInY text-center"> -->
+	                    <div class="dropdown-menu dropdown-menu-right animated flipInY">
+	                    	<th:block th:replace="fragments/portal-fragments :: user-right-menu" />
+	                    </div>
+	                </li>
+	            </ul>
+           	</th:block>             
+       	</div>
+   	</nav>
+</header>

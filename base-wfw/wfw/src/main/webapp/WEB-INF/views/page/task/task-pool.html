@@ -1,0 +1,67 @@
+<div layout:fragment="content">
+     <div id="content-home">
+     <form th:action="@{/task-pool}" method="post" th:object="${task}">
+		<div id="search_criteria">			
+     		<legend th:text="#{lbl.srch.crtra}"></legend>     		
+     		<fieldset>   		
+	     		<table id="fld_container">
+	                <tbody>												
+								<tr>
+									<td th:text="#{lbl.refno}"></td>
+									<td >:&nbsp;</td>
+									<td><input th:type="text" id="appid" th:field="*{appRefNo}"/></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>
+										<input th:type="submit" th:value="#{btn.cmn.sea}"/> 
+										<input name="reset" th:type="submit" th:value="#{btn.cmn.rst}" />
+									</td>
+								</tr>
+	
+					</tbody>
+	            </table>     		
+		</fieldset>	   
+		</div>
+<!-- 		</form>	 -->
+		
+<!-- 		<form th:action="@{/task-list}" method="post" th:object="${task}"> -->
+		<div id="data_table">
+		
+			<table id="tbl_data">		
+					<tr>
+						<th colspan="8" th:text="#{lbl.tasks}"></th>
+					</tr>		
+				<tr>
+					<th th:text="#{lbl.refno}" width="10%"></th>
+					<!-- <th th:text="#{lbl.refno}" width="10%"></th>-->
+					<th th:text="#{lbl.usr.appcant.id}" width="10%"></th>
+					<th th:text="#{lbl.usr.appcant.name}" width="22%"></th>
+					<th th:text="#{lbl.app.date}" width="8%"></th>
+					<th th:text="#{lbl.mod.id}" width="5%"></th>
+					<th th:text="#{lbl.ofcr.id}" width="10%"></th>
+					<th th:text="#{lbl.col.action}" width="5%"></th>
+				</tr>
+				<tr th:each="task : ${dataListObj}">
+					<td><input type="checkbox" th:field="*{taskMasterIdList}" th:value="${task.taskMasterId}" th:text="${task.appRefNo}"/></td>		
+					<!-- <td th:text="${task.refNo}"></td> -->
+					<td th:text="${task.applicantId}"></td>
+					<td th:text="${task.applicant}"></td>
+					<td th:text="${#dates.format(task.appDate, 'dd/MM/yyyy')}"></td>
+					<td th:text="${task.refType.moduleId}"></td>
+					<td th:text="${task.claimBy}"></td>
+					<td style="text-align: center;"><a
+						th:href="@{/task/details(taskMasterId=${task.taskMasterId}, listType='pool')}"><span>Details</span></a></td>
+				</tr>
+				<tr>
+					<th colspan="6"><p th:text="${msg}"></p></th>
+					<th colspan="2" align="right"><input class="btnClaim" width="100%" name="claim" th:type="submit" th:value="Claim" /></th>
+				</tr>
+			</table>
+		</div>
+		
+	</form>	
+    	
+	</div>
+</div>

@@ -1,0 +1,2370 @@
+<div class="row">
+			<div class="col-md-12">
+				
+				<bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-primary&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+						<div class="col-md-12">
+							<bst:button-group>
+								<bst:btn-primary>Primary</bst:btn-primary>
+								<bst:btn-secondary>Secondary</bst:btn-secondary>
+								<bst:btn-success>Success</bst:btn-success>
+								<bst:btn-info>Info</bst:btn-info>
+								<bst:btn-warn>Warning</bst:btn-warn>
+								<bst:btn-danger>Danger</bst:btn-danger>
+							</bst:button-group>
+						</div>
+					</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingOne">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion2"
+			                        href="#collapse1" aria-expanded="true"
+			                        aria-controls="collapseOne"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse1" class="collapse show" role="tabpanel"
+			                  aria-labelledby="headingOne">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-primary /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-success /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-info /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-warn /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-danger /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingTwo">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse2"
+			                        aria-expanded="false"
+			                        aria-controls="collapseTwo"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse2" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingTwo">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-primary&gt;'}" /> a default button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary&gt;'}" /> a secondary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-success&gt;'}" /> a success button in green color.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-info&gt;'}" /> a button for info.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-warn&gt;'}" /> a warning button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-danger&gt;'}" /> a danger button in red color.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingThree">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse3"
+			                        aria-expanded="false"
+			                        aria-controls="collapseThree"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse3" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingThree">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>type</td>
+			                              <td>button</td>
+			                              <td>Specifies the type of button</td>
+			                           </tr>
+			                           <tr>
+			                              <td>value</td>
+			                              <td>text</td>
+			                              <td>Specifies an initial value for the button</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-primary-outline&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+						<div class="col-md-12">
+							<bst:button-group>
+								<bst:button-group>
+									<bst:btn-primary-outline>Primary</bst:btn-primary-outline>
+									<bst:btn-secondary-outline>Secondary</bst:btn-secondary-outline>
+									<bst:btn-success-outline>Success</bst:btn-success-outline>
+									<bst:btn-info-outline>Info</bst:btn-info-outline>
+									<bst:btn-warn-outline>Warning</bst:btn-warn-outline>
+									<bst:btn-danger-outline>Danger</bst:btn-danger-outline>
+								</bst:button-group>
+							</bst:button-group>
+						</div>
+					</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingFour">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse4" aria-expanded="true"
+			                        aria-controls="collapseFour"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse4" class="collapse show" role="tabpanel"
+			                  aria-labelledby="headingFour">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary Outline */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-primary-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary Outline */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:bst:btn-secondary-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success Outline */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-success-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info Outline */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-info-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn Outline */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-warn-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger Outline */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-danger-outline /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingFive">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse5"
+			                        aria-expanded="false"
+			                        aria-controls="collapseFive"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse5" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingFive">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-outline&gt;'}" /> a default button with outline designed</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-outline&gt;'}" /> a secondary button with outline designed</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-success-outline&gt;'}" /> a success button with outline designed</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-info-outline&gt;'}" /> a  info button with outline designed</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-outline&gt;'}" /> a warn button with outline designed</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-outline&gt;'}" /> a danger button with outline designed</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingSix">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse6"
+			                        aria-expanded="false"
+			                        aria-controls="collapseSix"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse6" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingSix">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>type</td>
+			                              <td>button</td>
+			                              <td>Specifies the type of button</td>
+			                           </tr>
+			                           <tr>
+			                              <td>value</td>
+			                              <td>text</td>
+			                              <td>Specifies an initial value for the button</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-primary-rd&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+						<div class="col-md-12">
+							<bst:button-group>
+									<bst:btn-primary-rd>Primary</bst:btn-primary-rd>
+									<bst:btn-secondary-rd>Secondary</bst:btn-secondary-rd>
+									<bst:btn-success-rd>Success</bst:btn-success-rd>
+									<bst:btn-info-rd>Info</bst:btn-info-rd>
+									<bst:btn-warn-rd>Warning</bst:btn-warn-rd>
+									<bst:btn-danger-rd>Danger</bst:btn-danger-rd>
+								</bst:button-group>
+						</div>
+					</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingSeven">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse7" aria-expanded="true"
+			                        aria-controls="collapseSeven"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse7" class="collapse show" role="tabpanel"
+			                  aria-labelledby="headingSeven">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-primary-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-success-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-info-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-warn-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-danger-rd /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingEight">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse8"
+			                        aria-expanded="false"
+			                        aria-controls="collapseEight"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse8" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingEight">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-rd&gt;'}" />  a default button with rounded designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-rd&gt;'}" />  a secondary button with rounded designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-success-rd&gt;'}" />  a success button with rounded designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-info-rd&gt;'}" />  a info button with rounded designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-rd&gt;'}" />  a warn button with rounded designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-rd&gt;'}" />  a danger button with rounded designed.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingNine">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse9"
+			                        aria-expanded="false"
+			                        aria-controls="collapseNine"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse9" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingNine">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-primary-rd-outline&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+						<div class="col-md-12">
+							<bst:button-group>
+									<bst:btn-primary-rd-outline>Primary</bst:btn-primary-rd-outline>
+									<bst:btn-secondary-rd-outline>Secondary</bst:btn-secondary-rd-outline>
+									<bst:btn-success-rd-outline>Success</bst:btn-success-rd-outline>
+									<bst:btn-info-rd-outline>Info</bst:btn-info-rd-outline>
+									<bst:btn-warn-rd-outline>Warning</bst:btn-warn-rd-outline>
+									<bst:btn-danger-rd-outline>Danger</bst:btn-danger-rd-outline>
+								</bst:button-group>
+						</div>
+					</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingTen">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse10" aria-expanded="true"
+			                        aria-controls="collapseTen"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse10" class="collapse show" role="tabpanel"
+			                  aria-labelledby="headingTen">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-primary-rd-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary-rd-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-success-rd-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-info-rd-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-warn-rd-outline /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-danger-rd-outline /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingEleven">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse11"
+			                        aria-expanded="false"
+			                        aria-controls="collapseEleven"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse11" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingEleven">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-rd-outline&gt;'}" /> a default button with rounded outlined designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-rd-outline&gt;'}" /> a secondary button with rounded outlined designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-success-rd-outline&gt;'}" /> a success button with rounded outlined designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-info-rd-outline&gt;'}" /> a info button with rounded outlined designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-rd-outline&gt;'}" /> a warn button with rounded outlined designed.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-rd-outline&gt;'}" /> a danger button with rounded outlined designed.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="headingTwelve">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse12"
+			                        aria-expanded="false"
+			                        aria-controls="collapseTwelve"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse12" class="collapse" role="tabpanel"
+			                  aria-labelledby="headingTwelve">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>size</td>
+			                              <td>default <br/>
+			                              	  extra small <br/>
+			                              	  small <br/>
+			                              	  large</td>
+			                              <td>Specifies the various sizes of the buttons.</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-sizes&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+						<div class="col-md-12">
+							<bst:button-group>
+									<bst:btn-lg-primary>Large .btn-lg</bst:btn-lg-primary>
+									<bst:btn-secondary>Normal .btn</bst:btn-secondary>
+									<bst:btn-sm-success>Small .btn-sm</bst:btn-sm-success>
+									<bst:btn-xs-info>Tiny .btn-xs</bst:btn-xs-info>
+								</bst:button-group>
+						</div>
+					</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3teen">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse13" aria-expanded="true"
+			                        aria-controls="collapse3teen"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse13" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading3teen">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-primary /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-sm-success /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-xs-info /&gt;'}" /><br/><br/>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading4teen">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse14"
+			                        aria-expanded="false"
+			                        aria-controls="collapse4teen"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse14" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading4teen">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-lg-primary&gt;'}" /> large size default button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary&gt;'}" /> default size secondary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-sm-success&gt;'}" /> small size success button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-xs-info&gt;'}" /> extra small size info button.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading5teen">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse15"
+			                        aria-expanded="false"
+			                        aria-controls="collapse5teen"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse15" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading5teen">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                          <td>size</td>
+			                              <td>default <br/>
+			                              	  extra small <br/>
+			                              	  small <br/>
+			                              	  large</td>
+			                              <td>Specifies the various sizes of the buttons.</td>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-sizes-rounded&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+						<div class="col-md-12">
+							<bst:button-group>
+									<bst:btn-lg-primary-rd>Large .btn-lg</bst:btn-lg-primary-rd>
+									<bst:btn-secondary-rd>Normal .btn</bst:btn-secondary-rd>
+									<bst:btn-sm-success-rd>Small .btn-sm</bst:btn-sm-success-rd>
+									<bst:btn-xs-info-rd>Tiny .btn-xs</bst:btn-xs-info-rd>
+								</bst:button-group>
+						</div>
+					</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading6teen">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse16" aria-expanded="true"
+			                        aria-controls="collapse6teen"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse16" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading6teen">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-primary-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-sm-success-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-xs-info-rd /&gt;'}" /><br/><br/>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading7teen">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse17"
+			                        aria-expanded="false"
+			                        aria-controls="collapse7teen"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse17" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading7teen">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-lg-primary-rd&gt;'}" /> large size default rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-rd&gt;'}" /> default size secondary rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-sm-success-rd&gt;'}" /> small size success rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-xs-info-rd&gt;'}" /> extra small size info rounded button.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading8teen">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse18"
+			                        aria-expanded="false"
+			                        aria-controls="collapse8teen"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse18" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading8teen">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-block&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <bst:button-group class="row">
+						<div class="col-lg-2 col-md-4 py-1">
+							<bst:btn-block-info>Info</bst:btn-block-info>
+						</div>
+						<div class="col-lg-2 col-md-4 py-1">
+							<bst:btn-block-success>Success</bst:btn-block-success>
+						</div>
+						<div class="col-lg-2 col-md-4 py-1">
+							<bst:btn-block-primary>Primary</bst:btn-block-primary>
+						</div>
+						<div class="col-lg-2 col-md-4 py-1">
+							<bst:btn-block-danger>Danger</bst:btn-block-danger>
+						</div>
+						<div class="col-lg-2 col-md-4 py-1">
+							<bst:btn-block-secondary>Secondary</bst:btn-block-secondary>
+						</div>
+						<div class="col-lg-2 col-md-4 py-1">
+							<bst:btn-block-warn>Warning</bst:btn-block-warn>
+						</div>
+					</bst:button-group>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading9teen">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse19" aria-expanded="true"
+			                        aria-controls="collapse9teen"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse19" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading9teen">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Block Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-info /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Block Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-success /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Block Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-primary /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Block Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-danger /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Block Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-secondary /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Block Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-warn /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2ty">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse20"
+			                        aria-expanded="false"
+			                        aria-controls="collapse2ty"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse20" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading2ty">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-info&gt;'}" /> a block info button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-success&gt;'}" /> a block success button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-primary&gt;'}" /> a block primary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-danger&gt;'}" /> a block danger button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-secondary&gt;'}" /> a block secondary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-warn&gt;'}" /> a block warn button.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2one">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse21"
+			                        aria-expanded="false"
+			                        aria-controls="collapse2one"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse21" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading2one">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-block-rd&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <bst:button-group class="row">
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-info-rd>Info</bst:btn-block-info-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-success-rd>Success</bst:btn-block-success-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-primary-rd>Primary</bst:btn-block-primary-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-danger-rd>Danger</bst:btn-block-danger-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-secondary-rd>Secondary</bst:btn-block-secondary-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-warn-rd>Warning</bst:btn-block-warn-rd>
+							</div>
+						</bst:button-group>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2two">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse22" aria-expanded="true"
+			                        aria-controls="collapse2two"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse22" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading2two">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-info-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-success-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-primary-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-danger-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-secondary-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-warn-rd /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2three">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse23"
+			                        aria-expanded="false"
+			                        aria-controls="collapse2three"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse23" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading2three">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-info-rd&gt;'}" /> a block info rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-success-rd&gt;'}" /> a block info rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-primary-rd&gt;'}" /> a block info rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-danger-rd&gt;'}" /> a block info rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-secondary-rd&gt;'}" /> a block info rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-warn-rd&gt;'}" /> a block info rounded button.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2four">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse24"
+			                        aria-expanded="false"
+			                        aria-controls="collapse2four"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse24" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading2four">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-block-ol&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <bst:button-group class="row">
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-info-ol>Info hello</bst:btn-block-info-ol>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-success-ol>Success</bst:btn-block-success-ol>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-primary-ol>Primary</bst:btn-block-primary-ol>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-danger-ol>Danger</bst:btn-block-danger-ol>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-secondary-ol>Secondary</bst:btn-block-secondary-ol>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-warn-ol>Warning</bst:btn-block-warn-ol>
+							</div>
+						</bst:button-group>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2five">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse25" aria-expanded="true"
+			                        aria-controls="collapse2five"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse25" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading2five">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-info-ol /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-success-ol /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-primary-ol /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-danger-ol /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-secondary-ol /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:bst:btn-block-warn-ol /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2six">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse26"
+			                        aria-expanded="false"
+			                        aria-controls="collapse2six"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse26" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading2six">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-info-ol&gt;'}" /> an outline block info button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-success-ol&gt;'}" /> an outline block success button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-primary-ol&gt;'}" /> an outline block primary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-danger-ol&gt;'}" /> an outline block danger button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-secondary-ol&gt;'}" /> an outline block secondary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-warn-ol&gt;'}" /> an outline block warn button.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2seven">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse27"
+			                        aria-expanded="false"
+			                        aria-controls="collapse2seven"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse27" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading2seven">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-block-ol-rd&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <bst:button-group class="row">
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-info-ol-rd>Info</bst:btn-block-info-ol-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-success-ol-rd>Success</bst:btn-block-success-ol-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-primary-ol-rd>Primary</bst:btn-block-primary-ol-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-danger-ol-rd>Danger</bst:btn-block-danger-ol-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-secondary-ol-rd>Secondary</bst:btn-block-secondary-ol-rd>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-block-warn-ol-rd>Warning</bst:btn-block-warn-ol-rd>
+							</div>
+						</bst:button-group>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2eight">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse28" aria-expanded="true"
+			                        aria-controls="collapse2eight"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse28" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading2eight">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-info-ol-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-success-ol-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-primary-ol-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-danger-ol-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-block-secondary-ol-rd /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;btn-block-warn-ol-rd /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading2nine">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse29"
+			                        aria-expanded="false"
+			                        aria-controls="collapse2nine"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse29" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading2nine">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-info-ol-rd&gt;'}" /> an outline block info rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-success-ol-rd&gt;'}" /> an outline block success rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-primary-ol-rd&gt;'}" /> an outline block primary rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-danger-ol-rd&gt;'}" /> an outline block danger rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-secondary-ol-rd&gt;'}" /> an outline block secondary rounded button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-block-warn-ol-rd&gt;'}" /> an outline block warn rounded button.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3ty">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse30"
+			                        aria-expanded="false"
+			                        aria-controls="collapse3ty"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse30" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading3ty">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-lg-blk&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <bst:button-group class="row">
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-lg-blk-info>Info</bst:btn-lg-blk-info>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-lg-blk-success>Success</bst:btn-lg-blk-success>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-lg-blk-primary>Primary</bst:btn-lg-blk-primary>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-lg-blk-danger>Danger</bst:btn-lg-blk-danger>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-lg-blk-secondary>Second</bst:btn-lg-blk-secondary>
+							</div>
+							<div class="col-lg-2 col-md-4 py-1">
+								<bst:btn-lg-blk-warn>Warning hey</bst:btn-lg-blk-warn>
+							</div>
+						</bst:button-group>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3one">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse31" aria-expanded="true"
+			                        aria-controls="collapse3one"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse31" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading3one">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-blk-info /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-blk-success /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-blk-primary /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-blk-danger /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-blk-secondary	 /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-lg-blk-warn /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3two">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse32"
+			                        aria-expanded="false"
+			                        aria-controls="collapse3two"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse32" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading3two">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-lg-blk-info&gt;'}" /> a large block info button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-lg-blk-success&gt;'}" /> a large block success button.</p>
+			                     <p>The <th:block th:text="#{'&lt;btn-lg-blk-primary&gt;'}" /> a large block primary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-lg-blk-danger&gt;'}" /> a large block danger button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-lg-blk-secondary&gt;'}" /> a large block secondary button.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-lg-blk-warn&gt;'}" /> a large block warn button.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3three">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse33"
+			                        aria-expanded="false"
+			                        aria-controls="collapse3three"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse33" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading3three">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-icon&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+							<div class="col-md-12">
+								<bst:btn-primary type="button">
+									<i class="fa fa-check"></i> Primary
+								</bst:btn-primary>
+								<bst:btn-secondary type="button">
+									Secondary <i class="fa fa-heart"></i>
+								</bst:btn-secondary>
+								<bst:btn-success type="button">
+									<i class="fa fa-check"></i> Success
+								</bst:btn-success>
+								<bst:btn-info type="button">
+									<i class="fa fa-heart"></i> Info
+								</bst:btn-info>
+								<bst:btn-warn type="button">
+									<i class="fa fa-heart"></i> Warning
+								</bst:btn-warn>
+								<bst:btn-danger type="button">
+									<i class="fa fa-heart"></i> Danger
+								</bst:btn-danger>
+							</div>
+						</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3Four">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse34" aria-expanded="true"
+			                        aria-controls="collapse3Four"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse34" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading3Four">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-primary type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-success type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-info type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-warn type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-danger type=\'button\' /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3Five">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse35"
+			                        aria-expanded="false"
+			                        aria-controls="collapse3Five"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse35" class="collapse" role="tabp anel"
+			                  aria-labelledby="heading3Five">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-primary&gt;'}" /> a default button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary&gt;'}" /> a secondary default button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-success&gt;'}" /> a success button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-info&gt;'}" /> an info button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-warn&gt;'}" /> a warn button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-danger&gt;'}" /> a danger button with an icon.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3Six">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse36"
+			                        aria-expanded="false"
+			                        aria-controls="collapse3Six"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse36" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading3Six">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-wave&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+							<div class="col-md-12">
+								<bst:btn-primary-wave type="button">
+									<span class="btn-label"><i class="fa fa-envelope-o"></i></span>Mail
+								</bst:btn-primary-wave>
+								<bst:btn-secondary-wave type="button">
+									<span class="btn-label"><i class="fa fa-check"></i></span>Check
+								</bst:btn-secondary-wave>
+								<bst:btn-info-wave type="button">
+									<span class="btn-label"><i class="fa fa-heart"></i></span>Heart
+								</bst:btn-info-wave>
+								<bst:btn-warn-wave type="button">
+									<span class="btn-label"><i class="fa fa-envelope-o"></i></span>Mail
+								</bst:btn-warn-wave>
+								<bst:btn-danger-wave type="button">
+									<span class="btn-label"><i class="fa fa-heart"></i></span>Heart
+								</bst:btn-danger-wave>
+							</div>
+						</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3Seven">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse37" aria-expanded="true"
+			                        aria-controls="collapse3Seven"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse37" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading3Seven">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-primary-wave type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary-wave type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-info-wave type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-warn-wave type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-danger-wave type=\'button\' /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3Eight">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse38"
+			                        aria-expanded="false"
+			                        aria-controls="collapse3Eight"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse38" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading3Eight">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-wave&gt;'}" /> a default icon button with wave effect.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-wave&gt;'}" /> a secondary default icon button with wave effect.</p>
+			                     <p>The <th:block th:text="#{'&lt;btn-info-wave&gt;'}" /> a info icon button with wave effect.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-wave&gt;'}" /> a warn icon button with wave effect.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-wave&gt;'}" /> a danger icon button with wave effect.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading3Nine">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse39"
+			                        aria-expanded="false"
+			                        aria-controls="collapse3Nine"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse39" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading3Nine">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+			      <bst:widget-header>
+			         <h4 th:text="#{'&lt;bst:btn-rd&gt; Tag'}" />
+			      </bst:widget-header>
+			      <bst:widget-body th:classappend="mb-10">
+			          <div class="row">
+							<div class="col-md-12">
+<!-- 							<bst:button-group class="row"> -->
+								<bst:btn-primary-rd type="button">
+									<i class="fa fa-check"></i> Primary
+								</bst:btn-primary-rd>
+								<bst:btn-secondary-rd type="button">
+									Secondary <i class="fa fa-heart"></i>
+								</bst:btn-secondary-rd>
+								<bst:btn-success-rd type="button">
+									<i class="fa fa-check"></i> Success
+								</bst:btn-success-rd>
+								<bst:btn-info-rd type="button">
+									<i class="fa fa-heart"></i> Info
+								</bst:btn-info-rd>
+								<bst:btn-warn-rd type="button">
+									<i class="fa fa-heart"></i> Warning
+								</bst:btn-warn-rd>
+								<bst:btn-danger-rd type="button">
+									<i class="fa fa-heart"></i> Danger
+								</bst:btn-danger-rd>
+<!-- 							 </bst:button-group> -->
+							</div>
+						</div>
+			         <br/>
+			         <div id="accordion2" class="accordion" role="tablist"
+			            aria-multiselectable="true">
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading4ty">
+			                  <h5 class="mb-0">
+			                     <a data-toggle="collapse" data-parent="#accordion4"
+			                        href="#collapse40" aria-expanded="true"
+			                        aria-controls="collapse4ty"> Example</a>
+			                  </h5>
+			               </div>
+			               <div id="collapse40" class="collapse show" role="tabpanel"
+			                  aria-labelledby="heading4ty">
+			                  <div class="card-body">
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-primary-rd type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-secondary-rd type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-success-rd type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-info-rd type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-warn-rd type=\'button\' /&gt;'}" /><br/><br/>
+			                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+			                     <th:block th:text="#{'&lt;bst:btn-danger-rd type=\'button\' /&gt;'}" />
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading4one">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse41"
+			                        aria-expanded="false"
+			                        aria-controls="collapse4one"> Definition and
+			                        Usage </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse41" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading4one">
+			                  <div class="card-body">
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-rd&gt;'}" /> a default rounded button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-rd&gt;'}" /> a secondary default rounded button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-success-rd&gt;'}" /> a success rounded button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-info-rd&gt;'}" /> a info rounded button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-rd&gt;'}" /> a warn rounded button with an icon.</p>
+			                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-rd&gt;'}" /> a danger rounded button with an icon.</p>
+			                  </div>
+			               </div>
+			            </div>
+			            <div class="card">
+			               <div class="card-header" role="tab" id="heading4two">
+			                  <h5 class="mb-0">
+			                     <a class="collapsed" data-toggle="collapse"
+			                        data-parent="#accordion2" href="#collapse42"
+			                        aria-expanded="false"
+			                        aria-controls="collapse4two"> Attributes </a>
+			                  </h5>
+			               </div>
+			               <div id="collapse42" class="collapse" role="tabpanel"
+			                  aria-labelledby="heading4two">
+			                  <div class="card-body">
+			                     <bst:table-light style="font-size: 12px;">
+			                        <thead>
+			                           <tr>
+			                              <th>Attribute</th>
+			                              <th>Value</th>
+			                              <th>Description</th>
+			                           </tr>
+			                        </thead>
+			                        <tbody>
+			                           <tr>
+			                              <td>placeholder</td>
+			                              <td>#docMgtId</td>
+			                              <td>Specifies the docMgtId generated
+			                                 in DM Service</td>
+			                           </tr>
+			                        </tbody>
+			                     </bst:table-light>
+			                  </div>
+			               </div>
+			            </div>
+			         </div>
+			      </bst:widget-body>
+			   </bst:widget>
+			   
+			   <bst:widget>
+				      <bst:widget-header>
+				         <h4 th:text="#{'&lt;bst:btn-outline&gt; Tag'}" />
+				      </bst:widget-header>
+				      <bst:widget-body th:classappend="mb-10">
+							<div class="row">
+								<div class="col-md-12">
+									<bst:btn-primary-outline type="button">
+										<i class="fa fa-check"></i> Primary
+									</bst:btn-primary-outline>
+									<bst:btn-secondary-outline type="button">
+										Secondary <i class="fa fa-heart"></i>
+									</bst:btn-secondary-outline>
+									<bst:btn-success-outline type="button">
+										<i class="fa fa-check"></i> Success
+									</bst:btn-success-outline>
+									<bst:btn-info-outline type="button">
+										<i class="fa fa-heart"></i> Info
+									</bst:btn-info-outline>
+									<bst:btn-warn-outline type="button"> 
+										<i class="fa fa-heart"></i> Warning
+									</bst:btn-warn-outline>
+									<bst:btn-danger-outline type="button">
+										<i class="fa fa-heart"></i> Danger
+									</bst:btn-danger-outline>
+								</div>
+							</div>
+							<br/>
+							<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+					            <div class="card">
+					               <div class="card-header" role="tab" id="heading4three">
+					                  <h5 class="mb-0">
+					                     <a data-toggle="collapse" data-parent="#accordion4"
+					                        href="#collapse43" aria-expanded="true"
+					                        aria-controls="collapse4three"> Example</a>
+					                  </h5>
+					               </div>
+					               <div id="collapse43" class="collapse show" role="tabpanel"
+					                  aria-labelledby="heading4three">
+					                  <div class="card-body">
+					                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+					                     <th:block th:text="#{'&lt;btn-primary-outline type=\'button\' /&gt;'}" /><br/><br/>
+					                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+					                     <th:block th:text="#{'&lt;bst:btn-secondary-outline type=\'button\' /&gt;'}" /><br/><br/>
+					                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+					                     <th:block th:text="#{'&lt;bst:btn-success-outline type=\'button\' /&gt;'}" /><br/><br/>
+					                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+					                     <th:block th:text="#{'&lt;bst:btn-info-outline type=\'button\' /&gt;'}" /><br/><br/>
+					                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+					                     <th:block th:text="#{'&lt;bst:btn-warn-outline type=\'button\' /&gt;'}" /><br/><br/>
+					                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+					                     <th:block th:text="#{'&lt;bst:btn-danger-outline type=\'button\' /&gt;'}" />
+					                  </div>
+					               </div>
+					            </div>
+					            <div class="card">
+					               <div class="card-header" role="tab" id="heading4four">
+					                  <h5 class="mb-0">
+					                     <a class="collapsed" data-toggle="collapse"
+					                        data-parent="#accordion2" href="#collapse44"
+					                        aria-expanded="false"
+					                        aria-controls="collapse4four"> Definition and
+					                        Usage </a>
+					                  </h5>
+					               </div>
+					               <div id="collapse44" class="collapse" role="tabpanel"
+					                  aria-labelledby="heading4four">
+					                  <div class="card-body">
+					                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-outline&gt;'}" /> a default outline button with an icon.</p>
+					                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-outline&gt;'}" /> a secondary outline button with an icon.</p>
+					                     <p>The <th:block th:text="#{'&lt;bst:btn-success-outline&gt;'}" /> a success outline button with an icon.</p>
+					                     <p>The <th:block th:text="#{'&lt;bst:btn-info-outline&gt;'}" /> a info outline button with an icon.</p>
+					                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-outline&gt;'}" /> a warn outline button with an icon.</p>
+					                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-outline&gt;'}" /> a danger outline button with an icon.</p>
+					                  </div>
+					               </div>
+					            </div>
+					            <div class="card">
+					               <div class="card-header" role="tab" id="heading4five">
+					                  <h5 class="mb-0">
+					                     <a class="collapsed" data-toggle="collapse"
+					                        data-parent="#accordion2" href="#collapse45"
+					                        aria-expanded="false"
+					                        aria-controls="collapse4five"> Attributes </a>
+					                  </h5>
+					               </div>
+					               <div id="collapse45" class="collapse" role="tabpanel"
+					                  aria-labelledby="heading4five">
+					                  <div class="card-body">
+					                     <bst:table-light style="font-size: 12px;">
+					                        <thead>
+					                           <tr>
+					                              <th>Attribute</th>
+					                              <th>Value</th>
+					                              <th>Description</th>
+					                           </tr>
+					                        </thead>
+					                        <tbody>
+					                           <tr>
+					                              <td>placeholder</td>
+					                              <td>#docMgtId</td>
+					                              <td>Specifies the docMgtId generated
+					                                 in DM Service</td>
+					                           </tr>
+					                        </tbody>
+					                     </bst:table-light>
+					                  </div>
+					               </div>
+					            </div>
+					         </div>
+						</bst:widget-body>
+					</bst:widget>
+			   		<bst:widget>
+						      <bst:widget-header>
+						         <h4 th:text="#{'&lt;bst:btn-wave-ol&gt; Tag'}" />
+						      </bst:widget-header>
+						      <bst:widget-body th:classappend="mb-10">
+								<div class="row">
+									<div class="col-md-12">
+										<bst:btn-primary-wave-ol type="button">
+											<span class="btn-label"><i class="fa fa-envelope-o"></i></span>Mail
+										</bst:btn-primary-wave-ol>
+										<bst:btn-secondary-wave-ol type="button">
+											<span class="btn-label"><i class="fa fa-check"></i></span>Check
+										</bst:btn-secondary-wave-ol>
+										<bst:btn-info-wave-ol type="button">
+											<span class="btn-label"><i class="fa fa-heart"></i></span>Heart
+										</bst:btn-info-wave-ol>
+										<bst:btn-warn-wave-ol type="button">
+											<span class="btn-label"><i class="fa fa-envelope-o"></i></span>Mail
+										</bst:btn-warn-wave-ol>
+										<bst:btn-danger-wave-ol type="button">
+											<span class="btn-label"><i class="fa fa-heart"></i></span>Heart
+										</bst:btn-danger-wave-ol>
+									</div>
+								</div>
+								<br/>
+								<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading4six">
+							                  <h5 class="mb-0">
+							                     <a data-toggle="collapse" data-parent="#accordion4"
+							                        href="#collapse46" aria-expanded="true"
+							                        aria-controls="collapse4six"> Example</a>
+							                  </h5>
+							               </div>
+							               <div id="collapse46" class="collapse show" role="tabpanel"
+							                  aria-labelledby="heading4six">
+							                  <div class="card-body">
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-primary-wave-ol type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-secondary-wave-ol type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-info-wave-ol type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-warn-wave-ol type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-danger-wave-ol type=\'button\' /&gt;'}" />
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading4seven">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse47"
+							                        aria-expanded="false"
+							                        aria-controls="collapse4seven"> Definition and
+							                        Usage </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse47" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading4seven">
+							                  <div class="card-body">
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-wave-ol&gt;'}" /> a default outline icon button with wave effect.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-wave-ol&gt;'}" /> a secondary outline icon button with wave effect.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-info-wave-ol&gt;'}" /> a info outline icon button with wave effect.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-wave-ol&gt;'}" /> a warn outline icon button with wave effect.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-wave-ol&gt;'}" /> a danger outline icon button with wave effect.</p>
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading4eight">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse48"
+							                        aria-expanded="false"
+							                        aria-controls="collapse4eight"> Attributes </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse48" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading4eight">
+							                  <div class="card-body">
+							                     <bst:table-light style="font-size: 12px;">
+							                        <thead>
+							                           <tr>
+							                              <th>Attribute</th>
+							                              <th>Value</th>
+							                              <th>Description</th>
+							                           </tr>
+							                        </thead>
+							                        <tbody>
+							                           <tr>
+							                              <td>placeholder</td>
+							                              <td>#docMgtId</td>
+							                              <td>Specifies the docMgtId generated
+							                                 in DM Service</td>
+							                           </tr>
+							                        </tbody>
+							                     </bst:table-light>
+							                  </div>
+							               </div>
+							            </div>
+							         </div>
+							</bst:widget-body>
+						</bst:widget>
+						
+						<bst:widget>
+						      <bst:widget-header>
+						         <h4 th:text="#{'&lt;bst:btn-rd-outline&gt; Tag'}" />
+						      </bst:widget-header>
+						      <bst:widget-body th:classappend="mb-10">
+								<div class="row">
+									<div class="col-md-12">
+										<bst:btn-primary-rd-outline type="button">
+											<i class="fa fa-check"></i> Primary
+										</bst:btn-primary-rd-outline>
+										<bst:btn-secondary-rd-outline type="button">
+											Secondary <i class="fa fa-heart"></i>
+										</bst:btn-secondary-rd-outline>
+										<bst:btn-success-rd-outline type="button">
+											<i class="fa fa-check"></i> Success
+										</bst:btn-success-rd-outline>
+										<bst:btn-info-rd-outline type="button">
+											<i class="fa fa-heart"></i> Info
+										</bst:btn-info-rd-outline>
+										<bst:btn-warn-rd-outline type="button">
+											<i class="fa fa-heart"></i> Warning
+										</bst:btn-warn-rd-outline>
+										<bst:btn-danger-rd-outline type="button">
+											<i class="fa fa-heart"></i> Danger
+										</bst:btn-danger-rd-outline>
+									</div>
+								</div>
+								<br/>
+								<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading4nine">
+							                  <h5 class="mb-0">
+							                     <a data-toggle="collapse" data-parent="#accordion4"
+							                        href="#collapse49" aria-expanded="true"
+							                        aria-controls="collapse4nine"> Example</a>
+							                  </h5>
+							               </div>
+							               <div id="collapse49" class="collapse show" role="tabpanel"
+							                  aria-labelledby="heading4nine">
+							                  <div class="card-body">
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-primary-rd-outline type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-secondary-rd-outline type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-success-rd-outline type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-info-rd-outline type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-warn-rd-outline type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-danger-rd-outline type=\'button\' /&gt;'}" />
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5ty">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse50"
+							                        aria-expanded="false"
+							                        aria-controls="collapse5ty"> Definition and
+							                        Usage </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse50" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading5ty">
+							                  <div class="card-body">
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-rd-outline&gt;'}" /> a default outline rounded icon button.</p>
+							                     <p>The <th:block th:text="#{'&lt;btn-secondary-rd-outline&gt;'}" /> a secondary default outline rounded icon button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-success-rd-outline&gt;'}" /> a success outline rounded icon button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-info-rd-outline&gt;'}" /> a info outline rounded icon button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-rd-outline&gt;'}" /> a warn outline rounded icon button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-rd-outline&gt;'}" /> a danger outline rounded icon button.</p>
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5one">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse51"
+							                        aria-expanded="false"
+							                        aria-controls="collapse5one"> Attributes </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse51" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading5one">
+							                  <div class="card-body">
+							                     <bst:table-light style="font-size: 12px;">
+							                        <thead>
+							                           <tr>
+							                              <th>Attribute</th>
+							                              <th>Value</th>
+							                              <th>Description</th>
+							                           </tr>
+							                        </thead>
+							                        <tbody>
+							                           <tr>
+							                              <td>placeholder</td>
+							                              <td>#docMgtId</td>
+							                              <td>Specifies the docMgtId generated
+							                                 in DM Service</td>
+							                           </tr>
+							                        </tbody>
+							                     </bst:table-light>
+							                  </div>
+							               </div>
+							            </div>
+							         </div>
+							</bst:widget-body>
+						</bst:widget>
+						
+						<bst:widget>
+						      <bst:widget-header>
+						         <h4 th:text="#{'&lt;bst:btn-dp&gt; Tag'}" />
+						      </bst:widget-header>
+						      <bst:widget-body th:classappend="mb-10">
+								<div class="row">
+									<bst:btn-group>
+										<bst:btn-danger-dp type="button"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Action</bst:btn-danger-dp>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Separated link</a>
+										</div>
+									</bst:btn-group>
+									<!-- Example single danger button -->
+									<bst:btn-group>
+										<bst:btn-info-dp type="button"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Action</bst:btn-info-dp>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Separated link</a>
+										</div>
+									</bst:btn-group>
+		
+									<!-- Example single danger button -->
+									<bst:btn-group>
+										<bst:btn-primary-dp type="button" class="btn btn-primary dropdown-toggle"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Action</bst:btn-primary-dp>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Separated link</a>
+										</div>
+									</bst:btn-group>
+									<!-- Example single danger button -->
+									<bst:btn-group>
+										<bst:btn-warn-dp type="button"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Action</bst:btn-warn-dp>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Separated link</a>
+										</div>
+									</bst:btn-group>
+									<!-- Example single danger button -->
+									<bst:btn-group>
+										<bst:btn-success-dp type="button"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Action</bst:btn-success-dp>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Separated link</a>
+										</div>
+									</bst:btn-group>
+									<!-- Example single danger button -->
+									<bst:btn-group>
+										<bst:btn-secondary-dp type="button"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Action</bst:btn-secondary-dp>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Separated link</a>
+										</div>
+									</bst:btn-group>
+								</div>
+								<br/>
+								<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5two">
+							                  <h5 class="mb-0">
+							                     <a data-toggle="collapse" data-parent="#accordion4"
+							                        href="#collapse52" aria-expanded="true"
+							                        aria-controls="collapse5two"> Example</a>
+							                  </h5>
+							               </div>
+							               <div id="collapse52" class="collapse show" role="tabpanel"
+							                  aria-labelledby="heading5two">
+							                  <div class="card-body">
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-danger-dp type=\'button\' data-toggle=\'dropdown\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-info-dp type=\'button\' data-toggle=\'dropdown\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Success */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-primary-dp type=\'button\' data-toggle=\'dropdown\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Info */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-warn-dp type=\'button\' data-toggle=\'dropdown\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-success-dp type=\'button\'data-toggle=\'dropdown\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-secondary-dp type=\'button\'data-toggle=\'dropdown\' /&gt;'}" />
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5five">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse55"
+							                        aria-expanded="false"
+							                        aria-controls="collapse5five"> Definition and
+							                        Usage </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse55" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading5five">
+							                  <div class="card-body">
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-dp&gt;'}" /> a danger dropdown button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-info-dp&gt;'}" /> a info dropdown button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-dp&gt;'}" /> a default dropdown button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-dp&gt;'}" /> a warn dropdown button</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-success-dp&gt;'}" /> a success dropdown button.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-dp&gt;'}" /> a secondary dropdown button.</p>
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5six">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse56"
+							                        aria-expanded="false"
+							                        aria-controls="collapse5six"> Attributes </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse56" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading5six">
+							                  <div class="card-body">
+							                     <bst:table-light style="font-size: 12px;">
+							                        <thead>
+							                           <tr>
+							                              <th>Attribute</th>
+							                              <th>Value</th>
+							                              <th>Description</th>
+							                           </tr>
+							                        </thead>
+							                        <tbody>
+							                           <tr>
+							                              <td>placeholder</td>
+							                              <td>#docMgtId</td>
+							                              <td>Specifies the docMgtId generated
+							                                 in DM Service</td>
+							                           </tr>
+							                        </tbody>
+							                     </bst:table-light>
+							                  </div>
+							               </div>
+							            </div>
+							         </div>
+							</bst:widget-body>
+						</bst:widget>
+						<bst:widget>
+						      <bst:widget-header>
+						         <h4 th:text="#{'&lt;bst:btn-cl&gt; Tag'}" />
+						      </bst:widget-header>
+						      <bst:widget-body th:classappend="mb-10">
+								<bst:btn-secondary-cl type="button">
+									<i class="fa fa-check"></i>
+								</bst:btn-secondary-cl>
+								<bst:btn-primary-cl type="button">
+									<i class="fa fa-list"></i>
+								</bst:btn-primary-cl>
+								<bst:btn-success-cl type="button">
+									<i class="fa fa-link"></i>
+								</bst:btn-success-cl>
+								<bst:btn-info-cl type="button">
+									<i class="fa fa-check"></i>
+								</bst:btn-info-cl>
+								<bst:btn-warn-cl type="button">
+									<i class="fa fa-times"></i>
+								</bst:btn-warn-cl>
+								<bst:btn-danger-cl type="button">
+									<i class="fa fa-heart"></i>
+								</bst:btn-danger-cl>
+								<br/>
+								<br/>
+								<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5seven">
+							                  <h5 class="mb-0">
+							                     <a data-toggle="collapse" data-parent="#accordion4"
+							                        href="#collapse57" aria-expanded="true"
+							                        aria-controls="collapse5seven"> Example</a>
+							                  </h5>
+							               </div>
+							               <div id="collapse57" class="collapse show" role="tabpanel"
+							                  aria-labelledby="heading5seven">
+							                  <div class="card-body">
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Secondary Circle */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-secondary-cl type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary Circle */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-primary-cl type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Success Circle */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-success-cl type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Info Circle */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-info-cl type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn Circle */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-warn-cl type=\'button\' /&gt;'}" /><br/><br/>
+							                     <p class="text-success" th:text="#{'&lt;!--/* Button Danger Circle */--&gt;'}" ></p>
+							                     <th:block th:text="#{'&lt;bst:btn-danger-cl type=\'button\' /&gt;'}" />
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5eight">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse58"
+							                        aria-expanded="false"
+							                        aria-controls="collapse5eight"> Definition and
+							                        Usage </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse58" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading5eight">
+							                  <div class="card-body">
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-secondary-cl&gt;'}" /> a secondary button with an icon.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-primary-cl&gt;'}" /> a primary button with an icon.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-success-cl&gt;'}" /> a success button with an icon.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-info-cl&gt;'}" /> a info button with an icon.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-warn-cl&gt;'}" /> a warn button with an icon.</p>
+							                     <p>The <th:block th:text="#{'&lt;bst:btn-danger-cl&gt;'}" /> a danger button with an icon.</p>
+							                  </div>
+							               </div>
+							            </div>
+							            <div class="card">
+							               <div class="card-header" role="tab" id="heading5nine">
+							                  <h5 class="mb-0">
+							                     <a class="collapsed" data-toggle="collapse"
+							                        data-parent="#accordion2" href="#collapse59"
+							                        aria-expanded="false"
+							                        aria-controls="collapse5nine"> Attributes </a>
+							                  </h5>
+							               </div>
+							               <div id="collapse59" class="collapse" role="tabpanel"
+							                  aria-labelledby="heading5nine">
+							                  <div class="card-body">
+							                     <bst:table-light style="font-size: 12px;">
+							                        <thead>
+							                           <tr>
+							                              <th>Attribute</th>
+							                              <th>Value</th>
+							                              <th>Description</th>
+							                           </tr>
+							                        </thead>
+							                        <tbody>
+							                           <tr>
+							                              <td>placeholder</td>
+							                              <td>#docMgtId</td>
+							                              <td>Specifies the docMgtId generated
+							                                 in DM Service</td>
+							                           </tr>
+							                        </tbody>
+							                     </bst:table-light>
+							                  </div>
+							               </div>
+							            </div>
+							         </div>
+								</bst:widget-body>
+							</bst:widget>
+								<br /> <br />
+								<bst:widget>
+							      <bst:widget-header>
+							         <h4 th:text="#{'&lt;bst:social-btn&gt; Tag'}" />
+							      </bst:widget-header>
+							      <bst:widget-body th:classappend="mb-10">
+											<bst:btn-facebook type="button">
+												<i class="fa fa-facebook"></i>
+											</bst:btn-facebook>
+											<bst:btn-twitter type="button">
+												<i class="fa fa-twitter"></i>
+											</bst:btn-twitter>
+											<bst:btn-google type="button">
+												<i class="fa fa-google-plus"></i>
+											</bst:btn-google>
+											<bst:btn-linkedin type="button">
+												<i class="fa fa-linkedin"></i>
+											</bst:btn-linkedin>
+											<bst:btn-ig type="button">
+												<i class="fa fa-instagram"></i>
+											</bst:btn-ig>
+											<bst:btn-pinterest type="button">
+												<i class="fa fa-pinterest"></i>
+											</bst:btn-pinterest>
+											<bst:btn-dribbble type="button">
+												<i class="fa fa-dribbble"></i>
+											</bst:btn-dribbble>
+											<bst:btn-youtube type="button">
+												<i class="fa fa-youtube"></i>
+											</bst:btn-youtube>
+											<br/>
+											<br/>
+											<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+										            <div class="card">
+										               <div class="card-header" role="tab" id="heading6ty">
+										                  <h5 class="mb-0">
+										                     <a data-toggle="collapse" data-parent="#accordion4"
+										                        href="#collapse60" aria-expanded="true"
+										                        aria-controls="collapse6ty"> Example</a>
+										                  </h5>
+										               </div>
+										               <div id="collapse60" class="collapse show" role="tabpanel"
+										                  aria-labelledby="heading6ty">
+										                  <div class="card-body">
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button Facebook */--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-facebook type=\'button\' /&gt;'}" /><br/><br/>
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button Twitter */--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-twitter type=\'button\' /&gt;'}" /><br/><br/>
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button Google*/--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-google type=\'button\' /&gt;'}" /><br/><br/>
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button LinkedIn */--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-linkedin type=\'button\' /&gt;'}" /><br/><br/>
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button Instagram */--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-ig type=\'button\' /&gt;'}" /><br/><br/>
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button Pinterest */--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-pinterest type=\'button\' /&gt;'}" />
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button Dribble */--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-dribbble type=\'button\' /&gt;'}" /><br/><br/>
+										                     <p class="text-success" th:text="#{'&lt;!--/* Button Youtube */--&gt;'}" ></p>
+										                     <th:block th:text="#{'&lt;bst:btn-youtube type=\'button\' /&gt;'}" />
+										                  </div>
+										               </div>
+										            </div>
+										            <div class="card">
+										               <div class="card-header" role="tab" id="heading6one">
+										                  <h5 class="mb-0">
+										                     <a class="collapsed" data-toggle="collapse"
+										                        data-parent="#accordion2" href="#collapse61"
+										                        aria-expanded="false"
+										                        aria-controls="collapse6one"> Definition and
+										                        Usage </a>
+										                  </h5>
+										               </div>
+										               <div id="collapse61" class="collapse" role="tabpanel"
+										                  aria-labelledby="heading6one">
+										                  <div class="card-body">
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-facebook&gt;'}" /> a facebook button.</p>
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-twitter&gt;'}" /> a twitter button.</p>
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-google&gt;'}" /> a google button.</p>
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-linkedin&gt;'}" /> linkedIn button.</p>
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-ig&gt;'}" /> a instagram button.</p>
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-pinterest&gt;'}" /> a pinterest button.</p>
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-dribbble&gt;'}" /> a dribble button.</p>
+										                     <p>The <th:block th:text="#{'&lt;bst:btn-youtube&gt;'}" /> a youtube button.</p>
+										                  </div>
+										               </div>
+										            </div>
+										            <div class="card">
+										               <div class="card-header" role="tab" id="heading6two">
+										                  <h5 class="mb-0">
+										                     <a class="collapsed" data-toggle="collapse"
+										                        data-parent="#accordion2" href="#collapse62"
+										                        aria-expanded="false"
+										                        aria-controls="collapse6two"> Attributes </a>
+										                  </h5>
+										               </div>
+										               <div id="collapse62" class="collapse" role="tabpanel"
+										                  aria-labelledby="heading6two">
+										                  <div class="card-body">
+										                     <bst:table-light style="font-size: 12px;">
+										                        <thead>
+										                           <tr>
+										                              <th>Attribute</th>
+										                              <th>Value</th>
+										                              <th>Description</th>
+										                           </tr>
+										                        </thead>
+										                        <tbody>
+										                           <tr>
+										                              <td>placeholder</td>
+										                              <td>#docMgtId</td>
+										                              <td>Specifies the docMgtId generated
+										                                 in DM Service</td>
+										                           </tr>
+										                        </tbody>
+										                     </bst:table-light>
+										                  </div>
+										               </div>
+										            </div>
+										         </div>
+										</bst:widget-body>
+									</bst:widget>
+									<bst:widget>
+									      <bst:widget-header>
+									         <h4 th:text="#{'&lt;bst:btn-modal&gt; Tag'}" />
+									      </bst:widget-header>
+									      <bst:widget-body th:classappend="mb-10">
+												<div class="button-box">
+													<bst:btn-primary data-toggle="modal"
+														data-target="#exampleModal" data-whatever="@mdo">Open
+														modal for @mdo</bst:btn-primary>
+													<bst:btn-info data-toggle="modal"
+														data-target="#exampleModal" data-whatever="@fat">Open
+														modal for @fat</bst:btn-info>
+													<bst:btn-warn data-toggle="modal"
+														data-target="#exampleModal" data-whatever="@getbootstrap">Open
+														modal for @getbootstrap</bst:btn-warn>
+												</div>
+												<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h4 class="modal-title" id="exampleModalLabel1">New message</h4>
+																<bst:btn-close-df type="button" data-dismiss="modal" aria-label="Close" th:text="#{'&times;'}" />
+															</div>
+															<div class="modal-body">
+																<div class="form-group">
+																	<label for="recipient-name" class="control-label">Recipient:</label>
+																	<bst:input required="required" id="recipient-name"
+																		name="recipient-name" class="form-control"></bst:input>
+																</div>
+															</div>
+															<div class="modal-footer">
+																<bst:btn-primary type="button" data-dismiss="modal" aria-label="Cancel" th:text="#{'Cancel'}" />
+																<bst:btn-primary type="button" data-dismiss="modal" aria-label="Send" th:text="#{'Send Message'}" />
+						
+															</div>
+														</div>
+													</div>
+												</div>
+												<br/>
+														<div id="accordion2" class="accordion" role="tablist" aria-multiselectable="true">
+													            <div class="card">
+													               <div class="card-header" role="tab" id="heading6three">
+													                  <h5 class="mb-0">
+													                     <a data-toggle="collapse" data-parent="#accordion4"
+													                        href="#collapse63" aria-expanded="true"
+													                        aria-controls="collapse6three"> Example</a>
+													                  </h5>
+													               </div>
+													               <div id="collapse63" class="collapse show" role="tabpanel"
+													                  aria-labelledby="heading6three">
+													                  <div class="card-body">
+													                     <p class="text-success" th:text="#{'&lt;!--/* Button Primary Modal */--&gt;'}" ></p>
+													                     <th:block th:text="#{'&lt;bst:btn-primary data-toggle=\'modal\' /&gt;'}" /><br/><br/>
+													                     <p class="text-success" th:text="#{'&lt;!--/* Button Info Modal */--&gt;'}" ></p>
+													                     <th:block th:text="#{'&lt;bst:btn-info data-toggle=\'modal\' /&gt;'}" /><br/><br/>
+													                     <p class="text-success" th:text="#{'&lt;!--/* Button Warn Modal */--&gt;'}" ></p>
+													                     <th:block th:text="#{'&lt;bst:btn-warn data-toggle=\'modal\' /&gt;'}" /><br/><br/>
+													                  </div>
+													               </div>
+													            </div>
+													            <div class="card">
+													               <div class="card-header" role="tab" id="heading6four">
+													                  <h5 class="mb-0">
+													                     <a class="collapsed" data-toggle="collapse"
+													                        data-parent="#accordion2" href="#collapse64"
+													                        aria-expanded="false"
+													                        aria-controls="collapse6four"> Definition and
+													                        Usage </a>
+													                  </h5>
+													               </div>
+													               <div id="collapse64" class="collapse" role="tabpanel"
+													                  aria-labelledby="heading6four">
+													                  <div class="card-body">
+													                     <p>The <th:block th:text="#{'&lt;bst:btn-primary&gt;'}" /> a primary modal button.</p>
+													                     <p>The <th:block th:text="#{'&lt;bst:btn-info&gt;'}" /> a info modal button.</p>
+													                     <p>The <th:block th:text="#{'&lt;bst:btn-warn&gt;'}" /> a warn modal button.</p>
+													                  </div>
+													               </div>
+													            </div>
+													            <div class="card">
+													               <div class="card-header" role="tab" id="heading6five">
+													                  <h5 class="mb-0">
+													                     <a class="collapsed" data-toggle="collapse"
+													                        data-parent="#accordion2" href="#collapse65"
+													                        aria-expanded="false"
+													                        aria-controls="collapse6five"> Attributes </a>
+													                  </h5>
+													               </div>
+													               <div id="collapse65" class="collapse" role="tabpanel"
+													                  aria-labelledby="heading6five">
+													                  <div class="card-body">
+													                     <bst:table-light style="font-size: 12px;">
+													                        <thead>
+													                           <tr>
+													                              <th>Attribute</th>
+													                              <th>Value</th>
+													                              <th>Description</th>
+													                           </tr>
+													                        </thead>
+													                        <tbody>
+													                           <tr>
+													                              <td>placeholder</td>
+													                              <td>#docMgtId</td>
+													                              <td>Specifies the docMgtId generated
+													                                 in DM Service</td>
+													                           </tr>
+													                        </tbody>
+													                     </bst:table-light>
+													                  </div>
+													               </div>
+													            </div>
+													         </div>
+											</bst:widget-body>
+										</bst:widget>
+			</div>
+		</div>

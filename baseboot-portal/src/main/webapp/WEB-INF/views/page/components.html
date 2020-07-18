@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:include="commons/main-head.html" />
+	</head>
+    <body>
+   		<th:block th:include="commons/main-header" />
+   		<section id="content"> 
+			<div class="container">
+				<bst:alert-error th:if="${systemDown}">
+					<th:block th:utext="#{msg.err.svc.avai(${systemDownErrCd})}" />
+				</bst:alert-error>
+
+<h6 class="form-title">Input Forms</h6>
+<hr/>
+	<div class="row">
+		<bst:widget data-grid="4">
+			<bst:widget-header data-collapse="true">
+				<h6 th:text="'Captcha'" />
+			</bst:widget-header>
+	<bst:form th:object="${components}" method="GET" enctype="multipart/form-data" >
+			<bst:widget-body>
+		        <bst:captcha data-page="components" />
+			</bst:widget-body>
+			<bst:widget-footer>
+				<bst:btn-secondary th:class="pull-right" type="submit" th:text="#{'Submit'}" />
+			</bst:widget-footer>
+		</bst:form>
+		</bst:widget>
+		<bst:widget data-grid="4">
+			<bst:widget-header>
+				<h6 th:text="'Star Rating'" />
+			</bst:widget-header>
+			<bst:widget-body>
+				<div class="row">
+					<div class="col-6">
+						<i class="bst-star-o"></i><br/>
+						<i class="bst-star-half"></i><br/>
+						<i class="bst-star-one"></i><br/>
+						<i class="bst-star-half-one"></i><br/>
+						<i class="bst-star-two"></i><br/>
+						<i class="bst-star-half-two"></i><br/>
+					</div>
+					<div class="col-6">
+						<i class="bst-star-three"></i><br/>
+						<i class="bst-star-half-three"></i><br/>
+						<i class="bst-star-four"></i><br/>
+						<i class="bst-star-half-four"></i><br/>
+						<i class="bst-star-five"></i>
+					</div>
+				</div>
+				<bst:select class="star" data-minimum-results-for-search="Infinity" th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+				</bst:select>
+			</bst:widget-body>
+		</bst:widget>
+		<bst:widget data-grid="4">
+			<bst:widget-header>
+				<h6 th:text="'OTP'" />
+			</bst:widget-header>
+			<bst:widget-body>
+				<div class="row">
+					<div class="col-md-12">
+						<label>bst:otp-email</label>
+						<bst:otp-email id="otpEmail" name="otpEmail" maxlength="100"/>
+					</div>
+					<div class="col-md-12">
+						<label>bst:otp</label>
+						<bst:otp email="'mary.jane@bestinet.com.my'" mobile="'+60126071814'" maxlength="100"/>
+					</div>
+				</div>
+			</bst:widget-body>
+		</bst:widget>
+	</div>
+<bst:form th:object="${components}" method="GET" enctype="multipart/form-data" >
+<bst:widget>
+	<bst:widget-header data-collapse="true">
+		<h6 th:text="'Input Forms'" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row">
+			<div class="col-md-4">
+				<label>bst:input</label> 
+				<bst:input offset="3" required="required"></bst:input>
+			</div>
+			<div class="col-md-4">
+				<label>bst:input-number</label>
+				<bst:input-number required="required" min="0" max="100" />
+			</div>
+			<div class="col-md-4">
+				<label>bst:input-contact</label>
+				<bst:input-contact type="tel" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<label>bst:input-amount</label>
+				<bst:input-amount required="required" value="1000" />
+			</div>
+			<div class="col-md-4">
+				<label>bst:input-amount (with Currency)</label>
+				<bst:input-amount data-currency="MYR" required="required" value="1000" />
+			</div>
+			<div class="col-md-4">
+				<label>bst:textarea</label>
+				<bst:textarea />
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="'Input Forms - Date / Time'" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row">
+			<div class="col-md-4">
+				<label>bst:input-date</label>
+				<bst:input-date id="dtPckr" name="dt" />
+			</div>
+			<div class="col-md-4">
+				<label>bst:input-date-range</label>
+				<bst:input-date-range id="dtRangePckr" name="dtRange" 
+					data-start-id="dtRangeStart"
+					data-start-name="dtRangeStart"
+					data-start-value="01/07/2018"
+					data-start-attr="*{dtRangeStart}"
+					data-end-id="dtRangeEnd"
+					data-end-name="dtRangeEnd"
+					data-end-value="30/07/2018"
+					data-end-attr="th:field='*{dtRangeEnd}'"
+					/>
+			</div>
+			<div class="col-md-4">
+				<label>bst:input-time</label>
+				<bst:input-time id="time" required="required" />	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<label>bst:input-year</label>
+				<bst:input-date />
+			</div>
+			<div class="col-md-4">
+				<label>bst:input-month</label>
+				<bst:input-date />
+			</div>
+			<div class="col-md-4">
+				<label>bst:input-date-range-predefine</label>
+				<bst:input-date-range id="preDefDtRangePckr" name="dtPreRange" 
+					data-start-id="preDefDtRangeStart"
+					data-start-name="preDefDtRangeStart"
+					data-start-attr="*{preDefDtRangeStart}"
+					data-end-id="preDefDtRangeEnd"
+					data-end-name="preDefDtRangeEnd"
+					data-end-attr="th:field='*{preDefDtRangeEnd}'"
+					/>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+<div class="row">
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Input Forms - Checkbox / Radio'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-md-6">
+					<label>bst:checkbox</label>
+					<bst:checkbox-group>
+						<bst:checkbox>Checkbox Option 1</bst:checkbox>
+						<bst:checkbox checked="checked">Checkbox Option 2</bst:checkbox>
+						<bst:checkbox disabled="disabled">Checkbox Option 3</bst:checkbox>
+					</bst:checkbox-group>
+				</div>
+				<div class="col-md-6">
+					<label>bst:radio</label>
+					<bst:radio-group>
+						<bst:radio >Radio Option 1</bst:radio>
+						<bst:radio checked="checked">Radio Option 2</bst:radio>
+						<bst:radio disabled="disabled">Radio Option 3</bst:radio>
+					</bst:radio-group>
+				</div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Input Forms - Select'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row">
+				<div class="col-md-12">
+					<label>bst:select</label>
+					<bst:select data-minimum-results-for-search="Infinity" th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+						<option th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option>Red</option>
+						<option>Green</option>
+						<option>Blue</option>
+					</bst:select>
+				</div>
+				<div class="col-md-12">
+					<label>bst:select (Input Filter)</label>
+					<bst:select class="search-form-control" th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+						<option th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option>Aconitum</option>
+						<option>African Daisy</option>
+						<option>Amaryllis</option>
+						<option>Anemone</option>
+						<option>Bellflower</option>
+						<option>Bush Morning Glory</option>
+						<option>Buttercup</option>
+						<option>Calla Lily</option>
+						<option>Cape Primrose</option>
+						<option>Carnation</option>
+						<option>Chrysanthemum</option>
+						<option>Clover</option>
+						<option>Daffodil</option>
+						<option>Dahlia</option>
+					</bst:select>
+				</div>
+				<div class="col-md-12">
+					<label>bst:select (Multiple Selection)</label>
+					<bst:select th:field="*{selectMultiple}" data-minimum-results-for-search="Infinity" multiple="multiple" th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+						<option th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option id="1" value="Aconitum">Aconitum</option>
+						<option id="2" value="African Daisy">African Daisy</option>
+						<option id="3" value="Amaryllis">Amaryllis</option>
+						<option id="4" value="Anemone">Anemone</option>
+						<option id="5" value="Bellflower">Bellflower</option>
+						<option id="6" value="Bush Morning Glory">Bush Morning Glory</option>
+						<option id="7" value="Buttercup">Buttercup</option>
+						<option id="8" value="Calla Lily">Calla Lily</option>
+						<option id="9" value="Cape Primrose">Cape Primrose</option>
+						<option id="10" value="Carnation">Carnation</option>
+						<option id="11" value="Chrysanthemum">Chrysanthemum</option>
+						<option id="12" value="Clover">Clover</option>
+						<option id="13" value="Daffodil">Daffodil</option>
+						<option id="14" value="Dahlia">Dahlia</option>
+					</bst:select>
+				</div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+</div>
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="'Input - File Uploads'" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<!-- <div class="row">
+			<div class="col-md-4">
+				<label>bst:file-thumbnail (Left)</label>
+				<input type="hidden" id="fileUploads[1].docId" name="fileUploads[1].docId" value="1" />
+				<input type="hidden" id="fileUploads[1].docMgtId" name="fileUploads[1].docMgtId" />
+				<bst:file-thumbnail data-img-align="left" data-img-width="w-50"
+					th:data="true" 
+					th:attr="data-updm-maxSize=500000,
+						data-updm-minheight=0,
+						data-updm-maxheight=0,
+						data-updm-minwidth=0,
+						data-updm-maxwidth=0,
+						data-dimension-compulsary=0" 
+					th:field="*{fileUploads[1].file}"
+	  				th:accept="#{'image/png'}" 
+	  				/>
+			</div>
+			<div class="col-md-4">
+				<label>bst:file-thumbnail (Center)</label>
+				<input type="hidden" id="fileUploads[2].docId" name="fileUploads[2].docId" value="1" />
+				<input type="hidden" id="fileUploads[2].docMgtId" name="fileUploads[2].docMgtId" />
+				<bst:file-thumbnail data-img-align="center" data-img-width="w-50"
+					th:data="true" 
+					th:attr="data-updm-maxSize=500000,
+						data-updm-minheight=0,
+						data-updm-maxheight=0,
+						data-updm-minwidth=0,
+						data-updm-maxwidth=0,
+						data-dimension-compulsary=0" 
+					th:field="*{fileUploads[2].file}"
+	  				th:accept="#{'image/png'}" 
+	  				/>
+			</div>
+			<div class="col-md-4">
+				<label>bst:file-thumbnail (Right)</label>
+				<input type="hidden" id="fileUploads[3].docId" name="fileUploads[3].docId" value="1" />
+				<input type="hidden" id="fileUploads[3].docMgtId" name="fileUploads[3].docMgtId" />
+				<bst:file-thumbnail data-img-align="right" data-img-width="w-50"
+					th:data="true" 
+					th:attr="data-updm-maxSize=500000,
+						data-updm-minheight=0,
+						data-updm-maxheight=0,
+						data-updm-minwidth=0,
+						data-updm-maxwidth=0,
+						data-dimension-compulsary=0" 
+					th:field="*{fileUploads[3].file}"
+	  				th:accept="#{'image/png'}" 
+	  				/>
+			</div>
+		</div> -->
+		<!-- <div class="row">
+			<div class="col-md-4">
+				<label>bst:file-thumbnail-view (Left)</label>
+				<bst:file-thumbnail-view data-img-align="left" data-img-width="w-50"/>
+			</div>
+			<div class="col-md-4">
+				<label>bst:file-thumbnail-view (Center)</label>
+				<bst:file-thumbnail-view data-img-align="center" data-img-width="w-50"/>
+			</div>
+			<div class="col-md-4">
+				<label>bst:file-thumbnail-view (Right)</label>
+				<bst:file-thumbnail-view data-img-align="right" data-img-width="w-50" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<label>bst:file</label>
+				<input type="hidden" id="fileUploads[4].docId" value="1" />
+				<input type="hidden" id="fileUploads[4].docMgtId"/>
+				<bst:file th:data="true" 
+					th:attr="data-updm-maxSize=500000,
+						data-updm-minheight=0,
+						data-updm-maxheight=0,
+						data-updm-minwidth=0,
+						data-updm-maxwidth=0,
+						data-dimension-compulsary=false" 
+   					th:field="*{fileUploads[4].file}" 
+   					accept="application/pdf,image/png" 
+   					 />
+    		</div>
+    		<div class="col-md-12">
+				<label>bst:file[disabled]</label>
+				<input type="hidden" id="fileUploads[4].docId" value="1" />
+				<input type="hidden" id="fileUploads[4].docMgtId"/>
+				<bst:file disabled="disabled" th:data="true" 
+					th:attr="data-updm-maxSize=500000,
+						data-updm-minheight=0,
+						data-updm-maxheight=0,
+						data-updm-minwidth=0,
+						data-updm-maxwidth=0,
+						data-dimension-compulsary=false" 
+   					th:field="*{fileUploads[4].file}" 
+   					accept="application/pdf,image/png" 
+   					 />
+    		</div>
+		</div> -->
+	</bst:widget-body>
+</bst:widget>
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="'Modal Popup'" />
+	</bst:widget-header>
+	<bst:widget-body>
+		Default<br/>
+		<div class="row">
+			<div class="col-12">
+				<bst:btn-primary type="button" id="btnReport" th:text="#{Report Modal}"/>
+				<bst:btn-primary type="button" id="btnMessage" th:text="#{Success Message}"/>
+				<bst:btn-primary type="button" id="btnOtp" th:text="#{OTP Modal}"/>
+				<bst:btn-primary type="button" id="btnPopup" th:text="#{'Custom Popup'}"/>
+			</div>
+		</div>
+		Message Modal (using portalUtil in js)<br/>
+		<div class="row">
+			<div class="col-12">
+				<bst:btn-primary type="button" id="btnConfirm" th:text="#{'Confirm'}"/>
+				<bst:btn-primary type="button" id="btnSuccess" th:text="#{'Success'}"/>
+				<bst:btn-primary type="button" id="btnError" th:text="#{'Error'}"/>
+				<bst:btn-primary type="button" id="btnWarn" th:text="#{'Warning'}"/>
+				<bst:btn-primary type="button" id="btnInfo" th:text="#{'Info'}"/>
+				<bst:btn-primary type="button" id="btnMsg" th:text="#{'Message'}"/>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="'Buttons'" />
+	</bst:widget-header>
+	<bst:widget-body>
+		Default<br/>
+		<div class="row">
+			<div class="col-12">
+				<bst:btn type="submit" th:text="#{btn}" />
+				<bst:btn-primary type="button" th:text="#{btn-primary}"/>
+				<bst:btn-secondary th:text="#{btn-secondary}"/>
+				<bst:btn-tertiary th:text="#{btn-tertiary}"/>
+				<bst:btn-info th:text="#{btn-info}"/>
+				<bst:btn-success th:text="#{btn-success}"/>
+				<bst:btn-warn th:text="#{btn-warn}"/>
+				<bst:btn-error th:text="#{btn-error}"/>
+			</div>
+		</div>
+		<br/>
+		Small<br/>
+		<div class="row">
+			<div class="col-12">
+				<bst:btn-xs th:text="#{btn}" />
+				<bst:btn-xs-primary th:text="#{btn-primary}"/>
+				<bst:btn-xs-secondary th:text="#{btn-secondary}"/>
+				<bst:btn-xs-tertiary th:text="#{btn-tertiary}"/>
+				<bst:btn-xs-info th:text="#{btn-info}"/>
+				<bst:btn-xs-success th:text="#{btn-success}"/>
+				<bst:btn-xs-warn th:text="#{btn-warn}"/>
+				<bst:btn-xs-error th:text="#{btn-error}"/>
+			</div>
+		</div>
+		<br/>
+		Medium<br/>
+		<div class="row">
+			<div class="col-12">
+				<bst:btn-md th:text="#{btn-md}" />
+				<bst:btn-md-primary th:text="#{btn-md-primary}"/>
+				<bst:btn-md-secondary th:text="#{btn-md-secondary}"/>
+				<bst:btn-md-tertiary th:text="#{btn-md-tertiary}"/>
+				<bst:btn-md-info th:text="#{btn-md-info}"/>
+				<bst:btn-md-success th:text="#{btn-md-success}"/>
+				<bst:btn-md-warn th:text="#{btn-md-warn}"/>
+				<bst:btn-md-error th:text="#{btn-md-error}"/>
+			</div>
+		</div>
+		<br/>
+		Large<br/>
+		<div class="row">
+			<div class="col-12">
+				<bst:btn-lg th:text="#{btn-lg}" />
+				<bst:btn-lg-primary th:text="#{btn-lg-primary}"/>
+				<bst:btn-lg-secondary th:text="#{btn-lg-secondary}"/>
+				<bst:btn-lg-tertiary th:text="#{btn-lg-tertiary}"/>
+				<bst:btn-lg-info th:text="#{btn-lg-info}"/>
+				<bst:btn-lg-success th:text="#{btn-lg-success}"/>
+				<bst:btn-lg-warn th:text="#{btn-lg-warn}"/>
+				<bst:btn-lg-error th:text="#{btn-lg-error}"/>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+</bst:form>
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="'Badges'" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<bst:badge th:text="#{badge}" />
+		<bst:badge-primary th:text="#{badge-primary}"/>
+		<bst:badge-secondary th:text="#{badge-secondary}"/>
+		<bst:badge-success th:text="#{badge-success}"/>
+		<bst:badge-danger th:text="#{badge-danger}"/>
+		<bst:badge-warn th:text="#{badge-warn}"/>
+		<bst:badge-info th:text="#{badge-info}"/>
+		<bst:badge-dark th:text="#{badge-dark}"/>
+	</bst:widget-body>
+</bst:widget>
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="'Alerts'" />
+	</bst:widget-header>
+	<bst:widget-body>	
+		<bst:alert-info th:text="alert-info" />
+		<bst:alert-info type="dismissible">alert-info type="dismissible"</bst:alert-info>	
+		<bst:alert-error th:text="#{alert-error}" />
+		<bst:alert-success th:text="#{alert-success}" />
+		<bst:alert-warn th:text="#{alert-warn}" />
+	</bst:widget-body>
+</bst:widget>
+<h6 class="form-title">Tabs &amp; Accordions</h6>
+<hr/>
+<bst:tab-widget>
+	<bst:tab-box-ul role="tablist">
+		<bst:tab-box-li th:classappend="active" href="#tab-a">Tab Widget A (bst:tab-widget)</bst:tab-box-li>
+		<bst:tab-box-li href="#tab-b">Tab Widget B</bst:tab-box-li>
+		<bst:tab-box-li href="#tab-c">Tab Widget C</bst:tab-box-li>
+	</bst:tab-box-ul>
+	<bst:tab-box-panes>
+		<bst:tab-box-pane class="show active" id="tab-a">Content A</bst:tab-box-pane>
+		<bst:tab-box-pane id="tab-b">Content B</bst:tab-box-pane>
+		<bst:tab-box-pane id="tab-c">Content C</bst:tab-box-pane>
+	</bst:tab-box-panes>
+</bst:tab-widget>
+<div class="row">
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Horizontal Tab (bst:tab-box-h)'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<bst:tab-box-h>
+				<bst:tab-box-ul>
+					<bst:tab-box-li th:classappend="active" href="#taba">Tab A</bst:tab-box-li>
+					<bst:tab-box-li href="#tabb">Tab B</bst:tab-box-li>
+					<bst:tab-box-li href="#tabc">Tab C</bst:tab-box-li>
+				</bst:tab-box-ul>
+				<bst:tab-box-panes>
+					<bst:tab-box-pane class="show active" id="taba">Content A</bst:tab-box-pane>
+					<bst:tab-box-pane id="tabb">Content B</bst:tab-box-pane>
+					<bst:tab-box-pane id="tabc">Content C</bst:tab-box-pane>
+				</bst:tab-box-panes>
+			</bst:tab-box-h>
+		</bst:widget-body>
+	</bst:widget>
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Vertical Tab (bst:tab-box-v)'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<bst:tab-box-v>
+				<bst:tab-box-ul role="tablist">
+					<bst:tab-box-li th:classappend="active" href="#tabva">Tab A</bst:tab-box-li>
+					<bst:tab-box-li href="#tabvb">Tab B</bst:tab-box-li>
+					<bst:tab-box-li href="#tabvc">Tab C</bst:tab-box-li>
+				</bst:tab-box-ul>
+				<bst:tab-box-panes>
+					<bst:tab-box-pane class="show active" id="tabva">Content A</bst:tab-box-pane>
+					<bst:tab-box-pane id="tabvb">Content B</bst:tab-box-pane>
+					<bst:tab-box-pane id="tabvc">Content C</bst:tab-box-pane>
+				</bst:tab-box-panes>
+			</bst:tab-box-v>
+		</bst:widget-body>
+	</bst:widget>
+</div>
+<bst:widget>
+	<bst:widget-header>
+		<h6 th:text="'Tabs &amp; Accordions'" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row">
+			<div class="col-12">
+			<div class="panel-group" id="accordion1">
+	             <div class="panel panel-default">
+	               <div class="panel-heading">
+	                 <h4 class="panel-title">
+	                   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse4">
+	                     Collapsible Group 1</a>
+	                 </h4>
+	               </div>
+	               <div id="collapse4" class="panel-collapse collapse">
+	                 <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+	                   et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+	                   ut aliquip ex ea commodo consequat.</div>
+	               </div>
+	             </div>
+	             <div class="panel panel-default">
+	               <div class="panel-heading">
+	                 <h4 class="panel-title">
+	                   <a data-toggle="collapse" data-parent="#accordion1" href="#collapse5">
+	                     Collapsible Group 2</a>
+	                 </h4>
+	               </div>
+	               <div id="collapse5" class="panel-collapse collapse">
+	                 <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+	                   et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+	                   ut aliquip ex ea commodo consequat.</div>
+	               </div>
+	             </div>
+	           </div>
+	          </div>
+		</div>
+	</bst:widget-body>
+</bst:widget>
+<h6 class="form-title">Widget Grid (data-grid value from 1 to 12)</h6>
+<hr/>
+<div class="row">
+	<bst:widget data-grid="8">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-8'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="4">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-4'" />
+		</bst:widget-header>
+	</bst:widget>
+</div>
+<div class="row">
+	<bst:widget data-grid="4">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-4'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="4">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-4'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="4">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-4'" />
+		</bst:widget-header>
+	</bst:widget>
+</div>
+<div class="row">
+	<bst:widget data-grid="4">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-4'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="8">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-8'" />
+		</bst:widget-header>
+	</bst:widget>
+</div>
+<div class="row">
+	<bst:widget data-grid="3">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-3'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="3">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-3'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="3">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-3'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="3">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-3'" />
+		</bst:widget-header>
+	</bst:widget>
+</div>
+<div class="row">
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-6'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-6'" />
+		</bst:widget-header>
+	</bst:widget>
+</div>
+<div class="row">
+	<bst:widget data-grid="3">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-3'" />
+		</bst:widget-header>
+	</bst:widget>
+	<bst:widget data-grid="9">
+		<bst:widget-header>
+			<h6 th:text="'col-lg-9'" />
+		</bst:widget-header>
+	</bst:widget>
+</div>
+<h6 class="form-title">Datatables</h6>
+<hr/>
+<div class="row">
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Default Table'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<br/><label>bst:table</label>
+			<bst:table id="dtTablePlain" >
+				<thead>
+		        	<tr>
+			        	<th scope="col">No</th>
+			            <th scope="col">First</th>
+			            <th scope="col">Last</th>
+		              	<th scope="col">Handle</th>
+		            </tr>
+				</thead>
+		        <tbody>
+		        	<tr>
+		            	<th scope="row">1</th>
+		              	<td>Mark</td>
+		              	<td>Otto</td>
+		              	<td>mdo</td>
+		            </tr>
+		            <tr>
+		            	<th scope="row">2</th>
+		              	<td>Jacob</td>
+		              	<td>Thornton</td>
+		              	<td>fat</td>
+		            </tr>
+		            <tr>
+		            	<th scope="row">3</th>
+		              	<td>Larry</td>
+		              	<td>the Bird</td>
+		              	<td>twitter</td>
+		            </tr>
+	        	</tbody>
+			</bst:table>
+		</bst:widget-body>
+	</bst:widget>
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Default Table'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<label>bst:table-dark</label>
+			<bst:table-dark id="dtTableDark" >
+				<thead>
+		            <tr>
+		              <th scope="col">No</th>
+		              <th scope="col">First</th>
+		              <th scope="col">Last</th>
+		              <th scope="col">Handle</th>
+		            </tr>
+	          	</thead>
+	         	<tbody>
+		            <tr>
+		              <th scope="row">1</th>
+		              <td>Mark</td>
+		              <td>Otto</td>
+		              <td>mdo</td>
+		            </tr>
+		            <tr>
+		              <th scope="row">2</th>
+		              <td>Jacob</td>
+		              <td>Thornton</td>
+		              <td>fat</td>
+		            </tr>
+		            <tr>
+		              <th scope="row">3</th>
+		              <td>Larry</td>
+		              <td>the Bird</td>
+		              <td>twitter</td>
+		            </tr>
+	          	</tbody>
+			</bst:table-dark>
+		</bst:widget-body>
+	</bst:widget>
+</div>
+<div class="row">
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Light Table'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<bst:table-light id="dtTableLight" >
+				<thead>
+		        	<tr>
+			        	<th scope="col">No</th>
+			            <th scope="col">First</th>
+			            <th scope="col">Last</th>
+		              	<th scope="col">Handle</th>
+		            </tr>
+				</thead>
+		        <tbody>
+		        	<tr>
+		            	<th scope="row">1</th>
+		              	<td>Mark</td>
+		              	<td>Otto</td>
+		              	<td>mdo</td>
+		            </tr>
+		            <tr>
+		            	<th scope="row">2</th>
+		              	<td>Jacob</td>
+		              	<td>Thornton</td>
+		              	<td>fat</td>
+		            </tr>
+		            <tr>
+		            	<th scope="row">3</th>
+		              	<td>Larry</td>
+		              	<td>the Bird</td>
+		              	<td>twitter</td>
+		            </tr>
+	        	</tbody>
+			</bst:table-light>
+		</bst:widget-body>
+	</bst:widget>
+	<bst:widget data-grid="6">
+		<bst:widget-header>
+			<h6 th:text="'Card Table (bst:table-card)'" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<bst:table-card id="dtTableCard" >
+	        	<thead>
+		        	<tr>
+			        	<th>No</th>
+			        	<th>No</th>
+			            <th scope="col">First</th>
+			            <th scope="col">Last</th>
+		              	<th scope="col">Status</th>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		            </tr>
+				</thead>
+				<tbody>
+		        	<tr>
+		            	<td>1</td>
+		            	<td><bst:checkbox /></td>
+		              	<td>MARK ANTHONY RYAN</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td class="dt-bg-green text-center">
+		              		<span>HIRED</span>
+		              		<hr/>
+		              		<a href="#">View Details</a>
+		              	</td>
+		            </tr>
+		            <tr>
+		            	<td>2</td>
+		            	<td><bst:checkbox /></td>
+		              	<td>JACOB THORNTON</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td class="dt-bg-orange text-center" style="font-color: white;">
+		              		<span>IN PROGRESS</span>
+		              		<hr/>
+		              		<a href="#">View Details</a>
+		              	</td>
+		            </tr>
+		            <tr>
+		            	<td>3</td>
+		            	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td class="dt-bg-yellow text-center" style="color: white;">
+		              		<span>DRAFT</span>
+		              		<hr/>
+		              		<a href="#">View Details</a>
+		              	</td>
+		            </tr>
+		            <tr>
+		            	<td>4</td>
+		            	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td><bst:checkbox /></td>
+		              	<td>JOHN DOE</td>
+		              	<td>BANGLADESH</td>
+		              	<td class="dt-bg-red text-center" style="color: white;">
+		              		<span>REJECTED</span>
+		              		<hr/>
+		              		<a href="#">View Details</a>
+		              	</td>
+		            </tr>
+	        	</tbody>
+			</bst:table-card>
+		</bst:widget-body>
+	</bst:widget>
+</div>
+
+</div>
+   		</section>
+    </body>
+    <th:block th:include="commons/main-footer"/>
+    <th:block th:include="commons/main-foot"/>
+    <th:block th:include="commons/modal-popup"/>
+</html>

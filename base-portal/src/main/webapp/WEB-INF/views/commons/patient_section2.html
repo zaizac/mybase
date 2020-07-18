@@ -1,0 +1,205 @@
+<bst:widget>
+<bst:widget-header-acc id="accordion2">
+	<bst:widget>
+		<bst:widget-header id="headingTwo">
+			<h4 class="font-widget col-lg-12 col-md-12 col-xs-12 collapse-iconic collapsed" th:text="#{lbl.patient.section2.header}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" />
+			<div class="tooltips-box">
+				<span class="tooltips-text text-light bg-dark">Click to expand the form</span>
+				<i class="caret-down caret-custom"></i>
+			</div>
+		</bst:widget-header>
+		<bst:widget-body id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion2">
+			<div class="row form-row">
+				<!--/* Date of Exposure */-->
+				<div class="col-md-6">
+					<label th:text="#{lbl.patient.section2.expose.date}" />
+					<bst:input-date id="exposeDtPckr" th:field="*{exposeDt}" th:readonly="true" th:disabled="${isView}" />	
+					<bst:error th:if="${#fields.hasErrors('exposeDt')}" th:errors="*{exposeDt}" />	
+				</div> 
+				<!--/* Cluster */-->
+				<div class="col-md-6">
+					<label th:text="#{lbl.patient.section2.cluster}" />
+					<bst:input th:field="*{cluster}" style="text-transform: uppercase;" maxlength="255" th:disabled="${isView}" />
+					<bst:error th:if="${#fields.hasErrors('cluster')}" th:errors="*{cluster}" />	
+				</div>
+			</div>
+			<h4>
+				<strong th:text="#{lbl.patient.section2.laboratory.confirmation}" ></strong>
+			</h4>
+			<div class="row form-row">		
+				<div class="col-md-6" >
+					<bst:radio-group>
+						<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{symptom}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc} + ${(nyu.mtdtCd == 'N' ? ' (i.e., asymptomatic)' : '')}" th:disabled="${isView}" />
+					</bst:radio-group>
+				</div>
+			</div>
+			<div class="row form-row" id="symptomOption" style ="display : none">
+				<div class="col-md-12" >	
+					<bst:table-light id="tblSearchList" width="100%">
+						<thead>
+							<tr>
+								<th th:text="#{'Symptom'}" width="20%" />
+								<th th:text="#{'Yes'}" width="10%" />
+								<th th:text="#{'No'}" width="10%" />
+								<th th:text="#{'Onset Date'}" width="20%" />
+								<th th:text="#{'Remarks (if any)'}" width="40%" />
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="symptom,rowStat: ${patientSymptomList}" style="cursor: pointer;">
+								<input type="hidden" th:field="*{patientSymptomForm[__${rowStat.index}__].metadata.mtdtId}" th:value="${symptom.metadata.mtdtId}" />
+							 	<input type="hidden" th:field="*{patientSymptomForm[__${rowStat.index}__].metadata.mtdtDesc}"/>
+							 	<td><label th:text="${symptom.metadata.mtdtDesc}"/><br/><bst:error th:if="${#fields.hasErrors('patientSymptomForm[__${rowStat.index}__].symptomAns')}" th:errors="*{patientSymptomForm[__${rowStat.index}__].symptomAns}" /></td>
+			 				 	<td align="center"><bst:radio th:field="*{patientSymptomForm[__${rowStat.index}__].symptomAns}" th:value="Y"/></td>
+			 				 	<td align="center"><bst:radio th:field="*{patientSymptomForm[__${rowStat.index}__].symptomAns}" th:value="N"/></td>
+							 	<td align="center">	
+							 		<bst:input-date class="calendarIpt" th:id="${patientFormDto.patientSymptomForm[__${rowStat.index}__].metadata.mtdtId}" th:field="*{patientSymptomForm[__${rowStat.index}__].patientSymptomForm.symptomDt}" th:readonly="true" th:disabled="${isView}" style="background-color:#fff;"/>
+							 	</td>
+							 	<td align="center"><bst:input th:field="*{patientSymptomForm[__${rowStat.index}__].patientSymptomForm.remarks}" style="text-transform: uppercase;" /></td>
+							</tr>
+						</tbody>
+					</bst:table-light>
+				</div>
+			</div>
+			<div class="row form-row">
+				<!--/* First Lab Confirm Test Date */-->
+				<div class="col-md-6">
+					<label th:text="#{lbl.patient.section2.first.date}" />
+					<bst:input-date id="firstDtLabPckr" th:field="*{firstDtLab}" th:readonly="true" th:disabled="${isView}" />	
+					<bst:error th:if="${#fields.hasErrors('firstDtLab')}" th:errors="*{firstDtLab}" />	
+				</div>
+				<div class="col-md-6">
+				</div>
+			</div>
+			<br/><h4><strong th:text="#{lbl.patient.section2.laboratory.comorbidity}" /></h4>
+			
+			<div class="row form-row">	
+				<div class="col-md-6">
+					<label th:text="#{lbl.patient.section2.laboratory.conditions}" />
+					<bst:radio-group>
+						<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{connComCb}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}" />
+					</bst:radio-group>
+				</div>			
+			</div>
+			<div class="row form-row" id="comorbidityOption" style ="display : none">	
+				<div class="col-md-12" id="comorbidityLst">
+					<label class="required" th:text="#{lbl.patient.section2.laboratory.apply}" />
+					<bst:checkbox-group>
+						<bst:checkbox th:each="condition : ${@staticData.findByMetadataType('UDLY_COND')}" th:field="*{patientCondLst}" th:value="${condition.mtdtCd}" th:text="${condition.mtdtDesc}"/>
+					</bst:checkbox-group>
+					<bst:error th:if="${#fields.hasErrors('connComCb')}" th:errors="*{connComCb}" />
+				</div>
+			</div>
+			
+			<!-- PREGNANCY --> 
+			<div class="row form-row" id="optionPregnancy" style ="display : none">	
+				<div class="col-md-12" >
+					<div class="col-md-12">
+					<label th:text ="#{lbl.patient.section2.pregnancy }" />
+				 	<bst:input data-constraints="@Required" th:field="*{optPregnancy}" style="text-transform: uppercase;" maxlength="255"  th:disabled="${isView}" />
+				 	<bst:error th:if="${#fields.hasErrors('optPregnancy')}" th:errors="*{optPregnancy}" />
+				    </div>
+				</div>
+			</div>
+			
+			<!-- if other -->
+			<div class="row form-row" id="optionOther" style ="display : none">	
+				<div class="col-md-12" >
+					<div class="col-md-12">
+					<label th:text ="#{lbl.patient.section2.other}" />
+				 	<bst:input data-constraints="@Required" th:field="*{optOther}" style="text-transform: uppercase;" maxlength="255"  th:disabled="${isView}" />
+				 	<bst:error th:if="${#fields.hasErrors('optOther')}" th:errors="*{optOther}" />
+				    </div>
+				</div>
+			</div>
+			
+			<br/><h4><strong th:text="#{lbl.patient.section2.laboratory.reporting}" /></h4>
+			
+			<div class="row form-row">
+				<div class="col-md-6">
+					<label th:text="#{lbl.patient.section2.admission}" />
+					<bst:radio-group>
+						<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{admHosp}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}" />
+					</bst:radio-group>
+				</div>
+				<bst:error th:if="${#fields.hasErrors('admHosp')}" th:errors="*{admHosp}" />
+			</div>
+			<div id="admitOption" style ="display : none">
+				<div class="row form-row">
+					<!--/* Admission Date */-->
+					<div class="col-6">
+						<label class="required" th:text="#{lbl.patient.section2.first.date.of.admission}" />
+						<bst:input-date id="hospAdmPckr" th:field="*{hospAdm}" th:readonly="true" th:disabled="${isView}" />
+						<bst:error th:if="${#fields.hasErrors('hospAdm')}" th:errors="*{hospAdm}" />
+					</div>
+					<!--/* Admission Hospital */-->
+					<div class="col-md-6">
+						<label class="required" th:text="#{lbl.patient.section2.hospital}" />
+					    <bst:select th:field="*{admHospitalCd}" th:disabled="${isView}" >
+					  	    <option th:text="#{lbl.cmn.sel.pls}" value="" />
+							<option th:each="hosp : ${@staticData.hospitalList()}" th:value="${hosp.hospitalId}" th:text="${hosp.hospitalDesc}"/>
+						</bst:select>
+						<bst:error th:if="${#fields.hasErrors('admHospitalCd')}" th:errors="*{admHospitalCd}" />           
+			        </div>
+				</div>
+				<div class="row form-row">
+					<div class="col-12">
+						<label th:text="#{lbl.patient.section2.first.date.of.yes}" />
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-6">
+						<input type="hidden" th:field="*{healthStatusId}" />
+						<label class="required" th:text="#{lbl.patient.section2.first.date.of.icare.unit}" />
+					</div>
+					<div class="col-6">
+						<bst:radio-group>
+				 			<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{insCare}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}" />
+			 			</bst:radio-group>
+			 			<bst:error th:if="${#fields.hasErrors('insCare')}" th:errors="*{insCare}" />
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-6">
+						<label class="required" th:text="#{lbl.patient.section2.casereceive}" />
+					</div>
+					<div class="col-6">
+						<bst:radio-group>
+				 			<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{recVentil}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}" />
+				 		</bst:radio-group>
+				 		<bst:error th:if="${#fields.hasErrors('recVentil')}" th:errors="*{recVentil}" />
+					</div>
+				</div>
+				<div class="row form-row mb-2">
+					<div class="col-6">
+						<label class="required" th:text="#{lbl.patient.section2.oxygenation}" />
+					</div>
+					<div class="col-6">
+						<bst:radio-group>
+				 			<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{extraCor}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}" />
+				 		</bst:radio-group>
+				 		<bst:error th:if="${#fields.hasErrors('extraCor')}" th:errors="*{extraCor}" />
+					</div>
+				</div>
+			</div>
+			<div class="row form-row" >
+				<div class="col-md-6">
+					<label th:text="#{lbl.patient.section2.isolation}" />
+					<bst:radio-group>
+						<bst:radio th:each="nyu : ${@staticData.findByMetadataType('NYU')}" th:field="*{infCon}" th:value="${nyu.mtdtCd}" th:text="${nyu.mtdtDesc}" th:disabled="${isView}" />
+					</bst:radio-group>
+					<bst:error th:if="${#fields.hasErrors('infCon')}" th:errors="*{infCon}" />
+				</div>
+			</div>
+			
+			<div id="isolation" style ="display : none">
+				<div class="col-md-6" >
+					<label th:text="#{lbl.patient.section2.date.isolation}" />
+					<bst:input-date id="isoDatePckr" th:field="*{isoDate}" th:readonly="true" th:disabled="${isView}"/>
+				</div>
+			</div>
+			
+		</bst:widget-body>
+	</bst:widget>
+</bst:widget-header-acc>
+</bst:widget>

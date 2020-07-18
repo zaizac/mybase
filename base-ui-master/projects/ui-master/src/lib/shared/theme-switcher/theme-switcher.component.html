@@ -1,0 +1,190 @@
+<div id="main-wrapper" class="boxed top" [ngClass]="
+    {
+        'defaultdark': themeSwitcher.color == 'defaultdark',
+        'greendark': themeSwitcher.color == 'greendark',
+        'reddark': themeSwitcher.color == 'reddark',
+        'bluedark': themeSwitcher.color == 'bluedark',
+        'purpledark': themeSwitcher.color == 'purpledark',
+        'megnadark': themeSwitcher.color == 'megnadark',
+        'default': themeSwitcher.color == 'default',
+        'green': themeSwitcher.color == 'green',
+        'red': themeSwitcher.color == 'red',
+        'blue': themeSwitcher.color == 'blue',
+        'purple': themeSwitcher.color == 'purple',
+        'megna': themeSwitcher.color == 'megna',   
+        'left': themeSwitcher.menu == 'left',
+        'top': themeSwitcher.menu == 'top',
+        'right': themeSwitcher.menu == 'right',
+        'mini-sidebar': themeSwitcher.showMinisidebar,
+        'dark-theme': themeSwitcher.showDarktheme,
+        'rtl-theme': themeSwitcher.showRtl
+    }
+">
+  <ng-content></ng-content>
+
+  <!-- ============================================================== -->
+  <!-- Setting Right sidebar -->
+  <!-- ============================================================== -->
+  <ui-button *ngIf="showSwitcher" class="right-side-toggle btn-inverse btn btn-circle btn-lg"
+    (click)="themeSwitcher.showSettings = !themeSwitcher.showSettings" icon="ti-settings text-white fa-spin">
+  </ui-button>
+
+  <div *ngIf="showSwitcher" class="right-sidebar" [ngClass]="{'shw-rside': themeSwitcher.showSettings}">
+    <div class="slimscrollright">
+      <div class="rpanel-title"> Settings <span>
+          <i class="ti-close right-side-toggle" aria-hidden="true" (click)="onCloseSettings()"></i></span>
+      </div>
+      <div class="r-panel-body" [perfectScrollbar]="config" fxFlex="auto">
+        <ul id="themecolors" class="m-t-20">
+          <li class="m-b-20 m-t-20"><strong>Light Sidebar / Colors</strong></li>
+          <li>
+            <div class="default-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck1" name="radio-stacked" type="radio" value="default"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck1"></label>
+            </div>
+          </li>
+          <li>
+            <div class="green-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck2" name="radio-stacked" type="radio" value="green"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck2"></label>
+            </div>
+          </li>
+          <li>
+            <div class="red-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck3" name="radio-stacked" type="radio" value="red"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck3"></label>
+            </div>
+          </li>
+          <li>
+            <div class="blue-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck4" name="radio-stacked" type="radio" value="blue"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck4"></label>
+            </div>
+          </li>
+          <li>
+            <div class="purple-theme theme-control theme-checkbox">
+              <input class="purple-theme theme-control-input" id="sidebarCheck5" name="radio-stacked" type="radio"
+                value="purple" [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck5"></label>
+            </div>
+          </li>
+          <li>
+            <div class="megna-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck6" name="radio-stacked" type="radio" value="megna"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck6"></label>
+            </div>
+          </li>
+        </ul>
+        <hr>
+        <ul id="themecolors" class="m-t-20">
+          <li class="m-b-20"><strong>Dark Sidebar / Colors</strong></li>
+          <li>
+            <div class="default-dark-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck7" name="radio-stacked" type="radio"
+                value="defaultdark" [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck7"></label>
+            </div>
+          </li>
+          <li>
+            <div class="green-dark-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck8" name="radio-stacked" type="radio" value="greendark"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck8"></label>
+            </div>
+          </li>
+          <li>
+            <div class="red-dark-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck9" name="radio-stacked" type="radio" value="reddark"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck9"></label>
+            </div>
+          </li>
+          <li>
+            <div class="blue-dark-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck10" name="radio-stacked" type="radio" value="bluedark"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck10"></label>
+            </div>
+          </li>
+          <li>
+            <div class="purple-dark-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck11" name="radio-stacked" type="radio"
+                value="purpledark" [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck11"></label>
+            </div>
+          </li>
+          <li>
+            <div class="megna-dark-theme theme-control theme-checkbox">
+              <input class="theme-control-input" id="sidebarCheck12" name="radio-stacked" type="radio" value="megnadark"
+                [(ngModel)]="themeSwitcher.color">
+              <label class="theme-control-label" for="sidebarCheck12"></label>
+            </div>
+          </li>
+        </ul>
+        <hr>
+        <ul id="menulayout" class="m-t-20">
+          <li class="m-b-20"><strong>Sidebar Position</strong></li>
+          <li>
+            <div class="left-side theme-control theme-checkbox">
+              <input class="theme-control-input" id="menuCheck1" name="radio-stacked" type="radio" value="left"
+                [(ngModel)]="themeSwitcher.menu">
+              <label class="theme-control-label" for="menuCheck1"></label>
+            </div>
+          </li>
+          <li>
+            <div class="top-side theme-control theme-checkbox">
+              <input class="theme-control-input" id="menuCheck2" name="radio-stacked" type="radio" value="top"
+                [(ngModel)]="themeSwitcher.menu">
+              <label class="theme-control-label" for="menuCheck2"></label>
+            </div>
+          </li>
+          <li>
+            <div class="right-side theme-control theme-checkbox">
+              <input class="theme-control-input" id="menuCheck3" name="radio-stacked" type="radio" value="right"
+                [(ngModel)]="themeSwitcher.menu">
+              <label class="theme-control-label" for="menuCheck3"></label>
+            </div>
+          </li>
+        </ul>
+        <hr>
+        <ul>
+          <li class="m-b-20 m-t-20"><strong>General Setting</strong></li>
+          <li>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="generalCheck1"
+                [(ngModel)]="themeSwitcher.showMinisidebar">
+              <label class="custom-control-label" for="generalCheck1">Mini Sidebar</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="generalCheck2"
+                [(ngModel)]="themeSwitcher.showDarktheme">
+              <label class="custom-control-label" for="generalCheck2">Dark Theme</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="generalCheck3"
+                [(ngModel)]="themeSwitcher.showRtl">
+              <label class="custom-control-label" for="generalCheck3">RTL Theme</label>
+            </div>
+          </li>
+        </ul>
+        <hr>
+        <div class="mb-5 d-flex justify-content-end">
+          <ui-button buttonType="primary" class="custom-control custom-button" (click)="onApplyTheme()">Apply Theme
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Right sidebar -->
+  <!-- ============================================================== -->
+</div>

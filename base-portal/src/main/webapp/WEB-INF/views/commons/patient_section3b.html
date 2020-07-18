@@ -1,0 +1,70 @@
+<!-- start MOH Form -->
+<br/><h4 th:text="#{lbl.patient.section3.close.contact}" />
+<div class="row form-row">
+	<div class="col-md-12">
+		<labe class="errors" id="closedContactError" />
+		<bst:alert-info><span>Please click <i class="fa fa-plus fa-lg"></i> icon to add and if you want to delete, please click on <i class="fa fa-trash-o fa-lg"></i></span></bst:alert-info>
+		<bst:table-light id="tblClosedContactLst" width="100%">
+			<thead>
+				<tr th:if="${!isView}">
+					<td>
+						<bst:input id="closedContactId" style="text-transform: uppercase;" maxlength="255" th:readonly="${isView}" />
+					</td>
+					<td>
+						<bst:input id="closedContactName" style="text-transform: uppercase;" maxlength="255" th:readonly="${isView}" />
+					</td>
+			 		<td>
+						<bst:input-contact id="closedContactPhoneNo" maxlength="20" th:readonly="${isView}" />
+					</td>
+				 	<td>
+						<bst:select id="closedContactRelation" data-minimum-results-for-search="Infinity" th:attr="data-placeholder=#{lbl.cmn.sel.pls}" th:readonly="${isView}">
+							<option th:text="#{lbl.cmn.sel.pls}" value="" />
+							<option th:each="meta : ${@staticData.findByMetadataType('RELATIONSHIP')}" th:value="${meta.mtdtCd}" th:text="${meta.mtdtDesc}" />
+						</bst:select>
+					</td>
+					<td /><!--/* Relation Code */-->
+					<td /><!--/* Is Active */-->
+					<td /><!--/* Patient Contact Id */-->
+					<td  width="5%" th:if="${!isView}">
+						<a title="Add" id="closedContactAddBtn" class="mr-2 cursor-pointer" style="color: black"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></a>
+						<a title="Update" id="closedContactEditBtn" class="mr-2 cursor-pointer"  style="display:none;color: black"><i class="fa fa-edit fa-lg" aria-hidden="true"></i></a>
+						<a title="Cancel" id="closedContactCancelBtn" class="cursor-pointer" style="display:none;color: black"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
+						<input type="hidden" id="closedContactIdx" />
+					</td>
+				</tr>
+				<tr>
+					<th width="20%" th:text="#{'Identification No.'}"/>
+					<th width="30%" th:text="#{lbl.nm}"/>
+					<th width="25%" th:text="#{'Phone No.'}"/>
+					<th width="20%" th:text="#{'Relationship'}"/>
+					<td />
+					<td />
+					<td />
+					<th width="5%" th:text="#{'Action'}"/>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="contact, rowStat : ${patientFormDto.closeContacts}">
+					<td width="20%"><th:block th:text="${contact.nationalId}" /></td>
+					<td width="30%"><th:block th:text="${contact.firstNm}" /></td>
+					<td width="25%"><th:block th:text="${contact.contactNo}" /></td>
+					<td width="20%">
+						<th:block th:each="mtdt : ${@staticData.findByMetadataType('RELATION')}">
+							<th:block th:if="${mtdt.mtdtCd == contact.relationCd}" th:text="${mtdt.mtdtDesc}" />
+						</th:block>
+					</td>
+					<td><th:block th:text="${contact.relationCd}" /></td>
+					<td><th:block th:text="${contact.isActive}" /></td>
+					<td><th:block th:text="${contact.patientContactId}" /></td>
+					<td width="5%">
+						<a title="Update" class="edit mr-2 cursor-pointer" ><i class="fa fa-edit fa-lg"></i></a>
+		        		<a title="Delete" class="remove cursor-pointer" ><i class="fa fa-trash-o fa-lg"></i></a>
+		        		<a title="Record Marked for Deletion" class="recordDel" style="display:none;color: red"><i class="fa fa-ban fa-lg"></i></a>
+		        		<a title="Cancel" class="cancel cursor-pointer" style="display:none;color: black"><i class="fa fa-times fa-lg"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</bst:table-light>
+	</div>
+</div>
+<!-- end MOH Form -->

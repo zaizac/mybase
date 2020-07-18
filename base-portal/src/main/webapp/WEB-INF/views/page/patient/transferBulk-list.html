@@ -1,0 +1,44 @@
+<th:block th:include="commons/patient_search_criteria_bulk_transfer" /> 
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.ptnt.list}" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<bst:table-light id="tblBulkTransfer">
+			<thead>
+				<tr>
+					<th th:text="#{lbl.app.no}" width="5%" />
+					<th th:text="#{lbl.cs.id}" width="10%" />
+					<th th:text="#{lbl.reg.dt}" width="10%" />
+					<th th:text="#{lbl.ptnt.name}" width="30%" />
+					<th th:text="#{lbl.ptnt.id}" width="10%" />
+					<th th:text="#{lbl.med.stts}" width="15%" />
+					<th th:text="#{lbl.patient.section4.admit.Health.Outcome}" width="15%" />
+					<th th:text="#{lbl.app.id}" width="10%" />
+					<th th:text="#{'Select'}" width="5%"/>
+				</tr>
+			</thead>
+		</bst:table-light>
+		<div class="row form-row">
+			<div class="col-12" >
+				<bst:form id="transferBuilkForm" th:action="@{'/patient/transferByBulk/'} + ${patientRefNo}" th:object="${patient}" th:method="POST" autocomplete="off">
+		       		 <div class="row form-row">
+		       		 	  <div class="col-md-6">
+							<label class="required" th:text="#{'Select New Center'}" />
+						    <bst:select th:field="*{clinicId}" id="centerId">
+						    	<option th:text="#{lbl.cmn.sel.pls}" value="" />
+								<option th:each="center : ${centerNameList}" th:value="${center.branchId}" th:text="${center.branchName}"/>
+							</bst:select>
+							<span id="errClinicId" style ="display : none;" class="errors" th:text="#{'Please select new center'}"/>	
+						</div>
+					</div>
+				<div class="pull-right">
+					<bst:btn-primary type="button" id="updtTransderBulk" name="update" th:text="#{btn.cmn.upd}"/>
+				</div>
+				<input type="hidden" th:field="*{patientId}" />
+				<input type="hidden" th:field="*{selectedIdTransferBulk}" th:id="selectedIdTransferBulkId" />
+				</bst:form>
+			</div>
+		</div>
+	</bst:widget-body>
+</bst:widget>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+		
+<tiles-definitions>
+    
+	<definition name="base_layout" template="layout/base-layout" templateType="thymeleaf"></definition>
+	<definition name="unauth_layout" template="layout/unauth-layout" templateType="thymeleaf"></definition>
+		
+	<definition name="login" extends="unauth_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/login" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="page_home" extends="base_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/home" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="change_pword" extends="base_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/user/change-password" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="level_list" extends="base_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/level-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="status_list" extends="base_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/status-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="wf_config" extends="base_layout">
+		<put-attribute name="title" value="ttl.inbox.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/wf-config" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of wf_config page : Configuration menu -->
+	<definition name="config" extends="base_layout">
+		<put-attribute name="title" value="ttl.inbox.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/wfw-config" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of wf_config_edit page : Type -->
+	<definition name="type" extends="base_layout">
+		<put-attribute name="title" value="ttl.inbox.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/wfw-type" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of wf_config_edit page : Level -->
+	<definition name="level" extends="base_layout">
+		<put-attribute name="title" value="ttl.inbox.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/wfw-level" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of wf_config_edit page : Status -->
+	<definition name="status" extends="base_layout">
+		<put-attribute name="title" value="ttl.inbox.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/wfw-status" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="wf_config_edit" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/wf-config-edit" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="pg_error" extends="base_layout">
+		<put-attribute name="title" value="Portal" type="thymeleaf" />
+		<put-attribute name="content" value="page/error" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="type_list" extends="base_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/type-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="user_list" extends="base_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/user-list" type="thymeleaf"/>
+	</definition>
+
+	<definition name="user_edit" extends="base_layout">
+		<put-attribute name="title" value="lbl.cmn.login" type="thymeleaf" />
+		<put-attribute name="content" value="page/maintenance/user-edit" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="inbox_list" extends="base_layout">
+		<put-attribute name="title" value="ttl.inbox.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/inbox-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="inbox_edit" extends="base_layout">
+		<put-attribute name="title" value="ttl.inbox.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/inbox-edit" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_list" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-list" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of task_list page : Inquiry menu -->
+	<definition name="task_master" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-master" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_details" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-details" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of task_details page : Details -->
+	<definition name="task_dtls" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-dtls" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_details_edit" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-details-edit" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_create" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-create" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_history" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-history-list" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of task_history page : View History -->
+	<definition name="task_dtls_hist" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-dtls-history" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_queue" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-queue" type="thymeleaf"/>
+	</definition>
+	<!-- Replacement of task_list page : Task menu -->
+	<definition name="task_pool" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-pool" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_inbox" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-inbox" type="thymeleaf"/>
+	</definition>
+	
+	<!-- Replacement of task_list page : Inbox menu -->
+	<definition name="task_my_inbox" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-my-inbox" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="task_release" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/task-release" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="application" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/application" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="application_details" extends="base_layout">
+		<put-attribute name="title" value="ttl.task.list" type="thymeleaf" />
+		<put-attribute name="content" value="page/task/application-details" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="popup_modal" template="commons/modal_popup" templateType="thymeleaf" />
+	
+</tiles-definitions>

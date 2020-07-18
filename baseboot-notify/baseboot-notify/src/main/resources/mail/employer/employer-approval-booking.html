@@ -1,0 +1,57 @@
+<p style="font-family:Verdana,Arial,sans-serif;font-size:12px;">Dear <b><th:block th:text="${name}" /></b>,<br/></p>
+<p style="text-align:justify;font-family:Verdana,Arial,sans-serif;font-size:12px;">This is an auto generated mail to notify you that your requested Foreign Domestic Helper(Name : <b><th:block th:text="${wrkrName}" /></b>, Passport No : <b><th:block th:text="${passportNo}" /></b>)
+has been <b><th:block th:text="${status}" /></b>  by your selection APS (Agensi Pekerjaan Swasta), <b><th:block th:text="${apsName}" /></b>, details as following below: </p>
+<div>
+<table style="font-family:Verdana,Arial,sans-serif;font-size:12px;">
+<tbody>
+	<tr>
+		<th style="text-align:left">Foreign Worker Name</th>
+		<td>:</td>
+		<td th:text="${wrkrName}"/>
+	</tr>
+	
+	<tr>
+		<th style="text-align:left">Passport No.</th>
+		<td>:</td>
+		<td th:text="${passportNo}"/>
+	</tr>
+	
+	<tr>
+		<th style="text-align:left">ApjatiGo Reg No.</th>
+		<td>:</td>
+		<td th:text="${apjatiregNo}"/>
+	</tr>
+	
+	<tr>
+		<th style="text-align:left">Marital Status</th>
+		<td>:</td>
+		<td th:text="${maritial}"/>
+	</tr>
+	
+	<tr>
+		<th style="text-align:left">Age</th>
+		<td>:</td>
+		<td th:text="${age}+''+#{'years'}"/>
+	</tr>
+	
+	<tr>
+		<th style="text-align:left">Gender</th>
+		<td>:</td>
+		<td th:text="${gender}"/>
+	</tr>
+	
+	<tr>
+		<th style="text-align:left">Requested Date</th>
+		<td>:</td>
+		<td th:text="${requestDt}"/>
+	</tr>
+	
+	<tr>
+		<th style="text-align:left">Approval Date</th>
+		<td>:</td>
+		<td th:text="${approveDt}"/>
+	</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:justify;font-family:Verdana,Arial,sans-serif;font-size:12px;">Please liaise with you Agensi Pekerjaan Swasta for further process.</p>

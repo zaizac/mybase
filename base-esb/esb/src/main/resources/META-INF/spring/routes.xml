@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+    ">
+ 
+    <!-- this is an included XML file where we only the the routeContext -->
+    <routeContext id="mipssMysRoutes" xmlns="http://camel.apache.org/schema/spring">
+		 
+		<!-- [START] Worker SST - Fetch All Workers -->
+	   <route id="SST_WORKER_M2M_IN" autoStartup="{{worker.cdc.task.autostart}}">
+			<description>SST Worker Fetch M2M Trigger</description>
+			<from uri="timer://sendSstWorker?period={{worker.cdc.task.interval}}"/>
+			<bean ref="workerTeleradiologySstTask" method="triggerServiceW2M" />
+			<to uri="jmsTemplateComponent:SST_WORKER_M2M_Q"/>			
+		</route>
+		
+		<route id="SST_WORKER_M2M_OUT" autoStartup="{{worker.cdc.task.autostart}}">
+			<description>SST WORKER M2W Handler</description>
+			<from uri="amqComponent:queue:SST_WORKER_M2M_Q?concurrentConsumers={{maximum.concurrent.consumer}}"/>
+			<bean ref="workerTeleradiologySstTask" method="handleServiceM2W" />
+			<to uri="jmsTemplateComponent:SST_WORKER_M2M_QR"/>
+		</route>
+		
+		<route id="SST_WORKER_M2M_RTN" autoStartup="{{worker.cdc.task.autostart}}">
+			<description>SST WORKER M2W Return</description>
+			<from uri="amqComponent:queue:SST_WORKER_M2M_QR?concurrentConsumers={{maximum.concurrent.consumer}}"/>
+			<bean ref="workerTeleradiologySstTask" method="returnServiceM2W" />
+			<to uri="jmsTemplateComponent:SST_WORKER_M2M_QRTN"/>
+		</route> 
+		<!-- [END] Worker SST - Fetch All Workers -->
+		
+		<!-- [START] Worker SST  -->
+	    <route id="TELE_WORKER_UPDATE_W2M_IN" autoStartup="{{worker.telesst.task.autostart}}">
+			<description>TELE WORKER FETCH W2M Trigger</description>
+			<from uri="timer://sendSstWorker?period={{worker.telesst.task.interval}}"/>
+			<bean ref="sstTeleradiologyWorkerTask" method="triggerServiceW2M" />
+			<to uri="jmsTemplateComponent:WORKER_SST_W2M_Q"/>			
+		</route>
+		
+		<route id="TELE_WORKER_UPDATE_W2M_OUT" autoStartup="{{worker.telesst.task.autostart}}">
+			<description>TELE WORKER M2W Handler</description>
+			<from uri="amqComponent:queue:WORKER_SST_W2M_Q?concurrentConsumers={{maximum.concurrent.consumer}}"/>
+			<bean ref="sstTeleradiologyWorkerTask" method="handleServiceM2W" />
+			<to uri="jmsTemplateComponent:WORKER_SST_W2M_QR"/>
+		</route>
+		
+		<route id="TELE_WORKER_UPDATE_W2M_RTN" autoStartup="{{worker.telesst.task.autostart}}">
+			<description>TELE WORKER RTN Trigger</description>
+			<from uri="amqComponent:queue:WORKER_SST_W2M_QR?concurrentConsumers={{maximum.concurrent.consumer}}"/>
+			<bean ref="sstTeleradiologyWorkerTask" method="returnServiceM2W" />
+			<to uri="jmsTemplateComponent:WORKER_SST_W2M_QR"/>			
+		</route>
+	 
+		<!-- [END] Worker SST  -->
+		   
+		
+    </routeContext>
+</beans>

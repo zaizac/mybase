@@ -1,0 +1,73 @@
+<div layout:fragment="content">
+     <div id="content-home">
+     
+		<div id="search_criteria">
+		
+		<form th:action="@{/task-master}" method="post" th:object="${task}">     		
+     		<legend th:text="#{lbl.srch.crtra}"></legend>     		
+     		<fieldset>
+   			<div th:if="${error}" class="alert alert-danger" role="alert"><p th:text="${error}"></p></div>	
+     		<table id="fld_container">
+                <tbody>
+                			<tr>
+								<td th:text="#{lbl.refno}"></td>
+								<td align="center">:</td>
+								<td><input th:type="text" id="apprefno" th:field="*{appRefNo}"/> <br /></td>
+							</tr>
+							<tr>
+								<td width="39%" align="right" th:text="#{lbl.ofcr.id}"></td>
+								<td width="2%" align="center">:</td>
+								<td width="59%" align="left"><input th:type="text" id="claimby" th:field="*{claimBy}"/> 
+								</td>
+							</tr>	
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>
+									<input th:type="submit" th:value="#{btn.cmn.sea}"/> 
+									<input name="reset" th:type="submit" th:value="#{btn.cmn.rst}" />
+								</td>
+							</tr>
+
+				</tbody>
+            </table>
+     		
+		</fieldset>	
+    </form>
+    
+   
+	</div>
+
+		<div id="data_table">
+				<div style="width:90%; margin-left:2%; text-align: right;">
+						  <p><a style="text-decoration: underline;" th:href="@{/task/details(taskMasterId=)}"><span>Add New Task</span></a></p></div>
+			<table id="tbl_data">		
+					<tr>
+						<th colspan="8" th:text="#{lbl.tasks}"></th>
+					</tr>		
+				<tr>					
+					<th th:text="#{lbl.refno}" width="10%"></th>
+					<th th:text="#{lbl.usr.appcant.id}" width="10%"></th>
+					<th th:text="#{lbl.usr.appcant.name}" width="22%"></th>
+					<th th:text="#{lbl.app.date}" width="8%"></th>
+					<th th:text="#{lbl.mod.id}" width="5%"></th>
+					<th th:text="#{lbl.ofcr.id}" width="10%"></th>
+					<th th:text="#{lbl.col.action}" width="5%"></th>
+				</tr>
+				<tr th:each="task : ${dataListObj}">					
+					<td th:text="${task.appRefNo}"></td>
+					<td th:text="${task.applicantId}"></td>
+					<td th:text="${task.applicant}"></td>
+					<td th:text="${#dates.format(task.appDate, 'dd/MM/yyyy')}"></td>
+					<td th:text="${task.refType.moduleId}"></td>
+					<td th:text="${task.submitBy}"></td>
+					<td style="text-align: center;"><a
+						th:href="@{/task/details(taskMasterId=${task.taskMasterId})}"><span>Details</span></a></td>
+				</tr>
+				<tr>
+						<th colspan="8"><div th:if="${msg}"><p th:text="*{msg}"></p></div></th>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

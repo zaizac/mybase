@@ -1,0 +1,229 @@
+<th:block th:include="commons/patient_basic_info" />
+<th:block th:with="isAccess=${isAccess}">
+<input type="hidden" id="isAccess" th:value="${isAccess}"/>
+
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{Lab Results}" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row form-row">
+			<div class="col-12" >
+				<div class="pull-right">
+				<bst:form id="deleteLabForm" th:action="@{'/patient/result/update/'} + ${patientRefNo}" th:object="${testResultForm}" th:method="POST" autocomplete="off">
+	       			<bst:btn-danger th:if="${isAccess == true}"  type="button" id="deleteLabResult" name="delete" th:text="#{'Delete'}" />
+					<input type="hidden" th:field="*{patientRefNo}" />
+				</bst:form>
+	   			</div>
+			</div>
+		</div>
+		<bst:table-light id="tblSubTestLst">
+			<thead>
+				<tr>
+					<th th:text="#{lbl.app.no}" width="5%" />
+					<th th:text="#{lbl.patient.test.result.sampleRcvDate}" width="20%" />
+					<th th:text="#{lbl.patient.test.result.sampling}" width="30%" />
+					<th th:text="#{lbl.test.result.date}" width="20%" />
+					<th th:text="#{lbl.patient.test.result.rest}" width="20%" />
+					<th th:text="#{lbl.action}" width="5%" />
+					<th th:text="#{'Delete'}" width="5%">
+					</th>
+				</tr>
+			</thead>
+		</bst:table-light>
+	</bst:widget-body>
+</bst:widget>
+
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{'Update Lab Result'}" th:if="${isUpdate}" />
+		<h4 class="font-widget" th:text="#{'Add Lab Result'}" th:unless="${isUpdate}" />
+	</bst:widget-header>
+	<bst:form th:action="@{'/patient/result/update/'} + ${patientRefNo}"
+		th:object="${testResultForm}" th:method="POST" autocomplete="off">
+		<input type="hidden" th:field="*{selectedIdDelete}" th:id="selectedIdDeleteId" />
+	<bst:widget-body>
+			<input type="hidden" th:field="${testResultForm.patientId}" />
+			<input type="hidden" th:field="${testResultForm.nationalId}" />
+			<input type="hidden" th:field="${testResultForm.testResultId}" />
+
+			<div Class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.patient.test.result.specimen}" />
+					<bst:input th:field="*{specimen}"
+						style="text-transform: uppercase;" maxlength="255" th:disabled="${!isAccess}"/>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.patient.test.result.categry}" />
+					<bst:select th:field="*{categoryMtdtId}" th:disabled="disable">
+						<option th:if="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option
+							th:each="cat1 : ${@staticData.findByMetadataType('CATEGORY')}"
+							th:value="${cat1.mtdtId}" th:text="${cat1.mtdtDesc}" />
+					</bst:select>
+					<input type="hidden" th:field="*{categoryMtdtId}"/>
+				</div>
+			</div>
+ 
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<label th:text="#{lbl.test.result.reqster}" />
+					<bst:radio-group>
+						<bst:radio
+							th:each="opt : ${@staticData.findByMetadataType('REQUESTER_OPT')}"
+							th:field="*{requesterMtdtId}" th:value="${opt.mtdtId}"
+							th:text="${opt.mtdtDesc}" onclick="checkScreening(this);" th:disabled="${!isAccess}"/>
+					</bst:radio-group>
+					<bst:error th:if="${#fields.hasErrors('requesterMtdtId')}"
+						th:errors="*{requesterMtdtId}" />
+					
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6" id="screeningMoh" style ="display : none">
+				<bst:select th:field="*{screenId}" th:disabled="${!isAccess}">
+						<option th:if="${isAccess==true}" th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option th:each="sc : ${@staticData.findByScreeningCtrMtdtId(319)}"
+							th:value="${sc.screenId}" th:text="${sc.screenDesc}"/>
+					</bst:select>
+				</div>
+				
+				<div class="col-sm-12 col-md-6 col-lg-6" id="screeningNonMoh" style ="display : none">
+				<bst:select th:field="*{screenId}" th:disabled="${!isAccess}">
+						<option th:if="${isAccess==true}" th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option th:each="sc : ${@staticData.findByScreeningCtrMtdtId(320)}"
+							th:value="${sc.screenId}" th:text="${sc.screenDesc}" />
+					</bst:select>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6" id="screeningNonGov" style ="display : none">
+				<bst:select th:field="*{screenId}" th:disabled="${!isAccess}">
+						<option th:if="${isAccess==true}" th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option th:each="sc : ${@staticData.findByScreeningCtrMtdtId(321)}"
+							th:value="${sc.screenId}" th:text="${sc.screenDesc}"/>
+					</bst:select>
+				</div>
+			</div>
+
+			<div Class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.patient.test.result.labName}" />
+					<bst:select th:field="*{labId}" th:disabled="${!isAccess}">
+						<option th:if="${isAccess==true}" th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option th:each="lab : ${@staticData.labList()}"
+							th:value="${lab.labId}" th:text="${lab.labDesc}"/>
+					</bst:select>
+				</div>
+				<!--/* Sample Received Date */-->
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.patient.test.result.sampleRcvDate}" />
+					<bst:input-date id="dtPckrSampleRcvDate"
+						th:field="*{sampleReceiveDt}" th:disabled="${!isAccess}"/>
+				</div>
+			</div>
+
+			<div Class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.test.result.smple.proceed.date}" />
+					<bst:input-date id="dtPckrSampleProcessDate"
+						th:field="*{sampleProcessDt}" th:disabled="${!isAccess}"/>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label class="required" th:text="#{lbl.test.result.date}" />
+					<bst:input-date id="dtPckr" data-constraints="@Required"
+						th:field="*{testResultDt}" th:disabled="${!isAccess}"/>
+					<bst:error th:if="${#fields.hasErrors('testResultDt')}"
+						th:errors="*{testResultDt}" />
+				</div>
+			</div>
+
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<label class="required"
+						th:text="#{lbl.patient.test.result.samplyType}" />
+					<bst:checkbox-group>
+						<bst:checkbox th:disabled="${!isAccess}"
+							th:each="cat5 : ${@staticData.findByMetadataTypeOrderByCode('SAMPLE_TYPE')}"
+							th:field="*{sampleTypes}" th:value="${cat5.mtdtCd}"
+							th:text="${cat5.mtdtDesc}" />
+					</bst:checkbox-group>
+					<bst:error th:if="${#fields.hasErrors('sampleTypes')}"
+						th:errors="*{sampleTypes}" />
+				</div>
+			</div>
+			
+			<!-- new field -->
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.sample.desc}" />
+					<bst:input th:field="*{sampleName}"
+						style="text-transform: uppercase;" maxlength="255" th:disabled="${!isAccess || true}"/>
+				</div>
+			</div>
+
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.patient.test.result.sampling}" />
+					<bst:select th:field="*{samplingMtdtId}" th:disabled="${!isAccess}">
+						<option th:if="${isAccess==true}" th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option
+							th:each="cat2 : ${@staticData.findByMetadataTypeOrderByCode('SAMPLING')}"
+							th:value="${cat2.mtdtId}" th:text="${cat2.mtdtDesc}" />
+					</bst:select>
+				</div>
+
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label th:text="#{lbl.test.result.ty.tst}" />
+					<bst:select th:field="*{typeTestMtdtId}" th:disabled="${!isAccess}">
+						<option th:if="${isAccess==true}" th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option
+							th:each="type : ${@staticData.findByMetadataType('TEST_TYPE')}"
+							name="typeTestMtdtId" th:value="${type.mtdtId}"
+							th:text="${type.mtdtDesc}" />
+					</bst:select>
+					<bst:error th:if="${#fields.hasErrors('typeTestMtdtId')}"
+						th:errors="*{typeTestMtdtId}" />
+				</div>
+			</div>
+
+			<div class="row form-row">
+				<div class="col-sm-12 col-md-6 col-lg-6">
+					<label class="required" th:text="#{lbl.patient.test.result.rest}" />
+					<bst:select th:field="*{result}" data-constraints="@Required" th:disabled="${!isAccess}">
+						<option th:if="${isAccess==true}" th:text="#{lbl.cmn.sel.pls}" value="" />
+						<option th:unless="${isAccess==true}" th:text="#{lbl.not.applicant}" value="" />
+						<option
+							th:each="cat3 : ${@staticData.findByStatusType('LAB_RESULT')}"
+							name="result" th:value="${cat3.statusDesc}"
+							th:text="${cat3.statusDesc}" />
+					</bst:select>
+					<bst:error th:if="${#fields.hasErrors('result')}"
+						th:errors="*{result}" />
+				</div>
+			</div>
+	</bst:widget-body>
+	<bst:widget-footer>
+		<div class="row">
+			<div class="col-12">
+				<bst:btn-group class="pull-right">
+					<bst:btn type="button"
+						th:onclick="|window.location.href='@{#{'/patient/result'}}'|"
+						th:text="#{btn.cmn.can}" />
+					<th:block th:if="${isAccess==true}">	
+					<bst:btn type="button"
+						th:onclick="|window.location.href='@{#{'/patient/result/update/'+ ${patientRefNo} }}'|"
+						th:text="#{btn.cmn.rst}" />
+					<bst:btn-primary  type="submit" th:text="#{btn.cmn.upd}" th:if="${isUpdate}" name="update"/>
+					<bst:btn-primary  type="submit" th:text="#{btn.cmn.sav}" th:unless="${isUpdate}" name="create"/>
+					</th:block>
+				</bst:btn-group>
+			</div>
+		</div>
+	</bst:widget-footer>
+	</bst:form>
+</bst:widget>
+</th:block>

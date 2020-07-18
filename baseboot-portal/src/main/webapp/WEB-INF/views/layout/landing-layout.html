@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:tiles="http://www.thymeleaf.org"
+	>
+	<head th:substituteby="commons/main-head" />
+    <body class="">
+    	<div class="wrapper">
+	    	<header class="navbar" role="banner" th:include="commons/main-header"/>
+	    		<div th:include="commons/main-menu" />
+	    	<div class="content">
+	    		<bst:alert-error th:if="${systemDown}">
+					<th:block th:utext="#{msg.err.svc.avai(${systemDownErrCd})}" />
+				</bst:alert-error>
+		    	<th:block tiles:include="content" />
+		    </div>
+		</div>
+    </body>
+	<footer th:substituteby="commons/main-footer"/>
+    <th:block th:include="commons/main-foot"/>
+   	<th:block th:include="commons/modal-popup"/>
+</html>

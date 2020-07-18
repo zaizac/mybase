@@ -1,0 +1,128 @@
+.fileupload .img-thumbnail, .fileupload .thumbnail{
+    display:inline-block;
+    overflow:hidden;
+    text-align:center;
+    vertical-align:middle
+}
+
+.fileupload .thumbnail{
+    margin-bottom:5px;
+    position:inherit
+}
+
+.fileupload .thumbnail img{
+    max-height:100%;
+    max-width:100%
+}
+
+.btn-file {
+    background: #868e96 !important;
+    border: 1px solid #868e96;
+    color: #ffffff !important;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group-append{
+    position: relative;
+    right: 0px;
+    //height: 100%;
+}
+
+.fileinput-ellipsis {
+    text-overflow: ellipsis !important;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.view{
+    border: none;
+}
+
+.close {
+    float: none;
+    cursor: default;
+    opacity: inherit;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.fu-container {
+    color: #333;
+    cursor: default;
+    display: flex;
+    outline: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.fu-content {
+    font-size: .9em;
+    margin-bottom: 5px;
+    background-color: #ebf5ff;
+    border-radius: 2px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.fileupload-container {
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    min-height: 36px;
+    -webkit-box-align: center;
+    align-items: center;
+    color: #333;
+    cursor: default;
+    display: flex;
+    outline: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.fileupload-value-container {
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 10px;
+    display: flex;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fileupload-placeholder {
+    color: #999
+}
+
+.upload-arrow-wrapper {
+    width: 25px;
+    padding-right: 5px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+}
+
+.fileupload-span-container {
+    width: 100%;
+    height: 100%;
+}
+
+.upload-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}

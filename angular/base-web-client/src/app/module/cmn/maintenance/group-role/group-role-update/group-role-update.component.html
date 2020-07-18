@@ -1,0 +1,32 @@
+<ui-card>
+  <ui-title>
+    User Group Role Update
+    <h6 class="text-muted m-t-0">Create User Group Update</h6>
+  </ui-title>
+  <form [formGroup]="userGroupRoleUpdateFrom" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- User Group Code -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">User Group Role Code</label>
+        <ui-select label="User Group Code" [init]="selGroupCodeInit" formControlName="userGroupRoleCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+
+      <!-- User Group Description -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Role Code</label>
+        <ui-select label="Role Code" [init]="selRoleCodeInit" formControlName="userRoleCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="cancel()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>

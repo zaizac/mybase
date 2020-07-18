@@ -1,0 +1,179 @@
+.theme-control {
+	position: relative;
+	display: block;
+	min-height: 1.5rem;
+	padding-left: 1.5rem;
+}
+.theme-control-inline {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	margin-right: 1rem;
+}
+.theme-control-input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	&:checked {
+		~ {
+			.theme-control-label {
+				&::before {
+					color: transparent;
+					background-color: transparent;
+					border-color: transparent;
+				}
+			}
+		}
+	}
+	&:focus {
+		~ {
+			.theme-control-label {
+				&::before {
+					box-shadow: none;
+					display: none;
+				}
+			}
+		}
+	}
+	&:active {
+		~ {
+			.theme-control-label {
+				&::before {
+					color: #fff;
+					background-color: #b3d7ff;
+				}
+			}
+		}
+	}
+	&:disabled {
+		~ {
+			.theme-control-label {
+				color: #6c757d;
+				&::before {
+					background-color: #e9ecef;
+				}
+			}
+		}
+	}
+}
+.theme-control-label {
+  margin-bottom: 0;
+  padding-left: 0;
+  width: 100%;
+	&::before {
+		background-color: transparent;
+		border: none;	
+	}
+	&::after {
+		position: absolute;
+		top: 0.25rem;
+		left: 0;
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		// content: "";
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 50% 50%;
+	}
+}
+.theme-checkbox {
+	.theme-control-label {
+		&::before {
+			border-radius: 0.25rem;
+		}
+	}
+	.theme-control-input {
+		&:checked {
+			~ {
+				.theme-control-label {
+					&::before {
+						background-color: transparent;
+  						width: 100%;
+					}
+					&::after {
+						background-image: none;
+						content: "\f00c";
+						font-family: "FontAwesome";
+						color: #fff;
+						font-size: 1.5em;
+						text-align: center;
+						width: 100%;
+						background-image: none;
+					}
+				}
+			}
+		}
+		&:indeterminate {
+			~ {
+				.theme-control-label {
+					&::before {
+						background-color: transparent;
+  						width: 100%;
+					}
+					&::after {
+						background-image: none;
+						content: "\f00c";
+						font-family: "FontAwesome";
+						color: #fff;
+						font-size: 1.5em;
+						text-align: center;
+						width: 100%;
+						background-image: none;	
+					}
+				}
+			}
+		}
+		&:disabled {
+			&:checked {
+				~ {
+					.theme-control-label {
+						&::before {
+							background-color: rgba(0, 123, 255, 0.5);
+						}
+					}
+				}
+			}
+			&:indeterminate {
+				~ {
+					.theme-control-label {
+						&::before {
+							background-color: rgba(0, 123, 255, 0.5);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.theme-button {
+  float: right;
+  margin-bottom: 3em;
+}
+.left-side {
+    background: #263238;
+    background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #90a4ae), color-stop(99%, #90a4ae));
+    background: -o-linear-gradient(left, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: linear-gradient(to right, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+	border: 1px solid #90a4ae;
+}
+.top-side {
+    background: #263238;
+    background: -moz-linear-gradient(top, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: -webkit-linear-gradient(top, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: -webkit-gradient(linear, top, bottom, from(#263238), color-stop(23%, #263238), color-stop(23%, #90a4ae), color-stop(99%, #90a4ae));
+    background: -o-linear-gradient(top, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: linear-gradient(to bottom, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    border: 1px solid #90a4ae;
+}
+.right-side {
+    background: #263238;
+    background: -moz-linear-gradient(right, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: -webkit-linear-gradient(right, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: -webkit-gradient(linear, right top, left top, from(#263238), color-stop(23%, #263238), color-stop(23%, #90a4ae), color-stop(99%, #90a4ae));
+    background: -o-linear-gradient(right, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    background: linear-gradient(to left, #263238 0%, #263238 23%, #90a4ae 23%, #90a4ae 99%);
+    border: 1px solid #90a4ae;
+}

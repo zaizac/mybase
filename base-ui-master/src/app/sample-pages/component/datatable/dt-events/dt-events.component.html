@@ -1,0 +1,28 @@
+<ui-card>
+  <div class="col-12">
+    <h1>Row clicking event</h1>
+    <p>When clicking at the row (other than checkbox), it will trigger datatable row selecting event</p>
+    <p>Datatable will emit this event through editRecord. To listen to this event, simply write a function to handle
+      this event</p>
+    <p>editRecord will return row data. e.g: In example below, we use the row data to alert message</p>
+    <p>In template:</p>
+    <ui-card>
+      <pre>
+            &lt;ui-datatable [dataValues]='dtData4' [tableInit]='headerConfig10' (editRecord)='handleRowClick($event)'&gt;
+            &lt;/ui-datatable&gt;
+        </pre>
+    </ui-card>
+    <p>In controller:</p>
+    <ui-card>
+      <pre>
+            handleRowClick(row) {{ '{' }}
+              alert(`${{ '{' }}row.name{{ '}' }} is working in ${{ '{' }}row.company{{ '}' }}`);
+            {{ '}' }}
+        </pre>
+    </ui-card>
+    <p></p>
+    <div>
+      <ui-datatable [tableInit]='headerConfig' (editRecord)='handleRowClick($event)'></ui-datatable>
+    </div>
+  </div>
+</ui-card>

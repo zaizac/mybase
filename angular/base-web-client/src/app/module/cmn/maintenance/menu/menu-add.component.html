@@ -1,0 +1,79 @@
+<ui-card>
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="pull-right">
+        <ui-button buttonType="success" icon="fa fa-plus-circle" text="New Menu" i18n-text="@@Button-NewMenu"
+          routerLink="/maintenance/userMenu/create">
+        </ui-button>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="menuFrom" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <!-- Menu Code -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Menu Code</label>
+        <ui-text formControlName="menuCode" formatToUpperCase maxlength="255" label="Menu Code" placeholder=""
+          [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+
+      <!-- Menu Description -->
+      <!-- <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Menu Description</label>
+        <ui-text formControlName="menuDesc" maxlength="255" label="Type" [reset]="reset" placeholder=""
+          [submitted]="submitted"></ui-text>
+      </div> -->
+      <!-- Menu Level -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Menu Level </label>
+        <div class="form-group">
+          <ui-radio-group formControlName="menuLevel" inline="true">
+            <ui-radio inline="true" value="1">1</ui-radio>
+            <ui-radio inline="true" #c2 value="2" (change)="menuParentCode1(1)">2</ui-radio>
+            <ui-radio inline="true" #c3 value="3" (change)="menuParentCode2(2)">3</ui-radio>
+          </ui-radio-group>
+        </div>
+      </div>
+
+      <!-- Menu Parent Code -->
+      <div *ngIf="c2.checked" class="col-sm-12 col-md-6 col-lg-4">
+        <label>Menu Parent Code</label>
+        <ui-select label="Menu Parent Code" [init]="selMenuLevelCode1Init" formControlName="menuParent" [reset]="reset">
+        </ui-select>
+      </div>
+      <div *ngIf="c3.checked" class="col-sm-12 col-md-6 col-lg-4">
+        <label>Menu Parent Code</label>
+        <ui-select label="Menu Parent Code" [init]="selMenuLevelCode2Init" formControlName="menuParent" [reset]="reset">
+        </ui-select>
+      </div>
+    </div>
+    <!-- <div class="row">
+    </div> -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset"
+            (click)="onReset()">
+          </ui-button>
+          <ui-button buttonType="primary" icon="fa fa-search" text="Search" i18n-text="@@Button-Search" type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>
+<ui-card>
+  <div class="row mb-2">
+    <div class="col-12">
+      <ui-datatable *ngIf="menuList" (editRecord)="rowSelected($event)" [dataValues]="menuList"
+        [tableInit]="noDataConfig">
+        <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+          <ui-button [text]="'Delete'" (click)="delete(item.row)"></ui-button>
+        </ng-template>
+      </ui-datatable>
+    </div>
+  </div>
+  <ul>
+  </ul>
+</ui-card>

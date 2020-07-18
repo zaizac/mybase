@@ -1,0 +1,111 @@
+<!-- <h1 class="hero-heading mt-3">
+	<span th:switch="${#strings.toLowerCase(portalModule)}">
+    	<th:block th:case="user_mgmt" th:text="#{'Manage Users'}" />
+    	<th:block th:case="idmupd" th:text="#{lbl.usr.prof}" />
+    	<th:block th:case="eqm" th:text="#{eQuota}" />
+    	<th:block th:case="emb" th:text="#{eEmbassy}" />
+    	<th:block th:case="bio" th:text="#{lbl.bio.ver}" />
+    	<th:block th:case="myinbox" th:text="#{lbl.myInbx}" />
+    	<th:block th:case="claimedtask" th:text="#{lbl.clm.tsk}" />
+    	<th:block th:case="myapp" th:text="#{lbl.my.app}" />
+    	<th:block th:case="mntce" th:text="#{Maintenance}" />
+    	<th:block th:case="plks" th:text="#{PLKS}" />
+    	<th:block th:case="cmn_worker_bmi" th:text="#{lbl.bio.info}" />
+    	<th:block th:case="sim" th:text="#{lbl.sim.mgt}" />
+    	<th:block th:case="picvdrinfo" th:text="#{lbl.pic.vdr.info}" />
+    	<th:block th:case="empprfle" th:text="#{lbl.usr.co.prof}" />
+    	<th:block th:case="rpt" th:text="#{lbl.rpt}" />
+		<th:block th:case="change_password" th:text="#{lbl.pword.chng}"/>
+		<th:block th:case="new_login" th:text="#{lbl.login.frst}"/>
+		<th:block th:case="clear_mgmt" th:text="#{'Clearance'}" />
+		<th:block th:case="wrkr_mgmt" th:text="#{lbl.wrkr.mgmt}" />
+		<th:block th:case="stock_mgmt"  th:text="#{lbl.stck.mgmt}"/>
+		<th:block th:case="emp_contract" th:text="#{lbl.app.ec.ltr}" />
+		<th:block th:case="quota_information" th:text="#{lbl.quota.det}" />
+		<th:block th:case="report" th:text="#{lbl.report.head}"/>
+		<th:block th:case="maintenance" th:text="#{lbl.maintenance.head}"/>
+		<th:block th:case="js_profile" th:text="#{lbl.usr.prof.my}" />
+		<th:block th:case="job_offer" th:text="#{lbl.js.offer}" />
+		<th:block th:case="job_offer_dtl" th:text="#{lbl.js.offer}" />
+		<th:block th:case="viewer_company" th:text="#{lbl.js.view.cmpny}" />
+		<th:block th:case="job_open" th:text="#{lbl.job.opening}" />
+		<th:block th:case="job_open_dtl" th:text="#{lbl.job.opening}" />
+		<th:block th:case="job_sum" th:text="#{lbl.bread.clm.home}" />
+		<th:block th:case="js_prof_viewer" th:text="#{lbl.prof.viewer.notify}" />
+	</span>
+</h1> -->
+<nav aria-label="breadcrumb" class="d-flex justify-content-center">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a th:href="@{#{'/home'}}" class="animsition-link" th:text="#{lbl.bread.clm.home}"/>
+		</li>
+		<li aria-current="page" class="breadcrumb-item active" th:unless="${portalModule} == 'home'">
+			<span th:switch="${#strings.toLowerCase(portalModule)}">
+		    	<th:block th:case="user_mgmt" th:text="#{'Manage Users'}" />
+		    	<th:block th:case="idmupd" th:text="#{lbl.usr.prof}" />
+		    	<th:block th:case="mntce" th:text="#{Maintenance}" />
+		    	<th:block th:case="empprfle" th:text="#{lbl.usr.co.prof}" />
+		    	<th:block th:case="rpt" th:text="#{lbl.rpt}" />
+				<th:block th:case="change_password" th:text="#{lbl.pword.chng}"/>
+				<th:block th:case="new_login" th:text="#{lbl.login.frst}"/>
+				<th:block th:case="maintenance" th:text="#{lbl.maintenance.head}"/>
+				<th:block th:case="js_profile" th:text="#{lbl.usr.prof.my}" />
+				<th:block th:if="${portalModule} == 'js_profile_passport' or ${portalModule} == 'js_profile_passport_edit'
+					 or ${portalModule} == 'js_profile_passport_add' or ${portalModule} == 'js_profile_personal_details_edit' 
+					 or ${portalModule} == 'js_profile_nok_add' or ${portalModule} == 'js_profile_nok_edit' or ${portalModule} == 'js_profile_edu_add' 
+					 or ${portalModule} == 'js_profile_edu_edit' or ${portalModule} == 'js_profile_exp_add' or ${portalModule} == 'js_profile_exp_edit' 
+					 or ${portalModule} == 'js_profile_spouse_add' or ${portalModule} == 'js_profile_spouse_edit' 
+					 or ${portalModule} == 'js_profile_kids_add' or ${portalModule} == 'js_profile_kids_edit' or ${portalModule} == 'js_profile_nok_add' 
+					 or ${portalModule} == 'js_profile_nok_edit' or ${portalModule} == 'js_profile_job_intrstd_add' 
+					 or ${portalModule} == 'js_profile_job_intrstd_edit'">
+					<a th:href="@{#{'/js-appln-details'}}" class="animsition-link" th:text="#{lbl.usr.prof.my}" />
+				</th:block>
+
+				<th:block th:case="job_offer" th:text="#{lbl.js.offer}" />
+				<th:block th:case="job_offer_dtl">
+					<a th:href="@{#{'/jobSeekerOfferList'}}" class="animsition-link" th:text="#{lbl.js.offer}" />
+				</th:block>
+				<th:block th:case="viewer_company" th:text="#{lbl.js.view.cmpny}" />
+				<th:block th:case="job_open" th:text="#{lbl.job.opening}" /> 
+				<th:block th:if="${portalModule} == 'job_open_dtl'">
+					<a th:href="@{#{'/opening/list'}}" class="animsition-link" th:text="#{lbl.job.opening}" />
+				</th:block>
+				<th:block th:case="interview_invitation" th:text="#{lbl.js.interview.invite}" />
+				<th:block th:case="job_interview_dtl">
+					<a th:href="@{#{'/job-seeker/viewInterviewList'}}" class="animsition-link" th:text="#{lbl.js.interview.invite}" />
+				</th:block>
+				<th:block th:case="js_prof_viewer" th:text="#{lbl.notification}" />
+			</span>
+		</li>
+		<li aria-current="page" class="breadcrumb-item active" th:if="${portalModule} == 'js_profile_passport' or ${portalModule} == 'js_profile_passport_edit'
+			 or ${portalModule} == 'js_profile_passport_add' or ${portalModule} == 'js_profile_personal_details_edit' 
+			 or ${portalModule} == 'js_profile_nok_add' or ${portalModule} == 'js_profile_nok_edit' or ${portalModule} == 'js_profile_edu_add' 
+			 or ${portalModule} == 'js_profile_edu_edit' or ${portalModule} == 'js_profile_exp_add' or ${portalModule} == 'js_profile_exp_edit' 
+			 or ${portalModule} == 'js_profile_spouse_add' or ${portalModule} == 'js_profile_spouse_edit'or ${portalModule} == 'js_profile_kids_add' 
+			 or ${portalModule} == 'js_profile_kids_edit'or ${portalModule} == 'js_profile_nok_add' or ${portalModule} == 'js_profile_nok_edit'
+			 or ${portalModule} == 'js_profile_job_intrstd_add' or ${portalModule} == 'js_profile_job_intrstd_edit' or ${portalModule} == 'job_open_dtl' 
+			 or ${portalModule} == 'job_offer_dtl' or ${portalModule} == 'job_interview_dtl'">
+			<span th:switch="${#strings.toLowerCase(portalModule)}">
+				<th:block th:case="js_profile_passport" th:text="#{lbl.js.pass.view}" />
+				<th:block th:case="js_profile_passport_edit" th:text="#{lbl.js.pass.edit}" />
+				<th:block th:case="js_profile_passport_add" th:text="#{lbl.js.pass.add}" />
+				<th:block th:case="js_profile_personal_details_edit" th:text="#{lbl.js.personal.detail.edit}" />
+				<th:block th:case="js_profile_edu_add" th:text="#{lbl.js.edu.add}" />
+				<th:block th:case="js_profile_edu_edit" th:text="#{lbl.js.edu.edit}" />
+				<th:block th:case="js_profile_exp_add" th:text="#{lbl.js.exp.add}" />
+				<th:block th:case="js_profile_exp_edit" th:text="#{lbl.js.exp.edit}" />
+				<th:block th:case="js_profile_spouse_add" th:text="#{lbl.js.spouse.add}" />
+				<th:block th:case="js_profile_spouse_edit" th:text="#{lbl.js.spouse.edit}" />
+				<th:block th:case="js_profile_kids_add" th:text="#{lbl.js.kids.add}" />
+				<th:block th:case="js_profile_kids_edit" th:text="#{lbl.js.kids.edit}" />
+				<th:block th:case="js_profile_nok_add" th:text="#{lbl.js.nok.add}" />
+				<th:block th:case="js_profile_nok_edit" th:text="#{lbl.js.nok.edit}" />
+				<th:block th:case="js_profile_job_intrstd_add" th:text="#{lbl.js.job.intrstd.add}" />
+				<th:block th:case="js_profile_job_intrstd_edit" th:text="#{lbl.js.job.intrstd.edit}" />
+				<th:block th:case="job_open_dtl" th:text="#{lbl.job.view.dtl}" />
+				<th:block th:case="job_offer_dtl" th:text="#{lbl.job.view.dtl}" />
+				<th:block th:case="job_interview_dtl" th:text="#{lbl.job.view.dtl}" />
+			</span>
+		</li>
+	</ol>
+</nav>

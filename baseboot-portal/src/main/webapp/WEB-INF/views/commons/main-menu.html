@@ -1,0 +1,89 @@
+<header class="header">
+	<nav class="sub-nav navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<div class="flip">
+				<div>
+					<div>
+					<h6 th:utext="#{lbl.js.header.content.1}"/>
+					</div>
+				</div>
+				<div>
+					 <div>
+					<h6 th:text="#{lbl.js.header.content.2}"/>
+					</div>
+				</div>
+				<div>
+					<div>
+					<h6 th:text="#{lbl.js.header.content.3}"/>
+					</div>
+				</div>
+			</div>
+			<th:block>
+				<ul class="navbar-nav mobile-view">
+					<li sec:authorize="isAuthenticated()"
+						class="nav-item dropdown subnav-user"><a id="pages" href="#"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+						class="nav-link subnav dropdown-toggle navbar-btn ml-0 ml-lg-3"><th:block
+								th:text="${#authentication.principal.profile.userId}" /><i
+							class="fa fa-user" aria-hidden="true"></i> </a>
+						<div class="dropdown-menu user">
+							<ul class="rd-navbar-dropdown">
+								<th:block th:if="${#authentication.principal.profile.status} == 'A'">
+									<!-- <li><a th:href="@{#{url.usr.prf.upd.login}}" class="dropdown-item" th:text="#{lbl.usr.prof}" /></li> -->
+									<li><a th:href="@{#{url.pword.change}}" class="dropdown-item" th:text="#{lbl.pword.chng}" /></li>
+								</th:block>
+								<li><a th:href="@{#{url.logout}}" class="dropdown-item"><th:block th:text="#{btn.logout}" /></a></li>
+							</ul>
+						</div></li>
+
+					<li class="nav-item dropdown subnav-lang"><a id="pages"
+						href="#" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="true"
+						class="nav-link subnav dropdown-toggle navbar-btn ml-0 ml-lg-3"
+						th:title="#{lbl.lang.sel}"><i class="fa fa-language no-margin"
+							aria-hidden="true"></i></a>
+						<div class="dropdown-menu lang">
+							<ul class="rd-navbar-dropdown">
+								<li><a href="javascript:langSelect('en')"><th:block th:text="#{lbl.lang.en}" /></a></li>
+						       	<li><a href="javascript:langSelect('in')"><th:block th:text="#{lbl.lang.in}" /></a></li>
+						       	<li><a href="javascript:langSelect('hi')"><th:block th:text="#{lbl.lang.hin}" /></a></li>
+						       	<li><a href="javascript:langSelect('zh')"><th:block th:text="#{lbl.lang.zh}" /></a></li>
+						       	<li><a href="javascript:langSelect('bn')"><th:block th:text="#{lbl.lang.bn}" /></a></li>
+						       	<li><a href="javascript:langSelect('ur')"><th:block th:text="#{lbl.lang.urdu}" /></a></li>
+							</ul>
+						</div></li>
+				</ul>
+			</th:block>
+
+		</div>
+	</nav>
+	<nav class="main-nav navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<img
+				th:src="@{/webjars/joblottery-webjar/images/logo-seeker-darker.png}"
+				alt="" class="img-fluid navbar-brand" />
+			<!-- <th:block th:utext="${@staticData.sstConfig('MARQUEE_ANNOUNCEMENT')}" /> -->
+			<button type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation"
+				class="navbar-toggler navbar-toggler-right light-color">
+				Menu<i class="fa fa-bars ml-2"></i>
+			</button>
+			<div id="navbarSupportedContent" class="collapse navbar-collapse">
+				<th:block sec:authorize="!isAuthenticated()">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="https://jls2-www.sppa.my/"
+							class="nav-link active" th:text="#{lbl.bread.clm.home}"/></li>
+						<li class="nav-item"><a th:href="@{/faq}" class="nav-link" th:text="#{lbl.js.faq}"/></li>
+						<li class="nav-item"><a th:href="@{/contact}"
+							class="nav-link" th:text="#{lbl.js.contact}"/></li>
+					</ul>
+					<a th:href="@{/login}"
+						class="btn btn-outline-light navbar-btn ml-0 ml-lg-3" th:text="#{btn.login}"/>
+				</th:block>
+				<bst:menu th:if="${#authorization.expression('isAuthenticated()')}" />
+			</div>
+		</div>
+	</nav>
+</header>

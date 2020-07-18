@@ -1,0 +1,69 @@
+<!-- Navbar for Wizard Starts -->
+<div class="wizard-navbar-container col-md-12 col-lg-12">
+    <!-- <ul class="wizard-navbar" uiHorizontalWizard *ngIf="mode !== 'vertical'"> -->
+    <ul class="wizard-navbar col-md-12 col-lg-12" *ngIf="mode !== 'vertical'">
+    
+      <div class="col-md-12 col-lg-12 box-content-steps">
+        <div class="relative flex-fill horizontal-step box-in-one"
+          *ngFor="let step of stepperConfig.steps | visibleStepper; let i = index">
+          <li class="" [class.active]="i === 0">
+            <a [ngClass]="[
+                page === step.pageName
+                  ? statActive
+                  : i === currentIndex
+                  ? statCurrent
+                  : i &lt; currentIndex
+                  ? statPrev
+                  : statNext,
+                !stepperConfig.clickable ? 'not-allowed' : ''
+              ]" title="{{ step.title }}" [routerLink]="stepperConfig.clickable ? step.linkUrl : null"
+              [routerLinkActive]="stepperConfig.clickable ? 'active' : ''"
+              [routerLinkActiveOptions]="stepperConfig.clickable ? { exact: true } : {}" skipLocationChange>
+              <span class="round-tabs">
+                <i aria-hidden="true" [class]="step.icon" *ngIf="step.icon; else asIndex"></i>
+                <ng-template #asIndex>
+                  <span class="stepper-icon">{{ i + 1 }}</span>
+                </ng-template>
+              </span>
+              <div class="box-label col-md-12 col-lg-12"> 
+                  <label class="step-label" *ngIf="step.label">{{ step.label }}</label>
+              </div>
+            </a>
+          </li>
+        </div>
+      </div>
+      <div class="box-lined col-md-12 col-lg-12">
+        <div class="lined"></div>
+      </div>
+    </ul>
+  </div>
+  <!-- Navbar for Wizard Ends -->
+  
+  <!-- For vertical Wizard. Since directive cannot be added dynamically, need to create another set of code -->
+  <ul class="wizard-vertical-navbar" *ngIf="mode === 'vertical'">
+    <span class="relative flex-col vertical-step"
+      *ngFor="let step of stepperConfig.steps | visibleStepper; let i = index">
+      <li [class.active]="i === 0">
+        <a [ngClass]="[
+            page === step.pageName
+            ? statActive
+            : i === currentIndex
+            ? statCurrent
+            : i &lt; currentIndex
+            ? statPrev
+            : statNext,
+          !stepperConfig.clickable ? 'not-allowed' : ''
+          ]" title="{{ step.title }}" [routerLink]="stepperConfig.clickable ? step.linkUrl : null"
+          [routerLinkActive]="stepperConfig.clickable ? 'active' : ''"
+          [routerLinkActiveOptions]="stepperConfig.clickable ? { exact: true } : {}" skipLocationChange>
+          <span class="round-tabs">
+            <i aria-hidden="true" [class]="step.icon" *ngIf="step.icon; else asIndex"></i>
+            <ng-template #asIndex>
+              <span class="stepper-icon">{{ i + 1 }}</span>
+            </ng-template>
+          </span>
+        </a>
+      </li>
+      <label class="step-label" *ngIf="step.label">{{ step.label }}</label>
+    </span>
+  </ul>

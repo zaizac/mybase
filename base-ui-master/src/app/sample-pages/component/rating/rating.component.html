@@ -1,0 +1,129 @@
+<form [formGroup]="rating_form">
+  <ui-card>
+    <h2>Basic Rating</h2>
+    <ui-tab-group>
+      <ui-tab tabTitle="Example">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Basic Rating</label>
+            <ui-rating mode="basic" formControlName="rate"></ui-rating>
+          </div>
+          <div class="col-md-6">
+            <label>Rating Value</label><br />
+            <pre>
+                  {{ rating_form.controls.rate.value }}
+                </pre>
+          </div>
+        </div>
+      </ui-tab>
+      <ui-tab tabTitle="HTML">
+        <pre ng-non-bindable>
+                &lt;ui-rating <strong>mode="basic"</strong>&gt;&lt;/ui-rating&gt;
+            </pre>
+      </ui-tab>
+    </ui-tab-group>
+  </ui-card>
+
+
+  <ui-card>
+    <h2>Decimal Rating</h2>
+    <ui-tab-group>
+      <ui-tab tabTitle="Example">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Decimal Rating</label>
+            <ui-rating mode="decimal" formControlName="decimalrate" [readonly]="true" type="decimalbtn"></ui-rating>
+          </div>
+          <div class="col-md-6">
+            <label>Rating Value</label><br />
+            <pre>
+                      {{ rating_form.controls.decimalrate.value }}
+                  </pre>
+          </div>
+        </div>
+      </ui-tab>
+      <ui-tab tabTitle="HTML">
+        <pre ng-non-bindable>
+                  &lt;ui-rating <strong>mode="decimal" [readonly]="true"</strong>&gt;&lt;/ui-rating&gt;
+              </pre>
+      </ui-tab>
+    </ui-tab-group>
+  </ui-card>
+
+  <ui-card>
+    <h2>Percent Rating</h2>
+    <ui-tab-group>
+      <ui-tab tabTitle="Example">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Percent Rating</label>
+            <ui-rating mode="percent" formControlName="percentrate" [readonly]="true" type="percentbtn"></ui-rating>
+          </div>
+          <div class="col-md-6">
+            <label>Rating Value</label><br />
+            <pre>
+                        {{ rating_form.controls.percentrate.value }}
+                    </pre>
+          </div>
+        </div>
+      </ui-tab>
+      <ui-tab tabTitle="HTML">
+        <pre ng-non-bindable>
+                    &lt;ui-rating <strong>mode="percent" [readonly]="true"</strong>&gt;&lt;/ui-rating&gt;
+                </pre>
+      </ui-tab>
+    </ui-tab-group>
+  </ui-card>
+
+  <!-- <ui-card>
+          <h2>Colour Rating</h2>
+          <ui-tab-group>
+            <ui-tab tabTitle="Example">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Colour Rating</label>
+                  <ui-rating mode="colour"></ui-rating>
+                </div>
+                <div class="col-md-6">
+                  <label>Rating Value</label><br />
+                  <pre>
+                  </pre>
+                </div>
+              </div>
+            </ui-tab>
+            <ui-tab tabTitle="HTML">
+              <pre ng-non-bindable>
+                  &lt;ui-rating <strong>mode="colour"</strong>&gt;&lt;/ui-rating&gt;
+              </pre>
+            </ui-tab>
+          </ui-tab-group>
+        </ui-card> -->
+
+  <!-- <ui-card>
+          <div class="row">
+            <div class="col-md-6">
+              <label> Colour Rating </label>
+              <ui-rating mode = "colour"></ui-rating>
+            </div>
+          </div>
+        </ui-card> -->
+
+  <!-- <ui-card>
+          <div class="row">
+            <div class="col-md-6">
+              <label> Decimal Rating </label>
+              <ui-rating mode = "decimal"></ui-rating>
+            </div>
+          </div>
+        </ui-card>
+
+        <ui-card>
+            <div class="row">
+              <div class="col-md-6">
+                <label> Percent Rating </label>
+                <ui-rating mode = "percent"></ui-rating>
+              </div>
+            </div>
+          </ui-card> -->
+
+</form>

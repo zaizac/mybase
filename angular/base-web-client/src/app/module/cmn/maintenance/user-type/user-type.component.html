@@ -1,0 +1,18 @@
+<ui-card>
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="pull-right">
+        <ui-button buttonType="success" icon="fa fa-plus-circle" text="Add User Type" i18n-text="@@Button-NewUser"
+          routerLink="/maintenance/userType/NEW">
+        </ui-button>
+      </div>
+    </div>
+    <div class="col-12">
+      <ui-datatable (editRecord)="rowSelected($event)" [tableInit]="tableInit">
+        <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+          <ui-button [text]="'Delete'" (click)="deleteRow(item.row)"></ui-button>
+        </ng-template>
+      </ui-datatable>
+    </div>
+  </div>
+</ui-card>

@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">MyCare</string>
+    <string name="title_activity_maps" translatable="false">Map</string>
+    <string name="lbl_welcome" translatable="false">Welcome</string>
+    <string name="lbl_foodtype" translatable="false">Food Type</string>
+    <string name="lbl_your_phoneno" translatable="false">Your phone number</string>
+    <string name="lbl_retype_your_phoneno" translatable="false">Re-type your phone number</string>
+    <string name="lbl_phone_passport" translatable="false">Mobile No. / Passport No.</string>
+    <string name="lbl_fullname" translatable="false">Full Name</string>
+    <string name="lbl_mobileno" translatable="false">Mobile No</string>
+    <string name="lbl_gender" translatable="false">Gender</string>
+    <string name="lbl_dob" translatable="false">Date Of Birth</string>
+    <string name="lbl_compname" translatable="false">Company Name</string>
+    <string name="lbl_street1" translatable="false">Street 1</string>
+    <string name="lbl_street2" translatable="false">Street 2</string>
+    <string name="lbl_street3" translatable="false">Street 3</string>
+    <string name="lbl_postcode" translatable="false">Postal Code</string>
+    <string name="lbl_district" translatable="false">District</string>
+    <string name="lbl_town" translatable="false">Town</string>
+    <string name="lbl_state" translatable="false">State</string>
+    <string name="lbl_passportno" translatable="false">Passport No.</string>
+    <string name="lbl_address" translatable="false">Address</string>
+    <string name="lbl_employerinfo" translatable="false">Employer Info</string>
+    <string name="lbl_signup" translatable="false">Not yet registered?<font fgcolor='#8BD5F6'><u>
+        Sign Up</u></font> now</string>
+    <string name="lbl_declaration" translatable="false">I hereby declare that the information furnished above is
+        true,complete and correct  to the best of my knowledge and belief. I understand that in
+        the event of my information being found false or incorrect at any stage, I shall be
+        liable to legal action imposed by the Government of Malaysia.</string>
+    <string name="lbl_choose_pref_language" translatable="false">Choose Your\nPreferred Language</string>
+    <string name="lbl_lang_eng">English</string>
+    <string name="lbl_lang_bgd">বাংলা</string>
+    <string name="lbl_lang_nepal">नेपाली</string>
+    <string name="lbl_select_meal">Select Meal Type</string>
+
+    <string name="action_login" translatable="false">Login</string>
+    <string name="action_next" translatable="false">Next</string>
+    <string name="action_finish" translatable="false">Finish</string>
+    <string name="action_foodreceive" translatable="false">Food Receive</string>
+    <string name="action_receive" translatable="false">Received</string>
+    <string name="action_uploadphoto" translatable="false">Upload a photo for people to recognize you.</string>
+    <string name="action_language" translatable="false">Language</string>
+    <string name="action_logout" translatable="false">Logout</string>
+
+    <string-array name="arrFoodType">
+        <item>MRE</item>
+        <item>RAW FOOD GROCERIES</item>
+    </string-array>
+
+    <string-array name="arrMealType">
+        <item>VEGETARIAN</item>
+        <item>NON-VEGETARIAN</item>
+    </string-array>
+
+    <string-array name="arrGender">
+        <item>MALE</item>
+        <item>FEMALE</item>
+        <item>MALE &amp; FEMALE</item>
+    </string-array>
+
+</resources>

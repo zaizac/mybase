@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+		"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+		
+<tiles-definitions>
+    
+	<definition name="login" extends="login_layout">
+		<put-attribute name="title" value="Login" type="thymeleaf" />
+		<put-attribute name="content" value="page/idm/login" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="forgot_password" extends="login_layout">
+	    <put-attribute name="title" value="Forgot Password" type="thymeleaf" />
+		<put-attribute name="content" value="page/idm/forgot-password" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="user_profile" extends="base_layout">
+	    <put-attribute name="title" value="User Profile" type="thymeleaf" />
+		<put-attribute name="content" value="page/idm/user-profile" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="user_list" extends="base_layout">
+	    <put-attribute name="title" value="Profile List" type="thymeleaf" />
+		<put-attribute name="content" value="page/idm/user-profile-list" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="change-password" extends="base_layout">
+	    <put-attribute name="title" value="Change Password" type="thymeleaf" />
+		<put-attribute name="content" value="page/idm/change-password" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="dashboard" extends="base_layout">
+	    <put-attribute name="title" value="Dashboard" type="thymeleaf" />
+		<put-attribute name="content" value="page/others/dashboard" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="home" extends="base_layout">
+	    <put-attribute name="title" value="Home" type="thymeleaf" />
+		<put-attribute name="content" value="page/idm/homePage" type="thymeleaf"/>
+	</definition>
+	
+	<definition name="updateProfile" extends="base_layout">
+	    <put-attribute name="title" value="My Profile" type="thymeleaf" />
+		<put-attribute name="content" value="page/idm/updateProfile" type="thymeleaf"/>
+	</definition>
+	
+</tiles-definitions>

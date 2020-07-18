@@ -1,0 +1,139 @@
+/* 
+<!-- ============================================================== -->
+<!-- Header CSS -->
+<!-- ============================================================== --> 
+*/
+#main-wrapper {
+    width: 100%;
+}
+
+.topbar {
+    position: relative;
+    z-index: 50;
+    box-shadow: 0 1px 5px rgba(0,0,0,.05);
+}
+
+header.topbar.top-header {
+    position: sticky;
+      z-index: 50;
+      top: 0;
+      box-shadow: 0 1px 5px rgba(0,0,0,.05);
+  }
+
+.blue .topbar {
+    /* background:var(--background-color); */
+    background: #009efb;
+    background: -moz-linear-gradient(left, #0178bc 0%, #00bdda 100%);
+    background: -webkit-linear-gradient(left, #0178bc 0%, #00bdda 100%);
+    background: linear-gradient(to right, #0178bc 0%, #00bdda 100%);
+}
+
+.topbar .top-navbar {
+    min-height: 70px;
+    margin: 0 auto;
+    padding: 0px 25px;
+}
+
+.topbar .top-navbar .navbar-header {
+    line-height: 65px; 
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand {
+    margin-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand b {
+    line-height: 60px;
+    display: inline-block;
+}
+.navbar-brand span {
+    height: 0px;
+}
+.blue .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
+    display: none;
+}
+
+.blue .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+    display: inline-block;
+    color: rgba(255,255,255,.8);
+}
+
+.dark-logo .icon,
+.light-logo .icon {
+    width: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px 15px;
+}
+
+.dark-logo.text-logo,
+.light-logo.text-logo {
+    width: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+}
+
+.navbar-expand-md .navbar-collapse {
+    display: flex!important;
+    flex-basis: auto;
+}
+
+.light-logo.icon {
+    width: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px 15px;
+}
+
+.light-logo.text-logo {
+    width: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.topbar .top-navbar {
+    min-height: 70px;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0px;
+}
+
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right:0;
+    cursor:pointer;
+}
+  
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+}
+
+.portal-title {
+    color: #fff;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+/* 
+<!-- ============================================================== -->
+<!-- End of Header CSS -->
+<!-- ============================================================== --> 
+*/

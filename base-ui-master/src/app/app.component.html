@@ -1,0 +1,12 @@
+<ui-theme-switcher [showSwitcher]="showSwitcher" [themeSwitcher]="themeSwitcher"
+    (updateThemeSwitcher)="updateThemeSwitcher($event)">
+    <ui-header portalTitle="UI Master"></ui-header>
+    <ui-menu [menus]="userMenu"></ui-menu>
+    <div class="page-wrapper">
+    <div class="container-fluid">
+        <ui-breadcrumb></ui-breadcrumb>
+        <router-outlet></router-outlet>
+    </div>
+    </div>  
+    <ui-footer></ui-footer>
+</ui-theme-switcher>

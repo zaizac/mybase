@@ -1,0 +1,44 @@
+<th:block th:with="appRefNo=${patientRefNo != null} ? '/' + ${patientRefNo} : '',isView=${isNoAccess == null} ? false : ${isNoAccess}">
+<input type="hidden" id="isView" th:value="${isView}" />
+<bst:form th:action="@{#{url.patient.submt}} + ${appRefNo}" th:object="${patientFormDto}" th:method="POST" autocomplete="off" > 
+	<bst:alert-danger th:if="${#fields.hasErrors('*')}" th:text="#{'Save/Update Failed. Please key-in all mandatory fields marked as *'}" />
+    <th:block th:include="commons/patient_section_header" />
+	<th:block th:include="commons/patient_section1" />
+	<th:block th:include="commons/patient_section2" />	
+	<th:block th:include="commons/patient_section3" />
+	<th:block th:include="commons/patient_section4" />
+	<bst:widget>
+		<bst:widget-footer>
+			<div class="row form-row">
+				<div class="col-12" >
+					<div class="pull-right">						
+						<bst:btn type="button" name="cancel" th:onclick="|window.location.href='@{#{url.pt.lst}}'|" th:text="#{btn.cmn.can}" />
+		      			<bst:btn th:if="${updateOrNew== false}" name="reset" th:text="#{btn.cmn.rst}" />
+		      			
+						<th:block th:if="${updateOrNew== false}">
+							<bst:btn-primary type="submit" name="create" th:text="#{btn.cmn.sav}"/>
+						</th:block>
+						
+						<th:block th:if="${updateOrNew == true and !isView}">
+                             <bst:btn-primary type="submit" name="update" th:text="#{btn.cmn.upd}" />
+                              <input type="hidden" th:field="${patientFormDto.patientRefNo}"/>
+                              <input type="hidden" th:field="${patientFormDto.id}"/>
+                              <input type="hidden" th:field="${patientFormDto.status}"/>
+                              <input type="hidden" th:field="${patientFormDto.icNo}"/>
+                              <input type="hidden" th:field="${patientFormDto.othersKp}"/>
+                              <input type="hidden" th:field="${patientFormDto.idType}"/>
+                              <input type="hidden" th:field="${patientFormDto.center}"/>
+                        </th:block>
+                        
+                        <th:block th:if="${updateOrNew != true and !isEnableCenter}">
+                        	<input type="hidden" th:field="${patientFormDto.center}"/>
+                        </th:block>                 
+                        
+					</div>
+				</div>
+			</div>
+		</bst:widget-footer>
+	</bst:widget>
+</bst:form>
+</th:block>
+

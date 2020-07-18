@@ -1,0 +1,11 @@
+<div class="form-group">
+    <input type="text" [formControl]="fcEmail" class="form-control" maxlength="255"
+        [ngClass]="{ 'is-invalid': (fcEmail.touched || submitted) && fcEmail.errors }"
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" (change)="valueChange()" (blur)="onTouched()"
+        formatToLowerCase />
+    <div *ngIf="(fcEmail.touched || submitted) && fcEmail.errors" class="invalid-feedback">
+        <div *ngFor="let key of fcEmail.errors | parseError">
+            {{formControlName + '.errors.' + key | simpleError:fcEmail.errors[key]}}
+        </div>
+    </div>
+</div>

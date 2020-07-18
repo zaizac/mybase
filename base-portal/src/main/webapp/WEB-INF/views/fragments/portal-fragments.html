@@ -1,0 +1,73 @@
+<!--/* ANONYMOUS USER MENU */-->
+<th:block th:fragment="open-menu" >
+<!--/* <th:block sec:authorize="isAnonymous()">
+	<ul class="rd-navbar-nav" id="main-nav">
+        <li><a th:href="@{#{url.login}}" class="affix-top" th:text="#{lbl.login}" /></li>
+		<li><a th:href="@{#{url.inquiry}}" class="affix-top" th:text="#{lbl.inquiry.page}" /></li>
+	</ul>
+</th:block> */-->
+</th:block>
+
+<th:block th:fragment="user-right-menu">
+	<ul class="dropdown-user profile-dropdown">
+		<li>
+	    	<div class="dw-user-box">
+	        	<div class="u-img"><i class="fa fa-user-circle profile-pic-lg" aria-hidden="true"></i></div>
+	            <div class="u-text">
+	            	<h4 th:text="${#authentication.principal.profile.userId}"></h4>
+	               <a th:href="@{#{url.usr.prf.login}}" class="btn btn-rounded btn-danger btn-sm" th:text="#{lbl.usr.prof}"></a>
+	            </div>
+			</div>
+		</li>
+		<th:block th:if="${#authentication.principal.profile.status} == 'A'">
+	    	<li role="separator" class="divider"></li>
+	    	<li><a th:href="@{#{url.pword.change}}"><i class="fa fa-key" aria-hidden="true"></i> <th:block th:text="#{lbl.pword.chng}" /></a></li>
+	    </th:block>
+	    <li role="separator" class="divider"></li>
+	    <li><a class="logout-a" th:href="@{#{url.logout}}"><i class="fa fa-power-off" aria-hidden="true"></i> <th:block th:text="#{Logout}" /></a></li>
+	</ul>
+</th:block>
+
+<th:block th:fragment="portal-type">
+	<th:block th:with="portalType=#{app.portal.type}, portalLabel=#{'app.portal.' + ${portalType}}" >
+		<h4 th:text="${#strings.toUpperCase(portalLabel)}" />
+	</th:block>
+</th:block>
+
+<th:block th:fragment="lang-select">
+	<li><a href="javascript:langSelect('en')"><th:block th:text="#{lbl.lang.en}" /></a></li>
+	<li><a href="javascript:langSelect('my')"><th:block th:text="#{lbl.lang.my}" /></a></li>
+</th:block>
+
+<th:block th:fragment="page-title">
+	<div class="page-title"> 
+  		<a th:onclick="|window.location.href='@{#{url.home}}'|"><i class="icon-custom-left tip btn-social" aria-hidden="true" style="margin-bottom: 0px; margin-top: 0px; margin-left: 0px;"></i></a>
+		<h3 th:text="${ptContent}"></h3>
+	</div>
+</th:block>
+
+<th:block th:fragment="page-job-dtl">
+	<div class="page-title"> 
+  		<a th:onclick="|window.location.href='@{#{url.main}}'|"><i class="icon-custom-left tip btn-social" aria-hidden="true" style="margin-bottom: 0px; margin-top: 0px; margin-left: 0px;"></i></a>
+		<h3 th:text="${ptContent}"></h3>
+	</div>
+</th:block>
+
+<th:block th:fragment="config-btn">
+	<div class="form-group pull-right">
+		<bst:btn type="button" th:id="${btnCanId}" name="cancel" th:text="#{btn.cmn.can}" />
+	    <bst:btn th:id="${btnRstId}" th:type="button" name="reset" th:text="#{btn.cmn.rst}" />
+		<bst:btn-primary th:id="${btnUpdId}" disabled="disabled" th:type="submit" name="update" th:text="#{btn.cmn.upd}"/>
+	</div>
+</th:block>
+
+<th:block th:fragment="homePage-info">
+	<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-12">
+		<div class="card add-attr1">
+			<div class="header-title text-center">
+				<h1>Welcome To</h1>
+				 <img alt="" th:src="@{/images/covidhome.png}" class="home-art" th:attr="onerror='this.src=\'' + @{/webjars/outbreak-webjar/images/covidhome.png} + '\';'"/> 
+			</div>
+		</div>
+	</div>
+</th:block>

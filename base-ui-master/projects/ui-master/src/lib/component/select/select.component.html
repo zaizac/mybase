@@ -1,0 +1,17 @@
+<div class="form-group">
+    <ng-select #select class="form-control" placeholder="- Please Select -" name="select" [formControl]="fcSelect"
+        [searchable]="init?.searchable" [bindLabel]="init?.bindLabel" [bindValue]="init?.bindValue"
+        [multiple]="init?.multiple" [searchFn]="init?.customSearchFn" [loading]="dataLoading" [items]="data$ | async"
+        [typeahead]="dataInput$" (blur)="onTouched()" (change)="valueChange($event)"
+        [ngClass]="{ 'is-invalid': (fcSelect.touched || submitted) && fcSelect.errors }">
+        <ng-template ng-header-tmp *ngIf="init?.searchInDropDown">
+            <input style="width: 100%; line-height: 24px" type="text" (input)="select.filter($event.target.value)" />
+        </ng-template>
+        <ng-content></ng-content>
+    </ng-select>
+    <div class="invalid-feedback" *ngIf="(fcSelect.touched || submitted) && fcSelect.errors">
+        <div *ngFor="let key of fcSelect.errors | parseError">
+            {{formControlName + '.errors.' + key | simpleError:fcSelect.errors[key]}}
+        </div>
+    </div>
+</div>

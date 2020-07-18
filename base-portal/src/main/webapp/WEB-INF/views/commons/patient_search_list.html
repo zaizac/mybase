@@ -1,0 +1,37 @@
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.ptnt.list}" />
+	</bst:widget-header>
+	<bst:widget-body>
+		<div class="row form-row" th:if="${showRptBtn}">
+			<div class="col-12" >
+				<div class="pull-right">
+					<th:block th:if="${showPtRptBtn}">
+						<bst:btn-warn  th:onclick="'generateExcel(\'/patient/print/AllPUInCoV.xlsx\')'" th:text="#{'Export Cases'}" />
+<!-- 						<bst:btn-warn th:onclick="'generateExcel(\'/patient/print/PUInCoV.xlsx\')'" th:text="#{'Export All Positive Cases'}" />
+ -->	       				<bst:btn-primary th:onclick="|window.location.href='@{#{url.pt.cre}}'|" th:text="#{'Register New'}" />
+					</th:block>
+					<th:block th:if="${isAccess}">
+					    <input type="hidden" id="isAccess" th:value="${isAccess}"/>
+						<bst:btn-primary th:onclick="|window.location.href='@{#{'/labResult'}}'|" th:text="#{'Bulk Update'}" />
+					</th:block> 
+	   			</div>
+			</div>
+		</div>
+		<bst:table-light id="tblPatientLst">
+			<thead>
+				<tr>
+					<th th:text="#{lbl.app.no}" width="5%" />
+					<th th:text="#{lbl.cs.id}" width="10%" />
+					<th th:text="#{lbl.reg.dt}" width="10%" />
+					<th th:text="#{lbl.ptnt.name}" width="30%" />
+					<th th:text="#{lbl.ptnt.id}" width="10%" />
+					<th th:text="#{lbl.med.stts}" width="15%" />
+					<th th:text="#{lbl.patient.section4.admit.Health.Outcome}" width="15%" />
+					<th th:text="#{lbl.app.id}" width="10%" />
+					<th th:text="#{lbl.action}" width="5%" />
+				</tr>
+			</thead>
+		</bst:table-light>
+	</bst:widget-body>
+</bst:widget>

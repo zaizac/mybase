@@ -1,0 +1,72 @@
+  .modal{
+    margin: 100px auto;
+  }
+  
+  modal-dialog { min-height: 500px; }
+
+  // .modal-content {
+  //   width: 450px;
+  // }
+
+  .modal-body {
+    padding: 1.5rem;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .modal-header {
+    font-family: "Rubik", sans-serif;
+  }
+
+  .modal-title {
+    color: #fff;
+  }
+  
+  .modal-content.success, .modal-content.confirm  {
+    width: 450px;
+  }
+  /** Success Message*/
+  .success .modal-header {
+    background-color: #3c763d;
+  }
+  .success .modal-header .fa::before{
+    content:"\f00c";
+    margin-right: 5px;
+  }
+  
+  .success .modal-header .glyphicon::before {
+    content: "\e067";
+  }
+  .success .modal-body {
+    color: #63B264;
+  }
+  
+  /** Confirm Message*/
+  .confirm .modal-header {
+    background-color: #f0ad4e;
+  } 
+  .confirm .modal-header .glyphicon::before {
+    content: "\e123";
+  }
+  .confirm .modal-body {
+    color: #8a6d3b;
+  }
+  
+  /** Error Message*/
+  .error .modal-header {
+    background-color: #d2322d;
+  }
+  .error .modal-header .glyphicon::before {
+    content: "\e107";
+  }
+  .error .modal-body {
+    color: #b94a48;
+  }
+  .customPopup .modal { max-width: 800px; }
+  .customPopup .modal-content { max-width: 800px; }
+  .customPopup .modal-dialog { max-width: 800px; }
+  .customPopup .modal-body { max-height: 80%; }
+  
+
+  .modal{background:none;}
+  .modal-header {color: #fff;}
+  .modal-title {color: #fff;}

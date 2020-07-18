@@ -1,0 +1,85 @@
+<bst:widget>
+	<bst:widget-header>
+		<h4 class="font-widget" th:text="#{lbl.srch.crtr}" />
+	</bst:widget-header>
+	<bst:widget-body>
+ 		<div class="row form-row">
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.ptnt.name}" />
+			  <bst:input id="name" name="name" data-constraints="@Required" style="text-transform: uppercase;"/>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.ptnt.id}" />
+			  <bst:input id="nationalId" name="nationalId" data-constraints="@Required" style="text-transform: uppercase;"/>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.med.stts}" />
+			  <bst:select id="status" data-minimum-results-for-search="Infinity">
+					<option th:text="#{lbl.all}" value="" />
+					<option th:each="status : ${@staticData.statusList('MED_STATUS')}" th:value="${status.statusCd}" th:text="${status.statusDesc}"/>
+				</bst:select>
+			</div>
+		</div>
+		<div class="row form-row">
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  <label th:text="#{lbl.cs.id}" />
+			  <bst:input id="caseId" name="caseId" data-constraints="@Required" style="text-transform: uppercase;"/>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			  	<label th:text="#{lbl.reg.dt}" />
+			  	<bst:input-date-range id="createDtRange" name="createDtRange" 
+					data-start-id="createDtFrom"
+					data-start-name="createDtFrom"
+					data-start-attr="th:field='*{createDtFrom}'"
+					data-end-id="createDtTo"
+					data-end-name="createDtTo"
+					data-th-attr="data-end-value=${#dates.format(#dates.createNow(),'dd/MM/YYYY')},
+						data-start-value=${#dates.format(#dates.createNow(),'dd/MM/YYYY')}"
+					data-end-attr="th:field='*{createDtTo}'"
+				/>
+			 </div>
+			 <div class="col-sm-12 col-md-4 col-lg-4">
+				<label th:text="#{lbl.patient.section4.admit.Health.Outcome}" />
+				<bst:select id="healthOutcomeMtdtCd" data-minimum-results-for-search="Infinity">
+					<option th:text="#{lbl.all}" value="" />
+					<option th:text="#{N/A}" value="NA" />
+					<option th:each="type : ${@staticData.findByMetadataType('HLTH_OUTC')}" th:value="${type.mtdtCd}" th:text="${type.mtdtDesc}" />
+				</bst:select>
+			</div>
+		</div>
+<!-- 		<div class="row form-row">
+			<div class="col-sm-12 col-md-4 col-lg-4">
+				<label th:text="#{'State'}" />
+				<bst:select id="state" name="state" data-constraints="@Required"
+						th:disabled="${hasState}" onChange="onChangeState('state','district');" onload="onChangeState('state','district');">
+					<option th:text="#{lbl.all}" value="" />
+					<option th:each="stateObj : ${@staticData.findAllStateList()}" th:if="${stateObj.stateCd != '016'}" th:value="${stateObj.stateCd}" 
+						th:text="${stateObj.stateDesc}" th:selected="(${defaultState} != '') and (${defaultState} == ${stateObj.stateCd}) ? true : false" />
+				</bst:select>
+				<input type="hidden" id="defaultState"  th:if="${defaultDistrict != ''}" th:value="${defaultState}" />
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+				<label th:text="#{'Center'}" />
+				<bst:select id="district" name="district" data-constraints="@Required"
+						th:disabled="${defaultDistrict}">
+					<option th:text="#{lbl.all}" value="" />
+					<option th:each="group : ${centerList}" th:value="${group.branchCode}" th:text="${group.branchName}"
+							th:selected="(${defaultDistrict} != '') and (${defaultDistrict} == ${group.branchCode}) ? true : false"    />
+				</bst:select>
+				<input type="hidden" id="defaultDistrict" th:if="${defaultDistrict != ''}" th:value="${defaultDistrict}" />
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4">
+			</div>
+		</div> -->
+	</bst:widget-body>
+	<bst:widget-footer>
+		<div class="row">
+			<div class="col-12" >
+				<div class="pull-right">
+			 		<bst:btn id="searchClear" name="reset" th:title="reset" class="m-1" th:text="#{btn.lbl.rfrsh}" />
+					<bst:btn-primary id="searchFilter" name="search" title="search" class="m-1" th:text="#{btn.cmn.sea}" />
+				</div>
+			</div>
+		</div>
+	</bst:widget-footer>
+</bst:widget>

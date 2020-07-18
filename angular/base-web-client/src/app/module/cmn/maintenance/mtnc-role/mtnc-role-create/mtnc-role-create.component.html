@@ -1,0 +1,33 @@
+<ui-card>
+  <form [formGroup]="mtncRoleForm" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Role Code</label> 
+        <ui-text formControlName="roleCode" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Role Description</label> 
+        <ui-text formControlName="roleDesc" formatToUpperCase placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Portal Type Code</label>
+        <ui-select label="User Type Code" [init]="selPortalTypeCodeInit" formControlName="portalTypeCode" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+    </div>
+    <!-- Create Buttons -->
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" i18n-text="@@Button-Cancel"
+            routerLink="/maintenance/role"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" i18n-text="@@Button-Reset"
+            (click)="onReset()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" text="Create" i18n-text="@@Button-Create"
+            type="submit">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>

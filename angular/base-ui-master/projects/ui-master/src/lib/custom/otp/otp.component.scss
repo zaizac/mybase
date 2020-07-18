@@ -1,0 +1,112 @@
+/* Popup Modal */
+.modal.fullscreen .modal-dialog,.modal.fullscreen .modal-dialog .modal-content,.modal.fullscreen .modal-dialog .modal-content .modal-body{width:100%!important;height:100%!important;margin:0;overflow:hidden}
+.modal.fullscreen .modal-dialog .modal-content .modal-body object{height:90%}
+.modal{background:none;border-radius:10px!important}
+.modal-header {color: #fff;background: #009efb;border-top-left-radius: 10px !important;border-top-right-radius: 10px !important;}
+.modal-content .close {width:3rem;height:3rem;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;display:block;opacity:1;padding:0;outline:0;}
+.modal-content{border:1px solid #ced4da;border-radius: .3rem!important;}
+.modal-header button.close { color: #fff !important }
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    cursor: pointer;
+}
+.errors {
+    color: #a94442;
+    display: block;
+    margin: 2px 0;
+    font-size: 0.8em;
+    font-style: italic;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+}
+.input-group>.input-group-append>.btn, .input-group>.input-group-append>.input-group-text{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.btn{
+    cursor: pointer;
+}
+.input-group-append .btn{
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+.btn-primary{
+    color: #fff;
+    background: #ED8B49;
+    border: 1px solid #ED8B49;
+}
+.btn-secondary {
+    background: #868e96 !important;
+    border: 1px solid #868e96;
+    color: #ffffff !important;
+}
+
+.modal-dialog {
+    margin: 7.75rem auto !important;
+    max-width: 35% !important;
+}
+
+h6 {
+    line-height: 16px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Rubik", sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+#otpErrorMsg {
+    color: red;
+}
+
+#otpSuccessMsg {
+    color: green;
+}
+
+// We need to use ::ng-deep to overcome view encapsulation
+::ng-deep {
+  .input-group {
+    ui-email, ui-text {
+      position: relative;
+      flex: 1 1 auto;
+      width: 1%;
+      margin-bottom: 0;
+      .form-group {
+        margin-bottom: 0;
+      }
+    }
+
+    ui-email.form-control.is-valid {
+      .form-group {
+        .form-control {
+          background: transparent;
+          border: none;
+          margin-top: -10px;
+          margin-left: -10px;
+        }
+      }      
+    }
+
+    ui-email:not(:last-child) { 
+      .form-group {
+        .form-control {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+    }  
+
+    ui-button:last-child { 
+      .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }  
+  }
+
+}

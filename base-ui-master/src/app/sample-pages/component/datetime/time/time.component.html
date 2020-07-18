@@ -1,0 +1,35 @@
+<form [formGroup]="date_form" (ngSubmit)="onSubmit()">
+  <ui-card>
+    <h2>Time Picker</h2>
+    <ui-tab-group>
+      <ui-tab tabTitle="Example">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Select Date Range</label>
+            <ui-time formControlName="dob" [showMeridian]="true" [showSeconds]="true"></ui-time>
+          </div>
+          <div class="col-md-6">
+            <label>Selected Value</label><br />
+            <pre ng-non-bindable>{{ date_form.controls.dob.value | json }}</pre>
+          </div>
+        </div>
+      </ui-tab>
+      <ui-tab tabTitle="HTML">
+        <pre
+          ng-non-bindable>&lt;ui-time <strong>formControlName="variable_name" [showMeridian]="true" [showSeconds]="true"</strong>&gt;&lt;/ui-time&gt;</pre>
+      </ui-tab>
+    </ui-tab-group>
+  </ui-card>
+</form>
+<ui-card>
+  <h2>Definition & Usage</h2>
+  <div class="row">
+    <div class="col-12">
+      <ol>Definition of Timepicker attributes
+        <li>showMeridian = for formatting the time, if showMeridian is true timepicker follow the 12 hours format and
+          if showMeridian is false timepicker follow the 24 hours format </li>
+        <li>showSeconds = enabling the second input field</li>
+      </ol>
+    </div>
+  </div>
+</ui-card>

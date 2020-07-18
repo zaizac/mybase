@@ -1,0 +1,130 @@
+<th:block th:fragment="star-rating">
+	<th:block th:switch="${starRating}">
+		<th:block th:case="null"><i class="bst-star-o"></i></th:block>
+		<th:block th:case="0"><i class="bst-star-o"></i></th:block>
+		<th:block th:case="0.5"><i class="bst-star-half"></i></th:block>
+		<th:block th:case="1"><i class="bst-star-one"></i></th:block>
+		<th:block th:case="1.5"><i class="bst-star-half-one"></i></th:block>
+		<th:block th:case="2"><i class="bst-star-two"></i></th:block>
+		<th:block th:case="2.5"><i class="bst-star-half-two"></i></th:block>
+		<th:block th:case="3"><i class="bst-star-three"></i></th:block>
+		<th:block th:case="3.5"><i class="bst-star-half-three"></i></th:block>
+		<th:block th:case="4"><i class="bst-star-four"></i></th:block>
+		<th:block th:case="4.5"><i class="bst-star-half-four"></i></th:block>
+		<th:block th:case="5"><i class="bst-star-five"></i></th:block>
+	</th:block>
+</th:block>
+
+<th:block th:fragment="job-open-table">
+	<bst:table-card id="tblJobOpLst" >
+		<thead>
+			<tr>
+				<th width="10%" />
+				<th width="10%" />
+				<th width="40%" />
+				<th width="30%" />
+				<th width="10%" />
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="job, rowStat: ${jobOpenLst}">
+			    <tr>
+			    	<!--/* No */-->
+				    <td width="10%" class="text-center" th:text="${rowStat.count}" />
+				    <!--/* Company Logo */-->
+					<td width="10%">
+						<bst:file-thumbnail-view data-img-align="center" data-img-width="w-100" th:placeholder="${job?.docMgtId}"/>
+					</td>
+					<!--/* Company/Job Details */-->
+				   	<td width="40%">
+				   		<div class="row">
+					   		<div class="col-12">
+								<h6 th:text="${#strings.toUpperCase(job?.jobTitle)}" />
+								<label th:text="${job?.cmpnyName}" />
+					   		</div>
+				   		</div>
+				   		<label th:text="${@staticData.stateDesc(job?.powState)}" /> - <label th:text="${@staticData.cityDesc(job?.powCity)}" />
+						<div class="create-info"><label th:text="#{'Created'} + ' ' + ${job?.timeAgo} + ' ' + #{'ago'}" /></div>
+					</td>
+					<td width="30%">
+						<div class="info-wrap">
+							<div>
+								<label th:text="#{lbl.jo.country}" class="col-md-5"/><th:block th:text="' : '" /><th:block th:text="${@staticData.countryDesc(job?.country)}" />
+							</div>
+							<div>
+								<label th:text="#{lbl.app.sec}" class="col-md-5"/><th:block th:text="' : '" /><th:block th:text="${@staticData.getWrkrSectrDesc(job?.sectorCd)}" />
+							</div>
+							<div th:unless="${hideSalary=='yes'}">
+								<label th:text="#{lbl.mthly.salary}" class="col-md-5"/><th:block th:text="' : MYR '" /><th:block th:text="${job?.salary != null ? #numbers.formatDecimal(job?.salary, 0, 'COMMA', 2, 'POINT') : ''}" />
+							</div>
+						</div>
+					</td>	
+					<td width="10%" class="text-center" >
+	              		<a href="#!" th:onclick="'javascript:redirectURL(\'' + ${redirectUrl} + ${job?.id} + '\');'" th:text="#{lbl.cmn.view}"></a>
+	              	</td>
+				</tr>
+			</th:block>
+		</tbody>
+	</bst:table-card>
+</th:block>
+
+<th:block th:fragment="job-details">
+	<div class="row">
+		<!--/* Title */-->
+		<div class="col-md-4">
+			<label th:text="#{lbl.job.title}" />
+			<div th:text="${jobDetailForm?.jobTitle}"/>
+		</div>
+		<!--/* Sector */-->
+		<div class="col-md-4">
+			<label th:text="#{lbl.jo.sector}" />	
+			<div th:text="*{@staticData.getWrkrSectrDesc(jobDetailForm?.sectorCd)}"/>
+		</div>
+		<!--/* Year Expired */-->
+		<div class="col-md-4">	
+			<label th:text="#{lbl.year.expired}" />
+			<div th:text="${jobDetailForm?.expYear}"/>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<label th:text="#{lbl.job.offer.job.desc}" />
+			<div th:text="${jobDetailForm?.jobDesc}"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">	 
+			<label th:text="#{lbl.slry}" />
+			<div th:text="'MYR ' + ${jobDetailForm?.salary != null ? #numbers.formatDecimal(jobDetailForm?.salary, 0, 'COMMA', 2, 'POINT') : ''}" /> 			
+		</div>	
+        <!--/* Working hour */-->
+		<div class="col-md-4">
+			<label th:text="#{lbl.job.wrkg.hours}" />
+			<div th:text="${jobDetailForm?.workingHour}"/> 
+		</div>
+	</div>
+	<div class="row">
+    	<!--/* POW*/-->
+		<div class="col-md-12">
+			 <label th:text="#{lbl.job.plc.work}" />
+			<div>
+				 <th:block th:if="${jobPow?.powAddress1 != ''}" th:text="${jobPow?.powAddress1}+', '"/> 
+				 <th:block  th:if="${jobPow?.powAddress2 != ''}" th:text="${jobPow?.powAddress2}+', '"/> 
+				 <th:block  th:if="${jobPow?.powAddress3 != ''}" th:text="${jobPow?.powAddress3}+', '"/> 
+				 <th:block  th:if="${jobPow?.powAddress4 != ''}" th:text="${jobPow?.powAddress4}+', '"/> 
+				 <th:block  th:if="${jobPow?.powAddress5 != ''}" th:text="${jobPow?.powAddress5}+', '"/> 
+				 <th:block  th:if="${jobPow?.postCode != ''}" th:text="*{jobPow?.postCode}+', '" />
+				 <th:block  th:if="${jobPow?.cityCd != ''}" th:text="*{@staticData.cityDesc(jobPow?.cityCd)}+', '" />
+				 <th:block  th:if="${jobPow?.stateCd != ''}" th:text="*{@staticData.stateDesc(jobPow?.stateCd)}+', '" />			
+				 <th:block  th:if="${jobPow?.cntryCd != ''}" th:text="*{@staticData.countryDesc(jobPow?.cntryCd)}" />	
+			  </div>						  
+		</div>
+	</div>
+	<div class="row">
+        <!--/* Benefit*/-->
+		<div class="col-md-12">							 
+			 <label th:text="#{lbl.job.benefits}" />
+			 <div th:text="${jobDetailForm?.benefit}"/>
+		</div>
+	</div>
+</th:block>

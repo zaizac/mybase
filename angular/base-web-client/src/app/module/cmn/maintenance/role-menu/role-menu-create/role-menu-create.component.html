@@ -1,0 +1,33 @@
+<ui-card>
+  <ui-title>
+    Create User Role and Menu Maintenance Page
+  </ui-title>
+  <form [formGroup]="roleMenu" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <div class="row">
+          <!-- User Role -->
+          <div class="col-4">
+            <label i18n="@@User-Status">User Role</label>
+            <ui-select label="User Role" [init]="selRoleInit" formControlName="roleCode">
+            </ui-select>
+          </div>
+
+          <!-- Menu -->
+          <div class="col-4">
+            <label i18n="@@User-UserRoleGroup">Menu</label>
+            <ui-select label="Menu" [init]="selMenuInit" formControlName="menuCode">
+            </ui-select>
+          </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+        <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="cancel()">
+        </ui-button>
+        <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}">
+        </ui-button>
+      </div>
+     </div>
+    </div>
+  </form>
+</ui-card>

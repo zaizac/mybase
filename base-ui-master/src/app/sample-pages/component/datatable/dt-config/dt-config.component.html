@@ -1,0 +1,151 @@
+<ui-card>
+    <div class="col-12">
+        <h2>Columns Definition Configuration:</h2>
+        <p>Datatable header can be configured as per below using columns attribute. This attribute is an array of columns properties. The properties are as below:-</p>
+        <div class="col-12">
+            <ul>
+              <li><strong>field</strong> - <em>string</em> - Data field that we want to display in column. If data object didn't contain given field name, empty column will be rendered</li>
+              <li><strong>headerText</strong> - <em>string</em> - Column header title</li>
+              <li><strong>width</strong> - <em>string/number</em> - column width. Can be either pixel (number) or percentage (string)</li>
+              <li><strong>allowSorting</strong> - <em>boolean</em> - enable column sorting by clicking the header.By default, all columns are sortable</li>
+              <li><strong>visible</strong> - <em>boolean</em> - Show/hide particular column. By default all columns are visible</li>
+              <li><strong>headerTextAlign</strong> - <em>string</em> - Header text alignment. Can be either 'Left'/'Right'/'Center'/'Justify'. By default it is left align</li>
+              <li><strong>textAlign</strong> - <em>string</em> - Column data text alignment. Can be either 'Left'/'Right'/'Center'/'Justify'. By default it is left align</li>
+              <li><strong>columnTemplate</strong> - <em>object</em> - rendering column to specific template. Accept an object with id(template id) and context(template model)</li>
+              <li><strong>render</strong> - <em>function</em> - A method for specific column rendering. Contain a callback function with follo parameters callback(data:particula cell data, cell: particular cell element, row: particular row data)</li>
+              <li><strong>type</strong> - <em>string</em> - Define the type for the column. Can be defined to any. However, defined it to below keywords will render specific column template
+                <ul>
+                  <li>checkbox</li>
+                  <li>radio</li>
+                  <li>expandable</li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+        <ui-card>
+        <pre ng-non-bindable>
+            dtConfig = {{ '{' }}
+              columns: [
+                {{ '{' }} field: 'name', headerText: 'Name', width: '30%' {{ '}' }}
+                {{ '{' }} field: 'SlNo', headerText: 'No.', width: '10%' {{ '}' }}
+                {{ '{' }} field: 'gender' {{ '}' }},
+                {{ '{' }} field: 'age', headerText: 'Age' {{ '}' }}
+              ]
+            {{ '}' }}
+        </pre>
+      </ui-card>
+        <ui-datatable [dataValues]='dtData' [tableInit]='headerConfig'></ui-datatable>
+    </div>
+</ui-card>
+
+<ui-card>
+    <div class="col-12">
+        <h2>Pagination Setting Configuration</h2>
+        <p>Datatable pagination can also be configured by setting tableInit initialPage property. initialPage has 3 properties as below:</p>
+        <ol>
+          <li><strong>pageSize</strong> : The number of rows that will be display per page. Default value is 15</li>
+          <li><strong>pageSizes</strong> : This is to determine the pagination per page number in the dropdown. it can take a boolean or an array of pagination number.
+            Default value is [10, 15, 25, 50, 100]. To turn off this feature, simply set the value to false
+          </li>
+          <li><strong>pageCount</strong> : This will determine the number of page that pagination number will display before the ellipsis. Default value is 4</li>
+        </ol>
+        <p>In the example, we turn off paging dropdown function by set pageSizes to false. We also set pageSize to 7 and pageCount to 8</p>
+        <ui-card>
+        <pre>
+            {{ '{' }}
+              columns: [{{ '{' }} field: 'SlNo' }{{ '}' }} {{ '{' }} field: 'name' }{{ '}' }} {{ '{' }} field: 'gender' }{{ '}' }} {{ '{' }} field: 'company' {{ '}' }}],
+              <span style="color:red;">initialPage: {{ '{' }}
+                pageSize: 7,
+                pageSizes: false,
+                pageCount: 8
+              {{ '}' }}</span>
+            {{ '}' }};
+        </pre>
+      </ui-card>
+        <div>
+          <ui-datatable [dataValues]='dtData' [tableInit]='headerConfig2'></ui-datatable>
+        </div>
+        <p>In example below, we set pageSizes to [3, 6, 9, 12, 15] while pageSize and pageCount to default values</p>
+        <ui-card>
+        <pre>
+          {{ '{' }}
+            columns: [{{ '{' }} field: 'SlNo' }{{ '}' }} {{ '{' }} field: 'name' }{{ '}' }} {{ '{' }} field: 'gender' }{{ '}' }} {{ '{' }} field: 'company' {{ '}' }}],
+            <span style="color: red;">initialPage: {{ '{' }}
+              pageSize: 7,
+              pageSizes: [3, 6, 9, 12, 15]
+              pageCount: 8
+            {{ '}' }}</span>
+          {{ '}' }};
+        </pre>
+      </ui-card>
+          <ui-datatable [dataValues]='dtData' [tableInit]='headerConfig3'></ui-datatable>
+      </div>    
+</ui-card>
+
+<ui-card>
+    <div class="col-12">
+        <h2>Label Configuration</h2>
+        <p>Datatable allows user to dynamically set the display label for the table by using tableInit property of displayText</p>
+        <p>DisplayText has properties as below:</p>
+        <ol>
+          <li><strong>emptyRecord</strong> : The text should be displayed in the table if there is no data. Default is 'No data available in table'</li>
+          <li><strong>pagerDropDown</strong> : Label for pager dropdown. The text format should be 'A #pager B'. The word #pager represents the dropdown and it is mandatory. if the word #pager is missing, the dropdown it will not display the pager dropdwon. Default is 'Display #pager record per page'</li>
+          <li><strong>currentPageInfo</strong> : Label for showing current page. Default 'Showing page {{ '{' }}0{{ '}' }} of {{ '{' }}1{{ '}' }}'. {{ '{' }}0{{ '}' }} will be interpolated by datatable as current page number and {{ '{' }}1{{ '}' }} will be the total page</li>
+          <li><strong>totalItemsInfo</strong> : Total items label. Default is none</li>
+        </ol>
+        <p>In the example, we configure the datatable as below:</p>
+        <ui-card>
+        <pre>
+            {{ '{' }}
+              columns: [{{ '{' }} field: 'name', headerText: 'Name', width: '30%'  {{ '}' }}],
+              <span style="color: red;">displayText: {{ '{' }}
+                emptyRecord: 'This is empty record display',
+                pagerDropDown: '#pager records in one page',
+                currentPageInfo: 'Display {{ '{' }}0 {{ '}' }} of {{ '{' }}1 {{ '}' }}',
+                totalItemsInfo: '(Total {{ '{' }}0 {{ '}' }} rows in all pages)'
+              {{ '}' }}</span>
+            {{ '}' }};
+        </pre>
+      </ui-card>
+        <p>Customised Pager labelling</p>
+          <ui-datatable [dataValues]='dtData1' [tableInit]='headerConfig4'></ui-datatable>
+          <p>Customised No record text</p>
+          <ui-datatable [dataValues]='noData' [tableInit]='headerConfig4'></ui-datatable>
+      </div>
+</ui-card>
+
+<ui-card>
+  <h2>Text Wrap</h2>
+  <p>By default, text in datatable are not wrapped. They are truncated with ellipsis. To wrap the text in datatable, we can use textWrap property in Datatable configuration.
+    textWrap is an object with 2 attributes:-
+  </p>
+  <ul>
+      <li><strong>allowWrap</strong> - <em>boolean</em> - Allow datatable text to wrap. By default, it is false</li>
+      <li><strong>mode</strong> - <em>string</em> - Wrapping mode for datatable. Can be either these 3 values:-
+        <ul>
+            <li><strong>Both</strong> - Wrap both header and content texts</li>
+            <li><strong>Header</strong> - Wrap header text only</li>
+            <li><strong>Content</strong> - Wrap content text only</li>
+          </ul>
+      </li>
+    </ul>
+  <p>In example below, we wrap both header and content using mode Content</p>
+  <ui-card>
+    <pre>
+        {{ '{' }}
+          columns: [
+            {{ '{' }} field: 'SlNo', headerText: 'No.', width: '20%' {{ '}' }},
+            {{ '{' }} field: 'name', headerText: 'Name', width: '30%' {{ '}' }},
+            {{ '{' }} field: 'age', headerText: 'Age', width: '20%' {{ '}' }},
+            {{ '{' }} field: 'gender', headerText: 'Gender', width: '20%' {{ '}' }},
+            {{ '{' }} field: 'company', headerText: 'Company', width: '20%' {{ '}' }}
+          ],
+          <span style="color:red;">textWrap: {{ '{' }}
+            allowWrap: true,
+            mode: 'Both'
+          {{ '}' }}</span>
+        {{ '}' }};
+    </pre>
+  </ui-card>
+    <ui-datatable [dataValues]='dtData1' [tableInit]='headerConfig5'></ui-datatable>
+</ui-card>

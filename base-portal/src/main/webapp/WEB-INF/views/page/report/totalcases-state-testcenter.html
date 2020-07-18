@@ -1,0 +1,26 @@
+<bst:widget>
+	<bst:widget-header>
+		<h4 class"font-widget" th:text="#{lbl.srch.crtr}" />
+	</bst:widget-header>
+	<bst:widget-body>
+ 		<div class="row form-row">
+			<div class="col-4">
+			  <label th:text="#{lbl.rpt.state}" />
+			  <bst:select id="stateId" data-minimum-results-for-search="Infinity" th:attr="data-placeholder=#{lbl.cmn.sel.pls}">
+					<option th:text="#{lbl.cmn.sel.pls}" value="" />
+					<option th:each="state : ${@staticData.findAllStateList()}" th:value="${state.stateCd}" th:text="${state.stateDesc}" />
+				</bst:select>
+			</div>
+		</div>
+	</bst:widget-body>
+	<bst:widget-footer>
+		<div class="row">
+			<div class="col-12" >
+				<div class="pull-right">
+			 		<bst:btn id="searchClear" name="reset" th:title="reset" th:onclick="|window.location.href='@{#{'/report/statetestcenter'}}'|" class="m-1" th:text="#{btn.lbl.rfrsh}" />
+					<bst:btn-primary id="printBtnId" name="print" title="print" class="m-1" th:text="#{btn.cmn.prnt}" />
+				</div>
+			</div>
+		</div>
+	</bst:widget-footer>
+</bst:widget>

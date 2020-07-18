@@ -1,0 +1,34 @@
+<div class="form-group" ngbDropdown>
+  <div class="input-group">
+    <div class="input-group-prepend" ngbDropdownToggle>
+      <span class="input-group-text">
+        <i class="fa fa-calendar pl-1" aria-hidden="true"></i>
+      </span>
+    </div>
+    <ui-text [formControl]="datetimerange" placeholder="DD/MM/YYYY HH:MM a" ngbDropdownToggle></ui-text>
+  </div>
+
+  <div #myDropDown ngbDropdownMenu>
+    <div style="text-align:center;" class="col-sm-12 col-md-12">
+      <bs-daterangepicker-inline [bsConfig]="bsConfig"></bs-daterangepicker-inline>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <timepicker [(ngModel)]="timefrom" [showMeridian]="showMeridian" [showSeconds]="showSeconds"></timepicker>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <timepicker [(ngModel)]="timeto" [showMeridian]="showMeridian" [showSeconds]="showSeconds"></timepicker>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-8 col-lg-8  pull-right col-sm" align="right">
+          <ui-button buttonType="secondary-rd" text="Cancel" (click)="onClear()"></ui-button>
+          <ui-button buttonType="warning-rd" text="Apply" (click)="applyValue(myDropDown)"></ui-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

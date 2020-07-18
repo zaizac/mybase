@@ -1,0 +1,107 @@
+<bst:form  th:action="@{#{url.inquiry}}" th:object="${inquiryForm}" th:method="POST" autocomplete="off" enctype="multipart/form-data">
+	<bst:widget>
+		<bst:widget-header>
+			<h6 class="font-widget" th:text="#{lbl.srch.crtr }" />
+		</bst:widget-header>
+		<bst:widget-body>
+			<div class="row form-row">
+				<div class="col-4"></div>
+				<!--/* Fullname */-->
+				<div class="col-4">
+					<label class="required" th:text="#{'Name'}" />
+				 	<bst:input th:field="*{name}" style="text-transform: uppercase;" maxlength="255"/>
+				 	<bst:error th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+				</div>
+				<div class="col-4"></div>
+			</div>
+			<div class="row form-row">
+				<!--/* Identification No */-->
+				<div class="col-4"></div>
+				<div class="col-4">
+					<label class="required mt-6" th:text="#{'Identification No'}" />
+				 	<bst:input  th:field="*{nationalId}" style="text-transform: uppercase;" maxlength="255" />
+				 	<bst:error th:if="${#fields.hasErrors('nationalId')}" th:errors="*{nationalId}"/>
+				</div>
+				<div class="col-4"></div>
+			</div>
+			<div class="row form-row">
+				<div class="col-4"></div>
+				<div class="col-4">
+					<div class="form-wrap" style="margin-top: 15px!important;">
+						<img id="imgCaptcha" height="8%" width="100%" alt="" th:src="@{${'/inquiry?captchaId=' + captchaId}}"/> 
+						<bst:input th:placeholder="#{lbl.cptch}" th:type="text" th:field="*{captcha}" />
+						<th:block th:if="${invalidRecaptcha}">
+			               <p style="width:250px !important;font-size: 11px;line-height: 11px;color: #d9534f; transition: .3s;z-index: 11;" class="errors" th:text="#{msg.err.inv.cptch}" />
+			           	</th:block>
+					</div>
+			    </div>
+			    <div class="col-4"></div>
+			</div>
+			<br/>
+		    <div class="row form-row">
+			    <div class="col-4"></div>
+				<div class="col-4" >
+                	<bst:btn-primary id="submit"  name="submit" title="submit" class="btn-lg btn-block" th:text="#{btn.cmn.sub}" />
+				</div>
+				<div class="col-4"></div>
+			</div>
+		</bst:widget-body>
+	</bst:widget>
+</bst:form>
+	
+	
+<th:block th:if="${patientRst != null}">
+	<bst:widget>
+		<bst:widget-header>
+			<h6 th:text="#{lbl.inquiry.patient.detail}" />
+		</bst:widget-header>
+			<bst:widget-body>
+				<div class="col-12">
+					<div class="row form-row">
+						<!--/* Fullname */-->
+						<div class="col-md-3">
+							<label th:text="#{'Name:'}" />
+						</div>
+						<div class="col-md-3">
+                             <td th:text="${patientRst.firstNm + ' ' + patientRst.lastNm}"/>
+						</div>
+					</div>
+					<div class="row form-row">
+						<div class="col-md-3">
+							<label th:text="#{'Identification No:'}" />
+						</div>
+						<div class="col-md-3">
+						 	 <td th:text="${patientRst.nationalId}"/>
+						</div>
+					</div>
+					<div class="row form-row">
+						<div class="col-md-3">
+							<label  th:text="#{'Gender:'}" />
+						</div>
+						<div class="col-md-3">
+						 	<td th:text="${patientRst.gender}"/>
+						</div>
+					</div>
+					<div class="row form-row">
+						<div class="col-md-3">
+							<label th:text="#{'Pejabat Kesihatan Daerah:'}" />
+						</div>
+						<div class="col-md-3">
+						 	<td th:text="${patientRst.clinicDesc}"/>
+						</div>
+					</div>
+					<div class="row form-row">
+						<div class="col-md-3">
+							<label  th:text="#{'Medical Status:'}" />
+						</div>
+						<div class="col-md-3">
+						 	<td th:text="${@staticData.statusDescByStatusType(patientRst.status, 'MED_STATUS')}"/>
+						</div>
+					</div>
+					<br/>
+					<h5>Please visit nearest hospitals <b>IMMEDIATELY</b> for next action.</h5>
+					<h5>Always wear face mask.</h5>
+				</div>
+			</bst:widget-body>
+	</bst:widget>
+	</th:block>

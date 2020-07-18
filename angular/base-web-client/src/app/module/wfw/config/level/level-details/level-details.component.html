@@ -1,0 +1,92 @@
+<ui-card>
+  <form [formGroup]="levelForm" (ngSubmit)="onSubmit()" autocomplete="off" class="col-12 ">
+    <ui-title>
+      Worflow Configuration
+      <h6 class="text-muted m-t-0">Level Details</h6>
+    </ui-title>
+
+    <div class="row">
+      <!-- TYPE -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label i18n="@@User-UserId">Type</label>
+        <ui-text formControlName="type"></ui-text>
+      </div>
+    </div>
+    <div class="row">
+      <!-- DESCRIPTION -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required" i18n="@@User-FullName">Level Description</label>
+        <ui-text formControlName="level" formatToUpperCase maxlength="255" label="Type" [reset]="reset"
+          [submitted]="submitted"></ui-text>
+      </div>
+      <!-- ROLES -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label i18n="@@User-UserId">Assign Roles</label>
+        <ui-select label="Roles" [init]="selRolesInit" formControlName="roles" [reset]="reset" [submitted]="submitted">
+        </ui-select>
+      </div>
+      <!-- STATUS -->
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required" i18n="@@User-Gender">Is Active </label>
+        <div class="form-group">
+          <ui-radio-group formControlName="status" inline='true'>
+            <ui-radio inline='true' value='1'>YES</ui-radio>
+            <ui-radio inline='true' value='0'>NO</ui-radio>
+          </ui-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4" *ngIf="!isNew">
+        <label class="required" i18n="@@User-FullName">Flow No</label>
+        <ui-text formControlName="flowNo" maxlength="255" label="Type" [reset]="reset" [submitted]="submitted">
+        </ui-text>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <label i18n="@@User-UserId">Level Actions</label>
+        <ui-datatable *ngIf="levelDtls" [dataValues]="data" [tableInit]='tableInit' (editRecord)="onAction()">
+        </ui-datatable>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" routerLink="/workflow/configuration/type">
+          </ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{button}}"></ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>
+<ui-card>
+  <div class="row" *ngIf="!isNew">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-lg-8">
+          <label>Status List</label>
+        </div>
+        <div class="col-lg-4">
+          <div class="pull-right">
+            <ui-button buttonType="success" icon="fa fa-plus-circle" text="New Status"
+              (click)="rowStatusSelected(null)">
+            </ui-button>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <ui-datatable *ngIf="statusList" (editRecord)='rowStatusSelected($event)' [dataValues]="statusList"
+            [tableInit]='tableStatusInit'>
+            <ng-template uiNgTemplateCellTemplate='legendTemplate' let-item='item'>
+              <span *ngIf="item.color" class="fa fa-circle" [ngStyle]="{color: item.color}"></span>
+            </ng-template>
+          </ui-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</ui-card>

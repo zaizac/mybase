@@ -1,0 +1,16 @@
+<div class="form-group">
+    <ui-radio-group [formControl]="fcGender" (change)="getValue()" inline='true'>
+        <ui-radio inline='true' value="M"
+            [ngClass]="{ 'is-invalid': (fcGender.touched || submitted) && fcGender.errors }" [disabled]="disabled">MALE
+        </ui-radio>
+        <ui-radio inline='true' value="F"
+            [ngClass]="{ 'is-invalid': (fcGender.touched || submitted) && fcGender.errors }" [disabled]="disabled">
+            FEMALE</ui-radio>
+        <ui-radio inline='true' *ngIf="hasBoth" value="B"
+            [ngClass]="{ 'is-invalid': (fcGender.touched || submitted) && fcGender.errors }" [disabled]="disabled">BOTH
+        </ui-radio>
+    </ui-radio-group>
+    <div *ngIf="(fcGender.touched || submitted) && fcGender.errors" class="gender_error_custom">
+        <div *ngIf="fcGender.hasError('required')">Gender is required</div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="custom-control custom-radio" [ngClass]="{ 'custom-radio-inline': inline }">
+  <input #input type="radio" class="custom-control-input" [id]="id" [required]="required" [checked]="checked"
+    [attr.name]="name" [attr.value]="value" [disabled]="disabled" [attr.aria-label]="ariaLabel || null"
+    [attr.aria-labelledby]="ariaLabelledby" (change)="_onInputChange($event)" (click)="_onInputClick($event)">
+  <label class="custom-control-label" [for]="_uniqueId">
+    <ng-content></ng-content>
+  </label>
+</div>

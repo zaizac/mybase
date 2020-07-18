@@ -1,0 +1,16 @@
+<div class="ui-mobile form-group">
+  <ui-intl-tel [(cssClass)]="cssClass" class="ui-mobile" [formControl]="fcMobile" [allowDropdown]="false"
+    [autoHideDialCode]="true" [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+    [enablePlaceholder]="true" [nationalMode]="true" [formatOnDisplay]="true " [separateDialCode]="true"
+    [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField?.Iso2, SearchCountryField?.Name]"
+    [searchCountryPlaceholder]="'Search Country'" [selectFirstCountry]="false" [maxLength]="15"
+    [selectedCountryISO]="selectedCountryISO" [tooltipField]="TooltipLabel?.Name" [phoneValidation]="true"
+    [ngClass]="{ 'is-invalid': (fcMobile.touched || submitted) && fcMobile.errors }" (change)="changeValue()"
+    (keydown)="onKeyDown()" (blur)="onKeyDown()">
+  </ui-intl-tel>
+  <div class="invalid-feedback" *ngIf="(fcMobile.touched || submitted) && fcMobile.errors">
+    <div *ngFor="let key of fcMobile.errors | parseError">
+      {{formControlName + '.errors.' + key | simpleError:fcMobile.errors[key]}}
+    </div>
+  </div>
+</div>

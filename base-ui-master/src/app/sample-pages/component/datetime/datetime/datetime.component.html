@@ -1,0 +1,24 @@
+<form [formGroup]="date_form" (ngSubmit)="onSubmit()">
+  <ui-card>
+    <h2>Date Time Picker</h2>
+    <ui-tab-group>
+      <ui-tab tabTitle="Example">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Select Date and Time</label>
+            <ui-datetime formControlName="dob" format='DD/MM/YYYY h:mm a' [showMeridian]="true" [showSeconds]="true">
+            </ui-datetime>
+          </div>
+          <div class="col-md-6">
+            <label>Selected Value</label><br />
+            <pre ng-non-bindable>{{ date_form.controls.dob.value | json }}</pre>
+          </div>
+        </div>
+      </ui-tab>
+      <ui-tab tabTitle="HTML">
+        <pre
+          ng-non-bindable>&lt;ui-datetime <strong>formControlName="variable_name" format='DD/MM/YYYY h:mm a' [showMeridian]="true" [showSeconds]="true"</strong>&gt;&lt;/ui-datetime&gt;</pre>
+      </ui-tab>
+    </ui-tab-group>
+  </ui-card>
+</form>

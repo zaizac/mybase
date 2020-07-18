@@ -1,0 +1,19 @@
+<div class="input-group form-group" [formGroup]="otpForm">
+  <ui-email formControlName="email" [submitted]="submitted" [ngClass]="{'form-control is-valid' : otpVerified }">
+  </ui-email>
+  <div class="input-group-append">
+    <ui-button *ngIf="!otpVerified" buttonType="secondary" (click)="verifyEmail();">Verify</ui-button>
+    <ui-button *ngIf="otpVerified" buttonType="secondary" icon="fa fa-refresh" (click)="resetVerifiedEmail();">Reset
+    </ui-button>
+  </div>
+</div>
+<div class="invalid-message" *ngIf="!otpForm.controls.email.errors && (submitted && !otpVerified)">
+  Email is not verified.</div>
+
+<ng-template #content let-modal>
+  <ui-modal [title]="'One Time Password'" [modal]="modal">
+    <ui-otp-template [emailIdToSend] = "otpForm.controls.email.value" [otpService] = "otpService" 
+    [otpAction] = "otpPopupAction" [otpUniqueId]="otpUniqueId">
+    </ui-otp-template>
+  </ui-modal>
+</ng-template>

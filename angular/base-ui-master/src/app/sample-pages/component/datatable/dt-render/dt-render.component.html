@@ -1,0 +1,130 @@
+<ui-card>
+  <div class="col-12">
+    <h2>Column Display Rendering:</h2>
+    <ul>
+      <li>We can also defined what value to display in the column by using render callback function. Render callback
+        function has 3 parameters. e.g render(data,cell,row)
+        <ol>
+          <li>1st parameter is the specific column data. </li>
+          <li>2nd parameter is the specific column element. </li>
+          <li>3rd parameter is the specific column row data. </li>
+        </ol>
+      </li>
+      <li>To change the content data, set cell.textContent to desire value. In example below, we will change the age
+        column to display '-' when data is empty. </li>
+      <li>We also manipulate gender field to append word Adult when age is over 20</li>
+    </ul>
+    <p>e.g:</p>
+    <ui-card>
+      <pre ng-non-bindable>
+              dtConfig = {{ '{' }}
+                columns: [
+                  {{ '{' }} field: 'name', headerText: 'Name', width: '30%' {{ '}' }}
+                  {{ '{' }} field: 'SlNo', headerText: 'No.', width: '10%' {{ '}' }}
+                  {{ '{' }}
+                    field: 'gender',
+                    headerText: 'Gender',
+                    width: '20%',
+                    render: (data, cell, row) => {{ '{' }}
+                      if (row.age >= 20) {{ '{' }}
+                        cell.textContent = 'Adult ' + data;
+                      {{ '}' }} else {{ '{' }}
+                        cell.textContent = data.substr(0, 1).toUpperCase() + data.substr(1).toLowerCase();
+                      {{ '}' }}
+                    {{ '}' }}
+                  {{ '}' }}
+                  {{ '{' }}
+                    field: 'age',
+                    headerText: 'Age',
+                    width: '10%',
+                    allowSorting: false,
+                    render: (data, cell, row) => {{ '{' }}
+                      cell.textContent = data || '-';
+                      {{ '}' }}
+                  {{ '}' }}
+                  {{ '{' }} field: 'company', headerText: 'Company', width: '30%' {{ '}' }}
+                ]
+              {{ '}' }}
+          </pre>
+    </ui-card>
+    <ui-datatable [dataValues]='dtData' [tableInit]='headerConfig'></ui-datatable>
+  </div>
+</ui-card>
+
+<ui-card>
+</ui-card>
+
+<ui-card>
+  <div class="col-12">
+    <h2>Hiding and showing column dynamically:</h2>
+    <p>In the example below, We will demonstrate how to dynamically hide and show datatable column. Since the column
+      visibility can be controlled using visible attribute in tableInit's column attribute,
+      users can create a function which can be called from template to manipulate the visible attribute value and call
+      tableInit redraw() method to render the datatable again.</p>
+
+    <p>In example below, we create a checkbox which call a function to set the column visibility to true when the
+      checkbox is checked. In the template, we create a checkbox like this.</p>
+    <ui-card>
+      <pre>
+        &lt;div class="col-12"&gt;
+            &lt;div class="col-4"&gt;
+              &lt;ui-checkbox (change)="checkboxClick($event,'name')" [checked]="true"&gt;Name&lt;/ui-checkbox&gt;
+            &lt;/div&gt;
+            &lt;div class="col-4"&gt;
+              &lt;ui-checkbox (change)="checkboxClick($event, 'gender')" [checked]="true"&gt;Gender&lt;/ui-checkbox&gt;
+            &lt;/div&gt;
+            &lt;div class="col-4"&gt;
+              &lt;ui-checkbox (change)="checkboxClick($event, 'company')" [checked]="true"&gt;Company&lt;/ui-checkbox&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;div&gt;
+      </pre>
+    </ui-card>
+
+    <p>In our TS file, we create a function like this.</p>
+    <ui-card>
+      <pre>
+          checkboxClick(ev, column) {{ '{' }}
+            if (ev.target.checked) {{ '{' }}
+              if (column === 'name') {{ '{' }}
+                this.headerConfig2.columns[1].visible = true;
+              {{ '}' }}}
+              if (column === 'gender') {{ '{' }}
+                this.headerConfig2.columns[2].visible = true;
+              {{ '}' }}
+              if (column === 'company') {{ '{' }}
+                this.headerConfig2.columns[3].visible = true;
+              {{ '}' }}
+            {{ '}' }} else {{ '{' }}
+              if (column === 'name') {{ '{' }}
+                this.headerConfig2.columns[1].visible = false;
+              {{ '}' }}
+              if (column === 'gender') {{ '{' }}
+                this.headerConfig2.columns[2].visible = false;
+              {{ '}' }}
+              if (column === 'company') {{ '{' }}
+                this.headerConfig2.columns[3].visible = false;
+              {{ '}' }}
+            {{ '}' }}
+            this.headerConfig2.refresh();
+          {{ '}' }}
+      </pre>
+    </ui-card>
+    <p>Select column to hide by clicking the checkbox</p>
+    <div class="row">
+      <div class="col-4">
+        <ui-checkbox (change)="checkboxClick($event,'name')" [checked]="true">Name</ui-checkbox>
+      </div>
+      <div class="col-4">
+        <ui-checkbox (change)="checkboxClick($event, 'gender')" [checked]="true">Gender</ui-checkbox>
+      </div>
+      <div class="col-4">
+        <ui-checkbox (change)="checkboxClick($event, 'company')" [checked]="true">Company</ui-checkbox>
+      </div>
+    </div>
+    <div>
+      <ui-datatable [tableInit]="headerConfig2">
+      </ui-datatable>
+    </div>
+  </div>
+</ui-card>

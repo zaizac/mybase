@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BORDER_PORTRAIT" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="477dea89-7a20-4a4f-97e3-c53fbf0a44b8">
+	<property name="ireport.zoom" value="0.5257408492220886"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band height="842">
+			<rectangle>
+				<reportElement x="581" y="63" width="15" height="764" forecolor="#000000" backcolor="#000000" uuid="e6b961cb-c12c-4696-b378-b8f56929a7dd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="63" width="15" height="764" forecolor="#000000" backcolor="#000000" uuid="fbccd0d8-bc9d-4fd0-8545-b17a52c9e391"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="827" width="596" height="15" forecolor="#000000" backcolor="#000000" uuid="4bf317bb-0274-4262-91ac-ba830eb9f0cf"/>
+			</rectangle>
+		</band>
+	</background>
+</jasperReport>

@@ -1,0 +1,100 @@
+<!-- Work Tab Form Starts -->
+<form [formGroup]="stepTwoForm" class="editForm" autocomplete="off">
+  <div class="tab-pane active">
+    <p class="font-medium-2 text-center">{{ title }}</p>
+    <br />
+    <div class="row mb-2">
+      <div class="row">
+        <div class="col-offset-4 col-10 col-sm-offset-5 col-sm-4">
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              id="customRadio1"
+              required
+              name="work"
+              class="custom-control-input"
+              formControlName="work"
+              value="Design"
+              class="custom-control-input"
+            />
+            <label class="custom-control-label" for="customRadio1">Design</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              id="customRadio2"
+              required
+              name="work"
+              class="custom-control-input"
+              formControlName="work"
+              value="Code"
+              class="custom-control-input"
+            />
+            <label class="custom-control-label" for="customRadio2">Code</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              id="customRadio3"
+              required
+              name="work"
+              class="custom-control-input"
+              formControlName="work"
+              value="Deploy"
+              class="custom-control-input"
+            />
+            <label class="custom-control-label" for="customRadio3">Deploy</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-sm-12">
+          <div class="form-group text-center space-20">
+            <button uiSref="stepOne" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()">
+              Previous
+            </button>
+            <button
+              uiSref="stepThree"
+              type="button"
+              class="btn btn-raised btn-info"
+              [disabled]="stepTwoForm.invalid"
+              (click)="save()"
+            >
+              Next
+            </button>
+          </div>          
+        </div>
+    </div>
+  </div>
+</form>
+<!-- <form #workForm="ngForm" class="editForm" novalidate>
+    <div >
+        <div class="tab-pane active">
+            <h4 class="head text-center">{{title}}</h4>
+            <br/>
+            <div class='row'>
+                <div class='col-offset-4 col-10 col-sm-offset-5 col-sm-4'>
+                  <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio1" #work="ngModel" required name="work" class="custom-control-input" [(ngModel)]="stepTwo" value="Design" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio1">Design</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio2" #work="ngModel" required name="work" class="custom-control-input" [(ngModel)]="stepTwo" value="Code" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio2">Code</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio3" #work="ngModel" required name="work" class="custom-control-input" [(ngModel)]="stepTwo" value="Deploy" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio3">Deploy</label>
+                </div>  
+                </div>
+                
+            </div>
+            <div class="form-group text-center space-20">
+                <button uiSref="stepOne" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
+                <button uiSref="stepThree" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
+            </div>
+        </div>
+    </div>
+</form> -->
+<!-- Work Tab Form Ends -->

@@ -1,0 +1,691 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.portal</groupId>
+	<artifactId>base-portal</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	
+	<name>BASE :: WEB PORTAL</name>	
+
+	<developers>
+		<developer>
+			<name>Mary Jane Buenaventura</name>
+			<email>mary.jane@bestinet.com.my</email>
+			<organization>Bestinet Sdn Bhd</organization>
+		</developer>
+	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<jdk.version>1.8</jdk.version>
+		<javax.servlet.version>3.1.0</javax.servlet.version>
+		
+		<!-- UI THEME -->
+		<dialect.groupid>com.dialect</dialect.groupid>
+		<dialect.artifactid>base-dialect</dialect.artifactid>
+		<dialect.version>1.0.0</dialect.version>
+		<theme.groupid>com.webjars</theme.groupid>
+		<theme.artifactid>base-webjar</theme.artifactid>
+		<theme.version>1.0.0</theme.version>
+		
+		<!-- PROJECT SPECIFIC -->
+		<base-util.version>1.0.0</base-util.version>
+		<base-idm8-sdk.version>1.0.0</base-idm8-sdk.version>
+		<base-dm8-sdk.version>1.0.0</base-dm8-sdk.version>
+		<base-not8-sdk.version>1.0.0</base-not8-sdk.version>
+		<base-be-sdk.version>1.0.0</base-be-sdk.version>
+		<base-report-sdk.version>1.0.0</base-report-sdk.version>
+		
+		
+		<!-- MAVEN -->
+		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+		
+		<!-- HIBERNATE -->
+		<hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
+		
+		<!-- SPRING -->
+		<spring.version>5.2.0.RELEASE</spring.version><!-- 4.3.13.RELEASE -->
+		<spring-js.version>2.4.7.RELEASE</spring-js.version>
+		<spring-security.version>4.2.5.RELEASE</spring-security.version>
+		<spring-security-taglibs.version>4.2.5.RELEASE</spring-security-taglibs.version>
+		<spring-data-redis.version>1.8.9.RELEASE</spring-data-redis.version>
+		<jedis.version>2.9.0</jedis.version>
+		
+		<!-- COMMONS -->
+		<commons-fileupload.version>1.3.1</commons-fileupload.version>
+		<commons-collections.version>4.0</commons-collections.version>
+		<pjl-comp-filter.version>1.7</pjl-comp-filter.version>
+		<jstl.version>1.2</jstl.version>
+		<junit-version>4.11</junit-version>
+		<jettison.version>1.3.7</jettison.version>
+		<groovy.version>2.3.7</groovy.version>		
+		<qrcore.version>3.3.0</qrcore.version>	
+		
+		<!-- APACHE POI -->
+		<apache-poi.version>3.13</apache-poi.version>
+		<apache-poi-ooxml.version>3.13</apache-poi-ooxml.version>
+		
+		<!-- COMMON CSV -->
+		<commons-csv.version>1.5</commons-csv.version>
+	</properties>
+
+	<dependencies>	
+		<!-- INTERNAL DEPENDENCIES -->
+		<dependency>
+			<groupId>${theme.groupid}</groupId>
+			<artifactId>${theme.artifactid}</artifactId>
+			<version>${theme.version}</version>
+			<exclusions>
+		    	<exclusion>
+          			<groupId>com.fasterxml.jackson.core</groupId>
+          			<artifactId>jackson-databind</artifactId>
+        		</exclusion>
+        		<exclusion>
+          			<groupId>com.fasterxml.jackson.core</groupId>
+          			<artifactId>jackson-core</artifactId>
+        		</exclusion>
+        		<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+		    </exclusions>
+		</dependency>	
+
+		<dependency>
+			<groupId>${dialect.groupid}</groupId>
+			<artifactId>${dialect.artifactid}</artifactId>
+			<version>${dialect.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.util</groupId>
+					<artifactId>base-util</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>		
+		
+		<dependency>
+			<groupId>com.util</groupId>
+			<artifactId>base-util</artifactId>
+			<version>${base-util.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.idm</groupId>
+			<artifactId>base-idm8-sdk</artifactId>
+			<version>${base-idm8-sdk.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.util</groupId>
+					<artifactId>base-util</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.not</groupId>
+			<artifactId>base-not8-sdk</artifactId>
+			<version>${base-not8-sdk.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.util</groupId>
+					<artifactId>base-util</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.dm</groupId>
+			<artifactId>base-dm8-sdk</artifactId>
+			<version>${base-dm8-sdk.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.util</groupId>
+					<artifactId>base-util</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>		
+		
+		<dependency>
+			<groupId>com.be</groupId>
+			<artifactId>base-be-sdk</artifactId>
+			<version>${base-be-sdk.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.util</groupId>
+					<artifactId>base-util</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.report</groupId>
+			<artifactId>base-report-sdk</artifactId>
+			<version>${base-report-sdk.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.util</groupId>
+					<artifactId>base-util</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- SERVLET -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+	
+		<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webflux</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-js</artifactId>
+			<version>${spring-js.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+				<exclusion>
+          			<groupId>commons-logging</groupId>
+          			<artifactId>commons-logging</artifactId>
+        		</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- SPRING SECURITY -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+          			<groupId>org.springframework</groupId>
+          			<artifactId>spring-beans</artifactId>
+        		</exclusion>
+        		<exclusion>
+          			<groupId>org.springframework</groupId>
+          			<artifactId>spring-core</artifactId>
+        		</exclusion>
+        		<exclusion>
+          			<groupId>org.springframework</groupId>
+          			<artifactId>spring-expression</artifactId>
+        		</exclusion>
+        		<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring-security.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+          			<groupId>aopalliance</groupId>
+          			<artifactId>aopalliance</artifactId>
+        		</exclusion>
+        		<exclusion>
+         			<groupId>org.springframework.security</groupId>
+          			<artifactId>spring-security-core</artifactId>
+        		</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>aopalliance</groupId>
+					<artifactId>aopalliance</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+				
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring-security-taglibs.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-jdb</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>aopalliance</groupId>
+					<artifactId>aopalliance</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-config</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- SPRING CACHE - REDIS -->
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-redis</artifactId>
+		    <version>${spring-data-redis.version}</version>
+		    <exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>${jedis.version}</version>
+		</dependency>
+		
+		<!-- JSR 303 with Hibernate Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		
+		<!-- Commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${commons-collections.version}</version>
+		</dependency>
+		
+		<dependency>
+	      <groupId>commons-fileupload</groupId>
+		  <artifactId>commons-fileupload</artifactId>
+	      <version>${commons-fileupload.version}</version>
+	      <exclusions>
+	      		<exclusion>
+          			<groupId>commons-io</groupId>
+          			<artifactId>commons-io</artifactId>
+        		</exclusion>
+	      </exclusions>
+	    </dependency>
+	    
+	    <dependency>
+			<groupId>net.sourceforge.pjl-comp-filter</groupId>
+			<artifactId>pjl-comp-filter</artifactId>
+			<version>${pjl-comp-filter.version}</version>
+			<exclusions>
+				<exclusion>
+          			<groupId>commons-logging</groupId>
+          			<artifactId>commons-logging</artifactId>
+        		</exclusion>
+			</exclusions>
+		</dependency>
+        
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>${jettison.version}</version>
+        </dependency>
+	     
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>${qrcore.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${apache-poi.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apache-poi-ooxml.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-csv</artifactId>
+		    <version>${commons-csv.version}</version>
+		</dependency>
+	</dependencies>
+		
+	<build>
+		<finalName>base-portal</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			  	<artifactId>maven-clean-plugin</artifactId>
+			  	<version>${maven-clean-plugin.version}</version>
+			  	<configuration>
+			  		<filesets>
+			  			<fileset>
+			  			 	<directory>src/main/webapp/WEB-INF</directory>
+			  			 	<includes>
+			  			 		<include>default/</include>
+			  				</includes>
+			  			</fileset>
+			  		</filesets>
+			 	</configuration>
+			</plugin>
+			<plugin>			
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<failOnMissingWebXml>false</failOnMissingWebXml>          		
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<packagingExcludes>WEB-INF/classes/base-portal.properties</packagingExcludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>${maven-dependency-plugin.version}</version>
+				<executions>
+	                <execution>
+	                    <id>unpack</id>
+	                    <phase>prepare-package</phase>
+	                    <goals>
+	                        <goal>unpack</goal>
+	                    </goals>
+	                    <configuration>
+	                    	<artifactItems>
+	                        	<artifactItem>
+	                            	<groupId>${dialect.groupid}</groupId>
+	                            	<artifactId>${dialect.artifactid}</artifactId>
+	                            	<outputDirectory>src/main/webapp/WEB-INF/default</outputDirectory>
+	                            	<includes>templates/, tiles/</includes>
+	                            	<overWrite>true</overWrite>
+	                          	</artifactItem>
+							</artifactItems>
+	                    </configuration>
+	                </execution>
+	            </executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>dev-1.8</id>
+			<activation>
+				<jdk>1.8</jdk>
+			</activation>
+			<repositories>
+				<repository>
+					<id>bestinet</id>
+					<name>Bestinet Release Repository</name>
+					<url>http://maven.bestinet.com/releases</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>bestinet-snapshot</id>
+					<name>Bestinet Snapshot Repository</name>
+					<url>http://maven.bestinet.com/snapshots</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>maven</id>
+					<name>Mirror Repository</name>
+					<url>http://maven.bestinet.com/repository</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>maven</id>
+					<name>Mirror Plugin Repository</name>
+					<url>http://maven.bestinet.com/repository</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>fail</checksumPolicy>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+</project>

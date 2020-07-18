@@ -1,0 +1,17 @@
+<ul class="nav" [ngClass]="tabVertical? 'nav-pills flex-column' : 'nav-tabs'"
+[class.justify-content-start]="tabJustification === 'start'"
+[class.justify-content-center]="tabJustification === 'center'"
+[class.justify-content-end]="tabJustification === 'end'"
+[class.nav-fill]="tabJustification === 'fill'"
+[class.nav-justified]="tabJustification === 'justified'">
+  <li class="nav-item" style="cursor: pointer" *ngFor="let tab of tabs" (click)="!tab.disabled? selectTab(tab): ''">
+    <a class="nav-link" [class.active]="tab.active" [class.disabled] = "tab.disabled"><img *ngIf="tab.imagePath" alt="" src="{{tab.imagePath}}" class="p-r-10"/>{{tab.title}}</a>
+  </li>
+  <!-- dynamic tabs -->
+  <li class="nav-item" style="cursor: pointer" *ngFor="let tab of dynamicTabs" (click)="selectTab(tab)">
+    <a class="nav-link" [class.active]="tab.active"><img *ngIf="tab.imagePath" alt="" src="{{tab.imagePath}}" class="p-r-10"/>{{tab.title}}
+      <span class="tab-close" *ngIf="tab.isCloseable" (click)="closeTab(tab)">x</span></a>
+  </li>
+</ul>
+<ng-content></ng-content>
+<ng-template tabs-directive #container></ng-template>

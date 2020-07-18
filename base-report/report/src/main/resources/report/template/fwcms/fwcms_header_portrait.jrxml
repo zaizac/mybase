@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HEADER_PORTRAIT" pageWidth="595" pageHeight="250" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8d673b1f-30e4-4242-b36f-98cd65f88f05">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="bold_text" hAlign="Center" vAlign="Middle" fontSize="15" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="GENERATED_BY" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["//"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_TITLE" class="java.lang.String"/>
+	<parameter name="RPT_SUBTITLE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RPT_LOGO" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_MY" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_GOV" class="java.lang.String"/>
+	<parameter name="RPT_LOGO_MSC" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<variable name="TOTAL" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="72">
+			<rectangle>
+				<reportElement x="0" y="0" width="595" height="72" forecolor="#EC5D11" backcolor="#EC5D11" uuid="c50b8cf1-7312-44ea-b1a1-65f1ff425220"/>
+			</rectangle>
+			<image>
+				<reportElement x="16" y="6" width="64" height="56" uuid="d271e732-d6f8-4ca4-98d6-d85fd04f3e00"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+$P{RPT_LOGO_MY}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="526" y="6" width="63" height="50" uuid="79b9b382-2723-46fe-ad5a-28becdae87a1"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+$P{RPT_LOGO_GOV}]]></imageExpression>
+			</image>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="251" y="16" width="295" height="20" forecolor="#FFFFFF" uuid="2ef12a10-21ee-4787-9fac-d7386ef59575"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RPT_TITLE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="251" y="36" width="295" height="20" forecolor="#FFFFFF" uuid="428054c5-c40e-4ccc-88aa-1cdcd9a1668d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RPT_SUBTITLE}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="463" y="6" width="63" height="50" uuid="cb782641-a183-4d68-888f-365323b1b8c5"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+$P{RPT_LOGO_MSC}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="86" y="3" width="165" height="64" uuid="af45871c-74c5-44d8-b073-e5c3899803ee"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+$P{RPT_LOGO}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+</jasperReport>

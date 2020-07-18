@@ -1,0 +1,98 @@
+/* 
+  Localizable.strings
+  MyCare
+
+  Created by Cookie on 4/17/20.
+  Copyright © Mohd Nasir Selamat. All rights reserved.
+*/
+
+// "Bengali";
+"languageType" = "বাংলা";
+"map" = "মানচিত্র";
+"welcome" = "স্বাগত";
+"foodType" = "খাবারের ধরণ";
+"phoneNo" = "আপনার ফোন নম্বর";
+"retypePhoneNo" = "আপনার ফোন নম্বরটি আবার টাইপ করুন";
+"mobilePassport" = "মোবাইল নম্বর ";
+"fullname" = "পুরো নাম";
+"mobileNo" = "মোবাইল নম্বর";
+"retypeMobileNo" = "পুনরায় টাইপ করুন মোবাইল নম্বর";
+"gender" = "লিঙ্গ";
+"mealType" = "খাবারের ধরণ";
+"dob" = "জন্ম তারিখ";
+"companyName" = "কোমপানির নাম";
+"postalCode" = "পোস্ট অফিসের নাম্বার";
+"district" = "জেলা";
+"town" = "শহর";
+"state" = "অবস্থাঅবস্থা";
+"contactNo" = "যোগাযোগের জন্য নম্বর";
+"companyContactNo" = "সংস্থার ফোন নম্বর";
+"companyAddress" = "প্রতিস্থান এর ঠিকানা";
+"passportNo" = "পাসপোর্ট নম্বর.";
+"address" = "ঠিকানা";
+"empInfo" = "নিয়োগকর্তার তথ্য";
+"viewProfile" = "প্রোফাইল দেখুন";
+"notRegisterYet" = "নিবন্ধিত না?";
+"signUpNow" = "এখন নিবন্ধন করুন";
+"declarationText_BH" = "আমি এই মর্মে ঘোষনা, নিশ্চিত এবং দায়িত্বগ্রহণ করছি যে উপরে প্রদত্ত তথ্যগুলি সত্য, সম্পূর্ণ, নির্ভুল এবং সঠিক। আমি উপলব্ধি, সম্মতী এবং স্বীকার করছি যে প্রদত্ত তথ্য যে কোনও সময় এবং যে কোনও উপায়ে মিথ্যা, ভুল বা বিভ্রান্তিকর বলে প্রমাণিত হলে, আমি বাংলাদেশ সরকার কর্তৃক আরোপিত বা গৃহীত আইনানুগ ব্যবস্থার সাপেক্ষে দায়বদ্ধ থাকিবো।"; // changed by sadham on 20th Apr 11.30 AM - given by safri.
+"chooseLanguage" = "আপনার পছন্দসই ভাষা চয়ন করুন";
+"selectMealType" = "খাবারের ধরন নির্বাচন করুন";
+"login" = "প্রবেশ করুন";
+"checkRegStatus" = "নিবন্ধের স্থিতি পরীক্ষা করুন";
+"next" = "পরবর্তী";
+"updateProfile" = "হালনাগাদ প্রফাইল";
+"update" = "হালনাগাদ";
+"finish" = "শেষ";
+"foodReceived" = "খাদ্য গ্রহণ";
+"received" = "গৃহীত";
+"workerPhotoTitle" = "কর্মীর ছবি";
+"uploadPhotoIdentifyPurpose" = "আপনাকে চিনতে লোকের জন্য একটি ফটো আপলোড করুন।";
+"language" = "ভাষা";
+"logout" = "প্রস্থান";
+"technicalIssues" = "ত্রুটিযুক্ত .. প্রযুক্তিগত সার্ভার একটি সমস্যার সম্মুখীন হয়েছে lease দয়া করে পরে আবার চেষ্টা করুন";
+"mre" = "খাবার খেতে প্রস্তুত";
+"rawFood" = "কাঁচা খাবার মুদি";
+"veggie" = "নিরামিষ";
+"nonVeggie" = "মাংসাশি";
+"male" = "পুরুষ";
+"female" = "মহিলা";
+"sureWant2Logout" = "আপনি কি লগআউট করতে চান?";
+"enterFullname" = "পুরো নাম লিখুন";
+"enterPassportNo" = "পাসপোর্ট নম্বর প্রবেশ করুন";
+"enterMobileNo" = "দয়া করে মোবাইল নম্বর লিখুন";
+"reenterMobileNo" = "দয়া করে মোবাইল নম্বরটি পুনরায় প্রবেশ করুন";
+"notSameReenterMobileNo" = "মোবাইল নম্বর এক নয়। দয়া করে মোবাইল নম্বরটি পুনরায় প্রবেশ করুন।";
+"selectOption" = "একটি বিকল্প নির্বাচন করুন";
+"camera" = "ক্যামেরা";
+"gallery" = "দরদালান";
+"enterCompanyName" = "দয়া করে সংস্থার নাম লিখুন";
+"successSubmitRegister" = "সাফল্যের সাথে নিবন্ধন জমা দিন।";
+"enterAddress" = "ঠিকানা লিখুন";
+"enterPostcode" = "পোস্টকোড প্রবেশ করুন";
+"enterTown" = "একটি শহরের নাম লিখুন";
+"enterDistrict" = "একটি জেলার নাম লিখুন";
+"enterState" = "একটি রাষ্ট্রের নাম লিখুন";
+"enterPhoneNo" = "দয়া করে ফোন নম্বর লিখুন";
+"retypePassportNo" = "পাসপোর্ট নং পুনরায় টাইপ করুন";
+"profileInfo" = "প্রোফাইল তথ্য";
+"cancel" = "বাতিল";
+"notSamePassport" = "পাসপোর্ট নম্বর এক নয়। পাসপোর্ট নম্বর পুনরায় প্রবেশ করুন।";
+"enterCompanyAddress" = "কোম্পানির ঠিকানা লিখুন দয়া করে";
+"enterCompanyContactNumber" = "দয়া করে একটি সংস্থার ফোন নম্বর লিখুন";
+"enterPassportNumber" = "পাসপোর্ট নম্বর পুনরায় প্রবেশ করুন";
+"registerStatus" = "নিবন্ধের স্থিতি";
+"approved" = "অনুমোদিত";
+"pendingApproval" = "অনুমোদন অপেক্ষারত";
+"reject" = "প্রত্যাখ্যাত";
+"sponsorInfoForm" = "স্পনসর তথ্য ফর্ম";
+"createSponsorInfo" = "স্পনসর তথ্য তৈরি করুন";
+"orgaType" = "সংস্থার ধরণ";
+"foodSponsorArea" = "খাদ্য স্পনসরশিপ অঞ্চল";
+"sponsorName" = "পৃষ্ঠপোষক নাম";
+"sponsorId" = "স্পনসর আইডি";
+"sponsorList" = "স্পনসর তালিকা";
+"sponsorInfo" = "স্পনসর তথ্য";
+"sponsor" = "জামিন";
+"verifySponsor" = "পৃষ্ঠপোষক যাচাই করুন";
+"foreignWorkerList" = "বিদেশী ওয়ার্কার তালিকা";
+"verifyFW" = "বিদেশী কর্মী যাচাই করুন";

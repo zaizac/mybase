@@ -1,0 +1,66 @@
+
+.bs-chevron {
+    border-style: solid;
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    border-width: 5px 0px 0 5px;
+    color: darkgray;
+    }
+  
+.bs-chevron-up {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -18px;
+    }
+  
+.bs-chevron-down {
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    top: -1px;
+    margin-left: -34px;
+    }
+  
+.bs-timepicker-field {
+    width: 50px;
+    }
+
+.hourSelect{
+    display: block;
+    margin-left: 25px;
+    margin-top: -21px;
+    position: absolute;
+}
+
+.minuteSelect{
+    display: block;
+    margin-left: 25px;
+    margin-top: -21px;
+    position: absolute;
+}
+.secondSelect{
+    display: block;
+    margin-left: 25px;
+    margin-top: -21px;
+    position: absolute;
+}
+
+input.hourtext{
+    width: 55px;
+    text-align: left !important;
+    height: 25px;
+    padding: 5px;
+}
+input.minutetext{
+    width: 55px;
+    text-align: left !important;
+    height: 25px;
+    padding: 5px;
+}
+input.secondtext{
+    width: 55px;
+    text-align: left !important;
+    height: 25px;
+    padding: 5px;
+}

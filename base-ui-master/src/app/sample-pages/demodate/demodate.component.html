@@ -1,0 +1,242 @@
+<form [formGroup]="date_form" (ngSubmit)="onSubmit()">
+
+
+  <ui-card>
+    <h2> Rating </h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label> Rating </label>
+        <ui-rating type="basicRating"></ui-rating>
+      </div>
+    </div>
+  </ui-card>
+
+  <ui-card>
+    <h2> Custom Datepicker</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Custom Datepicker</label>
+        <ui-daterangecustom formControlName="dwt" label='' [submitted]="submitted" required="false" [maxDate]="maxDate"
+          [minDate]="minDate"></ui-daterangecustom>
+      </div>
+    </div>
+  </ui-card>
+
+
+
+
+  <ui-card>
+    <h2> Single Datepicker</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Single Datepicker</label>
+        <ui-date type="datepicker"  formControlName="dob" label='' [submitted]="submitted" required="false"
+          [maxDate]="maxDate" [minDate]="minDate" format='DD/MM/YYYY'></ui-date>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>Urp datepicker function base on the configuration</p>
+        <ol>Definition of every attribute
+          <li>type = type of daterange for example single datepicker or daterangepicker </li>
+          <li>formControlName = for variable name </li>
+          <li>lable = Datepicker lable name </li>
+          <li>submitted = submitted the form </li>
+          <li>required = It’s a mandatory field, for example required="true" mandatory if required="false" is not a
+            mandatory</li>
+          <li>minDate = enabling the minimum select date </li>
+          <li>maxDate = enabling the maximum select date </li>
+          <li>mode = display the months or years only </li>
+          <li>format = formatting the date value </li>
+        </ol>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+            &lt;ui-date  
+                formControlName="variable_name" label='Datepicker' [submitted]="submitted"
+                required="true" [maxDate]="maxDate" [minDate]="minDate" format='DD/MM/YYYY'"&gt;
+            &lt;/ui-date&gt;
+        </pre>
+        <p>select year</p>
+        <pre ng-non-bindable>
+            &lt;ui-date  
+                type="datepicker"
+                formControlName="variable_name" label='Datepicker' [submitted]="submitted"
+                required="true" [maxDate]="maxDate" [minDate]="minDate" format='YYYY' mode = 'year'&gt;
+            &lt;/ui-date&gt;
+        </pre>
+        <p>select month</p>
+        <pre ng-non-bindable>
+            &lt;ui-date  
+                formControlName="variable_name" label='Datepicker' [submitted]="submitted"
+                required="true" [maxDate]="maxDate" [minDate]="minDate" format='MM/YYYY' mode = 'month'&gt;
+            &lt;/ui-date&gt;
+        </pre>
+        <p>typescript</p>
+        <pre ng-non-bindable>
+            submitted: boolean = false;
+            minDate: Date = new Date('1921-01-01');
+            maxDate: Date = new Date(); 
+        </pre>
+      </div>
+    </div>
+  </ui-card>
+
+  <ui-card>
+    <h2> Date Range Picker</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Daterangepicker</label>
+        <ui-date-range formControlName="dwt" label='' [submitted]="submitted" required="false" [maxDate]="maxDate"
+          [minDate]="minDate" format='DD/MM/YYYY'></ui-date-range>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+                &lt;ui-date-range  
+                    formControlName="variable_name" label='Daterangepicker' [submitted]="submitted"
+                    required="true" format='DD/MM/YYYY'"&gt;
+                &lt;/ui-date-range&gt;
+            </pre>
+        <p>select year</p>
+        <pre ng-non-bindable>
+            &lt;ui-date-range 
+                formControlName="variable_name" label='Datepicker' [submitted]="submitted"
+                required="true" [maxDate]="maxDate" [minDate]="minDate" format='YYYY' mode = 'year'&gt;
+            &lt;/ui-date-range&gt;
+        </pre>
+        <p>select month</p>
+        <pre ng-non-bindable>
+            &lt;ui-date-range
+                formControlName="variable_name" label='Datepicker' [submitted]="submitted"
+                required="true" [maxDate]="maxDate" [minDate]="minDate" format='MM/YYYY' mode = 'month'&gt;
+            &lt;/ui-date-range&gt;
+        </pre>
+        <p>typescript</p>
+        <pre ng-non-bindable>
+                submitted: boolean = false;
+                minDate: Date = new Date('1921-01-01');
+                maxDate: Date = new Date(); 
+            </pre>
+      </div>
+    </div>
+  </ui-card>
+
+  <ui-card>
+    <h2> Date and Time Picker</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>DateTimePicker</label>
+        <ui-datetime label='' [submitted]="submitted" required="false" formControlName="dwt" format='DD/MM/YYYY h:mm a'
+          [showMeridian]="true" [showSeconds]="true"></ui-datetime>
+        {{dwt}}
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+                &lt;ui-datetime  
+                    formControlName="variable_name" label='DateTimePicker' [submitted]="submitted"
+                    required="true" format='DD/MM/YYYY h:mm a' [showMeridian]="true" [showSeconds]="true"&gt;
+                &lt;/ui-datetime&gt;
+            </pre>
+        <p>typescript</p>
+        <pre ng-non-bindable>
+                submitted: boolean = false;
+            </pre>
+      </div>
+    </div>
+  </ui-card>
+
+  <ui-card>
+    <h2> Date Range and Time Range Picker</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>DateRangeAndTimeRangePicker</label>
+        <ui-datetime-range label='' [submitted]="submitted" required="false" formControlName="dwt"
+          format='DD/MM/YYYY h:mm a' [showMeridian]="true" [showSeconds]="true"></ui-datetime-range>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+                &lt;ui-datetime-range  
+                    formControlName="variable_name" label='DateRangeAndTimeRangePicker' [submitted]="submitted"
+                    required="true" format='DD/MM/YYYY h:mm a' [showMeridian]="true" [showSeconds]="true"&gt;
+                &lt;/ui-datetime-range&gt;
+            </pre>
+        <p>typescript</p>
+        <pre ng-non-bindable>
+                submitted: boolean = false;
+            </pre>
+      </div>
+    </div>
+  </ui-card>
+
+
+  <!-- Time picker -->
+  <ui-card>
+    <h2> Time Picker</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Timepicker</label>
+        <ui-time formControlName="dwt" [showMeridian]="true" [showSeconds]="true"></ui-time>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <ol>Definition of Timepicker attributes
+          <li>showMeridian = for formatting the time, if showMeridian is true timepicker follow the 12 hours format and
+            if showMeridian is false timepicker follow the 24 hours format </li>
+          <li>showSeconds = enabling the second input field</li>
+        </ol>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+                    &lt;ui-time  
+                    formControlName="variable_name" [showMeridian]= "true" [showSeconds]= "true"&gt;
+                    &lt;/ui-time&gt;
+            </pre>
+      </div>
+    </div>
+  </ui-card>
+
+  <ui-card>
+    <h2> Time Range Picker</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <label>TimeRangePicker</label>
+        <ui-time-range formControlName="dwt" [showMeridian]="true" [showSeconds]="true"></ui-time-range>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <h4>Definition & Usage</h4>
+        <ol>Definition of Timepicker attributes
+          <li>showMeridian = for formatting the time, if showMeridian is true timepicker follow the 12 hours format and
+            if showMeridian is false timepicker follow the 24 hours format </li>
+          <li>showSeconds = enabling the second input field</li>
+        </ol>
+        <p>HTML tag</p>
+        <pre ng-non-bindable>
+                    &lt;ui-time-range  
+                    formControlName="variable_name" [showMeridian]= "true" [showSeconds]= "true"&gt;
+                    &lt;/ui-time-range&gt;
+            </pre>
+      </div>
+    </div>
+  </ui-card>
+</form>

@@ -1,0 +1,29 @@
+<div class="card-body">
+  <ui-alert></ui-alert>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" formControlName="username" autocomplete="off" class="form-control text-center"
+        placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+        i18n-placeholder="@@Login-Username" />
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required" i18n="@@Login-ErrUsernameRequired">Username is required</div>
+        <div *ngIf="f.username.errors.minlength" i18n="@@Login-ErrUsernameLength">Username must be at least 8 characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <ui-pass formControlName="password" [submitted]="submitted" [required]="true" [isPlaceholder]="true">
+      </ui-pass>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary submit_button" i18n="@@Login-Login">Login</button>
+    </div>
+  </form>
+  <div class="form-group">
+    <div class="col-sm-12 text-center">
+      <p class="text-center mt-4 "><a routerLink="/forgotPassword" i18n="@@Login-ForgotPwd">Forgot Password </a></p>
+      <p i18n="@@Login-NoAccount">Don't have an account? <a routerLink="/signup"
+          class="text-info signup-link m-l-5">Sign Up</a></p>
+    </div>
+  </div>
+</div>

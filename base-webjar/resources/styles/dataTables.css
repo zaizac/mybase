@@ -1,0 +1,163 @@
+table.dataTable tbody td.dt-body-nowrap,table.dataTable tbody th.dt-body-nowrap,table.dataTable td.dt-nowrap,table.dataTable tfoot td.dt-head-nowrap,table.dataTable tfoot th.dt-head-nowrap,table.dataTable th.dt-nowrap,table.dataTable thead td.dt-head-nowrap,table.dataTable thead th.dt-head-nowrap,table.dataTable.nowrap td,table.dataTable.nowrap th{white-space:nowrap}
+table.dataTable{width:100% !important;margin:0 auto;clear:both;border-collapse:separate;border-spacing:0;border-radius:5px;}
+table.dataTable.dt-dark,table.dataTable.dt-light{margin-top:20px!important;margin-bottom:20px!important;border-spacing:0;max-width:none!important;clear:both}
+table.dataTable tfoot th,table.dataTable thead th{font-weight:700;position:relative;background-image:none!important}
+table.dataTable thead td,table.dataTable thead th{padding:10px 18px}
+table.dataTable thead td:active,table.dataTable thead th:active{outline:0}
+table.dataTable tfoot td,table.dataTable tfoot th{padding:10px 18px 6px;border-top:1px solid #B8D3DD}
+
+/* Sort Icon */
+table.dataTable thead .sorting,table.dataTable thead .sorting_asc,table.dataTable thead .sorting_desc,table.dataTable.dt-dark thead .sorting,table.dataTable.dt-dark thead .sorting_asc,table.dataTable.dt-dark thead .sorting_desc,table.dataTable.dt-light thead .sorting,table.dataTable.dt-light thead .sorting_asc,table.dataTable.dt-light thead .sorting_desc{cursor:pointer}table.dataTable thead .sorting:after,table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting_desc:after{position:absolute;bottom:.4em;right:10px;display:block;font-family:FontAwesome}
+table.dataTable thead .sorting:after{content:"\f0dc";color:#ddd;font-size:1.2em;padding-top:.2em}
+table.dataTable thead .sorting_asc:after{content:"\f0de";font-size:1.2em;padding-top:.2em}
+table.dataTable thead .sorting_desc:after{content:"\f0dd";font-size:1.2em;padding-top:.2em}
+
+
+.dataTables_wrapper{position:relative;clear:both;zoom:1}
+.dataTables_wrapper .dataTables_length{float:left}
+.dataTables_wrapper .dataTables_filter{float:right;text-align:right}
+.dataTables_wrapper .dataTables_filter input{margin-left:.5em}
+.dataTables_wrapper .dataTables_info{clear:both;float:left;padding-top:.755em;padding-bottom:.755em;font-weight:500;color:#33369!important;}
+.dataTables_wrapper .dataTables_paginate{float:right;text-align:right;padding-top:.25em}
+.dataTables_wrapper .dataTables_paginate .paginate_button {box-sizing:border-box;display:inline-block;min-width:1.5em;padding:.5em 1em;text-align:center;text-decoration:none!important;cursor:pointer;color:#333!important;border:0;font-weight:500;border-radius:5px}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{color:#fff!important;border:0;background:#005a87;font-weight:500;border-radius:5px}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {cursor:not-allowed; color:#BBB !important;font-weight:500;border:0;box-shadow:none;background-color:transparent;}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {color:#fff!important;background-color:#005a877d}
+.dataTables_wrapper .dataTables_paginate .paginate_button:active{outline:0;background-color:#005a87}
+.dataTables_wrapper .dataTables_processing{position:absolute;top:50%;left:50%;width:100%;height:40px;margin-left:-50%;margin-top:-25px;padding-top:20px;text-align:center}
+.dataTables_wrapper .dataTables_filter,.dataTables_wrapper .dataTables_info,.dataTables_wrapper .dataTables_length,.dataTables_wrapper .dataTables_paginate,.dataTables_wrapper .dataTables_processing{color:#867d7d;font-size:.8em}
+.dataTables_wrapper .dataTables_scroll{clear:both}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody{-webkit-overflow-scrolling:touch}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody td>div.dataTables_sizing,.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody th>div.dataTables_sizing{height:0;overflow:hidden;margin:0!important;padding:0!important}
+.dataTables_wrapper.no-footer div.dataTables_scrollBody table,.dataTables_wrapper.no-footer div.dataTables_scrollHead table{border-bottom:none}
+.dataTables_wrapper:after{visibility:hidden;display:block;content:"";clear:both;height:0}
+
+div.dataTables_length label select { border-radius: .2rem; padding: .5em 1em; 1px solid #ced4da; }
+div.dataTables_length label select option { color: #204152; }
+
+table.dataTable tbody tr.selected{background-color:#b0bed9}
+table.dataTable tbody td,table.dataTable tbody th{font-size:1rem}
+table.dataTable.display tbody td,table.dataTable.display tbody th,table.dataTable.row-border tbody td,table.dataTable.row-border tbody th{border-top:1px solid #B8D3DD}
+table.dataTable.display tbody tr:first-child td,table.dataTable.display tbody tr:first-child th,table.dataTable.row-border tbody tr:first-child td,table.dataTable.row-border tbody tr:first-child th{border-top:none}
+table.dataTable.cell-border tbody td,table.dataTable.cell-border tbody th{border-top:1px solid #B8D3DD;border-right:1px solid #B8D3DD}
+table.dataTable.cell-border tbody tr td:first-child,table.dataTable.cell-border tbody tr th:first-child{border-left:1px solid #B8D3DD}
+table.dataTable.cell-border tbody tr:first-child td,table.dataTable.cell-border tbody tr:first-child th{border-top:none}
+table.dataTable.display tbody tr.odd,table.dataTable.stripe tbody tr.odd{background-color:#f9f9f9}
+table.dataTable.display tbody tr.odd.selected,table.dataTable.stripe tbody tr.odd.selected{background-color:#abb9d3}
+table.dataTable.display tbody tr.even:hover,table.dataTable.display tbody tr.odd:hover,table.dataTable.display tbody tr:hover,table.dataTable.hover tbody tr.even:hover,table.dataTable.hover tbody tr.odd:hover,table.dataTable.hover tbody tr:hover{background-color:#f5f5f5}
+table.dataTable.display tbody tr.even:hover.selected,table.dataTable.display tbody tr.odd:hover.selected,table.dataTable.display tbody tr:hover.selected,table.dataTable.hover tbody tr.even:hover.selected,table.dataTable.hover tbody tr.odd:hover.selected,table.dataTable.hover tbody tr:hover.selected{background-color:#B8D3DD}
+/* Sorting */
+table.dataTable.display tbody tr>.sorting_1,table.dataTable.display tbody tr>.sorting_2,table.dataTable.display tbody tr>.sorting_3,table.dataTable.order-column tbody tr>.sorting_1,table.dataTable.order-column tbody tr>.sorting_2,table.dataTable.order-column tbody tr>.sorting_3{background-color:#f9f9f9}
+table.dataTable.display tbody tr.selected>.sorting_1,table.dataTable.display tbody tr.selected>.sorting_2,table.dataTable.display tbody tr.selected>.sorting_3,table.dataTable.order-column tbody tr.selected>.sorting_1,table.dataTable.order-column tbody tr.selected>.sorting_2,table.dataTable.order-column tbody tr.selected>.sorting_3{background-color:#acbad4}
+table.dataTable.display tbody tr.odd>.sorting_1,table.dataTable.order-column.stripe tbody tr.odd>.sorting_1{background-color:#f1f1f1}
+table.dataTable.display tbody tr.odd>.sorting_2,table.dataTable.order-column.stripe tbody tr.odd>.sorting_2{background-color:#f3f3f3}
+table.dataTable.display tbody tr.odd>.sorting_3,table.dataTable.order-column.stripe tbody tr.odd>.sorting_3{background-color:#f5f5f5}
+table.dataTable.display tbody tr.odd.selected>.sorting_1,table.dataTable.order-column.stripe tbody tr.odd.selected>.sorting_1{background-color:#a6b3cd}
+table.dataTable.display tbody tr.odd.selected>.sorting_2,table.dataTable.order-column.stripe tbody tr.odd.selected>.sorting_2{background-color:#a7b5ce}
+table.dataTable.display tbody tr.odd.selected>.sorting_3,table.dataTable.order-column.stripe tbody tr.odd.selected>.sorting_3{background-color:#a9b6d0}
+table.dataTable.display tbody tr.even>.sorting_1,table.dataTable.order-column.stripe tbody tr.even>.sorting_1{background-color:#f9f9f9}
+table.dataTable.display tbody tr.even>.sorting_2,table.dataTable.order-column.stripe tbody tr.even>.sorting_2{background-color:#fbfbfb}
+table.dataTable.display tbody tr.even>.sorting_3,table.dataTable.order-column.stripe tbody tr.even>.sorting_3{background-color:#fdfdfd}
+table.dataTable.display tbody tr.even.selected>.sorting_1,table.dataTable.order-column.stripe tbody tr.even.selected>.sorting_1{background-color:#acbad4}
+table.dataTable.display tbody tr.even.selected>.sorting_2,table.dataTable.order-column.stripe tbody tr.even.selected>.sorting_2{background-color:#adbbd6}
+table.dataTable.display tbody tr.even.selected>.sorting_3,table.dataTable.order-column.stripe tbody tr.even.selected>.sorting_3{background-color:#afbdd8}
+table.dataTable.display tbody tr.even:hover>.sorting_1,table.dataTable.display tbody tr.odd:hover>.sorting_1,table.dataTable.display tbody tr:hover>.sorting_1,table.dataTable.order-column.hover tbody tr.even:hover>.sorting_1,table.dataTable.order-column.hover tbody tr.odd:hover>.sorting_1,table.dataTable.order-column.hover tbody tr:hover>.sorting_1{background-color:#eaeaea}
+table.dataTable.display tbody tr.even:hover>.sorting_2,table.dataTable.display tbody tr.odd:hover>.sorting_2,table.dataTable.display tbody tr:hover>.sorting_2,table.dataTable.order-column.hover tbody tr.even:hover>.sorting_2,table.dataTable.order-column.hover tbody tr.odd:hover>.sorting_2,table.dataTable.order-column.hover tbody tr:hover>.sorting_2{background-color:#ebebeb}
+table.dataTable.display tbody tr.even:hover>.sorting_3,table.dataTable.display tbody tr.odd:hover>.sorting_3,table.dataTable.display tbody tr:hover>.sorting_3,table.dataTable.order-column.hover tbody tr.even:hover>.sorting_3,table.dataTable.order-column.hover tbody tr.odd:hover>.sorting_3,table.dataTable.order-column.hover tbody tr:hover>.sorting_3{background-color:#eee}table.dataTable.display tbody tr.even:hover.selected>.sorting_1,table.dataTable.display tbody tr.odd:hover.selected>.sorting_1,table.dataTable.display tbody tr:hover.selected>.sorting_1,table.dataTable.order-column.hover tbody tr.even:hover.selected>.sorting_1,table.dataTable.order-column.hover tbody tr.odd:hover.selected>.sorting_1,table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_1{background-color:#a1aec7}
+table.dataTable.display tbody tr.even:hover.selected>.sorting_2,table.dataTable.display tbody tr.odd:hover.selected>.sorting_2,table.dataTable.display tbody tr:hover.selected>.sorting_2,table.dataTable.order-column.hover tbody tr.even:hover.selected>.sorting_2,table.dataTable.order-column.hover tbody tr.odd:hover.selected>.sorting_2,table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_2{background-color:#a2afc8}
+table.dataTable.display tbody tr.even:hover.selected>.sorting_3,table.dataTable.display tbody tr.odd:hover.selected>.sorting_3,table.dataTable.display tbody tr:hover.selected>.sorting_3,table.dataTable.order-column.hover tbody tr.even:hover.selected>.sorting_3,table.dataTable.order-column.hover tbody tr.odd:hover.selected>.sorting_3,table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_3{background-color:#a4b2cb}
+/* table.dataTable.no-footer{border-bottom:1px solid #dedede} */
+.dataTables_wrapper.no-footer .dataTables_scrollBody,.dt-dark,.dt-light,.table thead th{border-bottom:0!important}
+table.dataTable.compact thead td,table.dataTable.compact thead th{padding:5px 9px}
+table.dataTable.compact tfoot td,table.dataTable.compact tfoot th{padding:5px 9px 3px}
+table.dataTable.compact tbody td,table.dataTable.compact tbody th{padding:4px 5px}
+table.dataTable td.dt-left,table.dataTable th.dt-left{text-align:left}
+table.dataTable td.dataTables_empty,table.dataTable td.dt-center,table.dataTable th.dt-center{text-align:center;font-size:1em;color:#a94442;background:#fff;cursor:not-allowed}
+table.dataTable td.dt-right,table.dataTable th.dt-right{text-align:right}
+table.dataTable td.dt-justify,table.dataTable th.dt-justify{text-align:justify}
+table.dataTable tfoot td.dt-head-left,table.dataTable tfoot th.dt-head-left,table.dataTable thead td.dt-head-left,table.dataTable thead th.dt-head-left{text-align:left}
+table.dataTable tfoot td.dt-head-center,table.dataTable tfoot th.dt-head-center,table.dataTable thead td.dt-head-center,table.dataTable thead th.dt-head-center{text-align:center}
+table.dataTable tfoot td.dt-head-right,table.dataTable tfoot th.dt-head-right,table.dataTable thead td.dt-head-right,table.dataTable thead th.dt-head-right{text-align:right}
+table.dataTable tfoot td.dt-head-justify,table.dataTable tfoot th.dt-head-justify,table.dataTable thead td.dt-head-justify,table.dataTable thead th.dt-head-justify{text-align:justify}
+table.dataTable tbody td.dt-body-left,table.dataTable tbody th.dt-body-left{text-align:left}
+table.dataTable tbody td.dt-body-center,table.dataTable tbody th.dt-body-center{text-align:center}
+table.dataTable tbody td.dt-body-right,table.dataTable tbody th.dt-body-right{text-align:right}
+table.dataTable tbody td.dt-body-justify,table.dataTable tbody th.dt-body-justify{text-align:justify}
+table.dataTable,table.dataTable td,table.dataTable th{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
+
+/* Pagination */
+div.dataTables_paginate a.paginate_button.first,div.dataTables_paginate a.paginate_button.previous{position:relative;padding-left:24px}
+div.dataTables_paginate a.paginate_button.last,div.dataTables_paginate a.paginate_button.next{position:relative;padding-right:24px}
+div.dataTables_paginate a.first:before,div.dataTables_paginate a.previous:before{position:absolute;top:8px;left:10px;display:block;font-family:FontAwesome}
+div.dataTables_paginate a.last:after,div.dataTables_paginate a.next:after{position:absolute;top:8px;right:10px;display:block;font-family:FontAwesome}
+div.dataTables_paginate a.first:before{content:"\f100"}
+div.dataTables_paginate a.previous:before{content:"\f104"}
+div.dataTables_paginate a.next:after{content:"\f105"}
+div.dataTables_paginate a.last:after{content:"\f101"}
+div.dataTables_paginate li.first>a,div.dataTables_paginate li.previous>a{position:relative;padding-left:24px}
+div.dataTables_paginate li.last>a,div.dataTables_paginate li.next>a{position:relative;padding-right:24px}
+div.dataTables_paginate li.first a:before,div.dataTables_paginate li.previous a:before{position:absolute;top:6px;left:10px;display:block;font-family:FontAwesome}
+div.dataTables_paginate li.last a:after,div.dataTables_paginate li.next a:after{position:absolute;top:6px;right:10px;display:block;font-family:FontAwesome}
+div.dataTables_paginate li.first a:before{content:"\f100"}
+div.dataTables_paginate li.previous a:before{content:"\f104";}
+div.dataTables_paginate li.next a:after{content:"\f105"}
+div.dataTables_paginate li.last a:after{content:"\f101"}
+/* div.columns div.dataTables_paginate li.first a:before,div.columns div.dataTables_paginate li.last a:after,div.columns div.dataTables_paginate li.next a:after,div.columns div.dataTables_paginate li.previous a:before{top:0} */
+
+.cursor-pointer{cursor:pointer}
+
+Screen Size
+@media screen and (max-width:767px){.dataTables_wrapper .dataTables_info,.dataTables_wrapper .dataTables_paginate{float:none;text-align:center}.dataTables_wrapper .dataTables_paginate{margin-top:.5em}}
+@media screen and (max-width:640px){.dataTables_wrapper .dataTables_filter,.dataTables_wrapper .dataTables_length{float:none;text-align:center}.dataTables_wrapper .dataTables_filter{margin-top:.5em}}
+
+
+/* 
+
+
+
+.table td,.table th{border-top:0;border-bottom: 1px solid #f8f9fa;}
+table.dataTable tbody td,table.dataTable tbody th{padding:.75rem!important}
+/* Table Dark */
+table.dataTable.dt-dark thead th{background-color:#f60!important;color:#000!important;font-size:1rem}
+table.dataTable.dt-dark.table-striped tbody tr:nth-of-type(odd){background-color:#2C3034!important}
+table.dataTable.dt-dark.table-striped tbody tr:nth-of-type(odd):hover{background-color:#323539!important}
+table.dataTable.dt-dark tbody tr{background:#212529;color:#fff}
+table.dataTable.dt-dark tbody tr:hover{background-color:#323539!important}
+table.dataTable.dt-dark{border-collapse:separate!important}
+table.dataTable.dt-dark tbody tr td,table.dataTable.dt-dark tbody tr th{font-size:1rem}
+/* Table Light */
+table.dataTable.dt-light thead th{background-color:#005A87!important;color:#fff!important;font-size:1rem}
+table.dataTable.dt-light.table-striped tbody tr:nth-of-type(odd){background:#F2F2F2!important;color:#333!important}
+table.dataTable.dt-light.table-striped tbody tr:nth-of-type(odd):hover{background:#ECECEC!important}
+table.dataTable.dt-light tbody tr{background:#fff;color:#333}
+table.dataTable.dt-light tbody tr:hover{background:#ECECEC!important}
+table.dataTable.dt-light{border-collapse:separate!important}
+table.dataTable.dt-light tbody tr td,table.dataTable.dt-light tbody tr th{font-size:1rem}
+/* Table Card */
+table.dataTable.dt-card{clear:both;max-width:none!important;border-collapse:separate!important;border-spacing:0 20px;padding-left:10px;padding-right:10px;border:none}
+table.dataTable.dt-card thead th{background:#005a87!important;color:#fff!important;border-top:0}
+table.dataTable.dt-card tbody tr{background:#f5f5f5!important;color:#000!important;padding:10px!important;border-collapse:separate!important;-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.2);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.2);box-shadow:0 2px 5px 0 rgba(0,0,0,.2);min-height:100px!important;border-radius:10px!important;height:100px}
+table.dataTable.dt-card tbody td,table.dataTable.dt-card tbody th{border-top:0!important;vertical-align:middle}
+table.dataTable.dt-card tbody td{background:0 0;border-radius:0;font-size:1rem}
+table.dataTable.dt-card tbody td:first-child,table.dataTable.dt-card tbody th:first-child{background:0 0;border-radius:10px 0 0 10px}
+table.dataTable.dt-card tbody td:last-child,table.dataTable.dt-card tbody th:last-child{background:0 0;border-radius:0 10px 10px 0}
+table.dataTable.dt-card tbody th{background:0 0;border-radius:10px 0 0 10px;width:10%}
+table.dataTable.dt-card thead .sorting:after{content:"";}
+table.dataTable.dt-card thead .sorting_asc:after{content:"";}
+table.dataTable.dt-card thead .sorting_desc:after{content:"";}
+
+
+
+
+
+/* Colored Cell */
+.dataTable .dt-bg-green{background:#218838!important;color:#fff}
+.dataTable .dt-bg-orange{background:#f60!important;color:#fff}
+.dataTable .dt-bg-yellow{background:#ffc107!important;color:#fff}
+.dataTable .dt-bg-red{background:#c82333!important;color:#fff}
+.dataTable .dt-bg-green hr,.dataTable .dt-bg-orange hr,.dataTable .dt-bg-red hr,.dataTable .dt-bg-yellow hr{border-color:#fff}
+
+.company-logo-card{width:100px;height:100px;background:#dedede}
+.company-logo-card img{width:100%}
+.cursor-pointer{cursor:pointer}

@@ -1,0 +1,38 @@
+<ui-card>
+  <ui-title>
+    Maintenance Page for PORTAL TYPE
+  </ui-title>  
+  <form [formGroup]="mtncPortalTypeForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label class="required">Portal Type Code</label> 
+        <ui-text type="text" formControlName="portalTypeCode"  formatToUpperCase
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <label>Portal Type Description</label> 
+        <ui-text type="text" formControlName="portalTypeDesc"  formatToUpperCase 
+          placeholder="" [reset]="reset" [submitted]="submitted"></ui-text>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="pull-right">
+          <ui-button buttonType="secondary" icon="fa fa-window-close-o" text="Cancel" (click)="cancel()"></ui-button>
+          <ui-button buttonType="danger" icon="fa fa-refresh" text="Reset" (click)="onReset()"></ui-button>
+          <ui-button buttonType="success" icon="fa fa-plus-circle" type="submit" text="{{buttonCreateUpdate}}">
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ui-card>
+<ui-card>
+  <div class="row">
+    <ui-datatable *ngIf="portalTypeList" [dataValues]="portalTypeList" [tableInit]="noDataConfig">
+      <ng-template uiNgTemplateCellTemplate="actionDelete" let-item="item">
+        <ui-button [text]="'Delete'" (click)="deleteRow(item.row)"></ui-button>
+      </ng-template>
+    </ui-datatable>
+  </div>
+</ui-card>

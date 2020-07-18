@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:tiles="http://www.thymeleaf.org">
+	<head th:substituteby="commons/main-head"/>
+    <body>
+    	<th:block th:include="commons/main-menu"/>
+		<th:block tiles:include="content" />
+    </body>
+    <th:block th:include="commons/main-foot"/>
+    <th:block th:include="commons/modal-popup"/>
+</html>
